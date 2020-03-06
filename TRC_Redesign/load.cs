@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using TRC_Redesign.header;
+using System.Net;
 
 namespace TRC_Redesign
 {
@@ -31,6 +32,22 @@ namespace TRC_Redesign
             InitializeComponent();
 
             this.CenterToScreen();
+        }
+
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (var stream = client.OpenRead("http://www.google.com"))
+                {
+                    return true;
+                }
+            }
+            catch (WebException)
+            {
+                return false;
+            }
         }
 
         private void load_Load(object sender, EventArgs e)
@@ -64,6 +81,15 @@ namespace TRC_Redesign
             {
                 case 0:
                     {
+                        if (!CheckForInternetConnection())
+                        {
+                            MessageBox.Show("У вас відсутній інтернет-підключення.", "Відмова", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            System.Windows.Forms.Application.Exit();
+
+                            return;
+                        }
+
+
                         label2.Text = "Створюється підключення до бази даних.";
 
                         string StringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|rentcar.mdf;Integrated Security=True";

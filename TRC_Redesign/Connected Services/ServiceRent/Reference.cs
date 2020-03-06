@@ -9,10 +9,241 @@
 //------------------------------------------------------------------------------
 
 namespace TRC_Redesign.ServiceRent {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="admin", Namespace="http://schemas.datacontract.org/2004/07/TRC_Redesign.header")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TRC_Redesign.ServiceRent.account))]
+    public partial class admin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int levelField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int level {
+            get {
+                return this.levelField;
+            }
+            set {
+                if ((this.levelField.Equals(value) != true)) {
+                    this.levelField = value;
+                    this.RaisePropertyChanged("level");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="account", Namespace="http://schemas.datacontract.org/2004/07/TRC_Redesign.header")]
+    [System.SerializableAttribute()]
+    public partial class account : TRC_Redesign.ServiceRent.admin {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int acceptedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float balanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dateCreateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int documentidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fathernameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string loginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string mailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string passwordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string phoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string secondnameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int accepted {
+            get {
+                return this.acceptedField;
+            }
+            set {
+                if ((this.acceptedField.Equals(value) != true)) {
+                    this.acceptedField = value;
+                    this.RaisePropertyChanged("accepted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float balance {
+            get {
+                return this.balanceField;
+            }
+            set {
+                if ((this.balanceField.Equals(value) != true)) {
+                    this.balanceField = value;
+                    this.RaisePropertyChanged("balance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dateCreate {
+            get {
+                return this.dateCreateField;
+            }
+            set {
+                if ((this.dateCreateField.Equals(value) != true)) {
+                    this.dateCreateField = value;
+                    this.RaisePropertyChanged("dateCreate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int documentid {
+            get {
+                return this.documentidField;
+            }
+            set {
+                if ((this.documentidField.Equals(value) != true)) {
+                    this.documentidField = value;
+                    this.RaisePropertyChanged("documentid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fathername {
+            get {
+                return this.fathernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fathernameField, value) != true)) {
+                    this.fathernameField = value;
+                    this.RaisePropertyChanged("fathername");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string login {
+            get {
+                return this.loginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.loginField, value) != true)) {
+                    this.loginField = value;
+                    this.RaisePropertyChanged("login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string mail {
+            get {
+                return this.mailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.mailField, value) != true)) {
+                    this.mailField = value;
+                    this.RaisePropertyChanged("mail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
+                    this.passwordField = value;
+                    this.RaisePropertyChanged("password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string phone {
+            get {
+                return this.phoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.phoneField, value) != true)) {
+                    this.phoneField = value;
+                    this.RaisePropertyChanged("phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string secondname {
+            get {
+                return this.secondnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.secondnameField, value) != true)) {
+                    this.secondnameField = value;
+                    this.RaisePropertyChanged("secondname");
+                }
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent", CallbackContract=typeof(TRC_Redesign.ServiceRent.IServiceRentCallback))]
     public interface IServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/userConnect", ReplyAction="http://tempuri.org/IServiceRent/userConnectResponse")]
@@ -26,6 +257,19 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/userDisconnect", ReplyAction="http://tempuri.org/IServiceRent/userDisconnectResponse")]
         System.Threading.Tasks.Task userDisconnectAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/sendAccountObject")]
+        void sendAccountObject(int id, TRC_Redesign.ServiceRent.account accountObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/sendAccountObject")]
+        System.Threading.Tasks.Task sendAccountObjectAsync(int id, TRC_Redesign.ServiceRent.account accountObject);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServiceRentCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/accountObjectCallBack")]
+        void accountObjectCallBack(TRC_Redesign.ServiceRent.account accountObject);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -34,25 +278,26 @@ namespace TRC_Redesign.ServiceRent {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceRentClient : System.ServiceModel.ClientBase<TRC_Redesign.ServiceRent.IServiceRent>, TRC_Redesign.ServiceRent.IServiceRent {
+    public partial class ServiceRentClient : System.ServiceModel.DuplexClientBase<TRC_Redesign.ServiceRent.IServiceRent>, TRC_Redesign.ServiceRent.IServiceRent {
         
-        public ServiceRentClient() {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ServiceRentClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ServiceRentClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceRentClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceRentClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public int userConnect() {
@@ -69,6 +314,14 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task userDisconnectAsync(int id) {
             return base.Channel.userDisconnectAsync(id);
+        }
+        
+        public void sendAccountObject(int id, TRC_Redesign.ServiceRent.account accountObject) {
+            base.Channel.sendAccountObject(id, accountObject);
+        }
+        
+        public System.Threading.Tasks.Task sendAccountObjectAsync(int id, TRC_Redesign.ServiceRent.account accountObject) {
+            return base.Channel.sendAccountObjectAsync(id, accountObject);
         }
     }
 }

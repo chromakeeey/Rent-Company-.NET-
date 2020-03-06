@@ -31,8 +31,9 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8733/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8733/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TRC_Redesign.header" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceRent_userConnect_InputMessage">
@@ -47,6 +48,12 @@
   <wsdl:message name="IServiceRent_userDisconnect_OutputMessage">
     <wsdl:part name="parameters" element="tns:userDisconnectResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_sendAccountObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendAccountObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_accountObjectCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:accountObjectCallBack" />
+  </wsdl:message>
   <wsdl:portType name="IServiceRent">
     <wsdl:operation name="userConnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/userConnect" message="tns:IServiceRent_userConnect_InputMessage" />
@@ -55,6 +62,12 @@
     <wsdl:operation name="userDisconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/userDisconnect" message="tns:IServiceRent_userDisconnect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/userDisconnectResponse" message="tns:IServiceRent_userDisconnect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendAccountObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/sendAccountObject" message="tns:IServiceRent_sendAccountObject_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="accountObjectCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/accountObjectCallBack" message="tns:IServiceRent_accountObjectCallBack_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServiceRent" type="tns:IServiceRent">
@@ -74,6 +87,18 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendAccountObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendAccountObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="accountObjectCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/accountObjectCallBack" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

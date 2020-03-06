@@ -53,5 +53,14 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TRC_Redesign\TRC_Redesign.csproj">
+      <Project>{15c14659-07f3-4051-9ba3-455c6d1bc2c7}</Project>
+      <Name>TRC_Redesign</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

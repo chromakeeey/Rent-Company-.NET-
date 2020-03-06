@@ -1,33 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TRC_Redesign.header;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using TRC_Redesign.CustomMessageBox;
-using System.Drawing.Imaging;
+using TRC_Redesign.ServiceRent;
 
 namespace TRC_Redesign
 {
     public partial class Form1 : Form
     {
+        ClientData clientData = new ClientData();
+
+        // tmp var-----------------------------------------------------------------------
         private PictureBox pb;
         public static Form1 pointer = null;
 
         public UI ui;
-        public account Account = new account();
+        public TRC_Redesign.header.account Account = new TRC_Redesign.header.account();
         public vehicle[] Vehicle = new vehicle[1000];
         public login Login = new login();
         public VehicleInfo vinfo = new VehicleInfo();
 
         public SqlConnection sqlconnection;
         public int DarkMode = 1;
+        // ------------------------------------------------------------------------------
 
         int mov;
         int movX;
@@ -46,20 +45,20 @@ namespace TRC_Redesign
 
         public void UpdateAccountInformation()
         {
-            label4.Text = account.instance.balance.ToString() + " грн.";
+            label4.Text = Account.balance.ToString() + " грн.";
 
-            if (account.instance.IsUserRentCar())
+            if (Account.IsUserRentCar())
             {
-                int vehicleid = account.instance.GetRentIndex();
+                int vehicleid = Account.GetRentIndex();
 
                 TimeSpan delta = DateTime.Now - Form1.pointer.Vehicle[vehicleid].end_date;
                 label5.Text = (delta.Days > 0) ? (delta.Days * Form1.pointer.Vehicle[vehicleid].price + " грн.") : "0 грн.";
             }
             else label5.Text = "0 грн.";
 
-            main_page1.label1.Text = "Вітаємо, " + account.instance.name + "!";
-            label2.Text = account.instance.login;
-            button5.Visible = (account.instance.GetAdminLevel() != 0) ? true : false;
+            main_page1.label1.Text = "Вітаємо, " + Account.name + "!";
+            label2.Text = Account.login;
+            button5.Visible = (Account.GetAdminLevel() != 0) ? true : false;
         }
 
         
@@ -198,7 +197,7 @@ namespace TRC_Redesign
 
         private void button6_Click(object sender, EventArgs e)
         {
-            account.instance.ClearAccountData();
+            //account.instance.ClearAccountData();
             Login.textBox1.Text = "";
             Login.textBox2.Text = "";
 
@@ -253,6 +252,16 @@ namespace TRC_Redesign
         private void msUp(object sender, MouseEventArgs e)
         {
             mov = 0;
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void clickPanelRight(object sender, EventArgs e)
+        {
+            
         }
     }
 }
