@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using TRC_Redesign.header;
 using System.Net;
+using TRC_Redesign.header;
+using TRC_Redesign.ServiceRent;
 
 namespace TRC_Redesign
 {
     public partial class load : Form
     {
-        SqlConnection sqlconnection;
+
+       
 
         UI ui = new UI();
-        Form1 MainForm = new Form1();
+        Form1 mainWindow = new Form1();
         login Login = new login();
 
         public int actionCurrent;
@@ -34,7 +31,7 @@ namespace TRC_Redesign
             this.CenterToScreen();
         }
 
-        public static bool CheckForInternetConnection()
+        public static bool isEthernet()
         {
             try
             {
@@ -57,6 +54,8 @@ namespace TRC_Redesign
 
             timer1.Interval = animSpeed;
             timer1.Start();
+
+            Login.mainWindow = mainWindow;
 
             label2.Text = " ";
             actionCurrent = 0;
@@ -81,7 +80,7 @@ namespace TRC_Redesign
             {
                 case 0:
                     {
-                        if (!CheckForInternetConnection())
+                        if ( !isEthernet() )
                         {
                             MessageBox.Show("У вас відсутній інтернет-підключення.", "Відмова", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             System.Windows.Forms.Application.Exit();
@@ -90,24 +89,11 @@ namespace TRC_Redesign
                         }
 
 
-                        label2.Text = "Створюється підключення до бази даних.";
+                        label2.Text = "Створюється підключення до сервера.";
 
-                        string StringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|rentcar.mdf;Integrated Security=True";
-                        sqlconnection = new SqlConnection(StringConnect);
-
-                        while (!(sqlconnection != null && sqlconnection.State != ConnectionState.Closed))
-                        {
-                            sqlconnection.Close();
-
-                            sqlconnection = null;
-                            sqlconnection = new SqlConnection(StringConnect);
-
-                            Login.sqlconnection = this.sqlconnection;
-                            MainForm.sqlconnection = this.sqlconnection;
-                            MainForm.Login = this.Login;
-
-                            await sqlconnection.OpenAsync();
-                        }
+                        mainWindow.serverData.client = new ServiceRentClient(new System.ServiceModel.InstanceContext(mainWindow.serverData));
+                        mainWindow.serverData.client_id = mainWindow.serverData.client.userConnect();
+                        mainWindow.serverData.is_connected = true;
 
                         actionCurrent = 1;
 
@@ -117,8 +103,14 @@ namespace TRC_Redesign
                     {
                         label2.Text = "Вигрузка інформацію про оформлення.";
 
-                        List<UI> tmpUI = ui.LoadTheme();
+                        List<UI> tmpUI = mainWindow.clientData.ui.LoadTheme();
                         foreach (UI itemUI in tmpUI) { ui = itemUI; }
+
+                        mainWindow.clientData.ui.panelidNow = -1;
+                        mainWindow.clientData.ui.subPanelNow = -1;
+
+                        mainWindow.clientData.ui.ColorsToARGB();
+                        mainWindow.clientData.ui.SetTheme(mainWindow, ui.themeCurrent);
 
                         actionCurrent = 2;
 
@@ -126,16 +118,9 @@ namespace TRC_Redesign
                     }
                 case 2:
                     {
-                        label2.Text = "Встановлення теми.";
+                        label2.Text = "Вигрузка інформацію про оформлення.";
 
-                        ui.panelidNow = -1;
-                        ui.subPanelNow = -1;
-
-                        ui.ColorsToARGB();
-                        ui.SetTheme(MainForm, ui.themeCurrent);
-                        Login.MainForm = this.MainForm;
-                        MainForm.ui = this.ui;
-                        //MainForm.Login = this.Login;
+                        
 
                         actionCurrent = 3;
 

@@ -8,11 +8,3 @@ D:\TRC_Redesign\ServerHost\obj\Debug\ServerHost.csprojAssemblyReference.cache
 D:\TRC_Redesign\ServerHost\obj\Debug\ServerHost.csproj.CopyComplete
 D:\TRC_Redesign\ServerHost\obj\Debug\ServerHost.exe
 D:\TRC_Redesign\ServerHost\obj\Debug\ServerHost.pdb
-D:\TRC_Redesign\ServerHost\bin\Debug\TRC_Redesign.exe
-D:\TRC_Redesign\ServerHost\bin\Debug\JThinButton.dll
-D:\TRC_Redesign\ServerHost\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
-D:\TRC_Redesign\ServerHost\bin\Debug\TRC_Redesign.pdb
-D:\TRC_Redesign\ServerHost\bin\Debug\TRC_Redesign.exe.config
-D:\TRC_Redesign\ServerHost\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
-D:\TRC_Redesign\ServerHost\bin\Debug\rentcar.mdf
-D:\TRC_Redesign\ServerHost\bin\Debug\rentcar_log.ldf

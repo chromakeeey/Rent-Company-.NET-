@@ -11,11 +11,15 @@ namespace ServerHost
     {
         static void Main(string[] args)
         {
+            
+
             using (var host = new ServiceHost(typeof(WCF_Rent.ServiceRent)))
             {
                 host.Open();
                 Console.WriteLine("Host has been started [" + DateTime.Now.ToString() + "]");
                 Console.ReadLine();
+
+                
             }
         }
     }

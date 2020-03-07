@@ -25,7 +25,7 @@ namespace TRC_Redesign
             checkBox3.Checked = false;
             panel5.Visible = false;
 
-            Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Light);
+            //Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Light);
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace TRC_Redesign
             checkBox3.Checked = false;
             panel5.Visible = false;
 
-            Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Dark);
+            //Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Dark);
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace TRC_Redesign
 
             panel5.Visible = true;
 
-            Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Custom);
+            //Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Custom);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -59,8 +59,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                Form1.pointer.ui.customMainText = PickColor.Color;
-                Form1.pointer.ui.SetMainTextColor(objectForm, PickColor.Color);
+                //Form1.pointer.ui.customMainText = PickColor.Color;
+                //Form1.pointer.ui.SetMainTextColor(objectForm, PickColor.Color);
             }
         }
 
@@ -71,8 +71,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                Form1.pointer.ui.customSecondText = PickColor.Color;
-                Form1.pointer.ui.SetSecondTextColor(objectForm, PickColor.Color);
+                //Form1.pointer.ui.customSecondText = PickColor.Color;
+                //Form1.pointer.ui.SetSecondTextColor(objectForm, PickColor.Color);
             }
         }
 
@@ -83,8 +83,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                Form1.pointer.ui.customButton = PickColor.Color;
-                Form1.pointer.ui.SetButtonColor(objectForm, PickColor.Color);
+                //Form1.pointer.ui.customButton = PickColor.Color;
+                //Form1.pointer.ui.SetButtonColor(objectForm, PickColor.Color);
             }
         }
 
@@ -95,8 +95,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                Form1.pointer.ui.customIcon = PickColor.Color;
-                Form1.pointer.ui.SetIconColor(objectForm, PickColor.Color);
+                //Form1.pointer.ui.customIcon = PickColor.Color;
+                //Form1.pointer.ui.SetIconColor(objectForm, PickColor.Color);
             }
         }
 
@@ -107,8 +107,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                Form1.pointer.ui.customMainPanel = PickColor.Color;
-                Form1.pointer.ui.SetMainPanelColor(objectForm, PickColor.Color);
+                //Form1.pointer.ui.customMainPanel = PickColor.Color;
+                //Form1.pointer.ui.SetMainPanelColor(objectForm, PickColor.Color);
             }
         }
 
@@ -120,8 +120,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                Form1.pointer.ui.customSecondPanel = PickColor.Color;
-                Form1.pointer.ui.SetSecondPanelColor(objectForm, PickColor.Color);
+                //Form1.pointer.ui.customSecondPanel = PickColor.Color;
+                //Form1.pointer.ui.SetSecondPanelColor(objectForm, PickColor.Color);
             }
         }
 
@@ -132,8 +132,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                Form1.pointer.ui.customForm = PickColor.Color;
-                Form1.pointer.ui.SetFormColor(objectForm, PickColor.Color);
+                //Form1.pointer.ui.customForm = PickColor.Color;
+                //Form1.pointer.ui.SetFormColor(objectForm, PickColor.Color);
             }
         }
 

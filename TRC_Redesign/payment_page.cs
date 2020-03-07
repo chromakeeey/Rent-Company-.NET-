@@ -55,7 +55,7 @@ namespace TRC_Redesign
 
         private void jThinButton1_Click(object sender, EventArgs e)
         {
-            if (actionType == 0)
+            /*if (actionType == 0)
             {
                 if (maskedTextBox1.Text == "" || maskedTextBox2.Text == "" ||
                     maskedTextBox3.Text == "" && maskedTextBox4.Text == "" ||
@@ -99,7 +99,7 @@ namespace TRC_Redesign
                 Form1.pointer.UpdateAccountInformation();
 
                 obj.dialogCreate("Гроші були виведені Вам на карту.", "Успішна операція", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            }*/
         }
     }
 }

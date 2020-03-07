@@ -15,10 +15,10 @@ namespace TRC_Redesign.ServiceRent {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="admin", Namespace="http://schemas.datacontract.org/2004/07/TRC_Redesign.header")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Admin", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TRC_Redesign.ServiceRent.account))]
-    public partial class admin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TRC_Redesign.ServiceRent.Account))]
+    public partial class Admin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -61,9 +61,9 @@ namespace TRC_Redesign.ServiceRent {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="account", Namespace="http://schemas.datacontract.org/2004/07/TRC_Redesign.header")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
     [System.SerializableAttribute()]
-    public partial class account : TRC_Redesign.ServiceRent.admin {
+    public partial class Account : TRC_Redesign.ServiceRent.Admin {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int acceptedField;
@@ -242,8 +242,301 @@ namespace TRC_Redesign.ServiceRent {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Rent", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TRC_Redesign.ServiceRent.Vehicle))]
+    public partial class Rent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int client_documentidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime end_dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int isrentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime start_dateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int client_documentid {
+            get {
+                return this.client_documentidField;
+            }
+            set {
+                if ((this.client_documentidField.Equals(value) != true)) {
+                    this.client_documentidField = value;
+                    this.RaisePropertyChanged("client_documentid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime end_date {
+            get {
+                return this.end_dateField;
+            }
+            set {
+                if ((this.end_dateField.Equals(value) != true)) {
+                    this.end_dateField = value;
+                    this.RaisePropertyChanged("end_date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int isrent {
+            get {
+                return this.isrentField;
+            }
+            set {
+                if ((this.isrentField.Equals(value) != true)) {
+                    this.isrentField = value;
+                    this.RaisePropertyChanged("isrent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime start_date {
+            get {
+                return this.start_dateField;
+            }
+            set {
+                if ((this.start_dateField.Equals(value) != true)) {
+                    this.start_dateField = value;
+                    this.RaisePropertyChanged("start_date");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Vehicle", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
+    [System.SerializableAttribute()]
+    public partial class Vehicle : TRC_Redesign.ServiceRent.Rent {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string categoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float fuelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string image_linkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float maxfuelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int maxspeedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float mileageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string modelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string plateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float priceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string transmissionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string typeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoryField, value) != true)) {
+                    this.categoryField = value;
+                    this.RaisePropertyChanged("category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float fuel {
+            get {
+                return this.fuelField;
+            }
+            set {
+                if ((this.fuelField.Equals(value) != true)) {
+                    this.fuelField = value;
+                    this.RaisePropertyChanged("fuel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string image_link {
+            get {
+                return this.image_linkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.image_linkField, value) != true)) {
+                    this.image_linkField = value;
+                    this.RaisePropertyChanged("image_link");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float maxfuel {
+            get {
+                return this.maxfuelField;
+            }
+            set {
+                if ((this.maxfuelField.Equals(value) != true)) {
+                    this.maxfuelField = value;
+                    this.RaisePropertyChanged("maxfuel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int maxspeed {
+            get {
+                return this.maxspeedField;
+            }
+            set {
+                if ((this.maxspeedField.Equals(value) != true)) {
+                    this.maxspeedField = value;
+                    this.RaisePropertyChanged("maxspeed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float mileage {
+            get {
+                return this.mileageField;
+            }
+            set {
+                if ((this.mileageField.Equals(value) != true)) {
+                    this.mileageField = value;
+                    this.RaisePropertyChanged("mileage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string model {
+            get {
+                return this.modelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.modelField, value) != true)) {
+                    this.modelField = value;
+                    this.RaisePropertyChanged("model");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string plate {
+            get {
+                return this.plateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.plateField, value) != true)) {
+                    this.plateField = value;
+                    this.RaisePropertyChanged("plate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float price {
+            get {
+                return this.priceField;
+            }
+            set {
+                if ((this.priceField.Equals(value) != true)) {
+                    this.priceField = value;
+                    this.RaisePropertyChanged("price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string transmission {
+            get {
+                return this.transmissionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.transmissionField, value) != true)) {
+                    this.transmissionField = value;
+                    this.RaisePropertyChanged("transmission");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.typeField, value) != true)) {
+                    this.typeField = value;
+                    this.RaisePropertyChanged("type");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent", CallbackContract=typeof(TRC_Redesign.ServiceRent.IServiceRentCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent")]
     public interface IServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/userConnect", ReplyAction="http://tempuri.org/IServiceRent/userConnectResponse")]
@@ -258,18 +551,71 @@ namespace TRC_Redesign.ServiceRent {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/userDisconnect", ReplyAction="http://tempuri.org/IServiceRent/userDisconnectResponse")]
         System.Threading.Tasks.Task userDisconnectAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/sendAccountObject")]
-        void sendAccountObject(int id, TRC_Redesign.ServiceRent.account accountObject);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/selectAccount", ReplyAction="http://tempuri.org/IServiceRent/selectAccountResponse")]
+        TRC_Redesign.ServiceRent.Account selectAccount(string login, string password);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/sendAccountObject")]
-        System.Threading.Tasks.Task sendAccountObjectAsync(int id, TRC_Redesign.ServiceRent.account accountObject);
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceRentCallback {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/selectAccount", ReplyAction="http://tempuri.org/IServiceRent/selectAccountResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account> selectAccountAsync(string login, string password);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/accountObjectCallBack")]
-        void accountObjectCallBack(TRC_Redesign.ServiceRent.account accountObject);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/createSqlConnection")]
+        void createSqlConnection(string path);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/createSqlConnection")]
+        System.Threading.Tasks.Task createSqlConnectionAsync(string path);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/selectAllVehicle")]
+        void selectAllVehicle();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/selectAllVehicle")]
+        System.Threading.Tasks.Task selectAllVehicleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/deleteVehicle")]
+        void deleteVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/deleteVehicle")]
+        System.Threading.Tasks.Task deleteVehicleAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/addVehicle")]
+        void addVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/addVehicle")]
+        System.Threading.Tasks.Task addVehicleAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/saveVehicle")]
+        void saveVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/saveVehicle")]
+        System.Threading.Tasks.Task saveVehicleAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/isAccountValid", ReplyAction="http://tempuri.org/IServiceRent/isAccountValidResponse")]
+        bool isAccountValid(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/isAccountValid", ReplyAction="http://tempuri.org/IServiceRent/isAccountValidResponse")]
+        System.Threading.Tasks.Task<bool> isAccountValidAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/isSqlConnection", ReplyAction="http://tempuri.org/IServiceRent/isSqlConnectionResponse")]
+        bool isSqlConnection();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/isSqlConnection", ReplyAction="http://tempuri.org/IServiceRent/isSqlConnectionResponse")]
+        System.Threading.Tasks.Task<bool> isSqlConnectionAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/saveAccount")]
+        void saveAccount(TRC_Redesign.ServiceRent.Account accountObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/saveAccount")]
+        System.Threading.Tasks.Task saveAccountAsync(TRC_Redesign.ServiceRent.Account accountObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/addAccount")]
+        void addAccount(TRC_Redesign.ServiceRent.Account accountObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/addAccount")]
+        System.Threading.Tasks.Task addAccountAsync(TRC_Redesign.ServiceRent.Account accountObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/deleteAccount")]
+        void deleteAccount(TRC_Redesign.ServiceRent.Account accountObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/deleteAccount")]
+        System.Threading.Tasks.Task deleteAccountAsync(TRC_Redesign.ServiceRent.Account accountObject);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -278,26 +624,25 @@ namespace TRC_Redesign.ServiceRent {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceRentClient : System.ServiceModel.DuplexClientBase<TRC_Redesign.ServiceRent.IServiceRent>, TRC_Redesign.ServiceRent.IServiceRent {
+    public partial class ServiceRentClient : System.ServiceModel.ClientBase<TRC_Redesign.ServiceRent.IServiceRent>, TRC_Redesign.ServiceRent.IServiceRent {
         
-        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance) : 
-                base(callbackInstance) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext instanceContext) {
         }
         
-        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
-                base(callbackInstance, endpointConfigurationName) {
+        public ServiceRentClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
         }
         
-        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public ServiceRentClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public ServiceRentClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, binding, remoteAddress) {
+        public ServiceRentClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
         }
         
         public int userConnect() {
@@ -316,12 +661,92 @@ namespace TRC_Redesign.ServiceRent {
             return base.Channel.userDisconnectAsync(id);
         }
         
-        public void sendAccountObject(int id, TRC_Redesign.ServiceRent.account accountObject) {
-            base.Channel.sendAccountObject(id, accountObject);
+        public TRC_Redesign.ServiceRent.Account selectAccount(string login, string password) {
+            return base.Channel.selectAccount(login, password);
         }
         
-        public System.Threading.Tasks.Task sendAccountObjectAsync(int id, TRC_Redesign.ServiceRent.account accountObject) {
-            return base.Channel.sendAccountObjectAsync(id, accountObject);
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account> selectAccountAsync(string login, string password) {
+            return base.Channel.selectAccountAsync(login, password);
+        }
+        
+        public void createSqlConnection(string path) {
+            base.Channel.createSqlConnection(path);
+        }
+        
+        public System.Threading.Tasks.Task createSqlConnectionAsync(string path) {
+            return base.Channel.createSqlConnectionAsync(path);
+        }
+        
+        public void selectAllVehicle() {
+            base.Channel.selectAllVehicle();
+        }
+        
+        public System.Threading.Tasks.Task selectAllVehicleAsync() {
+            return base.Channel.selectAllVehicleAsync();
+        }
+        
+        public void deleteVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject) {
+            base.Channel.deleteVehicle(vehicleObject);
+        }
+        
+        public System.Threading.Tasks.Task deleteVehicleAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject) {
+            return base.Channel.deleteVehicleAsync(vehicleObject);
+        }
+        
+        public void addVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject) {
+            base.Channel.addVehicle(vehicleObject);
+        }
+        
+        public System.Threading.Tasks.Task addVehicleAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject) {
+            return base.Channel.addVehicleAsync(vehicleObject);
+        }
+        
+        public void saveVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject) {
+            base.Channel.saveVehicle(vehicleObject);
+        }
+        
+        public System.Threading.Tasks.Task saveVehicleAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject) {
+            return base.Channel.saveVehicleAsync(vehicleObject);
+        }
+        
+        public bool isAccountValid(string login) {
+            return base.Channel.isAccountValid(login);
+        }
+        
+        public System.Threading.Tasks.Task<bool> isAccountValidAsync(string login) {
+            return base.Channel.isAccountValidAsync(login);
+        }
+        
+        public bool isSqlConnection() {
+            return base.Channel.isSqlConnection();
+        }
+        
+        public System.Threading.Tasks.Task<bool> isSqlConnectionAsync() {
+            return base.Channel.isSqlConnectionAsync();
+        }
+        
+        public void saveAccount(TRC_Redesign.ServiceRent.Account accountObject) {
+            base.Channel.saveAccount(accountObject);
+        }
+        
+        public System.Threading.Tasks.Task saveAccountAsync(TRC_Redesign.ServiceRent.Account accountObject) {
+            return base.Channel.saveAccountAsync(accountObject);
+        }
+        
+        public void addAccount(TRC_Redesign.ServiceRent.Account accountObject) {
+            base.Channel.addAccount(accountObject);
+        }
+        
+        public System.Threading.Tasks.Task addAccountAsync(TRC_Redesign.ServiceRent.Account accountObject) {
+            return base.Channel.addAccountAsync(accountObject);
+        }
+        
+        public void deleteAccount(TRC_Redesign.ServiceRent.Account accountObject) {
+            base.Channel.deleteAccount(accountObject);
+        }
+        
+        public System.Threading.Tasks.Task deleteAccountAsync(TRC_Redesign.ServiceRent.Account accountObject) {
+            return base.Channel.deleteAccountAsync(accountObject);
         }
     }
 }

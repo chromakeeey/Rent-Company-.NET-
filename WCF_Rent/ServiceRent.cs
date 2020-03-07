@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
 using System.Data.SqlClient;
 using System.Data;
-using TRC_Redesign.header;
+
+using WCF_Rent.HeaderFile;
 
 namespace WCF_Rent
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ServiceRent : IServiceRent
     {
-        List<vehicle> allVehicle = new List<vehicle>();
+        List<Vehicle> vehicle = new List<Vehicle>();
         List<ServerUser> serverUser = new List<ServerUser>();
+
         SqlConnection sqlconnection;
 
         int nextUserID = 1;
@@ -22,6 +22,9 @@ namespace WCF_Rent
 
         public int userConnect()
         {
+            //if ( !isSqlConnection() )
+            //    createSqlConnection(sqlString);
+
             ServerUser user = new ServerUser()
             {
                 ID = nextUserID,
@@ -40,38 +43,34 @@ namespace WCF_Rent
                 serverUser.Remove(user);
         }
 
-        public async void createSqlConnection(string path)
+        public void createSqlConnection(string path)
         {
-            // if sql base connected
-            if (sqlconnection != null && sqlconnection.State != ConnectionState.Closed)
+            if ( isSqlConnection() )
                 return;
 
-            sqlconnection = new SqlConnection(path);
-
-            try { await sqlconnection.OpenAsync(); }
-
-            catch
+            using (sqlconnection = new SqlConnection(path))
             {
-                sqlconnection.Close();
-                sqlconnection = null;
+                try { sqlconnection.Open(); }
 
-                createSqlConnection(path);
+                catch 
+                {
+                    sqlconnection.Close();
+                    sqlconnection = null;
+
+                    createSqlConnection(path);
+                }
+                
             }
+
+            selectAllVehicle();
         }
 
         /*      vehicle block       */
 
-        public void sendVehicleList(int id)
-        {
-            var user = serverUser.FirstOrDefault(i => i.ID == id);
-
-            if (user != null)
-                user.operationContext.GetCallbackChannel<IServerRentCallback>().vehicleListCallBack(allVehicle);
-        }
 
         public void selectAllVehicle()
         {
-            List<vehicle> vehicleObject = new List<vehicle>();
+            List<Vehicle> vehicleObject = new List<Vehicle>();
             SqlCommand sqlCommand;
 
             sqlCommand = new SqlCommand("SELECT * FROM [vehicles]", sqlconnection);
@@ -79,7 +78,7 @@ namespace WCF_Rent
 
             while (reader.Read())
             {
-                vehicleObject.Add(new vehicle()
+                vehicleObject.Add(new Vehicle()
                 {
                     plate = reader["plate"].ToString(),
                     name = reader["name"].ToString(),
@@ -100,28 +99,19 @@ namespace WCF_Rent
             if (reader != null)
                 reader.Close();
 
-            allVehicle = vehicleObject;
+            vehicle = vehicleObject;
         }
 
-        public void deleteVehicle(string plate)
+        public void deleteVehicle(Vehicle vehicleObject)
         {
-            var vehicle = allVehicle.FirstOrDefault(i => i.plate == plate);
-
-            if (vehicle != null)
-            {
-                SqlCommand sqlCommand = new SqlCommand("DELETE FROM [vehicles] WHERE [plate] = @plate");
-                sqlCommand.Parameters.AddWithValue("plate", vehicle.plate);
-                sqlCommand.ExecuteNonQuery();
-
-                allVehicle.Remove(vehicle);
-            }
-
-            sendVehicleList(0);
+            SqlCommand sqlCommand = new SqlCommand("DELETE FROM [vehicles] WHERE [plate] = @plate");
+            sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
+            sqlCommand.ExecuteNonQuery();
         }
 
-        public void addVehicle(vehicle vehicleObject)
+        public void addVehicle(Vehicle vehicleObject)
         {
-            allVehicle.Add(vehicleObject);
+            vehicle.Add(vehicleObject);
 
             SqlCommand command = new SqlCommand("INSERT INTO [vehicles] " +
                 "(plate, name, model, price, fuel, mileage, client_documentid, image_link, date_start, date_end) VALUES" +
@@ -140,11 +130,9 @@ namespace WCF_Rent
             command.Parameters.AddWithValue("date_end", vehicleObject.end_date);
 
             command.ExecuteNonQuery();
-
-            sendVehicleList(0);
         }
 
-        public void saveVehicle(vehicle vehicleObject)
+        public void saveVehicle(Vehicle vehicleObject)
         {
             SqlCommand command = new SqlCommand("UPDATE [vehicles] SET [plate] = @plate, " +
                 "[name] = @name, [model] = @model, [price] = @price, [fuel] = @fuel, " +
@@ -169,19 +157,15 @@ namespace WCF_Rent
         }
 
 
-        /*      account block       */
-
-        public void sendAccountObject(int id, account accountObject)
+        public List<Vehicle> getAllVehicleToUser(int id)
         {
-            var user = serverUser.FirstOrDefault(i => i.ID == id);
-
-            if (user != null)
-                user.operationContext.GetCallbackChannel<IServerRentCallback>().accountObjectCallBack(accountObject);
+            return vehicle;
         }
 
-        public account selectAccount(string login, string password)
+
+        public Account selectAccount(string login, string password)
         {
-            account accountObject = new account();
+            Account accountObject = new Account();
             SqlCommand sqlCommand;
 
             sqlCommand = new SqlCommand("SELECT * FROM [accounts] WHERE login = @login AND password = @password", sqlconnection);
@@ -199,6 +183,7 @@ namespace WCF_Rent
                 accountObject.phone = Convert.ToString(reader["phone"]);
                 accountObject.mail = Convert.ToString(reader["email"]);
 
+                accountObject.documentid = Convert.ToInt32(reader["documentid"]);
                 accountObject.level = Convert.ToInt32(reader["adminlevel"]);
                 accountObject.balance = Convert.ToSingle(reader["balance"]);
                 accountObject.dateCreate = Convert.ToDateTime(reader["datecreate"]);
@@ -213,7 +198,7 @@ namespace WCF_Rent
             return accountObject;
         }
 
-        public void saveAccount(account accountObject)
+        public void saveAccount(Account accountObject)
         {
             SqlCommand command = new SqlCommand("UPDATE [accounts] SET [documentid] = @documentid, [login] = @login, [password] = @password, " +
                 "[name] = @name, [secondname] = @secondname, [fathername] = @fathername, [email] = @email, [accepted] = @accepted, " +
@@ -234,7 +219,7 @@ namespace WCF_Rent
             command.ExecuteNonQuery();
         }
 
-        public void addAccount(account accountObject)
+        public void addAccount(Account accountObject)
         {
             SqlCommand sqlCommand = new SqlCommand(
                 "NSERT INTO [accounts] (name, secondname, fathername, documentid, email, login, password, phone, datecreate) VALUES" +
@@ -253,13 +238,38 @@ namespace WCF_Rent
             sqlCommand.ExecuteNonQuery();
         }
 
-        public void deleteAccount(account accountObject)
+        public void deleteAccount(Account accountObject)
         {
             SqlCommand sqlCommand = new SqlCommand("DELETE FROM [accounts] WHERE [login] = @login");
             sqlCommand.Parameters.AddWithValue("login", accountObject.login);
             sqlCommand.ExecuteNonQuery();
         }
 
-        
+        public bool isSqlConnection()
+        {
+            return (sqlconnection != null && sqlconnection.State != ConnectionState.Closed);      
+        }
+
+        public bool isAccountValid(string login)
+        {
+            Account accountObject = new Account();
+            SqlCommand sqlCommand;
+
+            sqlCommand = new SqlCommand("SELECT * FROM [accounts] WHERE login = @login", sqlconnection);
+            sqlCommand.Parameters.AddWithValue("login", login);
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                accountObject.documentid = Convert.ToInt32(reader["documentid"]);
+
+                break;
+            }
+
+            if (reader != null)
+                reader.Close();
+
+            return (accountObject.documentid != 0);
+        }
     }
 }

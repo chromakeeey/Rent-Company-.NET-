@@ -119,7 +119,7 @@ namespace TRC_Redesign.header
 
         // vehicle [ string = "clear", no set name ]
         // [type] [0-all, 1-rent, 2-norent]
-        public vehicle[] CreateObjectParams(int min, int max, int type)
+        /*public vehicle[] CreateObjectParams(int min, int max, int type)
         {
             int vehicleid = 0;
 
@@ -178,9 +178,9 @@ namespace TRC_Redesign.header
 
             double sub = unRentCount / 3;
             return Convert.ToInt32(unRentCount) / 2;
-        }
+        }*/
 
-        public int GetAllVehicle()
+        /*public int GetAllVehicle()
         {
             int allvehicle = 0;
 
@@ -216,7 +216,7 @@ namespace TRC_Redesign.header
             return this.GetAllVehicle() - this.GetAllRentVehicle();
         }
 
-        /*public int GetVehicleIndex(int type, vehicle[] object_data, int size)
+        public int GetVehicleIndex(int type, vehicle[] object_data, int size)
         {
             int vehicleid = -1;
 

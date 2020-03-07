@@ -135,14 +135,10 @@
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="header\account.cs" />
-    <Compile Include="header\admin.cs" />
     <Compile Include="header\ClientData.cs" />
-    <Compile Include="header\rent.cs" />
     <Compile Include="header\ServerData.cs" />
     <Compile Include="header\theme.cs" />
     <Compile Include="header\UI.cs" />
-    <Compile Include="header\vehicle.cs" />
     <Compile Include="load.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +264,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceRent\ServiceRent.wsdl" />
+    <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.Account1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

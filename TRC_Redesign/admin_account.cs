@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 using TRC_Redesign.header;
+using TRC_Redesign.ServiceRent;
 
 
 namespace TRC_Redesign
 {
     public partial class admin_account : UserControl
     {
-        account tmpObject;
+        Account tmpObject;
         SqlConnection sqlconnection;
 
         public void AdminAccountLoad()

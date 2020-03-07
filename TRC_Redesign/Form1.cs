@@ -2,9 +2,10 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using TRC_Redesign.header;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+
+using TRC_Redesign.header;
 using TRC_Redesign.CustomMessageBox;
 using TRC_Redesign.ServiceRent;
 
@@ -12,21 +13,11 @@ namespace TRC_Redesign
 {
     public partial class Form1 : Form
     {
-        ClientData clientData = new ClientData();
+        public ClientData clientData = new ClientData();
+        public ServerData serverData = new ServerData();
 
-        // tmp var-----------------------------------------------------------------------
-        private PictureBox pb;
-        public static Form1 pointer = null;
-
-        public UI ui;
-        public TRC_Redesign.header.account Account = new TRC_Redesign.header.account();
-        public vehicle[] Vehicle = new vehicle[1000];
         public login Login = new login();
         public VehicleInfo vinfo = new VehicleInfo();
-
-        public SqlConnection sqlconnection;
-        public int DarkMode = 1;
-        // ------------------------------------------------------------------------------
 
         int mov;
         int movX;
@@ -43,25 +34,24 @@ namespace TRC_Redesign
             int nHeightEllipse // width of ellipse
         );
 
-        public void UpdateAccountInformation()
-        {
-            label4.Text = Account.balance.ToString() + " грн.";
 
-            if (Account.IsUserRentCar())
+        public void updateAccountData()
+        {
+            label4.Text = clientData.account.balance.ToString() + " грн.";
+
+            /*if (Account.IsUserRentCar())
             {
                 int vehicleid = Account.GetRentIndex();
 
                 TimeSpan delta = DateTime.Now - Form1.pointer.Vehicle[vehicleid].end_date;
                 label5.Text = (delta.Days > 0) ? (delta.Days * Form1.pointer.Vehicle[vehicleid].price + " грн.") : "0 грн.";
-            }
-            else label5.Text = "0 грн.";
+            }*/
 
-            main_page1.label1.Text = "Вітаємо, " + Account.name + "!";
-            label2.Text = Account.login;
-            button5.Visible = (Account.GetAdminLevel() != 0) ? true : false;
+            main_page1.label1.Text = "Вітаємо, " + clientData.account.name + "!";
+            label2.Text = clientData.account.login;
+
+            button5.Visible = (clientData.account.level != 0) ? true : false;
         }
-
-        
 
         public DialogResult dialogCreate(string message, string caption, MessageBoxButtons button, MessageBoxIcon icon)
         {
@@ -74,11 +64,6 @@ namespace TRC_Redesign
 
         public Form1()
         {
-            if (pointer == null)
-                pointer = this;
-
-            for (int i = 0; i < 1000; i++)
-                Vehicle[i] = new vehicle();
 
             InitializeComponent();
 
@@ -107,7 +92,7 @@ namespace TRC_Redesign
         {
             panel5.Location = new Point(panel5.Location.X, button2.Location.Y);
 
-            ui.CreatePanel(ui.VEHICLE_PANEL, this);
+            clientData.ui.CreatePanel(clientData.ui.VEHICLE_PANEL, this);
 
             //login.instance
         }
@@ -117,7 +102,7 @@ namespace TRC_Redesign
         {
             panel5.Location = new Point(panel5.Location.X, button3.Location.Y);
 
-            ui.CreatePanel(ui.PAYMENT_PANEL, this);
+            clientData.ui.CreatePanel(clientData.ui.PAYMENT_PANEL, this);
         }
 
         // settings
@@ -125,7 +110,7 @@ namespace TRC_Redesign
         {
             panel5.Location = new Point(panel5.Location.X, button4.Location.Y);
 
-            ui.CreatePanel(ui.SETTING_PANEL, this);
+            clientData.ui.CreatePanel(clientData.ui.SETTING_PANEL, this);
         }
         
         // admin
@@ -133,7 +118,7 @@ namespace TRC_Redesign
         {
             panel5.Location = new Point(panel5.Location.X, button5.Location.Y);
 
-            ui.CreatePanel(ui.ADMIN_PANEL, this);
+            clientData.ui.CreatePanel(clientData.ui.ADMIN_PANEL, this);
 
             this.admin_page1.UpdateStatisticInformation();
 
@@ -144,7 +129,7 @@ namespace TRC_Redesign
         {
             panel5.Location = new Point(panel5.Location.X, button1.Location.Y);
 
-            ui.CreatePanel(ui.MAIN_PANEL, this);
+            clientData.ui.CreatePanel(clientData.ui.MAIN_PANEL, this);
         }
 
         private void panel9_Paint(object sender, PaintEventArgs e)
@@ -157,11 +142,11 @@ namespace TRC_Redesign
 
             
 
-            main_page1.sqlconnection = this.sqlconnection;
-            vehicle_page1.sqlconnection = this.sqlconnection;
-            admin_page1.sqlconnection = this.sqlconnection;
+            //main_page1.sqlconnection = this.sqlconnection;
+            //vehicle_page1.sqlconnection = this.sqlconnection;
+            //admin_page1.sqlconnection = this.sqlconnection;
 
-            main_page1.loadForm();
+            //main_page1.loadForm();
             vehicle_page1.LoadVehiclePage();
             admin_page1.AdminPageLoad();
 
@@ -176,7 +161,7 @@ namespace TRC_Redesign
             //    button5.Visible = true;
 
             //UpdateAccountInformation();
-            ui.CreatePanel(ui.MAIN_PANEL, this);
+            clientData.ui.CreatePanel(clientData.ui.MAIN_PANEL, this);
 
 
 
@@ -208,13 +193,12 @@ namespace TRC_Redesign
 
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
-            if (sqlconnection != null && sqlconnection.State != ConnectionState.Closed)
-                sqlconnection.Close();
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            ui.SaveTheme();
+            clientData.ui.SaveTheme();
 
             System.Windows.Forms.Application.Exit();
         }
@@ -226,12 +210,12 @@ namespace TRC_Redesign
 
         private void DarkMode_Click(object sender, EventArgs e)
         {
-            Form1.pointer.ui.SetTheme(this, Form1.pointer.ui.theme_Light);
+            //Form1.pointer.ui.SetTheme(this, Form1.pointer.ui.theme_Light);
         }
 
         private void OnDarkClick(object sender, EventArgs e)
         {
-            Form1.pointer.ui.SetTheme(this, Form1.pointer.ui.theme_Dark);
+            //Form1.pointer.ui.SetTheme(this, Form1.pointer.ui.theme_Dark);
         }
 
         private void MsDown(object sender, MouseEventArgs e)

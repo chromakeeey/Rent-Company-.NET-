@@ -49,7 +49,7 @@ namespace TRC_Redesign
                 return;
             }
 
-            int vehicleid = -1;
+            /*int vehicleid = -1;
 
             for (int i = 0; i < 1000; i++)
             {
@@ -78,7 +78,7 @@ namespace TRC_Redesign
             Form1.pointer.Vehicle[vehicleid].InsertObjectVehicle(sqlconnection);
 
             obj.dialogCreate("Ви додали новій автомобіль для оренди автомобіля. Тепер ви зможете його найти в списку авто.", " ", 
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBoxButtons.OK, MessageBoxIcon.Information);*/
         }
 
         private void jThinButton2_Click(object sender, EventArgs e)

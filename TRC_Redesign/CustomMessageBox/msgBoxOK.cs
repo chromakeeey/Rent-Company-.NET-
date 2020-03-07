@@ -23,11 +23,11 @@ namespace TRC_Redesign.CustomMessageBox
             Color lightBlack = Color.FromArgb(18, 18, 18);
             Color darkGray = Color.FromArgb(40, 40, 40);
 
-            switch (obj.ui.themeCurrent)
+            switch (obj.clientData.ui.themeCurrent)
             {
                 case 0:
                     {
-                        obj.ui.SetPictureColor(icon_box, fullBlack);
+                        obj.clientData.ui.SetPictureColor(icon_box, fullBlack);
                         BackColor = fullWhite;
                         button1.BackColor = fullWhite;
                         panel1.BackColor = lightGray;
@@ -42,7 +42,7 @@ namespace TRC_Redesign.CustomMessageBox
                     
                 case 1:
                     {
-                        obj.ui.SetPictureColor(icon_box, fullWhite);
+                        obj.clientData.ui.SetPictureColor(icon_box, fullWhite);
                         BackColor = lightBlack;
                         button1.BackColor = lightBlack;
                         panel1.BackColor = darkGray;
@@ -56,14 +56,14 @@ namespace TRC_Redesign.CustomMessageBox
                     }
                 case 2:
                     {
-                        obj.ui.SetPictureColor(icon_box, obj.ui.customIcon);
-                        BackColor = obj.ui.customForm;
-                        button1.BackColor = obj.ui.customForm;
-                        panel1.BackColor = obj.ui.customMainPanel;
-                        message_box.ForeColor = obj.ui.customMainText;
-                        message_box.BackColor = obj.ui.customForm;
-                        caption_box.ForeColor = obj.ui.customSecondText;
-                        button1.ForeColor = obj.ui.customSecondText;
+                        obj.clientData.ui.SetPictureColor(icon_box, obj.clientData.ui.customIcon);
+                        BackColor = obj.clientData.ui.customForm;
+                        button1.BackColor = obj.clientData.ui.customForm;
+                        panel1.BackColor = obj.clientData.ui.customMainPanel;
+                        message_box.ForeColor = obj.clientData.ui.customMainText;
+                        message_box.BackColor = obj.clientData.ui.customForm;
+                        caption_box.ForeColor = obj.clientData.ui.customSecondText;
+                        button1.ForeColor = obj.clientData.ui.customSecondText;
 
                         break;
                     }

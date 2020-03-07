@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 using TRC_Redesign.header;
+using TRC_Redesign.ServiceRent;
 
 namespace TRC_Redesign
 {
@@ -17,9 +19,9 @@ namespace TRC_Redesign
         public SqlConnection sqlconnection;
         public Form1 obj;
 
-        account object_tmp = new account();
+        Account object_tmp = new Account();
 
-        public async void UpdateCheckAccount()
+        /*public async void UpdateCheckAccount()
         {
             object_tmp.ClearAccountData();
 
@@ -94,11 +96,12 @@ namespace TRC_Redesign
                     sqlReader.Close();
             }
         }
+        */
 
         public void AdminCheckPageLoad(SqlConnection sqlconnection)
         {
-            this.sqlconnection = sqlconnection;
-            UpdateCheckAccount();
+            //this.sqlconnection = sqlconnection;
+            //UpdateCheckAccount();
         }
 
         public admin_check()
@@ -108,16 +111,16 @@ namespace TRC_Redesign
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            UpdateCheckAccount();
+            //UpdateCheckAccount();
         }
 
         // accept
         private void jThinButton1_Click(object sender, EventArgs e)
         {
-            object_tmp.accepted = 1;
-            object_tmp.SaveObjectAccount(sqlconnection);
+            //object_tmp.accepted = 1;
+            //object_tmp.SaveObjectAccount(sqlconnection);
 
-            UpdateCheckAccount();
+            //UpdateCheckAccount();
 
             obj.dialogCreate("Ви підтвердили аккаунт.", "Підтвердження аккаунта", 
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,10 +129,10 @@ namespace TRC_Redesign
         // decline
         private void jThinButton3_Click(object sender, EventArgs e)
         {
-            object_tmp.accepted = 2;
-            object_tmp.SaveObjectAccount(sqlconnection);
+            //object_tmp.accepted = 2;
+            //object_tmp.SaveObjectAccount(sqlconnection);
 
-            UpdateCheckAccount();
+            //UpdateCheckAccount();
 
             obj.dialogCreate("Ви відмовили аккаунту в реєстрації", "Відмовлення", 
                 MessageBoxButtons.OK, MessageBoxIcon.Information);

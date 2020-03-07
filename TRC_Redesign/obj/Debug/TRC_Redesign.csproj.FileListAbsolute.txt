@@ -13,7 +13,6 @@ D:\TRC_Redesign\TRC_Redesign\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
 D:\TRC_Redesign\TRC_Redesign\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 D:\TRC_Redesign\TRC_Redesign\bin\Debug\JMaterialTextbox.dll
 D:\TRC_Redesign\TRC_Redesign\bin\Debug\JMetroTextBox.dll
-D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.tmp_form.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.payment_page.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.main_page.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.vehicle_page.resources

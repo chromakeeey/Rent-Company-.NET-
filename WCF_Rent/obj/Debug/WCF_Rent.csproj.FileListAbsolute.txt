@@ -4,12 +4,3 @@ D:\TRC_Redesign\WCF_Rent\bin\Debug\WCF_Rent.pdb
 D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.csprojAssemblyReference.cache
 D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.dll
 D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.pdb
-D:\TRC_Redesign\WCF_Rent\bin\Debug\rentcar.mdf
-D:\TRC_Redesign\WCF_Rent\bin\Debug\rentcar_log.ldf
-D:\TRC_Redesign\WCF_Rent\bin\Debug\TRC_Redesign.exe
-D:\TRC_Redesign\WCF_Rent\bin\Debug\JThinButton.dll
-D:\TRC_Redesign\WCF_Rent\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
-D:\TRC_Redesign\WCF_Rent\bin\Debug\TRC_Redesign.pdb
-D:\TRC_Redesign\WCF_Rent\bin\Debug\TRC_Redesign.exe.config
-D:\TRC_Redesign\WCF_Rent\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
-D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.csproj.CopyComplete

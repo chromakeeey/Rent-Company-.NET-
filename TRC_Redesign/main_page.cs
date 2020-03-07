@@ -19,7 +19,7 @@ namespace TRC_Redesign
         public SqlConnection sqlconnection;
         public Form1 pointerForm;
 
-        public void UpdateVehicleInformation()
+        /*public void UpdateVehicleInformation()
         {
             int rentid = account.instance.GetRentIndex();
 
@@ -74,7 +74,7 @@ namespace TRC_Redesign
             {
                 UpdateVehicleInformation();
             }
-        }
+        }*/
 
         public main_page()
         {
@@ -88,7 +88,7 @@ namespace TRC_Redesign
 
         private void jThinButton1_Click(object sender, EventArgs e)
         {
-            int vehicleid = account.instance.GetRentIndex();
+            /*int vehicleid = account.instance.GetRentIndex();
             int days;
             TimeSpan delta = DateTime.Now - Form1.pointer.Vehicle[vehicleid].end_date;
 
@@ -152,7 +152,7 @@ namespace TRC_Redesign
             panel13.Visible = false;
 
             label2.Visible = true;
-            label3.Visible = true;
+            label3.Visible = true;*/
 
         }
     }

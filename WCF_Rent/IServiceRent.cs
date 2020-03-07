@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using TRC_Redesign.header;
+using WCF_Rent.HeaderFile;
 
 namespace WCF_Rent
 {
@@ -18,21 +18,50 @@ namespace WCF_Rent
         [OperationContract]
         void userDisconnect(int id);
 
-        [OperationContract(IsOneWay = true)]
-        void sendAccountObject(int id, account accountObject);
+
+        [OperationContract]
+        Account selectAccount(string login, string password);
 
         [OperationContract(IsOneWay = true)]
-        account selectAccount(string login, string password);
+        void createSqlConnection(string path);
+
+        /*      vehicle block       */
+
+
+        [OperationContract(IsOneWay = true)]
+        void selectAllVehicle();
+
+        [OperationContract(IsOneWay = true)]
+        void deleteVehicle(Vehicle vehicleObject);
+
+        [OperationContract(IsOneWay = true)]
+        void addVehicle(Vehicle vehicleObject);
+
+        [OperationContract(IsOneWay = true)]
+        void saveVehicle(Vehicle vehicleObject);
+
+        [OperationContract]
+        bool isAccountValid(string login);
+
+        [OperationContract]
+        bool isSqlConnection();
+
+        /*      account block       */
+
+        [OperationContract(IsOneWay = true)]
+        void saveAccount(Account accountObject);
+
+        [OperationContract(IsOneWay = true)]
+        void addAccount(Account accountObject);
+
+        [OperationContract(IsOneWay = true)]
+        void deleteAccount(Account accountObject);
 
     }
 
     public interface IServerRentCallback
     {
-        [OperationContract(IsOneWay = true)]
-        void accountObjectCallBack(account accountObject);
-
-        [OperationContract(IsOneWay = true)]
-        void vehicleListCallBack(List<vehicle> vehicleObject);
+        
 
     }
 

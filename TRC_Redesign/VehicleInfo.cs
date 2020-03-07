@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TRC_Redesign.header;
+
 using TRC_Redesign.RentPicker;
+using TRC_Redesign.ServiceRent;
 
 namespace TRC_Redesign
 {
@@ -119,7 +121,7 @@ namespace TRC_Redesign
             return rplate;
         }
 
-        public void setVehicle(vehicle objectVehicle)
+        public void setVehicle(Vehicle objectVehicle)
         {
             label76.Text = objectVehicle.name + " " + objectVehicle.model;
             label4.Text = objectVehicle.type;

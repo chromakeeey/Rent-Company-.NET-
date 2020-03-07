@@ -28,11 +28,11 @@ namespace TRC_Redesign
 
         public void UpdateStatisticInformation()
         {
-            label27.Text = Form1.pointer.ui.GetAllVehicle().ToString();
-            label3.Text = Form1.pointer.ui.GetAllRentVehicle().ToString();
-            label5.Text = Form1.pointer.ui.GetAllNoRentVehicle().ToString();
+            //label27.Text = Form1.pointer.ui.GetAllVehicle().ToString();
+            //label3.Text = Form1.pointer.ui.GetAllRentVehicle().ToString();
+            //label5.Text = Form1.pointer.ui.GetAllNoRentVehicle().ToString();
 
-            label8.Text = account.instance.GetAdminLevel().ToString() + " рівень";
+            //label8.Text = account.instance.GetAdminLevel().ToString() + " рівень";
         }
 
         public void AdminPageLoad()
@@ -42,7 +42,7 @@ namespace TRC_Redesign
             admin_vehicleadd1.AdminVehicleAdd_Load(sqlconnection);
             //UpdateStatisticInformation();
 
-            Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_CHECK_PANEL, this);
+            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_CHECK_PANEL, this);
             panel9.Location = new Point(7, panel9.Location.Y);
         }
 
@@ -55,13 +55,13 @@ namespace TRC_Redesign
         {
             panel9.Location = new Point(button1.Location.X, panel9.Location.Y);
 
-            Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_CHECK_PANEL, this);
+            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_CHECK_PANEL, this);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             panel9.Location = new Point(button2.Location.X, panel9.Location.Y);
-            Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_VEHICLE_ADD, this);
+            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_VEHICLE_ADD, this);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace TRC_Redesign
         private void button4_Click(object sender, EventArgs e)
         {
             panel9.Location = new Point(button4.Location.X, panel9.Location.Y);
-            Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_ACCOUNT_PANEL, this);
+            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_ACCOUNT_PANEL, this);
         }
 
         

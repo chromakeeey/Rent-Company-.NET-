@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using TRC_Redesign.ServiceRent;
+
 namespace TRC_Redesign.header
 {
     public class ClientData
     {
         public Form1 mainWindow;
-        public ServerData serverData = new ServerData();
+        //public ServerData serverData = new ServerData();
         public UI ui;
-        public account accountObject;
+        public Account account;
 
-        public List<vehicle> vehicleObject = new List<vehicle>();
+        public List<Vehicle> vehicleObject = new List<Vehicle>();
 
         // Forms
         public VehicleInfo vehicleinfo = new VehicleInfo();

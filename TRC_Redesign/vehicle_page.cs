@@ -17,7 +17,7 @@ namespace TRC_Redesign
         public Form1 MainPointer;
         public SqlConnection sqlconnection;
 
-        vehicle[] paramsObject = new vehicle[1000];
+        //vehicle[] paramsObject = new vehicle[1000];
 
         int typeChecked = 0;
 
@@ -82,16 +82,16 @@ namespace TRC_Redesign
 
         public void UpdateVehicleObject()
         {
-            paramsObject = Form1.pointer.ui.CreateObjectParams(
-                Convert.ToInt32(textBox1.Text),
-                Convert.ToInt32(textBox2.Text), typeChecked);
+            //paramsObject = Form1.pointer.ui.CreateObjectParams(
+                //Convert.ToInt32(textBox1.Text),
+                //Convert.ToInt32(textBox2.Text), typeChecked);
         }
 
         
         public vehicle_page()
         {
-            for (int i = 0; i != 1000; i++)
-                paramsObject[i] = new vehicle();
+            //for (int i = 0; i != 1000; i++)
+                //paramsObject[i] = new vehicle();
 
             InitializeComponent();
         }
@@ -140,8 +140,8 @@ namespace TRC_Redesign
 
             for (int i = 0; i < 1000; i++)
             {
-                if (!paramsObject[i].IsVehicleValid())
-                    continue;
+               // if (!paramsObject[i].IsVehicleValid())
+                    //continue;
 
                 panelObject.Add(new VehiclePanel());
                 int index = panelObject.Count - 1;
@@ -152,7 +152,7 @@ namespace TRC_Redesign
                 panelObject[index].Location = new Point(vehiclePanel1.Location.X, position_y);
                 position_y += 171;
 
-                panelObject[index].setVehicle(paramsObject[i]);
+                //panelObject[index].setVehicle(paramsObject[i]);
                 panelObject[index].setLocalTheme(MainPointer);
                 panelObject[index].Visible = true;
             }
