@@ -1,6 +1,8 @@
 D:\TRC_Redesign\WCF_Rent\bin\Debug\WCF_Rent.dll.config
 D:\TRC_Redesign\WCF_Rent\bin\Debug\WCF_Rent.dll
 D:\TRC_Redesign\WCF_Rent\bin\Debug\WCF_Rent.pdb
-D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.csprojAssemblyReference.cache
 D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.dll
 D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.pdb
+D:\TRC_Redesign\WCF_Rent\bin\Debug\rentcar.mdf
+D:\TRC_Redesign\WCF_Rent\bin\Debug\rentcar_log.ldf
+D:\TRC_Redesign\WCF_Rent\obj\Debug\WCF_Rent.csprojAssemblyReference.cache

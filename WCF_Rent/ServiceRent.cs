@@ -4,26 +4,31 @@ using System.Linq;
 using System.ServiceModel;
 using System.Data.SqlClient;
 using System.Data;
+using System.Runtime.Serialization;
 
 using WCF_Rent.HeaderFile;
+
 
 namespace WCF_Rent
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ServiceRent : IServiceRent
     {
-        List<Vehicle> vehicle = new List<Vehicle>();
+        [DataMember]
+        public List<Vehicle> vehicle = new List<Vehicle>();
+
         List<ServerUser> serverUser = new List<ServerUser>();
 
         SqlConnection sqlconnection;
 
         int nextUserID = 1;
         const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|rentcar.mdf;Integrated Security=True";
+        //const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TRC_Redesign\WCF_Rent\rentcar.mdf;Integrated Security=True";
 
         public int userConnect()
         {
-            //if ( !isSqlConnection() )
-            //    createSqlConnection(sqlString);
+            if ( !isSqlConnection() )
+                createSqlConnection(sqlString);
 
             ServerUser user = new ServerUser()
             {
@@ -45,22 +50,11 @@ namespace WCF_Rent
 
         public void createSqlConnection(string path)
         {
-            if ( isSqlConnection() )
+            if (isSqlConnection())
                 return;
 
-            using (sqlconnection = new SqlConnection(path))
-            {
-                try { sqlconnection.Open(); }
-
-                catch 
-                {
-                    sqlconnection.Close();
-                    sqlconnection = null;
-
-                    createSqlConnection(path);
-                }
-                
-            }
+            sqlconnection = new SqlConnection(path);
+            sqlconnection.Open();
 
             selectAllVehicle();
         }
@@ -134,6 +128,9 @@ namespace WCF_Rent
 
         public void saveVehicle(Vehicle vehicleObject)
         {
+            int index = vehicle.FindIndex(i => i.plate == vehicleObject.plate);
+            vehicle[index] = vehicleObject;
+
             SqlCommand command = new SqlCommand("UPDATE [vehicles] SET [plate] = @plate, " +
                 "[name] = @name, [model] = @model, [price] = @price, [fuel] = @fuel, " +
                 "[mileage] = @mileage, [client_documentid] = @client_documentid," +
@@ -155,7 +152,6 @@ namespace WCF_Rent
 
             command.ExecuteNonQuery();
         }
-
 
         public List<Vehicle> getAllVehicleToUser(int id)
         {
@@ -270,6 +266,80 @@ namespace WCF_Rent
                 reader.Close();
 
             return (accountObject.documentid != 0);
+        }
+
+        public Vehicle getUserVehicle(Account account)
+        {
+            Vehicle vehicleObject = new Vehicle();
+
+            foreach (Vehicle item in vehicle)
+            {
+                if (item.client_documentid != account.documentid)
+                    continue;
+
+                vehicleObject = item;
+
+                break;
+            }
+
+            return vehicleObject;
+        }
+
+        public List<Vehicle> createVehicleObjectParams(int min, int max, int type)
+        {
+            List<Vehicle> paramsObject = new List<Vehicle>();
+
+            foreach(Vehicle item in vehicle)
+            {
+                if ( !(item.price >= min && item.price <= max) )
+                    continue;
+
+                if (type == 1 && item.client_documentid == 0)
+                    continue;
+
+                if (type == 1 && item.client_documentid != 0)
+                    continue;
+
+                paramsObject.Add(item);
+            }
+
+            return paramsObject;
+        }
+
+        public int GetAllVehicle()
+        {
+            int allvehicle = 0;
+
+            foreach (Vehicle item in vehicle)
+            {
+                if (item.plate != "none")
+                    allvehicle++;
+            }
+
+            return allvehicle;
+        }
+
+        public int GetAllRentVehicle()
+        {
+            int allvehicle = 0;
+
+            foreach (Vehicle item in vehicle)
+            {
+                if (item.plate == "none")
+                    allvehicle++;
+
+                if (item.client_documentid == 0)
+                    allvehicle++;
+
+                allvehicle++;
+            }
+
+            return allvehicle;
+        }
+
+        public int GetAllNoRentVehicle()
+        {
+            return this.GetAllVehicle() - this.GetAllRentVehicle();
         }
     }
 }

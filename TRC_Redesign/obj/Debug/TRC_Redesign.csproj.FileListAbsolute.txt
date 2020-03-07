@@ -23,7 +23,6 @@ D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.admin_account.resources
 D:\TRC_Redesign\TRC_Redesign\bin\Debug\rentcar.mdf
 D:\TRC_Redesign\TRC_Redesign\bin\Debug\rentcar_log.ldf
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.login.resources
-D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.csprojAssemblyReference.cache
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.admin_vehicleadd.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.load.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.settings_page.resources
@@ -33,3 +32,4 @@ D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.VehicleInfo.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.CustomMessageBox.msgBoxOK.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.CustomMessageBox.msgBoxYesNo.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.RentPicker.RentTimePicker.resources
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.csprojAssemblyReference.cache

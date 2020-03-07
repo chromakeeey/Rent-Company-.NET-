@@ -14,7 +14,7 @@ namespace TRC_Redesign
     public partial class payment_page : UserControl
     {
         int actionType = 0;
-        public Form1 obj;
+        public Form1 mainWindow;
 
         public payment_page()
         {
@@ -55,7 +55,7 @@ namespace TRC_Redesign
 
         private void jThinButton1_Click(object sender, EventArgs e)
         {
-            /*if (actionType == 0)
+            if (actionType == 0)
             {
                 if (maskedTextBox1.Text == "" || maskedTextBox2.Text == "" ||
                     maskedTextBox3.Text == "" && maskedTextBox4.Text == "" ||
@@ -73,8 +73,8 @@ namespace TRC_Redesign
                     return;
                 }
 
-                account.instance.balance += Convert.ToSingle(textBox1.Text);
-                Form1.pointer.UpdateAccountInformation();
+                mainWindow.clientData.account.balance += Convert.ToSingle(textBox1.Text);
+                mainWindow.updateAccountData();
 
                 MessageBox.Show("Ви успішно поповнили свій рахунок.");
             }
@@ -88,18 +88,18 @@ namespace TRC_Redesign
                     return;
                 }
 
-                if (account.instance.balance < Convert.ToSingle(textBox1.Text))
+                if (mainWindow.clientData.account.balance < Convert.ToSingle(textBox1.Text))
                 {
                     label10.Text = "Не вистачає грошей на рахунку для виводу їх на карту.";
                     label10.Visible = true;
                     return;
                 }
 
-                account.instance.balance -= Convert.ToSingle(textBox1.Text);
-                Form1.pointer.UpdateAccountInformation();
+                mainWindow.clientData.account.balance -= Convert.ToSingle(textBox1.Text);
+                mainWindow.updateAccountData();
 
-                obj.dialogCreate("Гроші були виведені Вам на карту.", "Успішна операція", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }*/
+                mainWindow.dialogCreate("Гроші були виведені Вам на карту.", "Успішна операція", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

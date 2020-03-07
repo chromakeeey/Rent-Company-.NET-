@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TRC_Redesign.header;
 using System.Data.SqlClient;
+
+using TRC_Redesign.header;
+using TRC_Redesign.ServiceRent;
 
 namespace TRC_Redesign
 {
     public partial class vehicle_page : UserControl
     {
-        public Form1 MainPointer;
+        public Form1 mainWindow;
         public SqlConnection sqlconnection;
+        Vehicle[] paramsObject;
 
         //vehicle[] paramsObject = new vehicle[1000];
 
@@ -77,21 +75,19 @@ namespace TRC_Redesign
             //UpdateVehicleObject();
             //SetVehiclePage(0);
 
-
+            
         }
 
-        public void UpdateVehicleObject()
+        public void updateVehicleObject()
         {
-            //paramsObject = Form1.pointer.ui.CreateObjectParams(
-                //Convert.ToInt32(textBox1.Text),
-                //Convert.ToInt32(textBox2.Text), typeChecked);
+            paramsObject = mainWindow.serverData.client.createVehicleObjectParams(
+                Convert.ToInt32(textBox1.Text),
+                Convert.ToInt32(textBox2.Text), typeChecked);
         }
 
         
         public vehicle_page()
         {
-            //for (int i = 0; i != 1000; i++)
-                //paramsObject[i] = new vehicle();
 
             InitializeComponent();
         }
@@ -110,7 +106,7 @@ namespace TRC_Redesign
 
         private void pictureBox15_Click(object sender, EventArgs e)
         {
-            UpdateVehicleObject();
+            updateVehicleObject();
 
             clearVehicleList();
             updateVehicleList();
@@ -138,10 +134,10 @@ namespace TRC_Redesign
         {
             int position_y = 14;
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < paramsObject.Length; i++)
             {
-               // if (!paramsObject[i].IsVehicleValid())
-                    //continue;
+                if (paramsObject[i].plate == "none")
+                    continue;
 
                 panelObject.Add(new VehiclePanel());
                 int index = panelObject.Count - 1;
@@ -152,8 +148,9 @@ namespace TRC_Redesign
                 panelObject[index].Location = new Point(vehiclePanel1.Location.X, position_y);
                 position_y += 171;
 
-                //panelObject[index].setVehicle(paramsObject[i]);
-                panelObject[index].setLocalTheme(MainPointer);
+                panelObject[index].mainWindow = mainWindow;
+                panelObject[index].setVehicle(paramsObject[i]);
+                panelObject[index].setLocalTheme();
                 panelObject[index].Visible = true;
             }
            

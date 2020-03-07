@@ -15,7 +15,7 @@ namespace TRC_Redesign
 {
     public partial class VehiclePanel : UserControl
     {
-        public Form1 mainForm;
+        public Form1 mainWindow;
         Vehicle objectVehicle;
 
         public VehiclePanel()
@@ -24,11 +24,11 @@ namespace TRC_Redesign
             //setLocalTheme();
         }
 
-        public void setLocalTheme(Form1 FormObject)
+        public void setLocalTheme()
         {
-            mainForm = FormObject;
+            //mainForm = FormObject;
 
-            switch(FormObject.clientData.ui.themeCurrent)
+            switch(mainWindow.clientData.ui.themeCurrent)
             {
                 case 0:
                     {
@@ -36,10 +36,10 @@ namespace TRC_Redesign
                         Color lightGray = Color.FromArgb(222, 222, 222);
                         Color darkGray = Color.FromArgb(64, 64, 64);
 
-                        FormObject.clientData.ui.SetPictureColor(pictureBox2, fullBlack);
-                        FormObject.clientData.ui.SetPictureColor(pictureBox4, fullBlack);
-                        FormObject.clientData.ui.SetPictureColor(pictureBox5, fullBlack);
-                        FormObject.clientData.ui.SetButtonPictureColor(button1, fullBlack);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox2, fullBlack);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox4, fullBlack);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox5, fullBlack);
+                        mainWindow.clientData.ui.SetButtonPictureColor(button1, fullBlack);
 
                         this.BackColor = lightGray;
                         label1.ForeColor = fullBlack;
@@ -56,10 +56,10 @@ namespace TRC_Redesign
                         Color lightGray = Color.FromArgb(192, 192, 192);
                         Color darkGray = Color.FromArgb(40, 40, 40);
 
-                        FormObject.clientData.ui.SetPictureColor(pictureBox2, fullWhite);
-                        FormObject.clientData.ui.SetPictureColor(pictureBox4, fullWhite);
-                        FormObject.clientData.ui.SetPictureColor(pictureBox5, fullWhite);
-                        FormObject.clientData.ui.SetButtonPictureColor(button1, fullWhite);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox2, fullWhite);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox4, fullWhite);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox5, fullWhite);
+                        mainWindow.clientData.ui.SetButtonPictureColor(button1, fullWhite);
 
                         this.BackColor = darkGray;
                         label1.ForeColor = fullWhite;
@@ -72,17 +72,17 @@ namespace TRC_Redesign
                     }
                 case 2:
                     {
-                        FormObject.clientData.ui.SetPictureColor(pictureBox2, FormObject.clientData.ui.customIcon);
-                        FormObject.clientData.ui.SetPictureColor(pictureBox4, FormObject.clientData.ui.customIcon);
-                        FormObject.clientData.ui.SetPictureColor(pictureBox5, FormObject.clientData.ui.customIcon);
-                        FormObject.clientData.ui.SetButtonPictureColor(button1, FormObject.clientData.ui.customIcon);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox2, mainWindow.clientData.ui.customIcon);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox4, mainWindow.clientData.ui.customIcon);
+                        mainWindow.clientData.ui.SetPictureColor(pictureBox5, mainWindow.clientData.ui.customIcon);
+                        mainWindow.clientData.ui.SetButtonPictureColor(button1, mainWindow.clientData.ui.customIcon);
 
-                        this.BackColor = FormObject.clientData.ui.customMainPanel;
-                        label1.ForeColor = FormObject.clientData.ui.customMainText;
-                        label2.ForeColor = FormObject.clientData.ui.customMainText;
-                        label3.ForeColor = FormObject.clientData.ui.customMainText;
-                        label4.ForeColor = FormObject.clientData.ui.customSecondText;
-                        label76.ForeColor = FormObject.clientData.ui.customSecondText;
+                        this.BackColor = mainWindow.clientData.ui.customMainPanel;
+                        label1.ForeColor = mainWindow.clientData.ui.customMainText;
+                        label2.ForeColor = mainWindow.clientData.ui.customMainText;
+                        label3.ForeColor = mainWindow.clientData.ui.customMainText;
+                        label4.ForeColor = mainWindow.clientData.ui.customSecondText;
+                        label76.ForeColor = mainWindow.clientData.ui.customSecondText;
 
                         break;
                     }
@@ -107,8 +107,8 @@ namespace TRC_Redesign
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mainForm.vinfo.setVehicle(objectVehicle);
-            mainForm.vinfo.Show();
+            mainWindow.vinfo.setVehicle(objectVehicle);
+            mainWindow.vinfo.Show();
         }
     }
 }

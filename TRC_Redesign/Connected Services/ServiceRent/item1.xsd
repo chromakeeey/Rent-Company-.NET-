@@ -56,4 +56,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Rent" nillable="true" type="tns:Rent" />
+  <xs:complexType name="ArrayOfVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehicle" nillable="true" type="tns:Vehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicle" nillable="true" type="tns:ArrayOfVehicle" />
 </xs:schema>

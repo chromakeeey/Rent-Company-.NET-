@@ -14,35 +14,25 @@ namespace TRC_Redesign
 {
     public partial class admin_page : UserControl
     {
-        public static admin_page pointer = null;
-        public SqlConnection sqlconnection;
-        public Form1 obj;
+        public Form1 mainWindow;
 
         public admin_page()
         {
-            if (pointer == null)
-                pointer = this;
 
             InitializeComponent();
         }
 
         public void UpdateStatisticInformation()
         {
-            //label27.Text = Form1.pointer.ui.GetAllVehicle().ToString();
-            //label3.Text = Form1.pointer.ui.GetAllRentVehicle().ToString();
-            //label5.Text = Form1.pointer.ui.GetAllNoRentVehicle().ToString();
+            label27.Text = mainWindow.serverData.client.GetAllVehicle().ToString();
+            label3.Text = mainWindow.serverData.client.GetAllRentVehicle().ToString();
+            label5.Text = mainWindow.serverData.client.GetAllNoRentVehicle().ToString();  
 
-            //label8.Text = account.instance.GetAdminLevel().ToString() + " рівень";
+            label8.Text = mainWindow.clientData.account.level.ToString() + " рівень";
         }
 
         public void AdminPageLoad()
         {
-            //this.sqlconnection = sqlconnection;
-            admin_check1.AdminCheckPageLoad(sqlconnection);
-            admin_vehicleadd1.AdminVehicleAdd_Load(sqlconnection);
-            //UpdateStatisticInformation();
-
-            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_CHECK_PANEL, this);
             panel9.Location = new Point(7, panel9.Location.Y);
         }
 
@@ -54,27 +44,26 @@ namespace TRC_Redesign
         private void button1_Click(object sender, EventArgs e)
         {
             panel9.Location = new Point(button1.Location.X, panel9.Location.Y);
-
-            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_CHECK_PANEL, this);
+            mainWindow.clientData.ui.CreateAdminSubPanel(mainWindow.clientData.ui.SUB_CHECK_PANEL, this);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             panel9.Location = new Point(button2.Location.X, panel9.Location.Y);
-            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_VEHICLE_ADD, this);
+            mainWindow.clientData.ui.CreateAdminSubPanel(mainWindow.clientData.ui.SUB_VEHICLE_ADD, this);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            obj.dialogCreate("coming soon ...", "later", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            mainWindow.dialogCreate("coming soon ...", "later", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //panel9.Location = new Point(button3.Location.X, panel9.Location.Y);
+            panel9.Location = new Point(button3.Location.X, panel9.Location.Y);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             panel9.Location = new Point(button4.Location.X, panel9.Location.Y);
-            //Form1.pointer.ui.CreateAdminSubPanel(Form1.pointer.ui.SUB_ACCOUNT_PANEL, this);
+            mainWindow.clientData.ui.CreateAdminSubPanel(mainWindow.clientData.ui.SUB_ACCOUNT_PANEL, this);
         }
 
         

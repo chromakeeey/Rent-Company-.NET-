@@ -264,7 +264,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceRent\ServiceRent.wsdl" />
-    <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.Account1.datasource">
+    <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.Vehicle.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">

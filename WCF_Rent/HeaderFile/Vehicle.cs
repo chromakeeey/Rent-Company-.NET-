@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace WCF_Rent.HeaderFile
 {
+    
     public class Vehicle : Rent
     {
         //public static vehicle instance = null;
@@ -30,6 +32,7 @@ namespace WCF_Rent.HeaderFile
         public string transmission;
         public string category;
 
+        
         public Vehicle()
         {
 
@@ -50,10 +53,11 @@ namespace WCF_Rent.HeaderFile
             category = "B";
         }
 
-        public bool IsVehicleValid()
+        public bool isValidVehicle()
         {
             return (this.plate != "none");
         }
+
 
         /*public void AddVehicle(string plate, string name, string model, float price, float fuel, float mileage)
         {
@@ -110,4 +114,5 @@ namespace WCF_Rent.HeaderFile
             command.ExecuteNonQuery();
         }*/
     }
+
 }

@@ -12,7 +12,7 @@ namespace TRC_Redesign
 {
     public partial class settings_page : UserControl
     {
-        public Form1 objectForm;
+        public Form1 mainWindow;
 
         public settings_page()
         {
@@ -59,8 +59,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                //Form1.pointer.ui.customMainText = PickColor.Color;
-                //Form1.pointer.ui.SetMainTextColor(objectForm, PickColor.Color);
+                mainWindow.clientData.ui.customMainText = PickColor.Color;
+                mainWindow.clientData.ui.SetMainTextColor(mainWindow, PickColor.Color);
             }
         }
 
@@ -71,8 +71,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                //Form1.pointer.ui.customSecondText = PickColor.Color;
-                //Form1.pointer.ui.SetSecondTextColor(objectForm, PickColor.Color);
+                mainWindow.clientData.ui.customSecondText = PickColor.Color;
+                mainWindow.clientData.ui.SetSecondTextColor(mainWindow, PickColor.Color);
             }
         }
 
@@ -83,8 +83,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                //Form1.pointer.ui.customButton = PickColor.Color;
-                //Form1.pointer.ui.SetButtonColor(objectForm, PickColor.Color);
+                mainWindow.clientData.ui.customButton = PickColor.Color;
+                mainWindow.clientData.ui.SetButtonColor(mainWindow, PickColor.Color);
             }
         }
 
@@ -95,8 +95,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                //Form1.pointer.ui.customIcon = PickColor.Color;
-                //Form1.pointer.ui.SetIconColor(objectForm, PickColor.Color);
+                mainWindow.clientData.ui.customIcon = PickColor.Color;
+                mainWindow.clientData.ui.SetIconColor(mainWindow, PickColor.Color);
             }
         }
 
@@ -107,8 +107,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                //Form1.pointer.ui.customMainPanel = PickColor.Color;
-                //Form1.pointer.ui.SetMainPanelColor(objectForm, PickColor.Color);
+                mainWindow.clientData.ui.customMainPanel = PickColor.Color;
+                mainWindow.clientData.ui.SetMainPanelColor(mainWindow, PickColor.Color);
             }
         }
 
@@ -120,8 +120,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                //Form1.pointer.ui.customSecondPanel = PickColor.Color;
-                //Form1.pointer.ui.SetSecondPanelColor(objectForm, PickColor.Color);
+                mainWindow.clientData.ui.customSecondPanel = PickColor.Color;
+                mainWindow.clientData.ui.SetSecondPanelColor(mainWindow, PickColor.Color);
             }
         }
 
@@ -132,8 +132,8 @@ namespace TRC_Redesign
 
             if (PickColor.ShowDialog() == DialogResult.OK)
             {
-                //Form1.pointer.ui.customForm = PickColor.Color;
-                //Form1.pointer.ui.SetFormColor(objectForm, PickColor.Color);
+                mainWindow.clientData.ui.customForm = PickColor.Color;
+                mainWindow.clientData.ui.SetFormColor(mainWindow, PickColor.Color);
             }
         }
 

@@ -70,7 +70,7 @@ namespace TRC_Redesign.header
             int countObject = objectForm.vehicle_page1.panelObject.Count;
 
             for (int i = 0; i < countObject; i++)
-                objectForm.vehicle_page1.panelObject[i].setLocalTheme(objectForm);
+                objectForm.vehicle_page1.panelObject[i].setLocalTheme();
         }
 
         void SetLightTheme(Form1 objectForm)

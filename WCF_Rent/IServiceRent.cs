@@ -46,6 +46,9 @@ namespace WCF_Rent
         [OperationContract]
         bool isSqlConnection();
 
+        [OperationContract]
+        Vehicle getUserVehicle(Account account);
+
         /*      account block       */
 
         [OperationContract(IsOneWay = true)]
@@ -57,6 +60,17 @@ namespace WCF_Rent
         [OperationContract(IsOneWay = true)]
         void deleteAccount(Account accountObject);
 
+        [OperationContract]
+        List<Vehicle> createVehicleObjectParams(int min, int max, int type);
+
+        [OperationContract]
+        int GetAllVehicle();
+
+        [OperationContract]
+        int GetAllRentVehicle();
+
+        [OperationContract]
+        int GetAllNoRentVehicle();
     }
 
     public interface IServerRentCallback
@@ -64,5 +78,7 @@ namespace WCF_Rent
         
 
     }
+
+    
 
 }

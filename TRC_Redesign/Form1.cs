@@ -139,38 +139,22 @@ namespace TRC_Redesign
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             
 
-            //main_page1.sqlconnection = this.sqlconnection;
-            //vehicle_page1.sqlconnection = this.sqlconnection;
-            //admin_page1.sqlconnection = this.sqlconnection;
-
-            //main_page1.loadForm();
             vehicle_page1.LoadVehiclePage();
             admin_page1.AdminPageLoad();
 
-            vehicle_page1.MainPointer = this;
-            settings_page1.objectForm = this;
-            main_page1.pointerForm = this;
-            admin_page1.obj = this;
+            vehicle_page1.mainWindow = this;
+            settings_page1.mainWindow = this;
+            main_page1.mainWindow = this;
+            admin_page1.mainWindow = this;
             admin_page1.admin_check1.obj = this;
             admin_page1.admin_vehicleadd1.obj = this;
 
-            //if (account.instance.GetAdminLevel() != 0)
-            //    button5.Visible = true;
+            main_page1.updateVehicleData();
+            main_page1.updateNameData();
 
-            //UpdateAccountInformation();
             clientData.ui.CreatePanel(clientData.ui.MAIN_PANEL, this);
-
-
-
-            /*var frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save("screenshot.png", System.Drawing.Imaging.ImageFormat.Png);
-            }*/
         }
 
         

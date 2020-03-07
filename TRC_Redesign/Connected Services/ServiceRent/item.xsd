@@ -99,24 +99,90 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getUserVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="account" nillable="true" type="q5:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="getUserVehicleResult" nillable="true" type="q6:Vehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="saveAccount">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="accountObject" nillable="true" type="q5:Account" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="accountObject" nillable="true" type="q7:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="addAccount">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="accountObject" nillable="true" type="q6:Account" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="accountObject" nillable="true" type="q8:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="deleteAccount">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="accountObject" nillable="true" type="q7:Account" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="accountObject" nillable="true" type="q9:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createVehicleObjectParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="min" type="xs:int" />
+        <xs:element minOccurs="0" name="max" type="xs:int" />
+        <xs:element minOccurs="0" name="type" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createVehicleObjectParamsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="createVehicleObjectParamsResult" nillable="true" type="q10:ArrayOfVehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllVehicle">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllVehicleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRentVehicle">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRentVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllRentVehicleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNoRentVehicle">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNoRentVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllNoRentVehicleResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

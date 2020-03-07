@@ -599,6 +599,12 @@ namespace TRC_Redesign.ServiceRent {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/isSqlConnection", ReplyAction="http://tempuri.org/IServiceRent/isSqlConnectionResponse")]
         System.Threading.Tasks.Task<bool> isSqlConnectionAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/getUserVehicle", ReplyAction="http://tempuri.org/IServiceRent/getUserVehicleResponse")]
+        TRC_Redesign.ServiceRent.Vehicle getUserVehicle(TRC_Redesign.ServiceRent.Account account);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/getUserVehicle", ReplyAction="http://tempuri.org/IServiceRent/getUserVehicleResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> getUserVehicleAsync(TRC_Redesign.ServiceRent.Account account);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/saveAccount")]
         void saveAccount(TRC_Redesign.ServiceRent.Account accountObject);
         
@@ -616,6 +622,30 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/deleteAccount")]
         System.Threading.Tasks.Task deleteAccountAsync(TRC_Redesign.ServiceRent.Account accountObject);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/createVehicleObjectParams", ReplyAction="http://tempuri.org/IServiceRent/createVehicleObjectParamsResponse")]
+        TRC_Redesign.ServiceRent.Vehicle[] createVehicleObjectParams(int min, int max, int type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/createVehicleObjectParams", ReplyAction="http://tempuri.org/IServiceRent/createVehicleObjectParamsResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle[]> createVehicleObjectParamsAsync(int min, int max, int type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetAllVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetAllVehicleResponse")]
+        int GetAllVehicle();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetAllVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetAllVehicleResponse")]
+        System.Threading.Tasks.Task<int> GetAllVehicleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetAllRentVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetAllRentVehicleResponse")]
+        int GetAllRentVehicle();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetAllRentVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetAllRentVehicleResponse")]
+        System.Threading.Tasks.Task<int> GetAllRentVehicleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetAllNoRentVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetAllNoRentVehicleResponse")]
+        int GetAllNoRentVehicle();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetAllNoRentVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetAllNoRentVehicleResponse")]
+        System.Threading.Tasks.Task<int> GetAllNoRentVehicleAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -725,6 +755,14 @@ namespace TRC_Redesign.ServiceRent {
             return base.Channel.isSqlConnectionAsync();
         }
         
+        public TRC_Redesign.ServiceRent.Vehicle getUserVehicle(TRC_Redesign.ServiceRent.Account account) {
+            return base.Channel.getUserVehicle(account);
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> getUserVehicleAsync(TRC_Redesign.ServiceRent.Account account) {
+            return base.Channel.getUserVehicleAsync(account);
+        }
+        
         public void saveAccount(TRC_Redesign.ServiceRent.Account accountObject) {
             base.Channel.saveAccount(accountObject);
         }
@@ -747,6 +785,38 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task deleteAccountAsync(TRC_Redesign.ServiceRent.Account accountObject) {
             return base.Channel.deleteAccountAsync(accountObject);
+        }
+        
+        public TRC_Redesign.ServiceRent.Vehicle[] createVehicleObjectParams(int min, int max, int type) {
+            return base.Channel.createVehicleObjectParams(min, max, type);
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle[]> createVehicleObjectParamsAsync(int min, int max, int type) {
+            return base.Channel.createVehicleObjectParamsAsync(min, max, type);
+        }
+        
+        public int GetAllVehicle() {
+            return base.Channel.GetAllVehicle();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetAllVehicleAsync() {
+            return base.Channel.GetAllVehicleAsync();
+        }
+        
+        public int GetAllRentVehicle() {
+            return base.Channel.GetAllRentVehicle();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetAllRentVehicleAsync() {
+            return base.Channel.GetAllRentVehicleAsync();
+        }
+        
+        public int GetAllNoRentVehicle() {
+            return base.Channel.GetAllNoRentVehicle();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetAllNoRentVehicleAsync() {
+            return base.Channel.GetAllNoRentVehicleAsync();
         }
     }
 }

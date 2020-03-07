@@ -12,8 +12,6 @@ namespace TRC_Redesign
     public partial class load : Form
     {
 
-       
-
         UI ui = new UI();
         Form1 mainWindow = new Form1();
         login Login = new login();

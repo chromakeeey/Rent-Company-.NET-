@@ -11,11 +11,8 @@ namespace TRC_Redesign.header
     public class ClientData
     {
         public Form1 mainWindow;
-        //public ServerData serverData = new ServerData();
-        public UI ui;
+        public UI ui = new UI();
         public Account account;
-
-        public List<Vehicle> vehicleObject = new List<Vehicle>();
 
         // Forms
         public VehicleInfo vehicleinfo = new VehicleInfo();
