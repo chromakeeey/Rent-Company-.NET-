@@ -16,92 +16,43 @@ namespace TRC_Redesign
 {
     public partial class admin_check : UserControl
     {
-        public SqlConnection sqlconnection;
-        public Form1 obj;
+        public Form1 mainWindow;
 
-        Account object_tmp = new Account();
+        Account account = new Account();
 
-        /*public async void UpdateCheckAccount()
+        public void updateAccountData()
         {
-            object_tmp.ClearAccountData();
 
-            SqlDataReader sqlReader = null;
-            SqlCommand command;
-
-            command = new SqlCommand("SELECT * FROM[accounts] WHERE[accepted] = 0", sqlconnection);
-
-            bool login_search = false;
-
-            try
+            if (account.documentid == 0)
             {
-                sqlReader = await command.ExecuteReaderAsync();
+                panel1.Visible = false;
+                label15.Visible = true;
+                label16.Visible = true;
+                pictureBox1.Visible = true;
 
-                while (await sqlReader.ReadAsync())
-                {
-                    login_search = true;
-
-                    object_tmp.SetAccountData(Convert.ToInt32(sqlReader["documentid"]),
-                        Convert.ToString(sqlReader["name"]),
-                        Convert.ToString(sqlReader["secondname"]),
-                        Convert.ToString(sqlReader["fathername"]),
-                        Convert.ToString(sqlReader["login"]),
-                        Convert.ToString(sqlReader["password"]),
-                        Convert.ToString(sqlReader["phone"]),
-                        Convert.ToString(sqlReader["email"])
-                    );
-
-                    object_tmp.dateCreate = Convert.ToDateTime(sqlReader["datecreate"]);
-
-                    break;
-                }
-
-                if (login_search)
-                {
-                    label40.Text = object_tmp.name;
-                    label5.Text = object_tmp.secondname;
-                    label7.Text = object_tmp.fathername;
-                    label9.Text = object_tmp.mail;
-                    label11.Text = object_tmp.phone;
-                    label13.Text = object_tmp.documentid.ToString();
-                    label1.Text = object_tmp.login;
-
-                    label3.Text = object_tmp.dateCreate.ToShortDateString();
-
-                    panel1.Visible = true;
-
-                    label15.Visible = false;
-                    label16.Visible = false;
-                    pictureBox1.Visible = false;
-
-                }
-                else
-                {
-                    panel1.Visible = false;
-
-                    label15.Visible = true;
-                    label16.Visible = true;
-                    pictureBox1.Visible = true;
-                }
+                return;
             }
 
-            catch (Exception ex)
-            {
-                
-                obj.dialogCreate(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            label40.Text = account.name;
+            label5.Text = account.secondname;
+            label7.Text = account.fathername;
+            label9.Text = account.mail;
+            label11.Text = account.phone;
+            label1.Text = account.login;
 
-            finally
-            {
-                if (sqlReader != null)
-                    sqlReader.Close();
-            }
+            label13.Text = account.documentid.ToString();
+            label3.Text = account.dateCreate.ToShortDateString();
+
+            panel1.Visible = true;
+            label15.Visible = false;
+            label16.Visible = false;
+            pictureBox1.Visible = false;
         }
-        */
+          
+        
 
         public void AdminCheckPageLoad(SqlConnection sqlconnection)
         {
-            //this.sqlconnection = sqlconnection;
-            //UpdateCheckAccount();
         }
 
         public admin_check()
@@ -111,30 +62,31 @@ namespace TRC_Redesign
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //UpdateCheckAccount();
+            account = mainWindow.serverData.client.noAcceptedAccount();
+            updateAccountData();
         }
 
-        // accept
         private void jThinButton1_Click(object sender, EventArgs e)
         {
-            //object_tmp.accepted = 1;
-            //object_tmp.SaveObjectAccount(sqlconnection);
+            account.accepted = 1;
+            mainWindow.serverData.client.saveAccount(account);
 
-            //UpdateCheckAccount();
+            account = mainWindow.serverData.client.noAcceptedAccount();
+            updateAccountData();
 
-            obj.dialogCreate("Ви підтвердили аккаунт.", "Підтвердження аккаунта", 
+            mainWindow.dialogCreate("Ви підтвердили аккаунт.", "Підтвердження аккаунта", 
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // decline
         private void jThinButton3_Click(object sender, EventArgs e)
         {
-            //object_tmp.accepted = 2;
-            //object_tmp.SaveObjectAccount(sqlconnection);
+            account.accepted = 2;
+            mainWindow.serverData.client.saveAccount(account);
 
-            //UpdateCheckAccount();
+            account = mainWindow.serverData.client.noAcceptedAccount();
+            updateAccountData();
 
-            obj.dialogCreate("Ви відмовили аккаунту в реєстрації", "Відмовлення", 
+            mainWindow.dialogCreate("Ви відмовили аккаунту в реєстрації", "Відмовлення", 
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

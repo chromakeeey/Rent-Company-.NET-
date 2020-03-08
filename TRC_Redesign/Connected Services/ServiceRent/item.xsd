@@ -186,4 +186,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="noAcceptedAccount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="noAcceptedAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="noAcceptedAccountResult" nillable="true" type="q11:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="plate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="findVehicleResult" nillable="true" type="q12:Vehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

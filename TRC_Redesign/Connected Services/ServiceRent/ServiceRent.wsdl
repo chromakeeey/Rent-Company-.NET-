@@ -120,6 +120,18 @@
   <wsdl:message name="IServiceRent_GetAllNoRentVehicle_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllNoRentVehicleResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_noAcceptedAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:noAcceptedAccount" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_noAcceptedAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:noAcceptedAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_findVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:findVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_findVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:findVehicleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceRent">
     <wsdl:operation name="userConnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/userConnect" message="tns:IServiceRent_userConnect_InputMessage" />
@@ -184,6 +196,14 @@
     <wsdl:operation name="GetAllNoRentVehicle">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/GetAllNoRentVehicle" message="tns:IServiceRent_GetAllNoRentVehicle_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/GetAllNoRentVehicleResponse" message="tns:IServiceRent_GetAllNoRentVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="noAcceptedAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/noAcceptedAccount" message="tns:IServiceRent_noAcceptedAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/noAcceptedAccountResponse" message="tns:IServiceRent_noAcceptedAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="findVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/findVehicle" message="tns:IServiceRent_findVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/findVehicleResponse" message="tns:IServiceRent_findVehicle_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServiceRent" type="tns:IServiceRent">
@@ -320,6 +340,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllNoRentVehicle">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/GetAllNoRentVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="noAcceptedAccount">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/noAcceptedAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/findVehicle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

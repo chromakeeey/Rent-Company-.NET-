@@ -646,6 +646,18 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetAllNoRentVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetAllNoRentVehicleResponse")]
         System.Threading.Tasks.Task<int> GetAllNoRentVehicleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/noAcceptedAccount", ReplyAction="http://tempuri.org/IServiceRent/noAcceptedAccountResponse")]
+        TRC_Redesign.ServiceRent.Account noAcceptedAccount();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/noAcceptedAccount", ReplyAction="http://tempuri.org/IServiceRent/noAcceptedAccountResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account> noAcceptedAccountAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/findVehicle", ReplyAction="http://tempuri.org/IServiceRent/findVehicleResponse")]
+        TRC_Redesign.ServiceRent.Vehicle findVehicle(string plate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/findVehicle", ReplyAction="http://tempuri.org/IServiceRent/findVehicleResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> findVehicleAsync(string plate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -817,6 +829,22 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task<int> GetAllNoRentVehicleAsync() {
             return base.Channel.GetAllNoRentVehicleAsync();
+        }
+        
+        public TRC_Redesign.ServiceRent.Account noAcceptedAccount() {
+            return base.Channel.noAcceptedAccount();
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account> noAcceptedAccountAsync() {
+            return base.Channel.noAcceptedAccountAsync();
+        }
+        
+        public TRC_Redesign.ServiceRent.Vehicle findVehicle(string plate) {
+            return base.Channel.findVehicle(plate);
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> findVehicleAsync(string plate) {
+            return base.Channel.findVehicleAsync(plate);
         }
     }
 }

@@ -71,6 +71,14 @@ namespace WCF_Rent
 
         [OperationContract]
         int GetAllNoRentVehicle();
+
+
+        [OperationContract]
+        Account noAcceptedAccount();
+
+        [OperationContract]
+        Vehicle findVehicle(string plate);
+
     }
 
     public interface IServerRentCallback

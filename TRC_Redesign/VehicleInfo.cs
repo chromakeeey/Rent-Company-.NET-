@@ -17,7 +17,10 @@ namespace TRC_Redesign
     public partial class VehicleInfo : Form
     {
         private DateTime rentDate;
-        private float price;
+        private float totalPrice;
+
+        private Vehicle vehicle;
+        public Form1 mainWindow;
 
         public VehicleInfo()
         {
@@ -105,6 +108,62 @@ namespace TRC_Redesign
             if (m.Msg == WM_NCHITTEST && (int)m.Result == HTCLIENT) m.Result = (IntPtr)HTCAPTION;
         }
 
+        public void tryRentVehicle()
+        {
+            Vehicle vehicleObject = mainWindow.serverData.client.findVehicle(vehicle.plate);
+
+            if (vehicleObject.plate == "none")
+            {
+                MessageBox.Show("Автомобіль який ви переглядали більше недоступний. \nМожливо хтось видалив автомобіль або змінив номерний знак.", "Відміна оренди",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                Hide();
+
+                return;
+            }
+
+            vehicle = vehicleObject;
+
+            if (totalPrice > mainWindow.clientData.account.balance)
+            {
+                MessageBox.Show("Оренда неможлива, поповніть рахунок.", "Відміна оренди",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            if (vehicle.client_documentid != 0)
+            {
+                MessageBox.Show("Оренда неможлива, автомобіль вже орендований.", "Відміна оренди",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            DialogResult answer = MessageBox.Show("Ви дійсно хочите орендувати " + vehicle.name + " " + vehicle.model + "?\n\n" +
+                "Дата початку оренди: " + DateTime.Now.ToShortTimeString() + "\n" +
+                "Дата кінця оренди: " + rentDate.ToShortTimeString(), "Підтвердіть дію", MessageBoxButtons.YesNoCancel);
+
+            if (answer == DialogResult.Yes)
+            {
+                mainWindow.clientData.account.balance -= totalPrice;
+
+                vehicle.client_documentid = mainWindow.clientData.account.documentid;
+
+                vehicle.start_date = DateTime.Now;
+                vehicle.end_date = rentDate;
+
+                mainWindow.serverData.client.saveVehicle(vehicle);
+                mainWindow.updateAccountData();
+                mainWindow.main_page1.updateVehicleData();
+
+                mainWindow.clientData.ui.CreatePanel(mainWindow.clientData.ui.MAIN_PANEL, mainWindow);
+                Hide();
+                
+                MessageBox.Show("Ви орендовали автомобіль. Вітаємо!", "Підтвердження оренди", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         string toPlate(string plate)
         {
             string rplate = "";
@@ -123,6 +182,8 @@ namespace TRC_Redesign
 
         public void setVehicle(Vehicle objectVehicle)
         {
+            vehicle = objectVehicle;
+
             label76.Text = objectVehicle.name + " " + objectVehicle.model;
             label4.Text = objectVehicle.type;
             label5.Text = objectVehicle.transmission;
@@ -166,8 +227,10 @@ namespace TRC_Redesign
 
         private void jThinButton1_Click(object sender, EventArgs e)
         {
-
+            tryRentVehicle();
         }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -177,12 +240,18 @@ namespace TRC_Redesign
             rentDate = RentDatePicker.Show("Виберіть дату кінця оренди.", "Вибір дати",
                 DateTime.Now, maxDay);
 
-            setEndDate(rentDate);
+            TimeSpan delta = rentDate - DateTime.Now;
+            int days = delta.Days;
+            totalPrice = days * vehicle.price;
+
+            label15.Text = "До " + rentDate.ToString();
+            label16.Text = "До оплати: " + totalPrice.ToString() + " грн.";
         }
 
-        private void setEndDate(DateTime date)
+        private void VehicleInfo_Load(object sender, EventArgs e)
         {
-            label15.Text = "До " + date.ToString();
+            label15.Text = "Вибір дати ->";
+            label16.Text = " ";
         }
     }
 }

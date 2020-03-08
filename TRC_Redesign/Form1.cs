@@ -16,7 +16,7 @@ namespace TRC_Redesign
         public ClientData clientData = new ClientData();
         public ServerData serverData = new ServerData();
 
-        public login Login = new login();
+        public login Login;
         public VehicleInfo vinfo = new VehicleInfo();
 
         int mov;
@@ -39,13 +39,15 @@ namespace TRC_Redesign
         {
             label4.Text = clientData.account.balance.ToString() + " грн.";
 
-            /*if (Account.IsUserRentCar())
-            {
-                int vehicleid = Account.GetRentIndex();
+            Vehicle vehicle = serverData.client.getUserVehicle(clientData.account);
 
-                TimeSpan delta = DateTime.Now - Form1.pointer.Vehicle[vehicleid].end_date;
-                label5.Text = (delta.Days > 0) ? (delta.Days * Form1.pointer.Vehicle[vehicleid].price + " грн.") : "0 грн.";
-            }*/
+            if (vehicle.plate != "none")
+            {
+                TimeSpan delta = DateTime.Now - vehicle.end_date;
+                label5.Text = (delta.Days > 0) ? (delta.Days * vehicle.price + " грн.") : "0 грн.";
+            }
+            else
+                label5.Text = "0 грн.";
 
             main_page1.label1.Text = "Вітаємо, " + clientData.account.name + "!";
             label2.Text = clientData.account.login;
@@ -148,8 +150,10 @@ namespace TRC_Redesign
             settings_page1.mainWindow = this;
             main_page1.mainWindow = this;
             admin_page1.mainWindow = this;
-            admin_page1.admin_check1.obj = this;
+            admin_page1.admin_check1.mainWindow = this;
             admin_page1.admin_vehicleadd1.obj = this;
+            vinfo.mainWindow = this;
+            payment_page1.mainWindow = this;
 
             main_page1.updateVehicleData();
             main_page1.updateNameData();

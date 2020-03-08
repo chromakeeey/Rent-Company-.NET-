@@ -54,6 +54,7 @@ namespace TRC_Redesign
             timer1.Start();
 
             Login.mainWindow = mainWindow;
+            mainWindow.Login = Login;
 
             label2.Text = " ";
             actionCurrent = 0;
@@ -102,13 +103,13 @@ namespace TRC_Redesign
                         label2.Text = "Вигрузка інформацію про оформлення.";
 
                         List<UI> tmpUI = mainWindow.clientData.ui.LoadTheme();
-                        foreach (UI itemUI in tmpUI) { ui = itemUI; }
+                        foreach (UI itemUI in tmpUI) { mainWindow.clientData.ui = itemUI; }
 
                         mainWindow.clientData.ui.panelidNow = -1;
                         mainWindow.clientData.ui.subPanelNow = -1;
 
                         mainWindow.clientData.ui.ColorsToARGB();
-                        mainWindow.clientData.ui.SetTheme(mainWindow, ui.themeCurrent);
+                        mainWindow.clientData.ui.SetTheme(mainWindow, mainWindow.clientData.ui.themeCurrent);
 
                         actionCurrent = 2;
 

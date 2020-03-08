@@ -572,11 +572,11 @@
   </data>
   <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAC8SURBVDhPvdI7DgFhGIXhqWjURCFKCsk0VBoxtLRiC2IpFqNgC2IVboVWFErjPZNTmgvFnOSJ
-        fOZ88U9+QSmJ47iGpsfiYSnCFSds/HV+KE/wwgoVnNHw4/RQ0qJ+cYkL1v6suvI9FKa4IfS8gE4QJYW0
-        UJhBx+t4HkAnGCaFtFCY4+9FvVPXc+FFXccTfc896Gqy31GhtMMRe4TQ4tiPs0PxjjYOePyy2MIbupot
-        Rn6UH8r639Y9lpEg+ACM2Ohy4liG9gAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAALxJREFUOE+9
+        0jsOAWEYheGpaNREIUoKyTRUGjG0tGILYikWo2ALYhVuhVYUSuM9k1OaC8Wc5Il85nzxT35BKYnjuIam
+        x+JhKcIVJ2z8dX4oT/DCChWc0fDj9FDSon5xiQvW/qy68j0Uprgh9LyAThAlhbRQmEHH63geQCcYJoW0
+        UJjj70W9U9dz4UVdxxN9zz3oarLfUaG0wxF7hNDi2I+zQ/GONg54/LLYwhu6mi1GfpQfyvrf1j2WkSD4
+        AIzY6HLiWIb2AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

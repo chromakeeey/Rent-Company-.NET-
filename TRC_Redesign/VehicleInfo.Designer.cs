@@ -318,7 +318,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 21);
             this.label15.TabIndex = 97;
-            this.label15.Text = "До 03.02.2020";
+            this.label15.Text = "Вибір дати ->";
             this.label15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // button2
@@ -341,7 +341,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(122, 25);
             this.label16.TabIndex = 100;
-            this.label16.Text = "До оплати: 5000 грн.";
+            this.label16.Text = " ";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // VehicleInfo
@@ -379,6 +379,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VehicleInfo";
             this.Text = "VehicleInfo";
+            this.Load += new System.EventHandler(this.VehicleInfo_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.msDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.msMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.msUp);

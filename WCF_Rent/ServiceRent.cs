@@ -64,7 +64,7 @@ namespace WCF_Rent
 
         public void selectAllVehicle()
         {
-            List<Vehicle> vehicleObject = new List<Vehicle>();
+            vehicle.Clear();
             SqlCommand sqlCommand;
 
             sqlCommand = new SqlCommand("SELECT * FROM [vehicles]", sqlconnection);
@@ -72,7 +72,7 @@ namespace WCF_Rent
 
             while (reader.Read())
             {
-                vehicleObject.Add(new Vehicle()
+                vehicle.Add(new Vehicle()
                 {
                     plate = reader["plate"].ToString(),
                     name = reader["name"].ToString(),
@@ -86,14 +86,10 @@ namespace WCF_Rent
                     end_date = Convert.ToDateTime(reader["date_end"])
                 }
                 );
-
-                break;
             }
 
             if (reader != null)
                 reader.Close();
-
-            vehicle = vehicleObject;
         }
 
         public void deleteVehicle(Vehicle vehicleObject)
@@ -340,6 +336,45 @@ namespace WCF_Rent
         public int GetAllNoRentVehicle()
         {
             return this.GetAllVehicle() - this.GetAllRentVehicle();
+        }
+
+        public Account noAcceptedAccount()
+        {
+            Account accountObject = new Account();
+            SqlCommand sqlCommand;
+
+            sqlCommand = new SqlCommand("SELECT * FROM [accounts] WHERE [accepted] = 0", sqlconnection);
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                accountObject.name = Convert.ToString(reader["name"]);
+                accountObject.secondname = Convert.ToString(reader["secondname"]);
+                accountObject.fathername = Convert.ToString(reader["fathername"]);
+                accountObject.login = Convert.ToString(reader["login"]);
+                accountObject.password = Convert.ToString(reader["password"]);
+                accountObject.phone = Convert.ToString(reader["phone"]);
+                accountObject.mail = Convert.ToString(reader["email"]);
+
+                accountObject.documentid = Convert.ToInt32(reader["documentid"]);
+                accountObject.level = Convert.ToInt32(reader["adminlevel"]);
+                accountObject.balance = Convert.ToSingle(reader["balance"]);
+                accountObject.dateCreate = Convert.ToDateTime(reader["datecreate"]);
+                accountObject.accepted = Convert.ToInt32(reader["accepted"]);
+
+                break;
+            }
+
+            if (reader != null)
+                reader.Close();
+
+            return accountObject;
+        }
+
+        public Vehicle findVehicle(string plate)
+        {
+            int index = vehicle.FindIndex(i => i.plate == plate);
+            return vehicle[index];
         }
     }
 }
