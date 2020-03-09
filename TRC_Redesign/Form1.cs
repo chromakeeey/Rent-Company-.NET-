@@ -141,22 +141,26 @@ namespace TRC_Redesign
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            panel5.Location = new Point(panel5.Location.X, button1.Location.Y);
+            clientData.ui.CreatePanel(clientData.ui.MAIN_PANEL, this);
 
-            vehicle_page1.LoadVehiclePage();
-            admin_page1.AdminPageLoad();
+            admin_page1.panel9.Location = new Point(admin_page1.button1.Location.X, admin_page1.panel9.Location.Y);
+            clientData.ui.CreateAdminSubPanel(clientData.ui.SUB_CHECK_PANEL, admin_page1);
 
             vehicle_page1.mainWindow = this;
             settings_page1.mainWindow = this;
             main_page1.mainWindow = this;
             admin_page1.mainWindow = this;
             admin_page1.admin_check1.mainWindow = this;
-            admin_page1.admin_vehicleadd1.obj = this;
+            admin_page1.admin_vehicleadd1.mainWindow = this;
             vinfo.mainWindow = this;
             payment_page1.mainWindow = this;
 
             main_page1.updateVehicleData();
             main_page1.updateNameData();
+
+            admin_page1.admin_check1.updateAccountObject();
+            admin_page1.admin_check1.updateAccountData();
 
             clientData.ui.CreatePanel(clientData.ui.MAIN_PANEL, this);
         }

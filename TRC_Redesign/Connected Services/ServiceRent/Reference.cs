@@ -658,6 +658,18 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/findVehicle", ReplyAction="http://tempuri.org/IServiceRent/findVehicleResponse")]
         System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> findVehicleAsync(string plate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/uploadVehicleImage", ReplyAction="http://tempuri.org/IServiceRent/uploadVehicleImageResponse")]
+        void uploadVehicleImage(byte[] buffer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/uploadVehicleImage", ReplyAction="http://tempuri.org/IServiceRent/uploadVehicleImageResponse")]
+        System.Threading.Tasks.Task uploadVehicleImageAsync(byte[] buffer);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/renameFile")]
+        void renameFile(string oldpath, string newpath);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/renameFile")]
+        System.Threading.Tasks.Task renameFileAsync(string oldpath, string newpath);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -845,6 +857,22 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> findVehicleAsync(string plate) {
             return base.Channel.findVehicleAsync(plate);
+        }
+        
+        public void uploadVehicleImage(byte[] buffer) {
+            base.Channel.uploadVehicleImage(buffer);
+        }
+        
+        public System.Threading.Tasks.Task uploadVehicleImageAsync(byte[] buffer) {
+            return base.Channel.uploadVehicleImageAsync(buffer);
+        }
+        
+        public void renameFile(string oldpath, string newpath) {
+            base.Channel.renameFile(oldpath, newpath);
+        }
+        
+        public System.Threading.Tasks.Task renameFileAsync(string oldpath, string newpath) {
+            return base.Channel.renameFileAsync(oldpath, newpath);
         }
     }
 }

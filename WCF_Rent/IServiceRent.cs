@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Drawing;
+
 using WCF_Rent.HeaderFile;
 
 namespace WCF_Rent
@@ -79,6 +81,14 @@ namespace WCF_Rent
         [OperationContract]
         Vehicle findVehicle(string plate);
 
+        [OperationContract]
+        void uploadVehicleImage(byte[] buffer);
+
+        /*[OperationContract]
+        Stream downloadVehicleImage(Vehicle vehicleObject);*/
+
+        [OperationContract(IsOneWay = true)]
+        void renameFile(string oldpath, string newpath);
     }
 
     public interface IServerRentCallback

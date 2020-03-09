@@ -73,7 +73,7 @@ namespace TRC_Redesign
             //SetAnimationPicture(pictureID > 4 ? 0 : pictureID + 1);
         }
 
-        private async void timer2_Tick(object sender, EventArgs e)
+        private void timer2_Tick(object sender, EventArgs e)
         {
             switch (actionCurrent)
             {
@@ -138,6 +138,7 @@ namespace TRC_Redesign
 
                         Hide();
                         Login.Show();
+                        Login.mainWindow = mainWindow;
 
                         timer2.Stop();
 

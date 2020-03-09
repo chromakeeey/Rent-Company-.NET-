@@ -25,7 +25,7 @@ namespace TRC_Redesign
             checkBox3.Checked = false;
             panel5.Visible = false;
 
-            //Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Light);
+            mainWindow.clientData.ui.SetTheme(mainWindow, mainWindow.clientData.ui.theme_Light);
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace TRC_Redesign
             checkBox3.Checked = false;
             panel5.Visible = false;
 
-            //Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Dark);
+            mainWindow.clientData.ui.SetTheme(mainWindow, mainWindow.clientData.ui.theme_Dark);
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace TRC_Redesign
 
             panel5.Visible = true;
 
-            //Form1.pointer.ui.SetTheme(objectForm, Form1.pointer.ui.theme_Custom);
+            mainWindow.clientData.ui.SetTheme(mainWindow, mainWindow.clientData.ui.theme_Custom);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

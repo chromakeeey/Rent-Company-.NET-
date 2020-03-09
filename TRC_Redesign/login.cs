@@ -106,7 +106,7 @@ namespace TRC_Redesign
 
             string login = textBox10.Text;
 
-            if ( mainWindow.serverData.client.isAccountValid(login) )
+            if ( !mainWindow.serverData.client.isAccountValid(login) )
             {
                 Account account = new Account();
 
@@ -125,8 +125,7 @@ namespace TRC_Redesign
                     "Перевірка аккаунта",
                     MessageBoxButtons.OK, MessageBoxIcon.Information, mainWindow);
             }
-
-           
+            else label11.Text = "Аккаунт з таким логіном вже зареєстрований.";
         }
 
         private void button1_Click(object sender, EventArgs e)

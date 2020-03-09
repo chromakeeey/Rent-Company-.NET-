@@ -49,10 +49,9 @@ namespace TRC_Redesign
             pictureBox1.Visible = false;
         }
           
-        
-
-        public void AdminCheckPageLoad(SqlConnection sqlconnection)
+        public void updateAccountObject()
         {
+            account = mainWindow.serverData.client.noAcceptedAccount();
         }
 
         public admin_check()
@@ -62,7 +61,7 @@ namespace TRC_Redesign
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            account = mainWindow.serverData.client.noAcceptedAccount();
+            updateAccountObject();
             updateAccountData();
         }
 
@@ -71,7 +70,7 @@ namespace TRC_Redesign
             account.accepted = 1;
             mainWindow.serverData.client.saveAccount(account);
 
-            account = mainWindow.serverData.client.noAcceptedAccount();
+            updateAccountObject();
             updateAccountData();
 
             mainWindow.dialogCreate("Ви підтвердили аккаунт.", "Підтвердження аккаунта", 
@@ -83,7 +82,7 @@ namespace TRC_Redesign
             account.accepted = 2;
             mainWindow.serverData.client.saveAccount(account);
 
-            account = mainWindow.serverData.client.noAcceptedAccount();
+            updateAccountObject();
             updateAccountData();
 
             mainWindow.dialogCreate("Ви відмовили аккаунту в реєстрації", "Відмовлення", 

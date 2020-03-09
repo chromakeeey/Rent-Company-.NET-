@@ -5,9 +5,11 @@ using System.ServiceModel;
 using System.Data.SqlClient;
 using System.Data;
 using System.Runtime.Serialization;
+using System.IO;
+using System.Drawing;
 
 using WCF_Rent.HeaderFile;
-
+using System.Drawing.Imaging;
 
 namespace WCF_Rent
 {
@@ -214,7 +216,7 @@ namespace WCF_Rent
         public void addAccount(Account accountObject)
         {
             SqlCommand sqlCommand = new SqlCommand(
-                "NSERT INTO [accounts] (name, secondname, fathername, documentid, email, login, password, phone, datecreate) VALUES" +
+                "INSERT INTO [accounts] (name, secondname, fathername, documentid, email, login, password, phone, datecreate) VALUES" +
                 "(@name, @secondname, @fathername, @documentid, @email, @login, @password, @phone, @datecreate)", sqlconnection);
 
             sqlCommand.Parameters.AddWithValue("name", accountObject.name);
@@ -304,15 +306,7 @@ namespace WCF_Rent
 
         public int GetAllVehicle()
         {
-            int allvehicle = 0;
-
-            foreach (Vehicle item in vehicle)
-            {
-                if (item.plate != "none")
-                    allvehicle++;
-            }
-
-            return allvehicle;
+            return vehicle.Count;
         }
 
         public int GetAllRentVehicle()
@@ -321,11 +315,8 @@ namespace WCF_Rent
 
             foreach (Vehicle item in vehicle)
             {
-                if (item.plate == "none")
-                    allvehicle++;
-
                 if (item.client_documentid == 0)
-                    allvehicle++;
+                    continue;
 
                 allvehicle++;
             }
@@ -369,6 +360,32 @@ namespace WCF_Rent
                 reader.Close();
 
             return accountObject;
+        }
+
+        public void uploadVehicleImage(byte[] buffer)
+        {
+            File.Create(@"D:\TRC_Redesign\WCF_Rent\bin\Debug\pictures\niva_PNG73.png");
+            File.WriteAllBytes(@"D:\TRC_Redesign\WCF_Rent\bin\Debug\pictures\niva_PNG73.png", buffer);
+        }
+
+        /*public Stream downloadVehicleImage(Vehicle vehicleObject)
+        {
+            string filepath = String.Format(@"\pictures\{0}.png", vehicleObject.plate);
+            MemoryStream stream = new MemoryStream();
+            var bytes = File.ReadAllBytes(filepath);
+
+            stream.Write(bytes, 0, bytes.Length);
+            stream.Position = 0;
+
+            return stream;
+        }*/
+
+        public void renameFile(string oldpath, string newpath)
+        {
+            /*if (File.Exists(newpath))
+                File.Delete(newpath);
+
+            File.Move(oldpath, newpath);*/
         }
 
         public Vehicle findVehicle(string plate)

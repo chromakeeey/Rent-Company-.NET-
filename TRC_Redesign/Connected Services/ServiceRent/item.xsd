@@ -212,4 +212,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="uploadVehicleImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buffer" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uploadVehicleImageResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="renameFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="oldpath" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newpath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

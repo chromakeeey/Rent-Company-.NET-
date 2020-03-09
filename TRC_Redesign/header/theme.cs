@@ -175,12 +175,10 @@ namespace TRC_Redesign.header
             SetPictureColor(objectForm.main_page1.pictureBox8, color);
 
             // vehicle page
-            //SetButtonPictureColor(objectForm.vehicle_page1.button1, color);
-            //SetButtonPictureColor(objectForm.vehicle_page1.button2, color);
-            //SetButtonPictureColor(objectForm.vehicle_page1.button3, color);
+            
 
             // admin vehicleadd
-            SetPictureColor(objectForm.admin_page1.admin_vehicleadd1.pictureBox1, color);
+            
 
             //login
             SetPictureColor(objectForm.Login.pictureBox1, color);
@@ -242,33 +240,6 @@ namespace TRC_Redesign.header
             objectForm.admin_page1.button4.ForeColor = color;
 
             // vehicle page
-
-            /*objectForm.vehicle_page1.label64.ForeColor = color;
-            objectForm.vehicle_page1.label72.ForeColor = color;
-            objectForm.vehicle_page1.label70.ForeColor = color;
-            objectForm.vehicle_page1.label68.ForeColor = color;
-            objectForm.vehicle_page1.label66.ForeColor = color;
-            objectForm.vehicle_page1.label62.ForeColor = color;
-
-            objectForm.vehicle_page1.label33.ForeColor = color;
-            objectForm.vehicle_page1.label57.ForeColor = color;
-            objectForm.vehicle_page1.label55.ForeColor = color;
-            objectForm.vehicle_page1.label53.ForeColor = color;
-            objectForm.vehicle_page1.label51.ForeColor = color;
-            objectForm.vehicle_page1.label31.ForeColor = color;
-
-            objectForm.vehicle_page1.label40.ForeColor = color;
-            objectForm.vehicle_page1.label48.ForeColor = color;
-            objectForm.vehicle_page1.label46.ForeColor = color;
-            objectForm.vehicle_page1.label44.ForeColor = color;
-            objectForm.vehicle_page1.label42.ForeColor = color;
-            objectForm.vehicle_page1.label38.ForeColor = color;
-
-            objectForm.vehicle_page1.label60.ForeColor = color;
-            objectForm.vehicle_page1.label6.ForeColor = color;
-            objectForm.vehicle_page1.label8.ForeColor = color;
-
-            objectForm.vehicle_page1.label50.ForeColor = color;*/
             objectForm.vehicle_page1.label77.ForeColor = color;
             objectForm.vehicle_page1.checkedListBox1.ForeColor = color;
 
@@ -276,15 +247,7 @@ namespace TRC_Redesign.header
             objectForm.vehicle_page1.textBox2.ForeColor = color;
 
             // admin vehicleadd
-            objectForm.admin_page1.admin_vehicleadd1.textBox1.ForeColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.textBox2.ForeColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.textBox3.ForeColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.textBox4.ForeColor = color;
-
-            objectForm.admin_page1.admin_vehicleadd1.panel1.BackColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.panel2.BackColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.panel3.BackColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.panel5.BackColor = color;
+            
 
             // login
             objectForm.Login.textBox1.ForeColor = color;
@@ -375,31 +338,7 @@ namespace TRC_Redesign.header
             objectForm.main_page1.label21.ForeColor = color;
             objectForm.main_page1.label23.ForeColor = color;
 
-            // vehicle page
-            /*objectForm.vehicle_page1.label65.ForeColor = color;
-            objectForm.vehicle_page1.label73.ForeColor = color;
-            objectForm.vehicle_page1.label71.ForeColor = color;
-            objectForm.vehicle_page1.label69.ForeColor = color;
-            objectForm.vehicle_page1.label67.ForeColor = color;
-            objectForm.vehicle_page1.label63.ForeColor = color;
-
-            objectForm.vehicle_page1.label34.ForeColor = color;
-            objectForm.vehicle_page1.label58.ForeColor = color;
-            objectForm.vehicle_page1.label56.ForeColor = color;
-            objectForm.vehicle_page1.label54.ForeColor = color;
-            objectForm.vehicle_page1.label52.ForeColor = color;
-            objectForm.vehicle_page1.label32.ForeColor = color;
-
-            objectForm.vehicle_page1.label41.ForeColor = color;
-            objectForm.vehicle_page1.label49.ForeColor = color;
-            objectForm.vehicle_page1.label47.ForeColor = color;
-            objectForm.vehicle_page1.label45.ForeColor = color;
-            objectForm.vehicle_page1.label43.ForeColor = color;
-            objectForm.vehicle_page1.label39.ForeColor = color;
-
-            objectForm.vehicle_page1.label61.ForeColor = color;
-            objectForm.vehicle_page1.label30.ForeColor = color;
-            objectForm.vehicle_page1.label37.ForeColor = color;*/
+           
 
             objectForm.vehicle_page1.label75.ForeColor = color;
             objectForm.vehicle_page1.label74.ForeColor = color;
@@ -437,22 +376,6 @@ namespace TRC_Redesign.header
             objectForm.panel4.BackColor = color;
             objectForm.panel6.BackColor = color;
 
-            // vehicle page
-            /*objectForm.vehicle_page1.panel30.BackColor = color;
-            objectForm.vehicle_page1.panel17.BackColor = color;
-
-            objectForm.vehicle_page1.panel29.BackColor = color;
-            objectForm.vehicle_page1.panel28.BackColor = color;
-            objectForm.vehicle_page1.panel27.BackColor = color;
-
-            objectForm.vehicle_page1.panel24.BackColor = color;
-            objectForm.vehicle_page1.panel23.BackColor = color;
-            objectForm.vehicle_page1.panel25.BackColor = color;
-
-            objectForm.vehicle_page1.panel21.BackColor = color;
-            objectForm.vehicle_page1.panel20.BackColor = color;
-            objectForm.vehicle_page1.panel19.BackColor = color;*/
-
             objectForm.vehicle_page1.textBox1.BackColor = color;
             objectForm.vehicle_page1.textBox2.BackColor = color;
             objectForm.vehicle_page1.checkedListBox1.BackColor = color;
@@ -477,12 +400,7 @@ namespace TRC_Redesign.header
             objectForm.main_page1.panel13.BackColor = color;
 
             // admin vehicle add
-            objectForm.admin_page1.admin_vehicleadd1.BackColor = color;
-
-            objectForm.admin_page1.admin_vehicleadd1.textBox1.BackColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.textBox2.BackColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.textBox3.BackColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.textBox4.BackColor = color;
+            
 
             // login
             objectForm.Login.panel1.BackColor = color;

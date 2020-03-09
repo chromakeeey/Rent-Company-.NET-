@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.Drawing;
+
 
 namespace WCF_Rent.HeaderFile
 {
@@ -32,6 +34,7 @@ namespace WCF_Rent.HeaderFile
         public string transmission;
         public string category;
 
+        
         
         public Vehicle()
         {
