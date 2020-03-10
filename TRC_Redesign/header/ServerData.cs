@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ServiceModel;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
+using System.IO;
 
 using TRC_Redesign.header;
 using TRC_Redesign.ServiceRent;
-using System.Drawing.Imaging;
+
 
 namespace TRC_Redesign.header
 {
@@ -22,6 +17,15 @@ namespace TRC_Redesign.header
         public int client_id;
 
        
+        public void uploadImage(string path, Vehicle vehicleObject)
+        {
+            string name = vehicleObject.plate;
+            string extenstion = Path.GetExtension(path);
+            byte[] buffer = File.ReadAllBytes(path);
+
+            client.uploadVehicleImage(buffer, name, extenstion);
+        }
+
         /*public void uploadImage(Image path)
         {
             File file = new File();

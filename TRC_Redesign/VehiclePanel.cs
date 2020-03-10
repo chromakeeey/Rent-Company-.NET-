@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 using TRC_Redesign.header;
 using TRC_Redesign.ServiceRent;
@@ -101,8 +96,8 @@ namespace TRC_Redesign
             label2.Text = vehicleObject.maxspeed + " км/г";
             label3.Text = vehicleObject.price + " грн./день";
 
-            try { pictureBox1.Image = Image.FromFile(vehicleObject.image_link); }
-            catch { pictureBox1.Image = TRC_Redesign.Properties.Resources.error_vehicle; }
+            var stream = new MemoryStream(mainWindow.serverData.client.vehicleImage(vehicleObject));
+            pictureBox1.Image = Image.FromStream(stream);
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -20,8 +20,6 @@ D:\TRC_Redesign\TRC_Redesign\bin\Debug\JDragControl.dll
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.admin_page.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.admin_check.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.admin_account.resources
-D:\TRC_Redesign\TRC_Redesign\bin\Debug\rentcar.mdf
-D:\TRC_Redesign\TRC_Redesign\bin\Debug\rentcar_log.ldf
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.login.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.admin_vehicleadd.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.load.resources

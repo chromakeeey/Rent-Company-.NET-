@@ -161,6 +161,7 @@ namespace TRC_Redesign
 
             admin_page1.admin_check1.updateAccountObject();
             admin_page1.admin_check1.updateAccountData();
+            admin_page1.admin_vehicleadd1.updateComboBox();
 
             clientData.ui.CreatePanel(clientData.ui.MAIN_PANEL, this);
         }

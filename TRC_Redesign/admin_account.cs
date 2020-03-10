@@ -17,8 +17,8 @@ namespace TRC_Redesign
 {
     public partial class admin_account : UserControl
     {
-        Account tmpObject;
-
+        Account tmpObject = new Account();
+        
         public void AdminAccountLoad()
         {
 

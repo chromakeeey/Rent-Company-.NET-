@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TRC_Redesign.header;
+using System.IO;
 
+using TRC_Redesign.header;
 using TRC_Redesign.RentPicker;
 using TRC_Redesign.ServiceRent;
 
@@ -110,9 +105,8 @@ namespace TRC_Redesign
 
         public void tryRentVehicle()
         {
-            Vehicle vehicleObject = mainWindow.serverData.client.findVehicle(vehicle.plate);
 
-            if (vehicleObject.plate == "none")
+            if (vehicle.plate == "none")
             {
                 MessageBox.Show("Автомобіль який ви переглядали більше недоступний. \nМожливо хтось видалив автомобіль або змінив номерний знак.", "Відміна оренди",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -121,8 +115,6 @@ namespace TRC_Redesign
 
                 return;
             }
-
-            vehicle = vehicleObject;
 
             if (totalPrice > mainWindow.clientData.account.balance)
             {
@@ -195,8 +187,8 @@ namespace TRC_Redesign
             label9.Text = objectVehicle.price + " грн./день";
             label8.Text = toPlate(objectVehicle.plate);
 
-            try { pictureBox1.Image = Image.FromFile(objectVehicle.image_link); }
-            catch { pictureBox1.Image = TRC_Redesign.Properties.Resources.error_vehicle; }
+            var stream = new MemoryStream(mainWindow.serverData.client.vehicleImage(objectVehicle));
+            pictureBox1.Image = Image.FromStream(stream);
         }
 
         private void button1_Click(object sender, EventArgs e)

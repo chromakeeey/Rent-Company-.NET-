@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
 
 using TRC_Redesign.CustomMessageBox;
 using TRC_Redesign.header;
@@ -19,8 +20,9 @@ namespace TRC_Redesign
 
             if (vehicle.plate != "none")
             {
-                try { pictureBox7.Image = Image.FromFile(vehicle.image_link); }
-                catch { pictureBox7.Image = TRC_Redesign.Properties.Resources.error_vehicle; }
+
+                var stream = new MemoryStream(mainWindow.serverData.client.vehicleImage(vehicle));
+                pictureBox7.Image = Image.FromStream(stream);
 
                 label9.Text = vehicle.name;
                 label11.Text = vehicle.model;

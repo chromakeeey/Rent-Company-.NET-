@@ -15,15 +15,21 @@ namespace ServerHost
 
             using (var host = new ServiceHost(typeof(WCF_Rent.ServiceRent)))
             {
-                NetTcpBinding netTcpBinding = new NetTcpBinding();
-                netTcpBinding.MaxBufferSize = 65536;
-                netTcpBinding.MaxReceivedMessageSize = 204003200;
-                netTcpBinding.TransferMode = TransferMode.Buffered;
+                /*NetTcpBinding binding = new NetTcpBinding();
+
+                binding.MaxReceivedMessageSize = 500000;
+                binding.MaxBufferSize = 500000;
+
+                long maxlength = binding.MaxReceivedMessageSize;
+                Console.WriteLine("MaxReceivedMessageSize = " + maxlength.ToString());
+
+                long maxbuffer = binding.MaxBufferSize;
+                Console.WriteLine("MaxBufferSize = " + maxbuffer.ToString());*/
 
                 host.Open();
                 Console.WriteLine("Host has been started [" + DateTime.Now.ToString() + "]");
 
-                
+               
 
                 Console.ReadLine();
 

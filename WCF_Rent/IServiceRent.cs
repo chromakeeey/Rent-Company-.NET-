@@ -82,13 +82,13 @@ namespace WCF_Rent
         Vehicle findVehicle(string plate);
 
         [OperationContract]
-        void uploadVehicleImage(byte[] buffer);
+        void uploadVehicleImage(byte[] buffer, string name, string extenstion);
 
         /*[OperationContract]
         Stream downloadVehicleImage(Vehicle vehicleObject);*/
 
-        [OperationContract(IsOneWay = true)]
-        void renameFile(string oldpath, string newpath);
+        [OperationContract]
+        byte[] vehicleImage(Vehicle vehicleObject);
     }
 
     public interface IServerRentCallback

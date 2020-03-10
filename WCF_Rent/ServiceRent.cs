@@ -27,6 +27,28 @@ namespace WCF_Rent
         const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|rentcar.mdf;Integrated Security=True";
         //const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TRC_Redesign\WCF_Rent\rentcar.mdf;Integrated Security=True";
 
+        string localPath()
+        {
+            string localpath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+
+            int endpos = localpath.Length;
+            int startpos = 0;
+
+            for (int i = localpath.Length - 1; i > -1; i--)
+            {
+                if (localpath[i] == 'W')
+                {
+                    startpos = i;
+
+                    break;
+                }
+            }
+
+            //localpath.Remove(startpos, endpos - startpos);
+
+            return localpath.Remove(startpos, endpos - startpos);
+        }
+
         public int userConnect()
         {
             if ( !isSqlConnection() )
@@ -82,10 +104,18 @@ namespace WCF_Rent
                     price = Convert.ToSingle(reader["price"]),
                     fuel = Convert.ToSingle(reader["fuel"]),
                     mileage = Convert.ToSingle(reader["mileage"]),
-                    image_link = reader["image_link"].ToString(),
+                    picturepath = reader["picturepath"].ToString(),
                     client_documentid = Convert.ToInt32(reader["client_documentid"]),
                     start_date = Convert.ToDateTime(reader["date_start"]),
-                    end_date = Convert.ToDateTime(reader["date_end"])
+                    end_date = Convert.ToDateTime(reader["date_end"]),
+
+                    maxfuel = Convert.ToSingle(reader["fuelmax"]),
+                    maxspeed = Convert.ToInt32(reader["maxspeed"]),
+
+                    type = Convert.ToString(reader["type"]),
+                    transmission = Convert.ToString(reader["transmission"]),
+                    category = Convert.ToString(reader["category"])
+
                 }
                 );
             }
@@ -105,23 +135,30 @@ namespace WCF_Rent
         {
             vehicle.Add(vehicleObject);
 
-            SqlCommand command = new SqlCommand("INSERT INTO [vehicles] " +
-                "(plate, name, model, price, fuel, mileage, client_documentid, image_link, date_start, date_end) VALUES" +
-                "(@plate, @name, @model, @price, @fuel, @mileage, @client_documentid, @image_link, @date_start, @date_end)", sqlconnection);
+            SqlCommand sqlCommand = new SqlCommand(
+                "INSERT INTO [vehicles] (plate, name, model, price, fuel, mileage, client_documentid, picturepath, date_start, date_end, fuelmax, maxspeed, type, transmission, category) VALUES " +
+                "(@plate, @name, @model, @price, @fuel, @mileage, @client_documentid, @picturepath, @date_start, @date_end, @fuelmax, @maxspeed, @type, @transmission, @category)",
+            sqlconnection);
 
-            command.Parameters.AddWithValue("plate", vehicleObject.plate);
-            command.Parameters.AddWithValue("name", vehicleObject.name);
-            command.Parameters.AddWithValue("model", vehicleObject.model);
-            command.Parameters.AddWithValue("price", vehicleObject.price);
-            command.Parameters.AddWithValue("fuel", vehicleObject.fuel);
-            command.Parameters.AddWithValue("mileage", vehicleObject.mileage);
-            command.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
-            command.Parameters.AddWithValue("image_link", vehicleObject.image_link);
+            sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
+            sqlCommand.Parameters.AddWithValue("name", vehicleObject.name);
+            sqlCommand.Parameters.AddWithValue("model", vehicleObject.model);
+            sqlCommand.Parameters.AddWithValue("price", vehicleObject.price);
+            sqlCommand.Parameters.AddWithValue("fuel", vehicleObject.fuel);
+            sqlCommand.Parameters.AddWithValue("mileage", vehicleObject.mileage);
+            sqlCommand.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
+            sqlCommand.Parameters.AddWithValue("picturepath", vehicleObject.picturepath);
 
-            command.Parameters.AddWithValue("date_start", vehicleObject.start_date);
-            command.Parameters.AddWithValue("date_end", vehicleObject.end_date);
+            sqlCommand.Parameters.AddWithValue("date_start", vehicleObject.start_date);
+            sqlCommand.Parameters.AddWithValue("date_end", vehicleObject.end_date);
 
-            command.ExecuteNonQuery();
+            sqlCommand.Parameters.AddWithValue("fuelmax", vehicleObject.maxfuel);
+            sqlCommand.Parameters.AddWithValue("maxspeed", vehicleObject.maxspeed);
+            sqlCommand.Parameters.AddWithValue("type", vehicleObject.type);
+            sqlCommand.Parameters.AddWithValue("transmission", vehicleObject.transmission);
+            sqlCommand.Parameters.AddWithValue("category", vehicleObject.category);
+
+            sqlCommand.ExecuteNonQuery();
         }
 
         public void saveVehicle(Vehicle vehicleObject)
@@ -132,7 +169,8 @@ namespace WCF_Rent
             SqlCommand command = new SqlCommand("UPDATE [vehicles] SET [plate] = @plate, " +
                 "[name] = @name, [model] = @model, [price] = @price, [fuel] = @fuel, " +
                 "[mileage] = @mileage, [client_documentid] = @client_documentid," +
-                "[image_link] = @img, [date_start] = @date_start, [date_end] = @date_end " +
+                "[picturepath] = @img, [date_start] = @date_start, [date_end] = @date_end," +
+                "[fuelmax] = @fuelmax, [maxspeed] = @maxspeed, [type] = @type, [transmission] = @transmission, [category] = @category" +
                 "WHERE [plate] = @plt", sqlconnection);
 
             command.Parameters.AddWithValue("plate", vehicleObject.plate);
@@ -142,11 +180,17 @@ namespace WCF_Rent
             command.Parameters.AddWithValue("fuel", vehicleObject.fuel);
             command.Parameters.AddWithValue("mileage", vehicleObject.mileage);
             command.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
-            command.Parameters.AddWithValue("img", vehicleObject.image_link);
+            command.Parameters.AddWithValue("img", vehicleObject.picturepath);
             command.Parameters.AddWithValue("plt", vehicleObject.plate);
 
             command.Parameters.AddWithValue("date_start", vehicleObject.start_date);
             command.Parameters.AddWithValue("date_end", vehicleObject.end_date);
+
+            command.Parameters.AddWithValue("fuelmax", vehicleObject.end_date);
+            command.Parameters.AddWithValue("maxspeed", vehicleObject.end_date);
+            command.Parameters.AddWithValue("type", vehicleObject.end_date);
+            command.Parameters.AddWithValue("transmission", vehicleObject.end_date);
+            command.Parameters.AddWithValue("category", vehicleObject.end_date);
 
             command.ExecuteNonQuery();
         }
@@ -362,30 +406,26 @@ namespace WCF_Rent
             return accountObject;
         }
 
-        public void uploadVehicleImage(byte[] buffer)
+        public void uploadVehicleImage(byte[] buffer, string name, string extenstion)
         {
-            File.Create(@"D:\TRC_Redesign\WCF_Rent\bin\Debug\pictures\niva_PNG73.png");
-            File.WriteAllBytes(@"D:\TRC_Redesign\WCF_Rent\bin\Debug\pictures\niva_PNG73.png", buffer);
+            string localpath = localPath();
+            string path = String.Format(@"{0}pictures\{1}{2}", localpath, name, extenstion);
+
+            File.WriteAllBytes(path, buffer);
         }
 
-        /*public Stream downloadVehicleImage(Vehicle vehicleObject)
+        public byte[] vehicleImage(Vehicle vehicleObject)
         {
-            string filepath = String.Format(@"\pictures\{0}.png", vehicleObject.plate);
-            MemoryStream stream = new MemoryStream();
-            var bytes = File.ReadAllBytes(filepath);
+            string localpath = localPath();
+            string path = String.Format(@"{0}{1}", localpath, vehicleObject.picturepath);
+            string errorpath = String.Format(@"{0}pictures\error_vehicle.png", localpath, vehicleObject.picturepath);
 
-            stream.Write(bytes, 0, bytes.Length);
-            stream.Position = 0;
+            byte[] buffer;
 
-            return stream;
-        }*/
+            try { buffer = File.ReadAllBytes(path); }
+            catch { return File.ReadAllBytes(errorpath); }
 
-        public void renameFile(string oldpath, string newpath)
-        {
-            /*if (File.Exists(newpath))
-                File.Delete(newpath);
-
-            File.Move(oldpath, newpath);*/
+            return buffer;
         }
 
         public Vehicle findVehicle(string plate)

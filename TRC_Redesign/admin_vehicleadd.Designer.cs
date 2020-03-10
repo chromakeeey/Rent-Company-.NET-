@@ -33,7 +33,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label41 = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pb_vehicle = new System.Windows.Forms.PictureBox();
             this.jThinButton2 = new JThinButton.JThinButton();
             this.jThinButton1 = new JThinButton.JThinButton();
             this.error_label = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.cb_type = new System.Windows.Forms.ComboBox();
             this.cb_transmission = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_license = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -56,29 +56,33 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_mileage = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_maxspeed = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mtb_plate = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.tb_price = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_vehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label15.ForeColor = System.Drawing.Color.Silver;
-            this.label15.Location = new System.Drawing.Point(10, 9);
+            this.label15.Location = new System.Drawing.Point(10, 19);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(350, 16);
             this.label15.TabIndex = 82;
             this.label15.Text = "Заповніть всі потрібні поля для додавання нового автомобіля";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.label15.Visible = false;
             // 
             // panel5
             // 
@@ -111,15 +115,15 @@
             this.tb_name.TabIndex = 84;
             this.tb_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox2
+            // pb_vehicle
             // 
-            this.pictureBox2.Image = global::TRC_Redesign.Properties.Resources.error_vehicle;
-            this.pictureBox2.Location = new System.Drawing.Point(405, 125);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(168, 77);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 93;
-            this.pictureBox2.TabStop = false;
+            this.pb_vehicle.Image = global::TRC_Redesign.Properties.Resources.error_vehicle;
+            this.pb_vehicle.Location = new System.Drawing.Point(405, 125);
+            this.pb_vehicle.Name = "pb_vehicle";
+            this.pb_vehicle.Size = new System.Drawing.Size(168, 77);
+            this.pb_vehicle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_vehicle.TabIndex = 93;
+            this.pb_vehicle.TabStop = false;
             // 
             // jThinButton2
             // 
@@ -229,7 +233,6 @@
             this.cb_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_type.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cb_type.ForeColor = System.Drawing.Color.White;
-            this.cb_type.FormattingEnabled = true;
             this.cb_type.Location = new System.Drawing.Point(266, 83);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(108, 21);
@@ -241,7 +244,6 @@
             this.cb_transmission.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_transmission.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cb_transmission.ForeColor = System.Drawing.Color.White;
-            this.cb_transmission.FormattingEnabled = true;
             this.cb_transmission.Location = new System.Drawing.Point(396, 83);
             this.cb_transmission.Name = "cb_transmission";
             this.cb_transmission.Size = new System.Drawing.Size(108, 21);
@@ -258,17 +260,16 @@
             this.label3.Text = "Трансмісія";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // comboBox1
+            // cb_license
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(524, 83);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(108, 21);
-            this.comboBox1.TabIndex = 106;
+            this.cb_license.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cb_license.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_license.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cb_license.ForeColor = System.Drawing.Color.White;
+            this.cb_license.Location = new System.Drawing.Point(524, 83);
+            this.cb_license.Name = "cb_license";
+            this.cb_license.Size = new System.Drawing.Size(108, 21);
+            this.cb_license.TabIndex = 106;
             // 
             // label4
             // 
@@ -373,18 +374,18 @@
             this.label8.Text = "Пробіг";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // tb_mileage
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(281, 152);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(67, 15);
-            this.textBox1.TabIndex = 100;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tb_mileage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tb_mileage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_mileage.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_mileage.ForeColor = System.Drawing.Color.White;
+            this.tb_mileage.Location = new System.Drawing.Point(281, 152);
+            this.tb_mileage.Name = "tb_mileage";
+            this.tb_mileage.Size = new System.Drawing.Size(67, 15);
+            this.tb_mileage.TabIndex = 100;
+            this.tb_mileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_mileage.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel6
             // 
@@ -405,17 +406,17 @@
             this.label9.Text = "Макс. швидкість";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox2
+            // tb_maxspeed
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(282, 179);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(66, 15);
-            this.textBox2.TabIndex = 103;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_maxspeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tb_maxspeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_maxspeed.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_maxspeed.ForeColor = System.Drawing.Color.White;
+            this.tb_maxspeed.Location = new System.Drawing.Point(282, 179);
+            this.tb_maxspeed.Name = "tb_maxspeed";
+            this.tb_maxspeed.Size = new System.Drawing.Size(66, 15);
+            this.tb_maxspeed.TabIndex = 103;
+            this.tb_maxspeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox1
             // 
@@ -438,17 +439,17 @@
             this.label10.Text = "Номерний знак";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // maskedTextBox1
+            // mtb_plate
             // 
-            this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.maskedTextBox1.Font = new System.Drawing.Font("SF UI Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maskedTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.maskedTextBox1.Location = new System.Drawing.Point(30, 229);
-            this.maskedTextBox1.Mask = "AA 9999 AA";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(139, 23);
-            this.maskedTextBox1.TabIndex = 112;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtb_plate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mtb_plate.Font = new System.Drawing.Font("SF UI Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mtb_plate.ForeColor = System.Drawing.Color.Black;
+            this.mtb_plate.Location = new System.Drawing.Point(30, 229);
+            this.mtb_plate.Mask = "AA 9999 AA";
+            this.mtb_plate.Name = "mtb_plate";
+            this.mtb_plate.Size = new System.Drawing.Size(139, 23);
+            this.mtb_plate.TabIndex = 112;
+            this.mtb_plate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -461,29 +462,74 @@
             this.label11.Text = "Інше";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(184, 226);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(46, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 114;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("SF UI Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.ForeColor = System.Drawing.Color.Silver;
+            this.label12.Location = new System.Drawing.Point(181, 205);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(156, 19);
+            this.label12.TabIndex = 115;
+            this.label12.Text = "Ціна за 1 день оренди";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(241, 256);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(66, 1);
+            this.panel7.TabIndex = 107;
+            // 
+            // tb_price
+            // 
+            this.tb_price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tb_price.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_price.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_price.ForeColor = System.Drawing.Color.White;
+            this.tb_price.Location = new System.Drawing.Point(240, 237);
+            this.tb_price.Name = "tb_price";
+            this.tb_price.Size = new System.Drawing.Size(66, 15);
+            this.tb_price.TabIndex = 106;
+            this.tb_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // admin_vehicleadd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.tb_price);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mtb_plate);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tb_maxspeed);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_mileage);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.tb_fuelmax);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_fuelnow);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cb_license);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cb_transmission);
             this.Controls.Add(this.label3);
@@ -495,7 +541,7 @@
             this.Controls.Add(this.error_label);
             this.Controls.Add(this.jThinButton1);
             this.Controls.Add(this.jThinButton2);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pb_vehicle);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.tb_name);
@@ -503,8 +549,9 @@
             this.Name = "admin_vehicleadd";
             this.Size = new System.Drawing.Size(732, 270);
             this.Load += new System.EventHandler(this.admin_vehicleadd_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_vehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,7 +562,7 @@
         public System.Windows.Forms.Panel panel5;
         public System.Windows.Forms.Label label41;
         public System.Windows.Forms.TextBox tb_name;
-        public System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.PictureBox pb_vehicle;
         public JThinButton.JThinButton jThinButton2;
         public JThinButton.JThinButton jThinButton1;
         public System.Windows.Forms.Label error_label;
@@ -527,7 +574,7 @@
         private System.Windows.Forms.ComboBox cb_type;
         private System.Windows.Forms.ComboBox cb_transmission;
         public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_license;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Panel panel2;
@@ -538,13 +585,17 @@
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox tb_mileage;
         public System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox tb_maxspeed;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mtb_plate;
         public System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Panel panel7;
+        public System.Windows.Forms.TextBox tb_price;
     }
 }

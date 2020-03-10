@@ -291,13 +291,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="rentcar.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="rentcar_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>rentcar.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\black_bg.png" />
     <None Include="Resources\bg.png" />
     <None Include="Resources\Warning.png" />

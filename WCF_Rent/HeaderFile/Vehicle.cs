@@ -20,7 +20,7 @@ namespace WCF_Rent.HeaderFile
         public string plate;
         public string name;
         public string model;
-        public string image_link;
+        public string picturepath;
 
         // per mounth
         public float price;
@@ -42,7 +42,7 @@ namespace WCF_Rent.HeaderFile
             plate = "none";
             name = "";
             model = "";
-            image_link = "";
+            picturepath = "";
 
             maxspeed = 200;
             maxfuel = 60;

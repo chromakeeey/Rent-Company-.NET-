@@ -32,12 +32,12 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="fuel" type="xs:float" />
-          <xs:element minOccurs="0" name="image_link" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="maxfuel" type="xs:float" />
           <xs:element minOccurs="0" name="maxspeed" type="xs:int" />
           <xs:element minOccurs="0" name="mileage" type="xs:float" />
           <xs:element minOccurs="0" name="model" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="picturepath" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="plate" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="price" type="xs:float" />
           <xs:element minOccurs="0" name="transmission" nillable="true" type="xs:string" />

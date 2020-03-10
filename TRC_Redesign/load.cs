@@ -94,6 +94,8 @@ namespace TRC_Redesign
                         mainWindow.serverData.client_id = mainWindow.serverData.client.userConnect();
                         mainWindow.serverData.is_connected = true;
 
+                        
+
                         actionCurrent = 1;
 
                         break;

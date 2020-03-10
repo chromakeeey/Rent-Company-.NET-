@@ -216,6 +216,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="buffer" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="extenstion" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -224,11 +226,17 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="renameFile">
+  <xs:element name="vehicleImage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="oldpath" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="newpath" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q13:Vehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vehicleImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehicleImageResult" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
