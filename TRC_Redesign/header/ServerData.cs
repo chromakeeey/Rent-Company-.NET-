@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Windows.Forms;
+using System.ServiceModel;
 
 using TRC_Redesign.header;
 using TRC_Redesign.ServiceRent;
@@ -9,14 +11,45 @@ using TRC_Redesign.ServiceRent;
 
 namespace TRC_Redesign.header
 {
-    public class ServerData
+    [CallbackBehavior(UseSynchronizationContext = false)]
+    public class ServerData : IServiceRentCallback
     {
         public Form1 mainWindow;
         public bool is_connected = false;
         public ServiceRentClient client;
         public int client_id;
 
-       
+        public void onDeleteVehicle(Vehicle vehicleObject)
+        {
+            if (mainWindow.vehicleInfo.Visible)
+            {
+                if (vehicleObject.plate == mainWindow.vehicleInfo.vehicle.plate)
+                {
+                    mainWindow.vehicleInfo.Hide();
+
+                    mainWindow.vehicleInfo.createDialog("Автомобіль який ви переглядаєте був видалений адміністратором.",
+                        "Видалення автомобіля", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        public void onSaveVehicle(Vehicle vehicleObject)
+        {
+            if (mainWindow.vehicleInfo.Visible)
+            {
+                if (vehicleObject.plate == mainWindow.vehicleInfo.vehicle.plate)
+                {
+                    if (vehicleObject.client_documentid == mainWindow.clientData.account.documentid)
+                        return;
+
+                    mainWindow.vehicleInfo.setVehicle(vehicleObject);
+
+                    mainWindow.vehicleInfo.createDialog("Автомобіль який ви переглядаєте був змінений. Інформація оновлена.",
+                        "Зміна інформації автомобіля", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
         public void uploadImage(string path, Vehicle vehicleObject)
         {
             string name = vehicleObject.plate;
@@ -26,16 +59,32 @@ namespace TRC_Redesign.header
             client.uploadVehicleImage(buffer, name, extenstion);
         }
 
-        /*public void uploadImage(Image path)
+        public void connect()
         {
-            File file = new File();
+            client = new ServiceRentClient(new System.ServiceModel.InstanceContext(this));
+            client_id = client.userConnect();
+            is_connected = true;
+        }
+        public void disconnect()
+        {
+            if (is_connected)
+            {
+                client.userDisconnect(client_id);
+                client = null;
+                is_connected = false;
+            }
+        }
 
-            file.Content = System.IO.File.ReadAllBytes(path);
-            file.Name = System.IO.Path.GetFileName(path);
+    /*public void uploadImage(Image path)
+    {
+        File file = new File();
 
-            client.uploadVehicleImage(file);
-        }*/
-        
+        file.Content = System.IO.File.ReadAllBytes(path);
+        file.Name = System.IO.Path.GetFileName(path);
 
-    }
+        client.uploadVehicleImage(file);
+    }*/
+
+
+}
 }

@@ -47,7 +47,8 @@ namespace TRC_Redesign
 
         private void load_Load(object sender, EventArgs e)
         {
-            
+            Application.ApplicationExit += new EventHandler(this.OnApplicationExit);
+
             gradientPanel1.Location = new Point(-16, 177);
 
             timer1.Interval = animSpeed;
@@ -73,6 +74,11 @@ namespace TRC_Redesign
             //SetAnimationPicture(pictureID > 4 ? 0 : pictureID + 1);
         }
 
+        private void OnApplicationExit(object sender, EventArgs e)
+        {
+            mainWindow.serverData.disconnect();
+        }
+
         private void timer2_Tick(object sender, EventArgs e)
         {
             switch (actionCurrent)
@@ -89,12 +95,7 @@ namespace TRC_Redesign
 
 
                         label2.Text = "Створюється підключення до сервера.";
-
-                        mainWindow.serverData.client = new ServiceRentClient(new System.ServiceModel.InstanceContext(mainWindow.serverData));
-                        mainWindow.serverData.client_id = mainWindow.serverData.client.userConnect();
-                        mainWindow.serverData.is_connected = true;
-
-                        
+                        mainWindow.serverData.connect();
 
                         actionCurrent = 1;
 

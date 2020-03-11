@@ -314,12 +314,12 @@
             // 
             this.label15.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(684, 196);
+            this.label15.Location = new System.Drawing.Point(593, 201);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 21);
+            this.label15.Size = new System.Drawing.Size(180, 17);
             this.label15.TabIndex = 97;
             this.label15.Text = "Вибір дати ->";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // button2
             // 
@@ -380,6 +380,7 @@
             this.Name = "VehicleInfo";
             this.Text = "VehicleInfo";
             this.Load += new System.EventHandler(this.VehicleInfo_Load);
+            this.VisibleChanged += new System.EventHandler(this.visibleChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.msDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.msMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.msUp);

@@ -103,6 +103,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RentTimePicker";
             this.Text = "RentTimePicker";
+            this.VisibleChanged += new System.EventHandler(this.visibleChanged);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

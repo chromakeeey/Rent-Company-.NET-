@@ -536,7 +536,7 @@ namespace TRC_Redesign.ServiceRent {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent", CallbackContract=typeof(TRC_Redesign.ServiceRent.IServiceRentCallback))]
     public interface IServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/userConnect", ReplyAction="http://tempuri.org/IServiceRent/userConnectResponse")]
@@ -673,30 +673,41 @@ namespace TRC_Redesign.ServiceRent {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServiceRentCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/onSaveVehicle")]
+        void onSaveVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/onDeleteVehicle")]
+        void onDeleteVehicle(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceRentChannel : TRC_Redesign.ServiceRent.IServiceRent, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceRentClient : System.ServiceModel.ClientBase<TRC_Redesign.ServiceRent.IServiceRent>, TRC_Redesign.ServiceRent.IServiceRent {
+    public partial class ServiceRentClient : System.ServiceModel.DuplexClientBase<TRC_Redesign.ServiceRent.IServiceRent>, TRC_Redesign.ServiceRent.IServiceRent {
         
-        public ServiceRentClient(System.ServiceModel.InstanceContext instanceContext) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ServiceRentClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ServiceRentClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceRentClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceRentClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public ServiceRentClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public int userConnect() {

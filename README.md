@@ -9,6 +9,7 @@
 ##### Other info about project
 
   - [Trello](https://trello.com/b/vZxKTHys/transport-rent-company) **RUS**
+  - [Application images](https://imgur.com/a/KtaHybc)
   
   
 ##### Starting the server on the **localhost**

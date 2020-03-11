@@ -135,6 +135,7 @@ namespace TRC_Redesign
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            mainWindow.serverData.disconnect();
             System.Windows.Forms.Application.Exit();
         }
 

@@ -93,8 +93,11 @@ namespace WCF_Rent
 
     public interface IServerRentCallback
     {
-        
+        [OperationContract(IsOneWay = true)]
+        void onSaveVehicle(Vehicle vehicleObject);
 
+        [OperationContract(IsOneWay = true)]
+        void onDeleteVehicle(Vehicle vehicleObject);
     }
 
     

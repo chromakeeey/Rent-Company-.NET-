@@ -494,10 +494,7 @@ namespace TRC_Redesign.header
             objectForm.settings_page1.panel10.BackColor = color;
 
             // admin vehicleadd
-            objectForm.admin_page1.admin_vehicleadd1.jThinButton2.BackgroundColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.jThinButton2.BorderColor = color;
-            objectForm.admin_page1.admin_vehicleadd1.jThinButton2.HoverBorder = color;
-            objectForm.admin_page1.admin_vehicleadd1.jThinButton2.HoverBackground = objectForm.admin_page1.admin_vehicleadd1.BackColor;
+
 
             // login
             objectForm.Login.jThinButton2.BackgroundColor = color;

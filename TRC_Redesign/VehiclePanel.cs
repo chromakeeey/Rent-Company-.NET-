@@ -102,8 +102,18 @@ namespace TRC_Redesign
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mainWindow.vinfo.setVehicle(objectVehicle);
-            mainWindow.vinfo.Show();
+            objectVehicle = mainWindow.serverData.client.findVehicle(objectVehicle.plate);
+
+            if (objectVehicle.plate == "none")
+            {
+                mainWindow.dialogCreate("Автомобіля більше не існує. \nМожливо його видалив адміністратор.", "Автомобіль видалений",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            mainWindow.vehicleInfo.setVehicle(objectVehicle);
+            mainWindow.vehicleInfo.Show();
         }
     }
 }

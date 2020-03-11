@@ -126,6 +126,11 @@ namespace WCF_Rent
 
         public void deleteVehicle(Vehicle vehicleObject)
         {
+            foreach (var item in serverUser)
+            {
+                item.operationContext.GetCallbackChannel<IServerRentCallback>().onSaveVehicle(vehicleObject);
+            }
+
             SqlCommand sqlCommand = new SqlCommand("DELETE FROM [vehicles] WHERE [plate] = @plate");
             sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
             sqlCommand.ExecuteNonQuery();
@@ -135,30 +140,31 @@ namespace WCF_Rent
         {
             vehicle.Add(vehicleObject);
 
-            SqlCommand sqlCommand = new SqlCommand(
-                "INSERT INTO [vehicles] (plate, name, model, price, fuel, mileage, client_documentid, picturepath, date_start, date_end, fuelmax, maxspeed, type, transmission, category) VALUES " +
-                "(@plate, @name, @model, @price, @fuel, @mileage, @client_documentid, @picturepath, @date_start, @date_end, @fuelmax, @maxspeed, @type, @transmission, @category)",
-            sqlconnection);
+                SqlCommand sqlCommand = new SqlCommand(
+                    "INSERT INTO [vehicles] (plate, name, model, price, fuel, mileage, client_documentid, picturepath, date_start, date_end, fuelmax, maxspeed, type, transmission, category) VALUES " +
+                    "(@plate, @name, @model, @price, @fuel, @mileage, @client_documentid, @picturepath, @date_start, @date_end, @fuelmax, @maxspeed, @type, @transmission, @category)",
+                sqlconnection);
 
-            sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
-            sqlCommand.Parameters.AddWithValue("name", vehicleObject.name);
-            sqlCommand.Parameters.AddWithValue("model", vehicleObject.model);
-            sqlCommand.Parameters.AddWithValue("price", vehicleObject.price);
-            sqlCommand.Parameters.AddWithValue("fuel", vehicleObject.fuel);
-            sqlCommand.Parameters.AddWithValue("mileage", vehicleObject.mileage);
-            sqlCommand.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
-            sqlCommand.Parameters.AddWithValue("picturepath", vehicleObject.picturepath);
+                sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
+                sqlCommand.Parameters.AddWithValue("name", vehicleObject.name);
+                sqlCommand.Parameters.AddWithValue("model", vehicleObject.model);
+                sqlCommand.Parameters.AddWithValue("price", vehicleObject.price);
+                sqlCommand.Parameters.AddWithValue("fuel", vehicleObject.fuel);
+                sqlCommand.Parameters.AddWithValue("mileage", vehicleObject.mileage);
+                sqlCommand.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
+                sqlCommand.Parameters.AddWithValue("picturepath", vehicleObject.picturepath);
 
-            sqlCommand.Parameters.AddWithValue("date_start", vehicleObject.start_date);
-            sqlCommand.Parameters.AddWithValue("date_end", vehicleObject.end_date);
+                sqlCommand.Parameters.AddWithValue("date_start", vehicleObject.start_date);
+                sqlCommand.Parameters.AddWithValue("date_end", vehicleObject.end_date);
 
-            sqlCommand.Parameters.AddWithValue("fuelmax", vehicleObject.maxfuel);
-            sqlCommand.Parameters.AddWithValue("maxspeed", vehicleObject.maxspeed);
-            sqlCommand.Parameters.AddWithValue("type", vehicleObject.type);
-            sqlCommand.Parameters.AddWithValue("transmission", vehicleObject.transmission);
-            sqlCommand.Parameters.AddWithValue("category", vehicleObject.category);
+                sqlCommand.Parameters.AddWithValue("fuelmax", vehicleObject.maxfuel);
+                sqlCommand.Parameters.AddWithValue("maxspeed", vehicleObject.maxspeed);
+                sqlCommand.Parameters.AddWithValue("type", vehicleObject.type);
+                sqlCommand.Parameters.AddWithValue("transmission", vehicleObject.transmission);
+                sqlCommand.Parameters.AddWithValue("category", vehicleObject.category);
 
-            sqlCommand.ExecuteNonQuery();
+                sqlCommand.ExecuteNonQuery();
+
         }
 
         public void saveVehicle(Vehicle vehicleObject)
@@ -166,33 +172,41 @@ namespace WCF_Rent
             int index = vehicle.FindIndex(i => i.plate == vehicleObject.plate);
             vehicle[index] = vehicleObject;
 
-            SqlCommand command = new SqlCommand("UPDATE [vehicles] SET [plate] = @plate, " +
-                "[name] = @name, [model] = @model, [price] = @price, [fuel] = @fuel, " +
-                "[mileage] = @mileage, [client_documentid] = @client_documentid," +
-                "[picturepath] = @img, [date_start] = @date_start, [date_end] = @date_end," +
-                "[fuelmax] = @fuelmax, [maxspeed] = @maxspeed, [type] = @type, [transmission] = @transmission, [category] = @category" +
-                "WHERE [plate] = @plt", sqlconnection);
+            foreach (var item in serverUser)
+            {
+                item.operationContext.GetCallbackChannel<IServerRentCallback>().onSaveVehicle(vehicle[index]);
+            }
 
-            command.Parameters.AddWithValue("plate", vehicleObject.plate);
-            command.Parameters.AddWithValue("name", vehicleObject.name);
-            command.Parameters.AddWithValue("model", vehicleObject.model);
-            command.Parameters.AddWithValue("price", vehicleObject.price);
-            command.Parameters.AddWithValue("fuel", vehicleObject.fuel);
-            command.Parameters.AddWithValue("mileage", vehicleObject.mileage);
-            command.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
-            command.Parameters.AddWithValue("img", vehicleObject.picturepath);
-            command.Parameters.AddWithValue("plt", vehicleObject.plate);
+            using (SqlCommand command = sqlconnection.CreateCommand())
+            {
+                command.CommandText = "UPDATE [vehicles] SET [plate] = @plate, " +
+                    "[name] = @name, [model] = @model, [price] = @price, [fuel] = @fuel, " +
+                    "[mileage] = @mileage, [client_documentid] = @client_documentid," +
+                    "[picturepath] = @img, [date_start] = @date_start, [date_end] = @date_end," +
+                    "[fuelmax] = @fuelmax, [maxspeed] = @maxspeed, [type] = @type, [transmission] = @transmission, [category] = @category " +
+                    "WHERE [plate] = @plt";
 
-            command.Parameters.AddWithValue("date_start", vehicleObject.start_date);
-            command.Parameters.AddWithValue("date_end", vehicleObject.end_date);
+                command.Parameters.AddWithValue("plate", vehicleObject.plate);
+                command.Parameters.AddWithValue("name", vehicleObject.name);
+                command.Parameters.AddWithValue("model", vehicleObject.model);
+                command.Parameters.AddWithValue("price", vehicleObject.price);
+                command.Parameters.AddWithValue("fuel", vehicleObject.fuel);
+                command.Parameters.AddWithValue("mileage", vehicleObject.mileage);
+                command.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
+                command.Parameters.AddWithValue("img", vehicleObject.picturepath);
+                command.Parameters.AddWithValue("plt", vehicleObject.plate);
 
-            command.Parameters.AddWithValue("fuelmax", vehicleObject.end_date);
-            command.Parameters.AddWithValue("maxspeed", vehicleObject.end_date);
-            command.Parameters.AddWithValue("type", vehicleObject.end_date);
-            command.Parameters.AddWithValue("transmission", vehicleObject.end_date);
-            command.Parameters.AddWithValue("category", vehicleObject.end_date);
+                command.Parameters.AddWithValue("date_start", vehicleObject.start_date);
+                command.Parameters.AddWithValue("date_end", vehicleObject.end_date);
 
-            command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("fuelmax", vehicleObject.maxfuel);
+                command.Parameters.AddWithValue("maxspeed", vehicleObject.maxspeed);
+                command.Parameters.AddWithValue("type", vehicleObject.type);
+                command.Parameters.AddWithValue("transmission", vehicleObject.transmission);
+                command.Parameters.AddWithValue("category", vehicleObject.category);
+
+                command.ExecuteNonQuery();
+            }             
         }
 
         public List<Vehicle> getAllVehicleToUser(int id)
@@ -312,19 +326,12 @@ namespace WCF_Rent
 
         public Vehicle getUserVehicle(Account account)
         {
-            Vehicle vehicleObject = new Vehicle();
+            int index = vehicle.FindIndex(i => i.client_documentid == account.documentid);
 
-            foreach (Vehicle item in vehicle)
-            {
-                if (item.client_documentid != account.documentid)
-                    continue;
+            if (index < 0)
+                return new Vehicle();
 
-                vehicleObject = item;
-
-                break;
-            }
-
-            return vehicleObject;
+            return vehicle[index];
         }
 
         public List<Vehicle> createVehicleObjectParams(int min, int max, int type)

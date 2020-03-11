@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using System.ServiceModel;
 
 using TRC_Redesign.header;
 using TRC_Redesign.CustomMessageBox;
@@ -17,7 +18,7 @@ namespace TRC_Redesign
         public ServerData serverData = new ServerData();
 
         public login Login;
-        public VehicleInfo vinfo = new VehicleInfo();
+        public VehicleInfo vehicleInfo = new VehicleInfo();
 
         int mov;
         int movX;
@@ -153,8 +154,11 @@ namespace TRC_Redesign
             admin_page1.mainWindow = this;
             admin_page1.admin_check1.mainWindow = this;
             admin_page1.admin_vehicleadd1.mainWindow = this;
-            vinfo.mainWindow = this;
+            vehicleInfo.mainWindow = this;
             payment_page1.mainWindow = this;
+
+            clientData.mainWindow = this;
+            serverData.mainWindow = this;
 
             main_page1.updateVehicleData();
             main_page1.updateNameData();
@@ -186,12 +190,13 @@ namespace TRC_Redesign
 
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
-            
+            //serverData.disconnect();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             clientData.ui.SaveTheme();
+            serverData.disconnect();
 
             System.Windows.Forms.Application.Exit();
         }

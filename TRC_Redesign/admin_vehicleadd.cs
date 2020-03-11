@@ -123,7 +123,19 @@ namespace TRC_Redesign
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void jThinButton2_Click(object sender, EventArgs e)
+        
+
+        private void admin_vehicleadd_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_imagepick_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -141,14 +153,9 @@ namespace TRC_Redesign
             }
         }
 
-        private void admin_vehicleadd_Load(object sender, EventArgs e)
+        private void visibleChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+           
         }
     }
 }

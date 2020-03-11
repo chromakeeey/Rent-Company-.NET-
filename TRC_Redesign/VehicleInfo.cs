@@ -6,6 +6,7 @@ using System.IO;
 using TRC_Redesign.header;
 using TRC_Redesign.RentPicker;
 using TRC_Redesign.ServiceRent;
+using TRC_Redesign.CustomMessageBox;
 
 namespace TRC_Redesign
 {
@@ -14,7 +15,7 @@ namespace TRC_Redesign
         private DateTime rentDate;
         private float totalPrice;
 
-        private Vehicle vehicle;
+        public Vehicle vehicle;
         public Form1 mainWindow;
 
         public VehicleInfo()
@@ -105,13 +106,12 @@ namespace TRC_Redesign
 
         public void tryRentVehicle()
         {
+            Vehicle vehicleObject = mainWindow.serverData.client.getUserVehicle(mainWindow.clientData.account);
 
-            if (vehicle.plate == "none")
+            if (vehicleObject.plate != "none")
             {
-                MessageBox.Show("Автомобіль який ви переглядали більше недоступний. \nМожливо хтось видалив автомобіль або змінив номерний знак.", "Відміна оренди",
+                MessageBox.Show("Ви вже маєте орендований автомобіль.", "Відмова оренди",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                Hide();
 
                 return;
             }
@@ -148,28 +148,12 @@ namespace TRC_Redesign
                 mainWindow.serverData.client.saveVehicle(vehicle);
                 mainWindow.updateAccountData();
                 mainWindow.main_page1.updateVehicleData();
-
                 mainWindow.clientData.ui.CreatePanel(mainWindow.clientData.ui.MAIN_PANEL, mainWindow);
-                Hide();
                 
-                MessageBox.Show("Ви орендовали автомобіль. Вітаємо!", "Підтвердження оренди", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mainWindow.dialogCreate("Ви орендовали автомобіль. Вітаємо!", "Підтвердження оренди", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Hide();
             }
-        }
-
-        string toPlate(string plate)
-        {
-            string rplate = "";
-
-            for (int i = 0; i < plate.Length; i++)
-            {
-                if (i == 2 || i == 6)
-                    rplate += " ";
-
-                rplate += plate[i];
-    
-            }
-
-            return rplate;
         }
 
         public void setVehicle(Vehicle objectVehicle)
@@ -185,7 +169,7 @@ namespace TRC_Redesign
             label11.Text = Convert.ToInt32((objectVehicle.fuel * 100) / objectVehicle.maxfuel).ToString() + "%";
             label10.Text = objectVehicle.maxspeed.ToString() + "км/г";
             label9.Text = objectVehicle.price + " грн./день";
-            label8.Text = toPlate(objectVehicle.plate);
+            label8.Text = objectVehicle.plate;
 
             var stream = new MemoryStream(mainWindow.serverData.client.vehicleImage(objectVehicle));
             pictureBox1.Image = Image.FromStream(stream);
@@ -222,7 +206,13 @@ namespace TRC_Redesign
             tryRentVehicle();
         }
 
+        public DialogResult createDialog(string message, string caption, MessageBoxButtons button, MessageBoxIcon icon)
+        {
+            DialogResult dialogResult;
+            dialogResult = MsgBox.Show(message, caption, button, icon, mainWindow);
 
+            return dialogResult;
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -244,6 +234,12 @@ namespace TRC_Redesign
         {
             label15.Text = "Вибір дати ->";
             label16.Text = " ";
+        }
+
+        private void visibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+                this.CenterToScreen();
         }
     }
 }
