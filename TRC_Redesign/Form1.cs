@@ -67,7 +67,6 @@ namespace TRC_Redesign
 
         public Form1()
         {
-
             InitializeComponent();
 
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
@@ -81,8 +80,6 @@ namespace TRC_Redesign
             timer.Interval = 30;
             timer.Start();
             this.CenterToScreen();
-
-
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -170,8 +167,6 @@ namespace TRC_Redesign
             clientData.ui.CreatePanel(clientData.ui.MAIN_PANEL, this);
         }
 
-        
-
         private void admin_page1_Load(object sender, EventArgs e)
         {
             
@@ -190,15 +185,17 @@ namespace TRC_Redesign
 
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
-            //serverData.disconnect();
+            closeApplication();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            clientData.ui.SaveTheme();
+            /*clientData.ui.SaveTheme();
             serverData.disconnect();
 
-            System.Windows.Forms.Application.Exit();
+            System.Windows.Forms.Application.Exit();*/
+
+            closeApplication();
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
@@ -244,6 +241,11 @@ namespace TRC_Redesign
         private void clickPanelRight(object sender, EventArgs e)
         {
             
+        }
+
+        public void closeApplication()
+        {
+            Application.Exit();
         }
     }
 }

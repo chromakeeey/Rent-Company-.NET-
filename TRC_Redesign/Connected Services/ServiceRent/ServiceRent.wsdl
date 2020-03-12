@@ -129,6 +129,9 @@
   <wsdl:message name="IServiceRent_onDeleteVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:onDeleteVehicle" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_sendNotification_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:sendNotification" />
+  </wsdl:message>
   <wsdl:portType name="IServiceRent">
     <wsdl:operation name="userConnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/userConnect" message="tns:IServiceRent_userConnect_InputMessage" />
@@ -215,6 +218,9 @@
     </wsdl:operation>
     <wsdl:operation name="onDeleteVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onDeleteVehicle" message="tns:IServiceRent_onDeleteVehicle_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendNotification">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendNotification" message="tns:IServiceRent_sendNotification_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServiceRent" type="tns:IServiceRent">
@@ -402,6 +408,12 @@
     </wsdl:operation>
     <wsdl:operation name="onDeleteVehicle">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/onDeleteVehicle" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendNotification">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendNotification" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

@@ -85,6 +85,18 @@ namespace WCF_Rent
 
         /*      vehicle block       */
 
+        public void showNotification(int id, string message)
+        {
+            foreach(var userObject in serverUser)
+            {
+                var user = serverUser.FirstOrDefault(i => i.ID == id);
+
+                if (user != null)
+                {
+                    userObject.operationContext.GetCallbackChannel<IServerRentCallback>().sendNotification(message);
+                }
+            }
+        }
 
         public void selectAllVehicle()
         {
@@ -115,7 +127,6 @@ namespace WCF_Rent
                     type = Convert.ToString(reader["type"]),
                     transmission = Convert.ToString(reader["transmission"]),
                     category = Convert.ToString(reader["category"])
-
                 }
                 );
             }
@@ -140,31 +151,35 @@ namespace WCF_Rent
         {
             vehicle.Add(vehicleObject);
 
-                SqlCommand sqlCommand = new SqlCommand(
+            SqlCommand sqlCommand = new SqlCommand(
                     "INSERT INTO [vehicles] (plate, name, model, price, fuel, mileage, client_documentid, picturepath, date_start, date_end, fuelmax, maxspeed, type, transmission, category) VALUES " +
                     "(@plate, @name, @model, @price, @fuel, @mileage, @client_documentid, @picturepath, @date_start, @date_end, @fuelmax, @maxspeed, @type, @transmission, @category)",
                 sqlconnection);
 
-                sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
-                sqlCommand.Parameters.AddWithValue("name", vehicleObject.name);
-                sqlCommand.Parameters.AddWithValue("model", vehicleObject.model);
-                sqlCommand.Parameters.AddWithValue("price", vehicleObject.price);
-                sqlCommand.Parameters.AddWithValue("fuel", vehicleObject.fuel);
-                sqlCommand.Parameters.AddWithValue("mileage", vehicleObject.mileage);
-                sqlCommand.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
-                sqlCommand.Parameters.AddWithValue("picturepath", vehicleObject.picturepath);
+            sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
+            sqlCommand.Parameters.AddWithValue("name", vehicleObject.name);
+            sqlCommand.Parameters.AddWithValue("model", vehicleObject.model);
+            sqlCommand.Parameters.AddWithValue("price", vehicleObject.price);
+            sqlCommand.Parameters.AddWithValue("fuel", vehicleObject.fuel);
+            sqlCommand.Parameters.AddWithValue("mileage", vehicleObject.mileage);
+            sqlCommand.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
+            sqlCommand.Parameters.AddWithValue("picturepath", vehicleObject.picturepath);
 
-                sqlCommand.Parameters.AddWithValue("date_start", vehicleObject.start_date);
-                sqlCommand.Parameters.AddWithValue("date_end", vehicleObject.end_date);
+            sqlCommand.Parameters.AddWithValue("date_start", vehicleObject.start_date);
+            sqlCommand.Parameters.AddWithValue("date_end", vehicleObject.end_date);
 
-                sqlCommand.Parameters.AddWithValue("fuelmax", vehicleObject.maxfuel);
-                sqlCommand.Parameters.AddWithValue("maxspeed", vehicleObject.maxspeed);
-                sqlCommand.Parameters.AddWithValue("type", vehicleObject.type);
-                sqlCommand.Parameters.AddWithValue("transmission", vehicleObject.transmission);
-                sqlCommand.Parameters.AddWithValue("category", vehicleObject.category);
+            sqlCommand.Parameters.AddWithValue("fuelmax", vehicleObject.maxfuel);
+            sqlCommand.Parameters.AddWithValue("maxspeed", vehicleObject.maxspeed);
+            sqlCommand.Parameters.AddWithValue("type", vehicleObject.type);
+            sqlCommand.Parameters.AddWithValue("transmission", vehicleObject.transmission);
+            sqlCommand.Parameters.AddWithValue("category", vehicleObject.category);
 
-                sqlCommand.ExecuteNonQuery();
+            sqlCommand.ExecuteNonQuery();
 
+            string message = String.Format("Було додано новий автомобіль - {0} {1} ({2} грн.)",
+                vehicleObject.name, vehicleObject.model, vehicleObject.price.ToString());
+
+            showNotification(0, message);
         }
 
         public void saveVehicle(Vehicle vehicleObject)

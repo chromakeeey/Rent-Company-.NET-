@@ -76,7 +76,20 @@ namespace TRC_Redesign
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
-            mainWindow.serverData.disconnect();
+            
+
+            if (this.Visible)
+            {
+                if (mainWindow.serverData.client != null)
+                    mainWindow.serverData.disconnect();
+            }
+            else
+            {
+                mainWindow.clientData.ui.SaveTheme();
+                mainWindow.serverData.disconnect();
+            }
+
+            mainWindow.clientData.addTxtLog("Application exit");
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -148,6 +161,11 @@ namespace TRC_Redesign
                         break;
                     }
             }
+        }
+
+        private void load_Closing(object sender, FormClosingEventArgs e)
+        {
+            mainWindow.closeApplication();
         }
     }
 }

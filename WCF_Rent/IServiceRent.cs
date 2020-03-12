@@ -98,6 +98,9 @@ namespace WCF_Rent
 
         [OperationContract(IsOneWay = true)]
         void onDeleteVehicle(Vehicle vehicleObject);
+
+        [OperationContract(IsOneWay = true)]
+        void sendNotification(string message);
     }
 
     

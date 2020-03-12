@@ -51,13 +51,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.panel_message = new System.Windows.Forms.Panel();
+            this.lbl_message = new System.Windows.Forms.Label();
             this.settings_page1 = new TRC_Redesign.settings_page();
             this.payment_page1 = new TRC_Redesign.payment_page();
             this.main_page1 = new TRC_Redesign.main_page();
             this.admin_page1 = new TRC_Redesign.admin_page();
             this.vehicle_page1 = new TRC_Redesign.vehicle_page();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -68,8 +70,9 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel_message.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -357,6 +360,48 @@
             this.panel3.Click += new System.EventHandler(this.clickPanelRight);
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(34, 594);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(16, 23);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox7.TabIndex = 9;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(7, 594);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox6.TabIndex = 8;
+            this.pictureBox6.TabStop = false;
+            // 
+            // panel_message
+            // 
+            this.panel_message.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel_message.Controls.Add(this.lbl_message);
+            this.panel_message.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_message.Location = new System.Drawing.Point(0, 655);
+            this.panel_message.Name = "panel_message";
+            this.panel_message.Size = new System.Drawing.Size(1115, 20);
+            this.panel_message.TabIndex = 8;
+            this.panel_message.Visible = false;
+            // 
+            // lbl_message
+            // 
+            this.lbl_message.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_message.ForeColor = System.Drawing.Color.White;
+            this.lbl_message.Location = new System.Drawing.Point(0, -1);
+            this.lbl_message.Name = "lbl_message";
+            this.lbl_message.Size = new System.Drawing.Size(1115, 20);
+            this.lbl_message.TabIndex = 0;
+            this.lbl_message.Text = "message_text";
+            this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // settings_page1
             // 
             this.settings_page1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -394,32 +439,13 @@
             this.vehicle_page1.Size = new System.Drawing.Size(766, 600);
             this.vehicle_page1.TabIndex = 5;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(7, 594);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(27, 23);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox6.TabIndex = 8;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(34, 594);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(16, 23);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox7.TabIndex = 9;
-            this.pictureBox7.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ClientSize = new System.Drawing.Size(1115, 675);
+            this.Controls.Add(this.panel_message);
             this.Controls.Add(this.settings_page1);
             this.Controls.Add(this.payment_page1);
             this.Controls.Add(this.main_page1);
@@ -447,8 +473,9 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel_message.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -484,6 +511,8 @@
         public settings_page settings_page1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
+        public System.Windows.Forms.Panel panel_message;
+        public System.Windows.Forms.Label lbl_message;
     }
 }
 

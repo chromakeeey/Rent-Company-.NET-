@@ -1,0 +1,4 @@
+[12.03.2020 12:21:35] Log file created
+[12.03.2020 12:21:35] Application exit
+
+[12.03.2020 12:26:53] Application exit

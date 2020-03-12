@@ -19,6 +19,8 @@ namespace TRC_Redesign.header
         public ServiceRentClient client;
         public int client_id;
 
+
+
         public void onDeleteVehicle(Vehicle vehicleObject)
         {
             if (mainWindow.vehicleInfo.Visible)
@@ -75,16 +77,21 @@ namespace TRC_Redesign.header
             }
         }
 
-    /*public void uploadImage(Image path)
-    {
-        File file = new File();
+        public void sendNotification(string message)
+        {
+            mainWindow.clientData.showPanelMessage(message);
+        }
 
-        file.Content = System.IO.File.ReadAllBytes(path);
-        file.Name = System.IO.Path.GetFileName(path);
+        /*public void uploadImage(Image path)
+        {
+            File file = new File();
 
-        client.uploadVehicleImage(file);
-    }*/
+            file.Content = System.IO.File.ReadAllBytes(path);
+            file.Name = System.IO.Path.GetFileName(path);
+
+            client.uploadVehicleImage(file);
+        }*/
 
 
-}
+    }
 }

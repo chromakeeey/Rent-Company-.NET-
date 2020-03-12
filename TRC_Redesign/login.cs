@@ -84,7 +84,7 @@ namespace TRC_Redesign
 
         private void login_Closing(object sender, FormClosingEventArgs e)
         {
-            
+            mainWindow.closeApplication();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -135,8 +135,10 @@ namespace TRC_Redesign
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            mainWindow.serverData.disconnect();
-            System.Windows.Forms.Application.Exit();
+            //mainWindow.serverData.disconnect();
+            //System.Windows.Forms.Application.Exit();
+
+            mainWindow.closeApplication();
         }
 
         private void TMPCLICK(object sender, EventArgs e)
