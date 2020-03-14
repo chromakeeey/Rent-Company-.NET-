@@ -2,3 +2,11 @@
 [12.03.2020 12:21:35] Application exit
 
 [12.03.2020 12:26:53] Application exit
+
+[14.03.2020 16:14:50] Application exit
+
+[14.03.2020 16:19:22] Application exit
+
+[14.03.2020 16:25:16] Application exit
+
+[14.03.2020 17:17:22] Application exit

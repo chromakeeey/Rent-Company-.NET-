@@ -33,6 +33,7 @@ namespace TRC_Redesign.header
         public int SUB_CHECK_PANEL = 0;
         public int SUB_ACCOUNT_PANEL = 1;
         public int SUB_VEHICLE_ADD = 2;
+        public int SUB_VEHICLE_EDIT = 3;
 
         public void CreateAdminSubPanel(int panelid, admin_page object_page)
         {
@@ -42,6 +43,7 @@ namespace TRC_Redesign.header
             object_page.admin_check1.Visible = false;
             object_page.admin_account1.Visible = false;
             object_page.admin_vehicleadd1.Visible = false;
+            object_page.vehicleEdit.Visible = false;
 
             switch (panelid)
             {
@@ -60,6 +62,12 @@ namespace TRC_Redesign.header
                 case 2:
                     {
                         object_page.admin_vehicleadd1.Visible = true;
+
+                        break;
+                    }
+                case 3:
+                    {
+                        object_page.vehicleEdit.Visible = true;
 
                         break;
                     }

@@ -31,3 +31,5 @@ D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.CustomMessageBox.msgBoxOK.re
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.CustomMessageBox.msgBoxYesNo.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.RentPicker.RentTimePicker.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.csprojAssemblyReference.cache
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.UCVehicleEdit.resources
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.InputBoxes.InputTextBox.resources

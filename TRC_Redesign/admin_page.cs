@@ -55,9 +55,8 @@ namespace TRC_Redesign
 
         private void button3_Click(object sender, EventArgs e)
         {
-            mainWindow.dialogCreate("coming soon ...", "later", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             panel9.Location = new Point(button3.Location.X, panel9.Location.Y);
+            mainWindow.clientData.ui.CreateAdminSubPanel(mainWindow.clientData.ui.SUB_VEHICLE_EDIT, this);
         }
 
         private void button4_Click(object sender, EventArgs e)

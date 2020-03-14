@@ -139,6 +139,19 @@
     <Compile Include="header\ServerData.cs" />
     <Compile Include="header\theme.cs" />
     <Compile Include="header\UI.cs" />
+    <Compile Include="InputBoxes\InputComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputBoxes\InputComboBox.Designer.cs">
+      <DependentUpon>InputComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputBoxes\TextBoxGet.cs" />
+    <Compile Include="InputBoxes\InputTextBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputBoxes\InputTextBox.Designer.cs">
+      <DependentUpon>InputTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="load.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +190,12 @@
     </Compile>
     <Compile Include="settings_page.Designer.cs">
       <DependentUpon>settings_page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCVehicleEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCVehicleEdit.Designer.cs">
+      <DependentUpon>UCVehicleEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="VehicleInfo.cs">
       <SubType>Form</SubType>
@@ -217,6 +236,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InputBoxes\InputTextBox.resx">
+      <DependentUpon>InputTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="load.resx">
       <DependentUpon>load.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="settings_page.resx">
       <DependentUpon>settings_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCVehicleEdit.resx">
+      <DependentUpon>UCVehicleEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VehicleInfo.resx">
       <DependentUpon>VehicleInfo.cs</DependentUpon>

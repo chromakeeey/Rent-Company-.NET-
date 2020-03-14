@@ -45,15 +45,17 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.jThinButton1 = new JThinButton.JThinButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pb_edit = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -198,7 +200,7 @@
             // 
             this.label12.Font = new System.Drawing.Font("SF UI Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(12, 175);
+            this.label12.Location = new System.Drawing.Point(11, 175);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(158, 23);
             this.label12.TabIndex = 36;
@@ -247,6 +249,50 @@
             this.jThinButton1.Size = new System.Drawing.Size(144, 26);
             this.jThinButton1.TabIndex = 96;
             this.jThinButton1.Click += new System.EventHandler(this.jThinButton1_Click);
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(593, 201);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(180, 17);
+            this.label15.TabIndex = 97;
+            this.label15.Text = "Вибір дати ->";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label16.Location = new System.Drawing.Point(529, 224);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(122, 25);
+            this.label16.TabIndex = 100;
+            this.label16.Text = " ";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pb_edit
+            // 
+            this.pb_edit.Image = ((System.Drawing.Image)(resources.GetObject("pb_edit.Image")));
+            this.pb_edit.Location = new System.Drawing.Point(730, 12);
+            this.pb_edit.Name = "pb_edit";
+            this.pb_edit.Size = new System.Drawing.Size(30, 28);
+            this.pb_edit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_edit.TabIndex = 101;
+            this.pb_edit.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(770, 197);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(23, 21);
+            this.button2.TabIndex = 98;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox5
             // 
@@ -310,46 +356,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(593, 201);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(180, 17);
-            this.label15.TabIndex = 97;
-            this.label15.Text = "Вибір дати ->";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(770, 197);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(23, 21);
-            this.button2.TabIndex = 98;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label16
-            // 
-            this.label16.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(529, 224);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(122, 25);
-            this.label16.TabIndex = 100;
-            this.label16.Text = " ";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // VehicleInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(819, 268);
+            this.Controls.Add(this.pb_edit);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label15);
@@ -384,6 +397,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.msDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.msMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.msUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -420,5 +434,6 @@
         public System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Label label16;
+        private System.Windows.Forms.PictureBox pb_edit;
     }
 }

@@ -239,7 +239,11 @@ namespace TRC_Redesign
         private void visibleChanged(object sender, EventArgs e)
         {
             if (Visible)
+            {
                 this.CenterToScreen();
+
+                pb_edit.Visible = mainWindow.clientData.account.level == 0 ? false : true;
+            }
         }
     }
 }

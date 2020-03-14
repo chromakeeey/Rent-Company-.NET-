@@ -155,7 +155,7 @@ namespace TRC_Redesign
 
         private void visibleChanged(object sender, EventArgs e)
         {
-           
+            
         }
     }
 }

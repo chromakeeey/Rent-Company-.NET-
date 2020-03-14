@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(admin_page));
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.admin_vehicleadd1 = new TRC_Redesign.admin_vehicleadd();
+            this.admin_account1 = new TRC_Redesign.admin_account();
+            this.admin_check1 = new TRC_Redesign.admin_check();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -61,9 +64,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.admin_vehicleadd1 = new TRC_Redesign.admin_vehicleadd();
-            this.admin_account1 = new TRC_Redesign.admin_account();
-            this.admin_check1 = new TRC_Redesign.admin_check();
+            this.vehicleEdit = new TRC_Redesign.UCVehicleEdit();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -100,6 +101,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel6.Controls.Add(this.vehicleEdit);
             this.panel6.Controls.Add(this.admin_vehicleadd1);
             this.panel6.Controls.Add(this.admin_account1);
             this.panel6.Controls.Add(this.admin_check1);
@@ -108,6 +110,33 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(732, 319);
             this.panel6.TabIndex = 18;
+            // 
+            // admin_vehicleadd1
+            // 
+            this.admin_vehicleadd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.admin_vehicleadd1.Location = new System.Drawing.Point(0, 53);
+            this.admin_vehicleadd1.Name = "admin_vehicleadd1";
+            this.admin_vehicleadd1.Size = new System.Drawing.Size(732, 270);
+            this.admin_vehicleadd1.TabIndex = 5;
+            this.admin_vehicleadd1.Visible = false;
+            // 
+            // admin_account1
+            // 
+            this.admin_account1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.admin_account1.Location = new System.Drawing.Point(0, 60);
+            this.admin_account1.Name = "admin_account1";
+            this.admin_account1.Size = new System.Drawing.Size(732, 270);
+            this.admin_account1.TabIndex = 4;
+            this.admin_account1.Visible = false;
+            // 
+            // admin_check1
+            // 
+            this.admin_check1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.admin_check1.Location = new System.Drawing.Point(0, 53);
+            this.admin_check1.Name = "admin_check1";
+            this.admin_check1.Size = new System.Drawing.Size(732, 270);
+            this.admin_check1.TabIndex = 3;
+            this.admin_check1.Visible = false;
             // 
             // panel8
             // 
@@ -456,32 +485,13 @@
             this.label1.Text = "Панель адміністратора";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // admin_vehicleadd1
+            // vehicleEdit
             // 
-            this.admin_vehicleadd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.admin_vehicleadd1.Location = new System.Drawing.Point(0, 53);
-            this.admin_vehicleadd1.Name = "admin_vehicleadd1";
-            this.admin_vehicleadd1.Size = new System.Drawing.Size(732, 270);
-            this.admin_vehicleadd1.TabIndex = 5;
-            this.admin_vehicleadd1.Visible = false;
-            // 
-            // admin_account1
-            // 
-            this.admin_account1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.admin_account1.Location = new System.Drawing.Point(0, 60);
-            this.admin_account1.Name = "admin_account1";
-            this.admin_account1.Size = new System.Drawing.Size(732, 270);
-            this.admin_account1.TabIndex = 4;
-            this.admin_account1.Visible = false;
-            // 
-            // admin_check1
-            // 
-            this.admin_check1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.admin_check1.Location = new System.Drawing.Point(0, 53);
-            this.admin_check1.Name = "admin_check1";
-            this.admin_check1.Size = new System.Drawing.Size(732, 270);
-            this.admin_check1.TabIndex = 3;
-            this.admin_check1.Visible = false;
+            this.vehicleEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.vehicleEdit.Location = new System.Drawing.Point(0, 49);
+            this.vehicleEdit.Name = "vehicleEdit";
+            this.vehicleEdit.Size = new System.Drawing.Size(732, 270);
+            this.vehicleEdit.TabIndex = 6;
             // 
             // admin_page
             // 
@@ -545,5 +555,6 @@
         public admin_check admin_check1;
         public admin_account admin_account1;
         public admin_vehicleadd admin_vehicleadd1;
+        public UCVehicleEdit vehicleEdit;
     }
 }
