@@ -245,5 +245,15 @@ namespace TRC_Redesign
                 pb_edit.Visible = mainWindow.clientData.account.level == 0 ? false : true;
             }
         }
+
+        private void pb_edit_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            mainWindow.admin_page1.vehicleEdit.setVehicle(vehicle);
+
+            mainWindow.clientData.ui.CreatePanel(mainWindow.clientData.ui.ADMIN_PANEL, mainWindow);
+            mainWindow.clientData.ui.CreateAdminSubPanel(mainWindow.clientData.ui.SUB_VEHICLE_EDIT, mainWindow.admin_page1);
+        }
     }
 }

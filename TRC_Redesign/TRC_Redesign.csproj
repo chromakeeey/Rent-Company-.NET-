@@ -139,6 +139,7 @@
     <Compile Include="header\ServerData.cs" />
     <Compile Include="header\theme.cs" />
     <Compile Include="header\UI.cs" />
+    <Compile Include="InputBoxes\ComboBoxGet.cs" />
     <Compile Include="InputBoxes\InputComboBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputBoxes\InputComboBox.resx">
+      <DependentUpon>InputComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBoxes\InputTextBox.resx">
       <DependentUpon>InputTextBox.cs</DependentUpon>

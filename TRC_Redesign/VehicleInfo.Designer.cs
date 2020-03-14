@@ -281,6 +281,7 @@
             this.pb_edit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pb_edit.TabIndex = 101;
             this.pb_edit.TabStop = false;
+            this.pb_edit.Click += new System.EventHandler(this.pb_edit_Click);
             // 
             // button2
             // 

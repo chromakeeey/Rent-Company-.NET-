@@ -52,7 +52,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_vin = new System.Windows.Forms.Button();
+            this.lbl_error = new System.Windows.Forms.Label();
             this.btn_image = new System.Windows.Forms.Button();
             this.btn_price = new System.Windows.Forms.Button();
             this.btn_transmission = new System.Windows.Forms.Button();
@@ -65,8 +65,13 @@
             this.btn_model = new System.Windows.Forms.Button();
             this.btn_name = new System.Windows.Forms.Button();
             this.pb_vehicle = new System.Windows.Forms.PictureBox();
-            this.lbl_error = new System.Windows.Forms.Label();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.pnl_empty = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_vehicle)).BeginInit();
+            this.pnl_empty.SuspendLayout();
             this.SuspendLayout();
             // 
             // jThinButton1
@@ -315,7 +320,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(536, 15);
+            this.label1.Location = new System.Drawing.Point(522, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 23);
             this.label1.TabIndex = 129;
@@ -326,24 +331,24 @@
             // 
             this.label4.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(562, 15);
+            this.label4.Location = new System.Drawing.Point(548, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 23);
             this.label4.TabIndex = 130;
             this.label4.Text = "1NXBB02E9TZ393131";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btn_vin
+            // lbl_error
             // 
-            this.btn_vin.FlatAppearance.BorderSize = 0;
-            this.btn_vin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_vin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_vin.Image = ((System.Drawing.Image)(resources.GetObject("btn_vin.Image")));
-            this.btn_vin.Location = new System.Drawing.Point(512, 14);
-            this.btn_vin.Name = "btn_vin";
-            this.btn_vin.Size = new System.Drawing.Size(20, 23);
-            this.btn_vin.TabIndex = 143;
-            this.btn_vin.UseVisualStyleBackColor = true;
+            this.lbl_error.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_error.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lbl_error.Location = new System.Drawing.Point(308, 239);
+            this.lbl_error.Name = "lbl_error";
+            this.lbl_error.Size = new System.Drawing.Size(250, 18);
+            this.lbl_error.TabIndex = 144;
+            this.lbl_error.Text = "lbl_error";
+            this.lbl_error.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_error.Visible = false;
             // 
             // btn_image
             // 
@@ -356,6 +361,7 @@
             this.btn_image.Size = new System.Drawing.Size(20, 23);
             this.btn_image.TabIndex = 142;
             this.btn_image.UseVisualStyleBackColor = true;
+            this.btn_image.Click += new System.EventHandler(this.btn_image_Click);
             // 
             // btn_price
             // 
@@ -368,6 +374,7 @@
             this.btn_price.Size = new System.Drawing.Size(20, 23);
             this.btn_price.TabIndex = 141;
             this.btn_price.UseVisualStyleBackColor = true;
+            this.btn_price.Click += new System.EventHandler(this.btn_price_Click);
             // 
             // btn_transmission
             // 
@@ -380,6 +387,7 @@
             this.btn_transmission.Size = new System.Drawing.Size(20, 23);
             this.btn_transmission.TabIndex = 140;
             this.btn_transmission.UseVisualStyleBackColor = true;
+            this.btn_transmission.Click += new System.EventHandler(this.btn_transmission_Click);
             // 
             // btn_type
             // 
@@ -392,6 +400,7 @@
             this.btn_type.Size = new System.Drawing.Size(20, 23);
             this.btn_type.TabIndex = 139;
             this.btn_type.UseVisualStyleBackColor = true;
+            this.btn_type.Click += new System.EventHandler(this.btn_type_Click);
             // 
             // btn_fuel
             // 
@@ -404,6 +413,7 @@
             this.btn_fuel.Size = new System.Drawing.Size(20, 23);
             this.btn_fuel.TabIndex = 138;
             this.btn_fuel.UseVisualStyleBackColor = true;
+            this.btn_fuel.Click += new System.EventHandler(this.btn_fuel_Click);
             // 
             // btn_maxfuel
             // 
@@ -416,6 +426,7 @@
             this.btn_maxfuel.Size = new System.Drawing.Size(20, 23);
             this.btn_maxfuel.TabIndex = 137;
             this.btn_maxfuel.UseVisualStyleBackColor = true;
+            this.btn_maxfuel.Click += new System.EventHandler(this.btn_maxfuel_Click);
             // 
             // btn_category
             // 
@@ -428,6 +439,7 @@
             this.btn_category.Size = new System.Drawing.Size(20, 23);
             this.btn_category.TabIndex = 136;
             this.btn_category.UseVisualStyleBackColor = true;
+            this.btn_category.Click += new System.EventHandler(this.btn_category_Click);
             // 
             // btn_mileage
             // 
@@ -491,25 +503,72 @@
             this.pb_vehicle.TabIndex = 116;
             this.pb_vehicle.TabStop = false;
             // 
-            // lbl_error
+            // btn_delete
             // 
-            this.lbl_error.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_error.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lbl_error.Location = new System.Drawing.Point(308, 239);
-            this.lbl_error.Name = "lbl_error";
-            this.lbl_error.Size = new System.Drawing.Size(250, 18);
-            this.lbl_error.TabIndex = 144;
-            this.lbl_error.Text = "lbl_error";
-            this.lbl_error.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbl_error.Visible = false;
+            this.btn_delete.FlatAppearance.BorderSize = 0;
+            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_delete.Image = ((System.Drawing.Image)(resources.GetObject("btn_delete.Image")));
+            this.btn_delete.Location = new System.Drawing.Point(688, 18);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(20, 23);
+            this.btn_delete.TabIndex = 145;
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label5.Location = new System.Drawing.Point(553, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 18);
+            this.label5.TabIndex = 146;
+            this.label5.Text = "Видалити автомобіль";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btn_back
+            // 
+            this.btn_back.FlatAppearance.BorderSize = 0;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_back.Image = ((System.Drawing.Image)(resources.GetObject("btn_back.Image")));
+            this.btn_back.Location = new System.Drawing.Point(21, 228);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(33, 32);
+            this.btn_back.TabIndex = 147;
+            this.btn_back.UseVisualStyleBackColor = true;
+            // 
+            // pnl_empty
+            // 
+            this.pnl_empty.Controls.Add(this.label7);
+            this.pnl_empty.Location = new System.Drawing.Point(3, 278);
+            this.pnl_empty.Name = "pnl_empty";
+            this.pnl_empty.Size = new System.Drawing.Size(766, 355);
+            this.pnl_empty.TabIndex = 148;
+            this.pnl_empty.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("SF UI Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(732, 270);
+            this.label7.TabIndex = 124;
+            this.label7.Text = "Для пошуку автомобіля скористайтесь \r\nвкладкою \"Автомобілі\" в панелі зліва\r\n";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UCVehicleEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.pnl_empty);
+            this.Controls.Add(this.btn_back);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.lbl_error);
-            this.Controls.Add(this.btn_vin);
             this.Controls.Add(this.btn_image);
             this.Controls.Add(this.btn_price);
             this.Controls.Add(this.btn_transmission);
@@ -548,6 +607,7 @@
             this.Name = "UCVehicleEdit";
             this.Size = new System.Drawing.Size(732, 270);
             ((System.ComponentModel.ISupportInitialize)(this.pb_vehicle)).EndInit();
+            this.pnl_empty.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,7 +650,11 @@
         private System.Windows.Forms.Button btn_transmission;
         private System.Windows.Forms.Button btn_price;
         private System.Windows.Forms.Button btn_image;
-        private System.Windows.Forms.Button btn_vin;
         public System.Windows.Forms.Label lbl_error;
+        private System.Windows.Forms.Button btn_delete;
+        public System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_back;
+        public System.Windows.Forms.Panel pnl_empty;
+        public System.Windows.Forms.Label label7;
     }
 }

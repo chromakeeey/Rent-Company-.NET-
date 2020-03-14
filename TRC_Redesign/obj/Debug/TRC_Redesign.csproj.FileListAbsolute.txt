@@ -33,3 +33,4 @@ D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.RentPicker.RentTimePicker.re
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.csprojAssemblyReference.cache
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.UCVehicleEdit.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.InputBoxes.InputTextBox.resources
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.InputBoxes.InputComboBox.resources

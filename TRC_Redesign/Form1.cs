@@ -151,6 +151,7 @@ namespace TRC_Redesign
             admin_page1.mainWindow = this;
             admin_page1.admin_check1.mainWindow = this;
             admin_page1.admin_vehicleadd1.mainWindow = this;
+            admin_page1.vehicleEdit.mainWindow = this;
             vehicleInfo.mainWindow = this;
             payment_page1.mainWindow = this;
 

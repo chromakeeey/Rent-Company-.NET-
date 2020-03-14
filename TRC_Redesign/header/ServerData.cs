@@ -19,18 +19,34 @@ namespace TRC_Redesign.header
         public ServiceRentClient client;
         public int client_id;
 
-
-
         public void onDeleteVehicle(Vehicle vehicleObject)
         {
             if (mainWindow.vehicleInfo.Visible)
             {
                 if (vehicleObject.plate == mainWindow.vehicleInfo.vehicle.plate)
                 {
-                    mainWindow.vehicleInfo.Hide();
+                    mainWindow.Invoke((MethodInvoker)delegate
+                    {
+                        mainWindow.vehicleInfo.Hide();
 
-                    mainWindow.vehicleInfo.createDialog("Автомобіль який ви переглядаєте був видалений адміністратором.",
-                        "Видалення автомобіля", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        mainWindow.vehicleInfo.createDialog("Автомобіль який ви переглядаєте був видалений адміністратором.",
+                            "Видалення автомобіля", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    });
+                }
+            }
+
+            if (!mainWindow.admin_page1.vehicleEdit.pnl_empty.Visible)
+            {
+                if (mainWindow.admin_page1.vehicleEdit.vehicle.plate == vehicleObject.plate)
+                {
+                    mainWindow.Invoke((MethodInvoker)delegate
+                    {
+                        mainWindow.admin_page1.vehicleEdit.pnl_empty.Visible = true;
+                        mainWindow.clientData.showPanelMessage("Автомобіль, який Ви редагували був видалений.");
+                    });
+
+                    //mainWindow.admin_page1.vehicleEdit.infoHide();
+                    //mainWindow.clientData.showPanelMessage("Автомобіль, який Ви редагували був видалений.");
                 }
             }
         }
@@ -44,10 +60,28 @@ namespace TRC_Redesign.header
                     if (vehicleObject.client_documentid == mainWindow.clientData.account.documentid)
                         return;
 
-                    mainWindow.vehicleInfo.setVehicle(vehicleObject);
+                    mainWindow.Invoke((MethodInvoker)delegate
+                    {
+                        mainWindow.vehicleInfo.setVehicle(vehicleObject);
 
-                    mainWindow.vehicleInfo.createDialog("Автомобіль який ви переглядаєте був змінений. Інформація оновлена.",
-                        "Зміна інформації автомобіля", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        mainWindow.vehicleInfo.createDialog("Автомобіль який ви переглядаєте був змінений. Інформація оновлена.",
+                            "Зміна інформації автомобіля", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    });
+                }
+            }
+
+            if (!mainWindow.admin_page1.vehicleEdit.pnl_empty.Visible)
+            {
+                if (mainWindow.admin_page1.vehicleEdit.vehicle.plate == vehicleObject.plate)
+                {
+                    mainWindow.Invoke((MethodInvoker)delegate
+                    {
+                        mainWindow.admin_page1.vehicleEdit.pnl_empty.Visible = true;
+                        mainWindow.clientData.showPanelMessage("Автомобіль, який Ви редагували був змінений.");
+                    });
+
+                    //mainWindow.admin_page1.vehicleEdit.infoHide();
+                    //mainWindow.clientData.showPanelMessage("Автомобіль, який Ви редагували був змінений.");
                 }
             }
         }
