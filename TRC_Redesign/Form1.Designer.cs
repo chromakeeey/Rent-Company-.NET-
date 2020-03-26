@@ -60,6 +60,7 @@
             this.main_page1 = new TRC_Redesign.main_page();
             this.admin_page1 = new TRC_Redesign.admin_page();
             this.vehicle_page1 = new TRC_Redesign.vehicle_page();
+            this.btn_statistic = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -137,6 +138,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel2.Controls.Add(this.btn_statistic);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
@@ -181,7 +183,7 @@
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(2, 230);
+            this.button5.Location = new System.Drawing.Point(2, 229);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(163, 41);
             this.button5.TabIndex = 4;
@@ -439,6 +441,24 @@
             this.vehicle_page1.Size = new System.Drawing.Size(766, 600);
             this.vehicle_page1.TabIndex = 5;
             // 
+            // btn_statistic
+            // 
+            this.btn_statistic.FlatAppearance.BorderSize = 0;
+            this.btn_statistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_statistic.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_statistic.ForeColor = System.Drawing.Color.White;
+            this.btn_statistic.Image = ((System.Drawing.Image)(resources.GetObject("btn_statistic.Image")));
+            this.btn_statistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_statistic.Location = new System.Drawing.Point(2, 272);
+            this.btn_statistic.Name = "btn_statistic";
+            this.btn_statistic.Size = new System.Drawing.Size(163, 41);
+            this.btn_statistic.TabIndex = 7;
+            this.btn_statistic.Text = "                 Статистика";
+            this.btn_statistic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_statistic.UseVisualStyleBackColor = true;
+            this.btn_statistic.Visible = false;
+            this.btn_statistic.Click += new System.EventHandler(this.btn_statistic_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,6 +533,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         public System.Windows.Forms.Panel panel_message;
         public System.Windows.Forms.Label lbl_message;
+        public System.Windows.Forms.Button btn_statistic;
     }
 }
 

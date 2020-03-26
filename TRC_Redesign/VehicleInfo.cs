@@ -124,7 +124,7 @@ namespace TRC_Redesign
                 return;
             }
 
-            if (vehicle.client_documentid != 0)
+            if (vehicle.clientid != 0)
             {
                 MessageBox.Show("Оренда неможлива, автомобіль вже орендований.", "Відміна оренди",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -139,11 +139,14 @@ namespace TRC_Redesign
             if (answer == DialogResult.Yes)
             {
                 mainWindow.clientData.account.balance -= totalPrice;
-
-                vehicle.client_documentid = mainWindow.clientData.account.documentid;
-
+                
                 vehicle.start_date = DateTime.Now;
                 vehicle.end_date = rentDate;
+
+                vehicle.clientid = mainWindow.clientData.account.id;
+
+                vehicle.rentlogid = mainWindow.serverData.client.log_TakeRent(
+                    mainWindow.clientData.account.id, vehicle.VIN, totalPrice, vehicle.start_date, vehicle.end_date);
 
                 mainWindow.serverData.client.saveVehicle(vehicle);
                 mainWindow.updateAccountData();

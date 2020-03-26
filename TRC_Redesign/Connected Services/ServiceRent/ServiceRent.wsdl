@@ -123,6 +123,30 @@
   <wsdl:message name="IServiceRent_vehicleImage_OutputMessage">
     <wsdl:part name="parameters" element="tns:vehicleImageResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_log_AddVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_AddVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_Balance_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_Balance" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_DeleteVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_DeleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_EditVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_EditVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_RemoveRent_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_RemoveRent" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_Request_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_Request" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_TakeRent_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_TakeRent" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_TakeRent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:log_TakeRentResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:onSaveVehicle" />
   </wsdl:message>
@@ -212,6 +236,28 @@
     <wsdl:operation name="vehicleImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/vehicleImage" message="tns:IServiceRent_vehicleImage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/vehicleImageResponse" message="tns:IServiceRent_vehicleImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_AddVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_AddVehicle" message="tns:IServiceRent_log_AddVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_Balance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_Balance" message="tns:IServiceRent_log_Balance_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_DeleteVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_DeleteVehicle" message="tns:IServiceRent_log_DeleteVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_EditVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_EditVehicle" message="tns:IServiceRent_log_EditVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_RemoveRent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_RemoveRent" message="tns:IServiceRent_log_RemoveRent_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_Request">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_Request" message="tns:IServiceRent_log_Request_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_TakeRent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_TakeRent" message="tns:IServiceRent_log_TakeRent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/log_TakeRentResponse" message="tns:IServiceRent_log_TakeRent_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="onSaveVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
@@ -393,6 +439,51 @@
     </wsdl:operation>
     <wsdl:operation name="vehicleImage">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/vehicleImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="log_AddVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_AddVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_Balance">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_Balance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_DeleteVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_DeleteVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_EditVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_EditVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_RemoveRent">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_RemoveRent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_Request">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_Request" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_TakeRent">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_TakeRent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

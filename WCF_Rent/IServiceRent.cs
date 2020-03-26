@@ -89,6 +89,27 @@ namespace WCF_Rent
 
         [OperationContract]
         byte[] vehicleImage(Vehicle vehicleObject);
+
+        [OperationContract(IsOneWay = true)]
+        void log_AddVehicle(int userid, string VIN);
+
+        [OperationContract(IsOneWay = true)]
+        void log_Balance(int userid, int card, float value);
+
+        [OperationContract(IsOneWay = true)]
+        void log_DeleteVehicle(int userid, string VIN, string name);
+
+        [OperationContract(IsOneWay = true)]
+        void log_EditVehicle(int userid, string VIN, string str_params);
+
+        [OperationContract(IsOneWay = true)]
+        void log_RemoveRent(int userid, int takerentid, DateTime date, float balancereturn, float credit);
+
+        [OperationContract(IsOneWay = true)]
+        void log_Request(int admin_userid, int application_userid, int answer);
+
+        [OperationContract]
+        int log_TakeRent(int userid, string VIN, float price, DateTime startdate, DateTime enddate);
     }
 
     public interface IServerRentCallback

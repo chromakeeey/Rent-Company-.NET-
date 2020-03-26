@@ -81,6 +81,9 @@ namespace TRC_Redesign.ServiceRent {
         private string fathernameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string loginField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -159,6 +162,19 @@ namespace TRC_Redesign.ServiceRent {
                 if ((object.ReferenceEquals(this.fathernameField, value) != true)) {
                     this.fathernameField = value;
                     this.RaisePropertyChanged("fathername");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
                 }
             }
         }
@@ -253,13 +269,13 @@ namespace TRC_Redesign.ServiceRent {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int client_documentidField;
+        private int clientidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime end_dateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int isrentField;
+        private int rentlogidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime start_dateField;
@@ -275,14 +291,14 @@ namespace TRC_Redesign.ServiceRent {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int client_documentid {
+        public int clientid {
             get {
-                return this.client_documentidField;
+                return this.clientidField;
             }
             set {
-                if ((this.client_documentidField.Equals(value) != true)) {
-                    this.client_documentidField = value;
-                    this.RaisePropertyChanged("client_documentid");
+                if ((this.clientidField.Equals(value) != true)) {
+                    this.clientidField = value;
+                    this.RaisePropertyChanged("clientid");
                 }
             }
         }
@@ -301,14 +317,14 @@ namespace TRC_Redesign.ServiceRent {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int isrent {
+        public int rentlogid {
             get {
-                return this.isrentField;
+                return this.rentlogidField;
             }
             set {
-                if ((this.isrentField.Equals(value) != true)) {
-                    this.isrentField = value;
-                    this.RaisePropertyChanged("isrent");
+                if ((this.rentlogidField.Equals(value) != true)) {
+                    this.rentlogidField = value;
+                    this.RaisePropertyChanged("rentlogid");
                 }
             }
         }
@@ -341,6 +357,9 @@ namespace TRC_Redesign.ServiceRent {
     [System.Runtime.Serialization.DataContractAttribute(Name="Vehicle", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
     [System.SerializableAttribute()]
     public partial class Vehicle : TRC_Redesign.ServiceRent.Rent {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VINField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string categoryField;
@@ -377,6 +396,19 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string typeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VIN {
+            get {
+                return this.VINField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VINField, value) != true)) {
+                    this.VINField = value;
+                    this.RaisePropertyChanged("VIN");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string category {
@@ -670,6 +702,48 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/vehicleImage", ReplyAction="http://tempuri.org/IServiceRent/vehicleImageResponse")]
         System.Threading.Tasks.Task<byte[]> vehicleImageAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_AddVehicle")]
+        void log_AddVehicle(int userid, string VIN);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_AddVehicle")]
+        System.Threading.Tasks.Task log_AddVehicleAsync(int userid, string VIN);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_Balance")]
+        void log_Balance(int userid, int card, float value);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_Balance")]
+        System.Threading.Tasks.Task log_BalanceAsync(int userid, int card, float value);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_DeleteVehicle")]
+        void log_DeleteVehicle(int userid, string VIN, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_DeleteVehicle")]
+        System.Threading.Tasks.Task log_DeleteVehicleAsync(int userid, string VIN, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_EditVehicle")]
+        void log_EditVehicle(int userid, string VIN, string str_params);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_EditVehicle")]
+        System.Threading.Tasks.Task log_EditVehicleAsync(int userid, string VIN, string str_params);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_RemoveRent")]
+        void log_RemoveRent(int userid, int takerentid, System.DateTime date, float balancereturn, float credit);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_RemoveRent")]
+        System.Threading.Tasks.Task log_RemoveRentAsync(int userid, int takerentid, System.DateTime date, float balancereturn, float credit);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_Request")]
+        void log_Request(int admin_userid, int application_userid, int answer);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_Request")]
+        System.Threading.Tasks.Task log_RequestAsync(int admin_userid, int application_userid, int answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/log_TakeRent", ReplyAction="http://tempuri.org/IServiceRent/log_TakeRentResponse")]
+        int log_TakeRent(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/log_TakeRent", ReplyAction="http://tempuri.org/IServiceRent/log_TakeRentResponse")]
+        System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -887,6 +961,62 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task<byte[]> vehicleImageAsync(TRC_Redesign.ServiceRent.Vehicle vehicleObject) {
             return base.Channel.vehicleImageAsync(vehicleObject);
+        }
+        
+        public void log_AddVehicle(int userid, string VIN) {
+            base.Channel.log_AddVehicle(userid, VIN);
+        }
+        
+        public System.Threading.Tasks.Task log_AddVehicleAsync(int userid, string VIN) {
+            return base.Channel.log_AddVehicleAsync(userid, VIN);
+        }
+        
+        public void log_Balance(int userid, int card, float value) {
+            base.Channel.log_Balance(userid, card, value);
+        }
+        
+        public System.Threading.Tasks.Task log_BalanceAsync(int userid, int card, float value) {
+            return base.Channel.log_BalanceAsync(userid, card, value);
+        }
+        
+        public void log_DeleteVehicle(int userid, string VIN, string name) {
+            base.Channel.log_DeleteVehicle(userid, VIN, name);
+        }
+        
+        public System.Threading.Tasks.Task log_DeleteVehicleAsync(int userid, string VIN, string name) {
+            return base.Channel.log_DeleteVehicleAsync(userid, VIN, name);
+        }
+        
+        public void log_EditVehicle(int userid, string VIN, string str_params) {
+            base.Channel.log_EditVehicle(userid, VIN, str_params);
+        }
+        
+        public System.Threading.Tasks.Task log_EditVehicleAsync(int userid, string VIN, string str_params) {
+            return base.Channel.log_EditVehicleAsync(userid, VIN, str_params);
+        }
+        
+        public void log_RemoveRent(int userid, int takerentid, System.DateTime date, float balancereturn, float credit) {
+            base.Channel.log_RemoveRent(userid, takerentid, date, balancereturn, credit);
+        }
+        
+        public System.Threading.Tasks.Task log_RemoveRentAsync(int userid, int takerentid, System.DateTime date, float balancereturn, float credit) {
+            return base.Channel.log_RemoveRentAsync(userid, takerentid, date, balancereturn, credit);
+        }
+        
+        public void log_Request(int admin_userid, int application_userid, int answer) {
+            base.Channel.log_Request(admin_userid, application_userid, answer);
+        }
+        
+        public System.Threading.Tasks.Task log_RequestAsync(int admin_userid, int application_userid, int answer) {
+            return base.Channel.log_RequestAsync(admin_userid, application_userid, answer);
+        }
+        
+        public int log_TakeRent(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate) {
+            return base.Channel.log_TakeRent(userid, VIN, price, startdate, enddate);
+        }
+        
+        public System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate) {
+            return base.Channel.log_TakeRentAsync(userid, VIN, price, startdate, enddate);
         }
     }
 }

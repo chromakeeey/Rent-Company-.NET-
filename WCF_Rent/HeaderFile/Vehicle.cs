@@ -14,15 +14,13 @@ namespace WCF_Rent.HeaderFile
     
     public class Vehicle : Rent
     {
-        //public static vehicle instance = null;
+        public string VIN;
 
-        // primary key
         public string plate;
         public string name;
         public string model;
         public string picturepath;
 
-        // per mounth
         public float price;
         public float fuel;
         public float mileage;

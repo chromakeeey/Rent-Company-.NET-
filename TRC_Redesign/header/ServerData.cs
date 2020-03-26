@@ -57,7 +57,7 @@ namespace TRC_Redesign.header
             {
                 if (vehicleObject.plate == mainWindow.vehicleInfo.vehicle.plate)
                 {
-                    if (vehicleObject.client_documentid == mainWindow.clientData.account.documentid)
+                    if (vehicleObject.clientid == mainWindow.clientData.account.id)
                         return;
 
                     mainWindow.Invoke((MethodInvoker)delegate

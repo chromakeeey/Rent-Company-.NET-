@@ -92,7 +92,12 @@ namespace TRC_Redesign
                 {
                     mainWindow.clientData.account.balance += check_days * vehicle.price;
 
-                    vehicle.client_documentid = 0;
+                    mainWindow.serverData.client.log_RemoveRent(mainWindow.clientData.account.id, 
+                        vehicle.rentlogid, DateTime.Now, check_days * vehicle.price, 0);
+
+                    vehicle.clientid = 0;
+                    vehicle.rentlogid = 0;
+
                     mainWindow.serverData.client.saveVehicle(vehicle);
 
                     mainWindow.dialogCreate("Ви сдали автомобіль в оренду достроково.\nВи отримали " + check_days * vehicle.price + "грн. на рахунок." +
@@ -101,7 +106,12 @@ namespace TRC_Redesign
                 }
                 else
                 {
-                    vehicle.client_documentid = 0;
+                    mainWindow.serverData.client.log_RemoveRent(mainWindow.clientData.account.id,
+                        vehicle.rentlogid, DateTime.Now, 0, 0);
+
+                    vehicle.clientid = 0;
+                    vehicle.rentlogid = 0;
+
                     mainWindow.serverData.client.saveVehicle(vehicle);
 
                     mainWindow.dialogCreate("Ви сдали автомобіль в оренду.\n\nДякуємо Вам за користування нашим сервісом. Чекаємо Вас знову", " ",
@@ -123,7 +133,12 @@ namespace TRC_Redesign
             {
                 mainWindow.clientData.account.balance -= days * vehicle.price;
 
-                vehicle.client_documentid = 0;
+                mainWindow.serverData.client.log_RemoveRent(mainWindow.clientData.account.id,
+                        vehicle.rentlogid, DateTime.Now, 0, days * vehicle.price);
+
+                vehicle.clientid = 0;
+                vehicle.rentlogid = 0;
+
                 mainWindow.serverData.client.saveVehicle(vehicle);
 
                 mainWindow.dialogCreate("Ви сдали автомобіль в оренду.\n\nДякуємо Вам за користування нашим сервісом. Чекаємо Вас знову", " ",

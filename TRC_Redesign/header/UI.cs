@@ -27,6 +27,7 @@ namespace TRC_Redesign.header
         public int VEHICLE_PANEL = 1;
         public int PAYMENT_PANEL = 2;
         public int SETTING_PANEL = 3;
+        public int STATISTIC_PAMEL = 4;
 
         public int ADMIN_PANEL = 4;
 

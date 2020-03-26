@@ -58,6 +58,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tb_price = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_VIN = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_vehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -121,9 +123,9 @@
             // 
             this.error_label.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.error_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.error_label.Location = new System.Drawing.Point(352, 234);
+            this.error_label.Location = new System.Drawing.Point(485, 207);
             this.error_label.Name = "error_label";
-            this.error_label.Size = new System.Drawing.Size(250, 18);
+            this.error_label.Size = new System.Drawing.Size(231, 18);
             this.error_label.TabIndex = 96;
             this.error_label.Text = "error_label";
             this.error_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -395,11 +397,36 @@
             this.tb_price.TabIndex = 119;
             this.tb_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("SF UI Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(262, 214);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 19);
+            this.label5.TabIndex = 121;
+            this.label5.Text = "VIN";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tb_VIN
+            // 
+            this.tb_VIN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tb_VIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_VIN.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_VIN.ForeColor = System.Drawing.Color.White;
+            this.tb_VIN.Location = new System.Drawing.Point(265, 234);
+            this.tb_VIN.Name = "tb_VIN";
+            this.tb_VIN.Size = new System.Drawing.Size(153, 22);
+            this.tb_VIN.TabIndex = 120;
+            this.tb_VIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // admin_vehicleadd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tb_VIN);
             this.Controls.Add(this.tb_price);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -470,5 +497,7 @@
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox tb_price;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox tb_VIN;
     }
 }

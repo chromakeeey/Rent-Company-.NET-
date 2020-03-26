@@ -78,7 +78,7 @@ namespace TRC_Redesign
             if ( string.IsNullOrEmpty(tb_name.Text) || string.IsNullOrEmpty(tb_model.Text) || string.IsNullOrEmpty(tb_fuelnow.Text) ||
                  string.IsNullOrEmpty(tb_fuelmax.Text) || string.IsNullOrEmpty(tb_mileage.Text) || string.IsNullOrEmpty(tb_maxspeed.Text) ||
                  string.IsNullOrEmpty(cb_type.Text) || string.IsNullOrEmpty(cb_transmission.Text) || string.IsNullOrEmpty(cb_license.Text) || 
-                 string.IsNullOrEmpty(mtb_plate.Text) || string.IsNullOrEmpty(tb_price.Text))
+                 string.IsNullOrEmpty(mtb_plate.Text) || string.IsNullOrEmpty(tb_price.Text) || string.IsNullOrEmpty(tb_VIN.Text))
             {
                 error_label.Text = "Ви не заповнили всі поля.";
                 error_label.Visible = true;
@@ -97,6 +97,8 @@ namespace TRC_Redesign
             string path = String.Format(@"pictures\{0}{1}", removeSNull(mtb_plate.Text), Path.GetExtension(imgpath));
 
             Vehicle vehicle = new Vehicle();
+
+            vehicle.VIN = tb_VIN.Text;
 
             vehicle.name = tb_name.Text;
             vehicle.model = tb_model.Text;

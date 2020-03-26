@@ -6,6 +6,7 @@ namespace WCF_Rent.HeaderFile
     {
         // singleton
         //public static account instance = null;
+        public int id;
 
         public int documentid;
         public int accepted;

@@ -110,6 +110,7 @@ namespace WCF_Rent
             {
                 vehicle.Add(new Vehicle()
                 {
+                    VIN = reader["VIN"].ToString(),
                     plate = reader["plate"].ToString(),
                     name = reader["name"].ToString(),
                     model = reader["model"].ToString(),
@@ -117,7 +118,8 @@ namespace WCF_Rent
                     fuel = Convert.ToSingle(reader["fuel"]),
                     mileage = Convert.ToSingle(reader["mileage"]),
                     picturepath = reader["picturepath"].ToString(),
-                    client_documentid = Convert.ToInt32(reader["client_documentid"]),
+                    clientid = Convert.ToInt32(reader["clientid"]),
+                    rentlogid = Convert.ToInt32(reader["rentlogid"]),
                     start_date = Convert.ToDateTime(reader["date_start"]),
                     end_date = Convert.ToDateTime(reader["date_end"]),
 
@@ -142,8 +144,8 @@ namespace WCF_Rent
                 item.operationContext.GetCallbackChannel<IServerRentCallback>().onSaveVehicle(vehicleObject);
             }
 
-            SqlCommand sqlCommand = new SqlCommand("DELETE FROM [vehicles] WHERE [plate] = @plate");
-            sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
+            SqlCommand sqlCommand = new SqlCommand("DELETE FROM [vehicles] WHERE [VIN] = @VIN");
+            sqlCommand.Parameters.AddWithValue("VIN", vehicleObject.VIN);
             sqlCommand.ExecuteNonQuery();
         }
 
@@ -152,17 +154,19 @@ namespace WCF_Rent
             vehicle.Add(vehicleObject);
 
             SqlCommand sqlCommand = new SqlCommand(
-                    "INSERT INTO [vehicles] (plate, name, model, price, fuel, mileage, client_documentid, picturepath, date_start, date_end, fuelmax, maxspeed, type, transmission, category) VALUES " +
-                    "(@plate, @name, @model, @price, @fuel, @mileage, @client_documentid, @picturepath, @date_start, @date_end, @fuelmax, @maxspeed, @type, @transmission, @category)",
+                    "INSERT INTO [vehicles] (VIN, plate, name, model, price, fuel, mileage, clientid, rentlogid, picturepath, date_start, date_end, fuelmax, maxspeed, type, transmission, category) VALUES " +
+                    "(@VIN, @plate, @name, @model, @price, @fuel, @mileage, @clientid, @rentlogid, @picturepath, @date_start, @date_end, @fuelmax, @maxspeed, @type, @transmission, @category)",
                 sqlconnection);
 
+            sqlCommand.Parameters.AddWithValue("VIN", vehicleObject.VIN);
             sqlCommand.Parameters.AddWithValue("plate", vehicleObject.plate);
             sqlCommand.Parameters.AddWithValue("name", vehicleObject.name);
             sqlCommand.Parameters.AddWithValue("model", vehicleObject.model);
             sqlCommand.Parameters.AddWithValue("price", vehicleObject.price);
             sqlCommand.Parameters.AddWithValue("fuel", vehicleObject.fuel);
             sqlCommand.Parameters.AddWithValue("mileage", vehicleObject.mileage);
-            sqlCommand.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
+            sqlCommand.Parameters.AddWithValue("clientid", vehicleObject.clientid);
+            sqlCommand.Parameters.AddWithValue("rentlogid", vehicleObject.rentlogid);
             sqlCommand.Parameters.AddWithValue("picturepath", vehicleObject.picturepath);
 
             sqlCommand.Parameters.AddWithValue("date_start", vehicleObject.start_date);
@@ -184,7 +188,7 @@ namespace WCF_Rent
 
         public void saveVehicle(Vehicle vehicleObject)
         {
-            int index = vehicle.FindIndex(i => i.plate == vehicleObject.plate);
+            int index = vehicle.FindIndex(i => i.VIN == vehicleObject.VIN);
             vehicle[index] = vehicleObject;
 
             foreach (var item in serverUser)
@@ -196,10 +200,10 @@ namespace WCF_Rent
             {
                 command.CommandText = "UPDATE [vehicles] SET [plate] = @plate, " +
                     "[name] = @name, [model] = @model, [price] = @price, [fuel] = @fuel, " +
-                    "[mileage] = @mileage, [client_documentid] = @client_documentid," +
+                    "[mileage] = @mileage, [clientid] = @clientid, [rentlogid] = @rentlogid, " +
                     "[picturepath] = @img, [date_start] = @date_start, [date_end] = @date_end," +
                     "[fuelmax] = @fuelmax, [maxspeed] = @maxspeed, [type] = @type, [transmission] = @transmission, [category] = @category " +
-                    "WHERE [plate] = @plt";
+                    "WHERE [VIN] = @VIN";
 
                 command.Parameters.AddWithValue("plate", vehicleObject.plate);
                 command.Parameters.AddWithValue("name", vehicleObject.name);
@@ -207,9 +211,10 @@ namespace WCF_Rent
                 command.Parameters.AddWithValue("price", vehicleObject.price);
                 command.Parameters.AddWithValue("fuel", vehicleObject.fuel);
                 command.Parameters.AddWithValue("mileage", vehicleObject.mileage);
-                command.Parameters.AddWithValue("client_documentid", vehicleObject.client_documentid);
+                command.Parameters.AddWithValue("clientid", vehicleObject.clientid);
+                command.Parameters.AddWithValue("rentlogid", vehicleObject.rentlogid);
                 command.Parameters.AddWithValue("img", vehicleObject.picturepath);
-                command.Parameters.AddWithValue("plt", vehicleObject.plate);
+                command.Parameters.AddWithValue("VIN", vehicleObject.VIN);
 
                 command.Parameters.AddWithValue("date_start", vehicleObject.start_date);
                 command.Parameters.AddWithValue("date_end", vehicleObject.end_date);
@@ -242,6 +247,7 @@ namespace WCF_Rent
 
             while (reader.Read())
             {
+                accountObject.id = Convert.ToInt32(reader["id"]);
                 accountObject.name = Convert.ToString(reader["name"]);
                 accountObject.secondname = Convert.ToString(reader["secondname"]);
                 accountObject.fathername = Convert.ToString(reader["fathername"]);
@@ -269,7 +275,7 @@ namespace WCF_Rent
         {
             SqlCommand command = new SqlCommand("UPDATE [accounts] SET [documentid] = @documentid, [login] = @login, [password] = @password, " +
                 "[name] = @name, [secondname] = @secondname, [fathername] = @fathername, [email] = @email, [accepted] = @accepted, " +
-                "[adminlevel] = @adminlevel, [balance] = @balance WHERE [documentid] = @docid", sqlconnection);
+                "[adminlevel] = @adminlevel, [balance] = @balance WHERE [id] = @id", sqlconnection);
 
             command.Parameters.AddWithValue("documentid", accountObject.documentid);
             command.Parameters.AddWithValue("login", accountObject.login);
@@ -280,7 +286,7 @@ namespace WCF_Rent
             command.Parameters.AddWithValue("email", accountObject.mail);
             command.Parameters.AddWithValue("accepted", accountObject.accepted);
             command.Parameters.AddWithValue("adminlevel", accountObject.GetAdminLevel());
-            command.Parameters.AddWithValue("docid", accountObject.documentid);
+            command.Parameters.AddWithValue("id", accountObject.id);
             command.Parameters.AddWithValue("balance", accountObject.balance);
 
             command.ExecuteNonQuery();
@@ -307,8 +313,8 @@ namespace WCF_Rent
 
         public void deleteAccount(Account accountObject)
         {
-            SqlCommand sqlCommand = new SqlCommand("DELETE FROM [accounts] WHERE [login] = @login");
-            sqlCommand.Parameters.AddWithValue("login", accountObject.login);
+            SqlCommand sqlCommand = new SqlCommand("DELETE FROM [accounts] WHERE [id] = @id");
+            sqlCommand.Parameters.AddWithValue("id", accountObject.id);
             sqlCommand.ExecuteNonQuery();
         }
 
@@ -341,7 +347,7 @@ namespace WCF_Rent
 
         public Vehicle getUserVehicle(Account account)
         {
-            int index = vehicle.FindIndex(i => i.client_documentid == account.documentid);
+            int index = vehicle.FindIndex(i => i.clientid == account.id);
 
             if (index < 0)
                 return new Vehicle();
@@ -358,10 +364,10 @@ namespace WCF_Rent
                 if ( !(item.price >= min && item.price <= max) )
                     continue;
 
-                if (type == 1 && item.client_documentid == 0)
+                if (type == 1 && item.clientid == 0)
                     continue;
 
-                if (type == 1 && item.client_documentid != 0)
+                if (type == 1 && item.clientid != 0)
                     continue;
 
                 paramsObject.Add(item);
@@ -381,7 +387,7 @@ namespace WCF_Rent
 
             foreach (Vehicle item in vehicle)
             {
-                if (item.client_documentid == 0)
+                if (item.clientid == 0)
                     continue;
 
                 allvehicle++;
@@ -405,6 +411,8 @@ namespace WCF_Rent
 
             while (reader.Read())
             {
+                accountObject.id = Convert.ToInt32(reader["id"]);
+
                 accountObject.name = Convert.ToString(reader["name"]);
                 accountObject.secondname = Convert.ToString(reader["secondname"]);
                 accountObject.fathername = Convert.ToString(reader["fathername"]);
@@ -454,6 +462,100 @@ namespace WCF_Rent
         {
             int index = vehicle.FindIndex(i => i.plate == plate);
             return vehicle[index];
+        }
+
+        public void log_AddVehicle(int userid, string VIN)
+        {
+            SqlCommand sqlCommand = new SqlCommand(
+               "INSERT INTO [log_addvehicle] (userid, VIN) VALUES" +
+               "(@userid, @VIN)", sqlconnection);
+
+            sqlCommand.Parameters.AddWithValue("userid", userid);
+            sqlCommand.Parameters.AddWithValue("VIN", VIN);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        public void log_Balance(int userid, int card, float value)
+        {
+            SqlCommand sqlCommand = new SqlCommand(
+               "INSERT INTO [log_balance] (userid, card, value) VALUES" +
+               "(@userid, @card, @value)", sqlconnection);
+
+            sqlCommand.Parameters.AddWithValue("userid", userid);
+            sqlCommand.Parameters.AddWithValue("card", card);
+            sqlCommand.Parameters.AddWithValue("value", value);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        public void log_DeleteVehicle(int userid, string VIN, string name)
+        {
+            SqlCommand sqlCommand = new SqlCommand(
+               "INSERT INTO [log_deletevehicle] (userid, VIN, name) VALUES" +
+               "(@userid, @VIN, @name)", sqlconnection);
+
+            sqlCommand.Parameters.AddWithValue("userid", userid);
+            sqlCommand.Parameters.AddWithValue("VIN", VIN);
+            sqlCommand.Parameters.AddWithValue("name", name);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        public void log_EditVehicle(int userid, string VIN, string str_params)
+        {
+            SqlCommand sqlCommand = new SqlCommand(
+               "INSERT INTO [log_editvehicle] (userid, VIN, params) VALUES" +
+               "(@userid, @VIN, @params)", sqlconnection);
+
+            sqlCommand.Parameters.AddWithValue("userid", userid);
+            sqlCommand.Parameters.AddWithValue("VIN", VIN);
+            sqlCommand.Parameters.AddWithValue("params", str_params);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        public void log_RemoveRent(int userid, int takerentid, DateTime date, float balancereturn, float credit)
+        {
+            SqlCommand sqlCommand = new SqlCommand(
+               "INSERT INTO [log_removerent] (userid, takerentid, date, balancereturn, credit) VALUES" +
+               "(@userid, @takerentid, @date, @balancereturn, @credit)", sqlconnection);
+
+            sqlCommand.Parameters.AddWithValue("userid", userid);
+            sqlCommand.Parameters.AddWithValue("takerentid", takerentid);
+            sqlCommand.Parameters.AddWithValue("date", date);
+            sqlCommand.Parameters.AddWithValue("balancereturn", balancereturn);
+            sqlCommand.Parameters.AddWithValue("credit", credit);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        public void log_Request(int admin_userid, int application_userid, int answer)
+        {
+            SqlCommand sqlCommand = new SqlCommand(
+               "INSERT INTO [log_request] (admin_userid, application_userid, answer) VALUES" +
+               "(@admin_userid, @application_userid, @answer)", sqlconnection);
+
+            sqlCommand.Parameters.AddWithValue("admin_userid", admin_userid);
+            sqlCommand.Parameters.AddWithValue("application_userid", application_userid);
+            sqlCommand.Parameters.AddWithValue("answer", answer);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        public int log_TakeRent(int userid, string VIN, float price, DateTime startdate, DateTime enddate)
+        {
+            SqlCommand sqlCommand = new SqlCommand(
+               "INSERT INTO [log_takerent] (userid, VIN, price, startdate, enddate) VALUES" +
+               "(@userid, @VIN, @price, @startdate, @enddate)", sqlconnection);
+
+            sqlCommand.Parameters.AddWithValue("userid", userid);
+            sqlCommand.Parameters.AddWithValue("VIN", VIN);
+            sqlCommand.Parameters.AddWithValue("price", price);
+            sqlCommand.Parameters.AddWithValue("startdate", startdate);
+            sqlCommand.Parameters.AddWithValue("enddate", enddate);
+
+            return sqlCommand.ExecuteNonQuery();
         }
     }
 }

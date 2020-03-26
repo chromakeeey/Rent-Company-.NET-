@@ -15,6 +15,7 @@ namespace TRC_Redesign.InputBoxes
         public InputComboBox()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private const int WM_NCHITTEST = 0x84;

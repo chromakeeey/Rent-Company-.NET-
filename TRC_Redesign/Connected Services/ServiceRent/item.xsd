@@ -240,6 +240,79 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="log_AddVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="log_Balance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="card" type="xs:int" />
+        <xs:element minOccurs="0" name="value" type="xs:float" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="log_DeleteVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="log_EditVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="str_params" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="log_RemoveRent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="takerentid" type="xs:int" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="balancereturn" type="xs:float" />
+        <xs:element minOccurs="0" name="credit" type="xs:float" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="log_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="admin_userid" type="xs:int" />
+        <xs:element minOccurs="0" name="application_userid" type="xs:int" />
+        <xs:element minOccurs="0" name="answer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="log_TakeRent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:float" />
+        <xs:element minOccurs="0" name="startdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="enddate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="log_TakeRentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="log_TakeRentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="onSaveVehicle">
     <xs:complexType>
       <xs:sequence>

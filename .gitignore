@@ -1,1 +1,7 @@
 .vs/
+TRC_Redesign/bin/
+TRC_Redesign/obj/
+ServerHost/bin/
+ServerHost/obj/
+WCF_Rent/bin/
+WCF_Rent/obj/
