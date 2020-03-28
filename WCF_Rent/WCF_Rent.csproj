@@ -64,6 +64,7 @@
     <Compile Include="HeaderFile\Account.cs" />
     <Compile Include="HeaderFile\Admin.cs" />
     <Compile Include="HeaderFile\Rent.cs" />
+    <Compile Include="HeaderFile\ServerLog.cs" />
     <Compile Include="HeaderFile\Vehicle.cs" />
     <Compile Include="IServiceRent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

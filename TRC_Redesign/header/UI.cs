@@ -15,6 +15,8 @@ namespace TRC_Redesign.header
         public int panelidNow;
         public int subPanelNow;
 
+        public int statisticPanel;
+
         /* PANEL ID
          * 0 - main [panel7]
          * 1 - vehicle [panel16]
@@ -27,14 +29,17 @@ namespace TRC_Redesign.header
         public int VEHICLE_PANEL = 1;
         public int PAYMENT_PANEL = 2;
         public int SETTING_PANEL = 3;
-        public int STATISTIC_PAMEL = 4;
-
         public int ADMIN_PANEL = 4;
+        public int STATISTIC_PAMEL = 5;
 
         public int SUB_CHECK_PANEL = 0;
         public int SUB_ACCOUNT_PANEL = 1;
         public int SUB_VEHICLE_ADD = 2;
         public int SUB_VEHICLE_EDIT = 3;
+
+        public int STATISTIC_CLIENT = 0;
+        public int STATISTIC_VEHICLE = 1;
+        public int STATISTIC_MONEY = 2;
 
         public void CreateAdminSubPanel(int panelid, admin_page object_page)
         {
@@ -87,6 +92,7 @@ namespace TRC_Redesign.header
             object_form.payment_page1.Visible = false;
             object_form.admin_page1.Visible = false;
             object_form.settings_page1.Visible = false;
+            object_form.ucStatistic.Visible = false;
 
             switch (panelid)
             {
@@ -120,10 +126,29 @@ namespace TRC_Redesign.header
 
                         break;
                     }
+                case 5:
+                    {
+                        object_form.ucStatistic.Visible = true;
+
+                        break;
+                    }
 
             }
 
             this.panelidNow = panelid;
+        }
+
+        public void CreateStatisticPanel(int panelid, UCStatistic ucStatistic)
+        {
+            if (statisticPanel == panelid)
+                return;
+
+            /*switch (panelid)
+            {
+                case 0: 
+                case 1:
+                case 2:
+            }*/
         }
 
         public UI()

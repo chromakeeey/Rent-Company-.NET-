@@ -54,6 +54,7 @@ namespace TRC_Redesign
             label2.Text = clientData.account.login;
 
             button5.Visible = (clientData.account.level != 0) ? true : false;
+            btn_statistic.Visible = (clientData.account.level != 0) ? true : false;
         }
 
         public DialogResult dialogCreate(string message, string caption, MessageBoxButtons button, MessageBoxIcon icon)
@@ -154,6 +155,7 @@ namespace TRC_Redesign
             admin_page1.vehicleEdit.mainWindow = this;
             vehicleInfo.mainWindow = this;
             payment_page1.mainWindow = this;
+            ucStatistic.mainWindow = this;
 
             clientData.mainWindow = this;
             serverData.mainWindow = this;
@@ -251,7 +253,8 @@ namespace TRC_Redesign
 
         private void btn_statistic_Click(object sender, EventArgs e)
         {
-
+            panel5.Location = new Point(panel5.Location.X, btn_statistic.Location.Y);
+            clientData.ui.CreatePanel(5, this);
         }
     }
 }

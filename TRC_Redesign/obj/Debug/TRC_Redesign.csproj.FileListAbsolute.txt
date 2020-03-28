@@ -34,3 +34,6 @@ D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.csprojAssemblyReference.cach
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.UCVehicleEdit.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.InputBoxes.InputTextBox.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.InputBoxes.InputComboBox.resources
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.UCStatistic.resources
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.StatisticComponent.UCClientInfo.resources
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.StatisticComponent.UCStatClient.resources

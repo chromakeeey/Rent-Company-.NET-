@@ -70,7 +70,7 @@ namespace TRC_Redesign.header
                 }
             }
 
-            if (!mainWindow.admin_page1.vehicleEdit.pnl_empty.Visible)
+            if (mainWindow.admin_page1.vehicleEdit.pnl_empty.Visible)
             {
                 if (mainWindow.admin_page1.vehicleEdit.vehicle.plate == vehicleObject.plate)
                 {

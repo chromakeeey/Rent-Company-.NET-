@@ -192,6 +192,24 @@
     <Compile Include="settings_page.Designer.cs">
       <DependentUpon>settings_page.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatisticComponent\UCClientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatisticComponent\UCClientInfo.Designer.cs">
+      <DependentUpon>UCClientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticComponent\UCStatClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatisticComponent\UCStatClient.Designer.cs">
+      <DependentUpon>UCStatClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCStatistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCStatistic.Designer.cs">
+      <DependentUpon>UCStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCVehicleEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -270,6 +288,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="settings_page.resx">
       <DependentUpon>settings_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatisticComponent\UCClientInfo.resx">
+      <DependentUpon>UCClientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatisticComponent\UCStatClient.resx">
+      <DependentUpon>UCStatClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStatistic.resx">
+      <DependentUpon>UCStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCVehicleEdit.resx">
       <DependentUpon>UCVehicleEdit.cs</DependentUpon>
@@ -353,5 +380,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceRent\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
