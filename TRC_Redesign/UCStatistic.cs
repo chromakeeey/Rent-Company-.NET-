@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
+using TRC_Redesign.StatisticComponent;
+
 namespace TRC_Redesign
 {
     public partial class UCStatistic : UserControl

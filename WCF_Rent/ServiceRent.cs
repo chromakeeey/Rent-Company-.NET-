@@ -718,5 +718,94 @@ namespace WCF_Rent
 
             return -1;
         }
+
+        public List<Account> selectAllAccount()
+        {
+            try
+            {
+                List<Account> allAccount = new List<Account>();
+                Account accountObject = new Account();
+                SqlCommand sqlCommand;
+
+                sqlCommand = new SqlCommand("SELECT * FROM [accounts]", sqlconnection);
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    accountObject.id = Convert.ToInt32(reader["id"]);
+                    accountObject.name = Convert.ToString(reader["name"]);
+                    accountObject.secondname = Convert.ToString(reader["secondname"]);
+                    accountObject.fathername = Convert.ToString(reader["fathername"]);
+                    accountObject.login = Convert.ToString(reader["login"]);
+                    accountObject.password = Convert.ToString(reader["password"]);
+                    accountObject.phone = Convert.ToString(reader["phone"]);
+                    accountObject.mail = Convert.ToString(reader["email"]);
+
+                    accountObject.documentid = Convert.ToInt32(reader["documentid"]);
+                    accountObject.level = Convert.ToInt32(reader["adminlevel"]);
+                    accountObject.balance = Convert.ToSingle(reader["balance"]);
+                    accountObject.dateCreate = Convert.ToDateTime(reader["datecreate"]);
+                    accountObject.accepted = Convert.ToInt32(reader["accepted"]);
+
+                    allAccount.Add(accountObject);
+                }
+
+                if (reader != null)
+                    reader.Close();
+
+                return allAccount;
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return new List<Account>();
+        }
+
+        public List<Account> topAccountMoney()
+        {
+            try
+            {
+                List<Account> allAccount = new List<Account>();
+                allAccount = selectAllAccount();
+
+                for (int i = 0; i < allAccount.Count; i++)
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (price) AS INCOME FROM [log_takerent] WHERE userid = @userid", sqlconnection))
+                    {
+                        sqlCommand.Parameters.AddWithValue("userid", allAccount[i].id);
+                        sqlCommand.ExecuteNonQuery();
+
+                        allAccount[i].totalMoney = (float)sqlCommand.ExecuteScalar();
+                    }
+
+                    using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (balancereturn) AS INCOME FROM [log_removerent] WHERE userid = @userid", sqlconnection))
+                    {
+                        sqlCommand.Parameters.AddWithValue("userid", allAccount[i].id);
+                        sqlCommand.ExecuteNonQuery();
+
+                        allAccount[i].totalMoney -= (float)sqlCommand.ExecuteScalar();
+                    }
+
+                    using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (credit) AS INCOME FROM [log_removerent] WHERE userid = @userid", sqlconnection))
+                    {
+                        sqlCommand.Parameters.AddWithValue("userid", allAccount[i].id);
+                        sqlCommand.ExecuteNonQuery();
+
+                        allAccount[i].totalMoney += (float)sqlCommand.ExecuteScalar();
+                    }
+                }
+
+                //allAccount.Sort((x, y) => x.totalMoney.CompareTo(y.totalMoney));
+                return allAccount;
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString() + " line: " + ex.LineNumber); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return new List<Account>();
+        }
     }
 }

@@ -110,6 +110,9 @@ namespace WCF_Rent
 
         [OperationContract]
         int log_TakeRent(int userid, string VIN, float price, DateTime startdate, DateTime enddate);
+
+        [OperationContract]
+        List<Account> topAccountMoney();
     }
 
     public interface IServerRentCallback

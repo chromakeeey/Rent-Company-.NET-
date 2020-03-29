@@ -29,66 +29,67 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCClientInfo));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lbl_top = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.lbl_money = new System.Windows.Forms.Label();
+            this.btn_additional = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_top
             // 
-            this.label1.Font = new System.Drawing.Font("SF UI Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(22, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 59);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_top.Font = new System.Drawing.Font("SF UI Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_top.ForeColor = System.Drawing.Color.White;
+            this.lbl_top.Location = new System.Drawing.Point(22, 0);
+            this.lbl_top.Name = "lbl_top";
+            this.lbl_top.Size = new System.Drawing.Size(72, 59);
+            this.lbl_top.TabIndex = 0;
+            this.lbl_top.Text = "1";
+            this.lbl_top.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lbl_name
             // 
-            this.label2.Font = new System.Drawing.Font("SF UI Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(114, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 33);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Паламарчук Олександр\r\nВолодимирович\r\n";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_name.Font = new System.Drawing.Font("SF UI Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_name.ForeColor = System.Drawing.Color.White;
+            this.lbl_name.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_name.Location = new System.Drawing.Point(114, 13);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(238, 33);
+            this.lbl_name.TabIndex = 1;
+            this.lbl_name.Text = "Паламарчук Олександр\r\nВолодимирович\r\n";
+            this.lbl_name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbl_money
             // 
-            this.label3.Font = new System.Drawing.Font("SF UI Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(372, 1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 59);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "125.500  грн.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_money.Font = new System.Drawing.Font("SF UI Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_money.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbl_money.Location = new System.Drawing.Point(372, 1);
+            this.lbl_money.Name = "lbl_money";
+            this.lbl_money.Size = new System.Drawing.Size(179, 59);
+            this.lbl_money.TabIndex = 2;
+            this.lbl_money.Text = "125.500  грн.";
+            this.lbl_money.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btn_additional
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(638, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 59);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_additional.FlatAppearance.BorderSize = 0;
+            this.btn_additional.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_additional.Image = ((System.Drawing.Image)(resources.GetObject("btn_additional.Image")));
+            this.btn_additional.Location = new System.Drawing.Point(638, 1);
+            this.btn_additional.Name = "btn_additional";
+            this.btn_additional.Size = new System.Drawing.Size(36, 59);
+            this.btn_additional.TabIndex = 3;
+            this.btn_additional.UseVisualStyleBackColor = true;
+            this.btn_additional.Click += new System.EventHandler(this.btn_additional_Click);
             // 
             // UCClientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_additional);
+            this.Controls.Add(this.lbl_money);
+            this.Controls.Add(this.lbl_name);
+            this.Controls.Add(this.lbl_top);
             this.Name = "UCClientInfo";
             this.Size = new System.Drawing.Size(694, 59);
             this.ResumeLayout(false);
@@ -97,9 +98,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbl_top;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.Label lbl_money;
+        private System.Windows.Forms.Button btn_additional;
     }
 }

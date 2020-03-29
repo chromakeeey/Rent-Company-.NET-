@@ -101,6 +101,9 @@ namespace TRC_Redesign.ServiceRent {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string secondnameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float totalMoneyField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int accepted {
             get {
@@ -253,6 +256,19 @@ namespace TRC_Redesign.ServiceRent {
                 if ((object.ReferenceEquals(this.secondnameField, value) != true)) {
                     this.secondnameField = value;
                     this.RaisePropertyChanged("secondname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float totalMoney {
+            get {
+                return this.totalMoneyField;
+            }
+            set {
+                if ((this.totalMoneyField.Equals(value) != true)) {
+                    this.totalMoneyField = value;
+                    this.RaisePropertyChanged("totalMoney");
                 }
             }
         }
@@ -744,6 +760,12 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/log_TakeRent", ReplyAction="http://tempuri.org/IServiceRent/log_TakeRentResponse")]
         System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/topAccountMoney", ReplyAction="http://tempuri.org/IServiceRent/topAccountMoneyResponse")]
+        TRC_Redesign.ServiceRent.Account[] topAccountMoney();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/topAccountMoney", ReplyAction="http://tempuri.org/IServiceRent/topAccountMoneyResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account[]> topAccountMoneyAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1017,6 +1039,14 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate) {
             return base.Channel.log_TakeRentAsync(userid, VIN, price, startdate, enddate);
+        }
+        
+        public TRC_Redesign.ServiceRent.Account[] topAccountMoney() {
+            return base.Channel.topAccountMoney();
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account[]> topAccountMoneyAsync() {
+            return base.Channel.topAccountMoneyAsync();
         }
     }
 }

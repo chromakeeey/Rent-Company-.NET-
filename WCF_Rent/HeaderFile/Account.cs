@@ -22,6 +22,7 @@ namespace WCF_Rent.HeaderFile
         public string mail;
 
         public float balance;
+        public float totalMoney;
 
         public DateTime dateCreate;
 

@@ -46,3 +46,7 @@
 [28.03.2020 13:43:57] Application exit
 
 [28.03.2020 13:50:13] Application exit
+
+[29.03.2020 20:19:13] Application exit
+
+[29.03.2020 20:57:58] Application exit

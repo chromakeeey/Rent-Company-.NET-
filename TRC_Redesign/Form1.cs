@@ -155,7 +155,11 @@ namespace TRC_Redesign
             admin_page1.vehicleEdit.mainWindow = this;
             vehicleInfo.mainWindow = this;
             payment_page1.mainWindow = this;
+
             ucStatistic.mainWindow = this;
+            ucStatistic.ucStatClient.mainWindow = this;
+            ucStatistic.ucStatClient.updateAccounts();
+            ucStatistic.ucStatClient.updateTop();
 
             clientData.mainWindow = this;
             serverData.mainWindow = this;

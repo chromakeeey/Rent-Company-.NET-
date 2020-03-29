@@ -147,6 +147,12 @@
   <wsdl:message name="IServiceRent_log_TakeRent_OutputMessage">
     <wsdl:part name="parameters" element="tns:log_TakeRentResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_topAccountMoney_InputMessage">
+    <wsdl:part name="parameters" element="tns:topAccountMoney" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_topAccountMoney_OutputMessage">
+    <wsdl:part name="parameters" element="tns:topAccountMoneyResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:onSaveVehicle" />
   </wsdl:message>
@@ -258,6 +264,10 @@
     <wsdl:operation name="log_TakeRent">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_TakeRent" message="tns:IServiceRent_log_TakeRent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/log_TakeRentResponse" message="tns:IServiceRent_log_TakeRent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="topAccountMoney">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/topAccountMoney" message="tns:IServiceRent_topAccountMoney_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/topAccountMoneyResponse" message="tns:IServiceRent_topAccountMoney_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="onSaveVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
@@ -484,6 +494,15 @@
     </wsdl:operation>
     <wsdl:operation name="log_TakeRent">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_TakeRent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="topAccountMoney">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/topAccountMoney" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

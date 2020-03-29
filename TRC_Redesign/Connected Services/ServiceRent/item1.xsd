@@ -16,6 +16,7 @@
           <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="secondname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="totalMoney" type="xs:float" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -64,4 +65,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfVehicle" nillable="true" type="tns:ArrayOfVehicle" />
+  <xs:complexType name="ArrayOfAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccount" nillable="true" type="tns:ArrayOfAccount" />
 </xs:schema>
