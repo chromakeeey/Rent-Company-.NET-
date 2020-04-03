@@ -50,3 +50,49 @@
 [29.03.2020 20:19:13] Application exit
 
 [29.03.2020 20:57:58] Application exit
+
+[31.03.2020 11:01:47] Application exit
+
+[31.03.2020 11:36:52] Application exit
+
+[31.03.2020 11:45:53] Application exit
+
+[31.03.2020 14:19:59] Application exit
+
+[31.03.2020 14:23:55] Application exit
+
+[31.03.2020 14:41:34] Application exit
+
+[31.03.2020 14:50:29] Application exit
+
+[31.03.2020 15:04:11] Application exit
+
+[31.03.2020 15:10:43] Application exit
+
+[31.03.2020 15:40:39] Application exit
+
+[31.03.2020 15:49:51] Application exit
+
+[31.03.2020 15:54:50] Application exit
+
+[31.03.2020 16:14:02] Application exit
+
+[31.03.2020 21:40:45] Application exit
+
+[31.03.2020 21:56:29] Application exit
+
+[31.03.2020 22:02:52] Application exit
+
+[02.04.2020 13:43:49] Application exit
+
+[02.04.2020 13:55:10] Application exit
+
+[03.04.2020 12:22:25] Application exit
+
+[03.04.2020 12:23:16] Application exit
+
+[03.04.2020 12:24:35] Application exit
+
+[03.04.2020 12:38:13] Application exit
+
+[03.04.2020 12:47:18] Application exit

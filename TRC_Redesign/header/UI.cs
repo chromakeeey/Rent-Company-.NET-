@@ -143,12 +143,17 @@ namespace TRC_Redesign.header
             if (statisticPanel == panelid)
                 return;
 
-            /*switch (panelid)
+            ucStatistic.ucStatClient.Visible = false;
+            ucStatistic.ucMoneyStat.Visible = false;
+
+            switch (panelid)
             {
-                case 0: 
-                case 1:
-                case 2:
-            }*/
+                case 0: ucStatistic.ucStatClient.Visible = true; break;
+                case 1: break;
+                case 2: ucStatistic.ucMoneyStat.Visible = true; break;
+            }
+
+            statisticPanel = panelid;
         }
 
         public UI()

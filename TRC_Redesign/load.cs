@@ -123,6 +123,7 @@ namespace TRC_Redesign
 
                         mainWindow.clientData.ui.panelidNow = -1;
                         mainWindow.clientData.ui.subPanelNow = -1;
+                        mainWindow.clientData.ui.statisticPanel = -1;
 
                         mainWindow.clientData.ui.ColorsToARGB();
                         mainWindow.clientData.ui.SetTheme(mainWindow, mainWindow.clientData.ui.themeCurrent);

@@ -35,6 +35,7 @@
             this.btn_vehicle = new System.Windows.Forms.Panel();
             this.lbl_vehicle = new System.Windows.Forms.Label();
             this.ucStatClient = new TRC_Redesign.StatisticComponent.UCStatClient();
+            this.ucMoneyStat = new TRC_Redesign.StatisticComponent.UCMoneyStat();
             this.btn_client.SuspendLayout();
             this.btn_money.SuspendLayout();
             this.btn_vehicle.SuspendLayout();
@@ -119,12 +120,23 @@
             this.ucStatClient.Name = "ucStatClient";
             this.ucStatClient.Size = new System.Drawing.Size(785, 486);
             this.ucStatClient.TabIndex = 3;
+            this.ucStatClient.Visible = false;
+            // 
+            // ucMoneyStat
+            // 
+            this.ucMoneyStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.ucMoneyStat.Location = new System.Drawing.Point(5, 121);
+            this.ucMoneyStat.Name = "ucMoneyStat";
+            this.ucMoneyStat.Size = new System.Drawing.Size(785, 486);
+            this.ucMoneyStat.TabIndex = 4;
+            this.ucMoneyStat.Visible = false;
             // 
             // UCStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.Controls.Add(this.ucMoneyStat);
             this.Controls.Add(this.ucStatClient);
             this.Controls.Add(this.btn_vehicle);
             this.Controls.Add(this.btn_money);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Label lbl_money;
         private System.Windows.Forms.Label lbl_vehicle;
         public StatisticComponent.UCStatClient ucStatClient;
+        public StatisticComponent.UCMoneyStat ucMoneyStat;
     }
 }

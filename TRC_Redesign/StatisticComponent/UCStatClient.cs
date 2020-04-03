@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
+
 using TRC_Redesign.ServiceRent;
+using TRC_Redesign.header;
+
+using Excel = Microsoft.Office.Interop.Excel;
+using OfficeOpenXml.Style;
+using DocumentFormat.OpenXml.Spreadsheet;
+using OfficeOpenXml;
+using System.IO;
 
 namespace TRC_Redesign.StatisticComponent
 {
@@ -31,12 +36,17 @@ namespace TRC_Redesign.StatisticComponent
 
             for (int i = length - 1; i != -1; i--)
             {
+                if (top > 20)
+                    break;
+
                 ucClients.Add(new UCClientInfo());
                 int index = ucClients.Count - 1;
 
-                ucClients[i].setAccount(account[i], top);
-                ucClients[i].Location = new Point(47, yCoord);
-                ucClients[i].Visible = true;
+                ucClients[index].setAccount(account[i], top);
+                ucClients[index].Location = new Point(47, yCoord);
+                ucClients[index].Parent = location_panel;
+                ucClients[index].Size = new Size(694, 59);
+                ucClients[index].Visible = true;
 
                 yCoord += 70;
                 top++;
@@ -54,5 +64,31 @@ namespace TRC_Redesign.StatisticComponent
             InitializeComponent();
 
         }
+
+        private void btn_statistic_Click(object sender, EventArgs e)
+        {
+            if (!ExcelSave.isTemplateValid(ExcelSave.UserTemplate))
+            {
+                mainWindow.dialogCreate("Сталась помилка!\n Не було знайдено шаблоний файл user.xslx",
+                    "Помилка шаблону", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+
+            saveDialog.Filter = "Excel Files | *.xlsx";
+            saveDialog.DefaultExt = "xlsx";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                ExcelSave.exportAccount(saveDialog.FileName, account);
+
+                mainWindow.dialogCreate("Ви успішно створили Excel-документ", "Збереження Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }           
+        }
+
+
+      
     }
 }

@@ -158,8 +158,12 @@ namespace TRC_Redesign
 
             ucStatistic.mainWindow = this;
             ucStatistic.ucStatClient.mainWindow = this;
+            ucStatistic.ucMoneyStat.mainWindow = this;
             ucStatistic.ucStatClient.updateAccounts();
             ucStatistic.ucStatClient.updateTop();
+            ucStatistic.ucMoneyStat.setTimeButton(0);
+
+            clientData.ui.CreateStatisticPanel(clientData.ui.STATISTIC_CLIENT, ucStatistic);
 
             clientData.mainWindow = this;
             serverData.mainWindow = this;

@@ -10,6 +10,7 @@ using System.Drawing;
 
 using WCF_Rent.HeaderFile;
 using System.Drawing.Imaging;
+using System.Diagnostics;
 
 namespace WCF_Rent
 {
@@ -732,6 +733,8 @@ namespace WCF_Rent
 
                 while (reader.Read())
                 {
+                    accountObject = new Account();
+
                     accountObject.id = Convert.ToInt32(reader["id"]);
                     accountObject.name = Convert.ToString(reader["name"]);
                     accountObject.secondname = Convert.ToString(reader["secondname"]);
@@ -765,19 +768,32 @@ namespace WCF_Rent
 
         public List<Account> topAccountMoney()
         {
+            List<Account> allAccount = new List<Account>();
+            allAccount = selectAllAccount();
+
             try
             {
-                List<Account> allAccount = new List<Account>();
-                allAccount = selectAllAccount();
+                /*for (int i = 0; i < allAccount.Count; i++)
+                {
+                    ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "FOREACH INDEX - " + i.ToString() + " SURNAME - " + allAccount[i].secondname);
+                }*/
+
 
                 for (int i = 0; i < allAccount.Count; i++)
                 {
+                    ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "FOREACH INDEX - " + i.ToString());
+
+                    
+
                     using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (price) AS INCOME FROM [log_takerent] WHERE userid = @userid", sqlconnection))
                     {
                         sqlCommand.Parameters.AddWithValue("userid", allAccount[i].id);
                         sqlCommand.ExecuteNonQuery();
 
-                        allAccount[i].totalMoney = (float)sqlCommand.ExecuteScalar();
+                        object dataObject = sqlCommand.ExecuteScalar();
+
+                        if (dataObject != DBNull.Value && dataObject != null)
+                            allAccount[i].totalMoney = Convert.ToSingle(dataObject);
                     }
 
                     using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (balancereturn) AS INCOME FROM [log_removerent] WHERE userid = @userid", sqlconnection))
@@ -785,7 +801,10 @@ namespace WCF_Rent
                         sqlCommand.Parameters.AddWithValue("userid", allAccount[i].id);
                         sqlCommand.ExecuteNonQuery();
 
-                        allAccount[i].totalMoney -= (float)sqlCommand.ExecuteScalar();
+                        object dataObject = sqlCommand.ExecuteScalar();
+
+                        if (dataObject != DBNull.Value && dataObject != null)
+                            allAccount[i].totalMoney -= Convert.ToSingle(dataObject);
                     }
 
                     using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (credit) AS INCOME FROM [log_removerent] WHERE userid = @userid", sqlconnection))
@@ -793,19 +812,27 @@ namespace WCF_Rent
                         sqlCommand.Parameters.AddWithValue("userid", allAccount[i].id);
                         sqlCommand.ExecuteNonQuery();
 
-                        allAccount[i].totalMoney += (float)sqlCommand.ExecuteScalar();
+                        object dataObject = sqlCommand.ExecuteScalar();
+
+                        if (dataObject != DBNull.Value && dataObject != null)
+                            allAccount[i].totalMoney += Convert.ToSingle(dataObject);
                     }
                 }
 
-                //allAccount.Sort((x, y) => x.totalMoney.CompareTo(y.totalMoney));
+                allAccount.Sort((x, y) => x.totalMoney.CompareTo(y.totalMoney));
                 return allAccount;
             }
 
             catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString() + " line: " + ex.LineNumber); }
             catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) 
+            {
+                int line = (new StackTrace(ex, true)).GetFrame(0).GetFileLineNumber();
 
-            return new List<Account>();
+                ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString() + " LINE: " + line.ToString()); 
+            }
+
+            return allAccount;
         }
     }
 }

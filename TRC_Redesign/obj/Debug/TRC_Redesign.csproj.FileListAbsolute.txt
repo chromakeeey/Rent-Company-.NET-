@@ -37,3 +37,11 @@ D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.InputBoxes.InputComboBox.res
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.UCStatistic.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.StatisticComponent.UCClientInfo.resources
 D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.StatisticComponent.UCStatClient.resources
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.csproj.ResolveComReference.cache
+D:\TRC_Redesign\TRC_Redesign\bin\Debug\DocumentFormat.OpenXml.dll
+D:\TRC_Redesign\TRC_Redesign\bin\Debug\EPPlus.dll
+D:\TRC_Redesign\TRC_Redesign\bin\Debug\System.IO.Packaging.dll
+D:\TRC_Redesign\TRC_Redesign\bin\Debug\DocumentFormat.OpenXml.xml
+D:\TRC_Redesign\TRC_Redesign\bin\Debug\EPPlus.xml
+D:\TRC_Redesign\TRC_Redesign\bin\Debug\System.IO.Packaging.xml
+D:\TRC_Redesign\TRC_Redesign\obj\Debug\TRC_Redesign.StatisticComponent.UCMoneyStat.resources

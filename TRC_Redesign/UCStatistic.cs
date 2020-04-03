@@ -35,6 +35,8 @@ namespace TRC_Redesign
             return path;
         }
 
+        
+
         private void roundedCorners()
         {
             var bounds = btn_vehicle.ClientRectangle;
@@ -84,7 +86,7 @@ namespace TRC_Redesign
             btn_vehicle.BackColor = Color.FromArgb(40, 40, 40);
 
             btn_money.BackColor = Color.FromArgb(187, 134, 252);
-            mainWindow.clientData.ui.CreateStatisticPanel(mainWindow.clientData.ui.STATISTIC_CLIENT, this);
+            mainWindow.clientData.ui.CreateStatisticPanel(mainWindow.clientData.ui.STATISTIC_MONEY, this);
         }
 
         private void client_MouseHover(object sender, System.EventArgs e)
