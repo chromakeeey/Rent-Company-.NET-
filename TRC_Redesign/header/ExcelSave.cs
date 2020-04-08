@@ -6,14 +6,17 @@ using Excel = Microsoft.Office.Interop.Excel;
 using OfficeOpenXml.Style;
 using DocumentFormat.OpenXml.Spreadsheet;
 using OfficeOpenXml;
+using System.Collections.Generic;
 
 namespace TRC_Redesign.header
 {
     public static class ExcelSave
     {
         private const string path_UserTemplate = @"user.xlsx";
+        private const string path_RentTemplate = @"rent.xlsx";
 
         public const int UserTemplate = 0;
+        public const int RentTemplate = 1;
 
         public static bool isTemplateValid(int templateid)
         {
@@ -22,6 +25,7 @@ namespace TRC_Redesign.header
             switch (templateid)
             {
                 case 0: path += @"exceltemplate\" + path_UserTemplate; break;
+                case 1: path += @"exceltemplate\" + path_RentTemplate; break;
             }
 
             return File.Exists(path);
@@ -34,6 +38,7 @@ namespace TRC_Redesign.header
             switch (templateid)
             {
                 case 0: path += @"exceltemplate\" + path_UserTemplate; break;
+                case 1: path += @"exceltemplate\" + path_RentTemplate; break;
             }
 
             FileInfo fileInfo = new FileInfo(path);
@@ -84,6 +89,39 @@ namespace TRC_Redesign.header
 
                     break;
                 }
+
+                Byte[] bin = excelPackage.GetAsByteArray();
+                File.WriteAllBytes(path, bin);
+            }
+        }
+
+        public static void exportRent(string path, StatVehicleInfo[] statVehicles, DateTime startDate, DateTime endDate)
+        {
+            FileInfo fileInfo = templateInfo(RentTemplate);
+
+            using (ExcelPackage excelPackage = new ExcelPackage(fileInfo, true))
+            {
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelWorksheet list = excelPackage.Workbook.Worksheets[0];
+
+                int row = 3;
+
+                foreach (StatVehicleInfo item in statVehicles)
+                {
+                    list.Cells[row, 1].Value = item.VIN;
+                    list.Cells[row, 2].Value = item.vehicle.name + " " + item.vehicle.model;
+                    list.Cells[row, 3].Value = item.rent_startDate.ToString();
+                    list.Cells[row, 4].Value = item.rent_endDate.ToString();
+                    list.Cells[row, 5].Value = item.account.secondname + " " + item.account.name + " " + item.account.fathername;
+                    list.Cells[row, 6].Value = item.payment;
+                    list.Cells[row, 7].Value = item.returning == 0 ? 0 : -(item.returning);
+                    list.Cells[row, 8].Value = item.credit;
+
+                    row++;
+                }
+
+                string header = String.Format("Історія оренд транспортних засобів ({0} - {1})", startDate.ToShortDateString(), endDate.ToShortDateString());
+                list.Cells[1, 1].Value = header;
 
                 Byte[] bin = excelPackage.GetAsByteArray();
                 File.WriteAllBytes(path, bin);

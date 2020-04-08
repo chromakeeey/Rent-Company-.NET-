@@ -55,6 +55,7 @@
             this.lbl_addbalance = new System.Windows.Forms.Label();
             this.lbl_minusbalance = new System.Windows.Forms.Label();
             this.lbl_balanceall = new System.Windows.Forms.Label();
+            this.btn_date = new System.Windows.Forms.Button();
             this.pnl_year.SuspendLayout();
             this.pnl_month.SuspendLayout();
             this.pnl_week.SuspendLayout();
@@ -177,13 +178,14 @@
             this.btn_statistic.ForeColor = System.Drawing.Color.White;
             this.btn_statistic.Image = ((System.Drawing.Image)(resources.GetObject("btn_statistic.Image")));
             this.btn_statistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_statistic.Location = new System.Drawing.Point(562, 450);
+            this.btn_statistic.Location = new System.Drawing.Point(509, 450);
             this.btn_statistic.Name = "btn_statistic";
             this.btn_statistic.Size = new System.Drawing.Size(183, 33);
             this.btn_statistic.TabIndex = 9;
             this.btn_statistic.Text = "           Експортувати в Excel ";
             this.btn_statistic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_statistic.UseVisualStyleBackColor = true;
+            this.btn_statistic.Click += new System.EventHandler(this.btn_statistic_Click);
             // 
             // pictureBox1
             // 
@@ -349,11 +351,25 @@
             this.lbl_balanceall.TabIndex = 23;
             this.lbl_balanceall.Text = "456 шт.";
             // 
+            // btn_date
+            // 
+            this.btn_date.FlatAppearance.BorderSize = 0;
+            this.btn_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_date.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_date.Image = ((System.Drawing.Image)(resources.GetObject("btn_date.Image")));
+            this.btn_date.Location = new System.Drawing.Point(13, 61);
+            this.btn_date.Name = "btn_date";
+            this.btn_date.Size = new System.Drawing.Size(20, 23);
+            this.btn_date.TabIndex = 142;
+            this.btn_date.UseVisualStyleBackColor = true;
+            this.btn_date.Click += new System.EventHandler(this.btn_date_Click);
+            // 
             // UCMoneyStat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.Controls.Add(this.btn_date);
             this.Controls.Add(this.lbl_balanceall);
             this.Controls.Add(this.lbl_minusbalance);
             this.Controls.Add(this.lbl_addbalance);
@@ -416,5 +432,6 @@
         private System.Windows.Forms.Label lbl_addbalance;
         private System.Windows.Forms.Label lbl_minusbalance;
         private System.Windows.Forms.Label lbl_balanceall;
+        private System.Windows.Forms.Button btn_date;
     }
 }

@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Drawing;
 
+using WCF_Rent.Structures;
 using WCF_Rent.HeaderFile;
 
 namespace WCF_Rent
@@ -113,6 +114,12 @@ namespace WCF_Rent
 
         [OperationContract]
         List<Account> topAccountMoney();
+
+        [OperationContract]
+        StatInfo SendStatInfo(DateTime startDate, DateTime endDate);
+
+        [OperationContract]
+        Vehicle selectVehicle(string VIN);
     }
 
     public interface IServerRentCallback

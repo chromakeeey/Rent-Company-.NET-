@@ -9,6 +9,8 @@ using System.IO;
 using System.Drawing;
 
 using WCF_Rent.HeaderFile;
+using WCF_Rent.Structures;
+
 using System.Drawing.Imaging;
 using System.Diagnostics;
 
@@ -110,6 +112,52 @@ namespace WCF_Rent
                     userObject.operationContext.GetCallbackChannel<IServerRentCallback>().sendNotification(message);
                 }
             }
+        }
+
+        public Vehicle selectVehicle(string VIN)
+        {
+            ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "VIN - " + VIN);
+
+            Vehicle readVehicle = new Vehicle();
+
+            using ( SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [vehicles] WHERE [VIN] = @unicalid", sqlconnection) )
+            {
+                sqlCommand.Parameters.AddWithValue("unicalid", VIN);
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    readVehicle = new Vehicle()
+                    {
+                        VIN = reader["VIN"].ToString(),
+                        plate = reader["plate"].ToString(),
+                        name = reader["name"].ToString(),
+                        model = reader["model"].ToString(),
+                        price = Convert.ToSingle(reader["price"]),
+                        fuel = Convert.ToSingle(reader["fuel"]),
+                        mileage = Convert.ToSingle(reader["mileage"]),
+                        picturepath = reader["picturepath"].ToString(),
+                        clientid = Convert.ToInt32(reader["clientid"]),
+                        rentlogid = Convert.ToInt32(reader["rentlogid"]),
+                        start_date = Convert.ToDateTime(reader["date_start"]),
+                        end_date = Convert.ToDateTime(reader["date_end"]),
+
+                        maxfuel = Convert.ToSingle(reader["fuelmax"]),
+                        maxspeed = Convert.ToInt32(reader["maxspeed"]),
+
+                        type = Convert.ToString(reader["type"]),
+                        transmission = Convert.ToString(reader["transmission"]),
+                        category = Convert.ToString(reader["category"])
+                    };
+
+                    break;
+                }
+
+                if (reader != null)
+                    reader.Close();
+            }
+
+            return readVehicle;
         }
 
         public void selectAllVehicle()
@@ -490,6 +538,52 @@ namespace WCF_Rent
             return this.GetAllVehicle() - this.GetAllRentVehicle();
         }
 
+        public Account selectIDAccount(int id)
+        {
+            try
+            {
+                Account accountObject = new Account();
+                SqlCommand sqlCommand;
+
+                sqlCommand = new SqlCommand("SELECT * FROM [accounts] WHERE [id] = @id", sqlconnection);
+                sqlCommand.Parameters.AddWithValue("id", id);
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    accountObject.id = Convert.ToInt32(reader["id"]);
+
+                    accountObject.name = Convert.ToString(reader["name"]);
+                    accountObject.secondname = Convert.ToString(reader["secondname"]);
+                    accountObject.fathername = Convert.ToString(reader["fathername"]);
+                    accountObject.login = Convert.ToString(reader["login"]);
+                    accountObject.password = Convert.ToString(reader["password"]);
+                    accountObject.phone = Convert.ToString(reader["phone"]);
+                    accountObject.mail = Convert.ToString(reader["email"]);
+
+                    accountObject.documentid = Convert.ToInt32(reader["documentid"]);
+                    accountObject.level = Convert.ToInt32(reader["adminlevel"]);
+                    accountObject.balance = Convert.ToSingle(reader["balance"]);
+                    accountObject.dateCreate = Convert.ToDateTime(reader["datecreate"]);
+                    accountObject.accepted = Convert.ToInt32(reader["accepted"]);
+
+                    break;
+                }
+
+                if (reader != null)
+                    reader.Close();
+
+                return accountObject;
+
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return new Account();
+        }
+
         public Account noAcceptedAccount()
         {
             try
@@ -773,18 +867,9 @@ namespace WCF_Rent
 
             try
             {
-                /*for (int i = 0; i < allAccount.Count; i++)
-                {
-                    ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "FOREACH INDEX - " + i.ToString() + " SURNAME - " + allAccount[i].secondname);
-                }*/
-
 
                 for (int i = 0; i < allAccount.Count; i++)
                 {
-                    ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "FOREACH INDEX - " + i.ToString());
-
-                    
-
                     using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (price) AS INCOME FROM [log_takerent] WHERE userid = @userid", sqlconnection))
                     {
                         sqlCommand.Parameters.AddWithValue("userid", allAccount[i].id);
@@ -833,6 +918,121 @@ namespace WCF_Rent
             }
 
             return allAccount;
+        }
+
+        public StatInfo SendStatInfo(DateTime startDate, DateTime endDate)
+        {
+            StatInfo statInfo = new StatInfo();
+
+            statInfo.startDate = startDate;
+            statInfo.endDate = endDate;
+
+            statInfo.statBalances = new List<StatBalanceInfo>();
+            statInfo.statVehicles = new List<StatVehicleInfo>();
+
+            try
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_takerent] WHERE startdate > @startDate AND startdate < @endDate", sqlconnection))
+                {
+                    sqlCommand.Parameters.AddWithValue("startDate", startDate);
+                    sqlCommand.Parameters.AddWithValue("endDate", endDate);
+
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+                    StatVehicleInfo statVehicle = new StatVehicleInfo();
+
+                    while (reader.Read())
+                    {
+                        statVehicle = new StatVehicleInfo();
+
+                        statVehicle.VIN = Convert.ToString(reader["VIN"]);
+
+                        ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "VIN ! - " + statVehicle.VIN);
+
+                        statVehicle.userid = Convert.ToInt32(reader["userid"]);
+
+                        statVehicle.id = Convert.ToInt32(reader["id"]);
+                        statVehicle.payment = Convert.ToInt32(reader["price"]);
+
+                        statVehicle.rent_startDate = Convert.ToDateTime(reader["startdate"]);
+                        statVehicle.rent_endDate = Convert.ToDateTime(reader["enddate"]);
+
+                        statInfo.statVehicles.Add(statVehicle);
+                    }
+
+                    if (reader != null)
+                        reader.Close();
+
+                    int length = statInfo.statVehicles.Count;
+
+                    for (int i = 0; i < length; i++)
+                    {
+                        float[] endData = new float[2];
+
+                        statInfo.statVehicles[i].vehicle = new Vehicle();
+                        statInfo.statVehicles[i].account = new Account();
+
+                        statInfo.statVehicles[i].vehicle = selectVehicle(statInfo.statVehicles[i].VIN);
+                        statInfo.statVehicles[i].account = selectIDAccount(statInfo.statVehicles[i].userid);
+
+                        endData = endRentData(statInfo.statVehicles[i].id);
+
+                        statInfo.statVehicles[i].returning = endData[0];
+                        statInfo.statVehicles[i].credit = endData[1];
+                    }
+                } 
+
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (balance) AS INCOME FROM [accounts]", sqlconnection))
+                {
+                    sqlCommand.ExecuteNonQuery();
+
+                    object dataObject = sqlCommand.ExecuteScalar();
+
+                    if (dataObject != DBNull.Value && dataObject != null)
+                        statInfo.totalbalance = Convert.ToSingle(dataObject);
+                }
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return statInfo;
+        }
+
+        public float[] endRentData(int takerentid)
+        {
+            float[] bufferData = new float[2];
+
+            bufferData[0] = 0;
+            bufferData[1] = 0;
+
+            try
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_removerent] WHERE [takerentid] = @takerentid", sqlconnection))
+                {
+                    sqlCommand.Parameters.AddWithValue("takerentid", takerentid);
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        bufferData[0] = Convert.ToSingle(reader["balancereturn"]);
+                        bufferData[1] = Convert.ToSingle(reader["credit"]);
+
+                        break;
+                    }
+
+                    if (reader != null)
+                        reader.Close();
+                }
+
+
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return bufferData;
         }
     }
 }

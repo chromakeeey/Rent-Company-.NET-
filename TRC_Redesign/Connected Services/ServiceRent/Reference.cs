@@ -583,6 +583,413 @@ namespace TRC_Redesign.ServiceRent {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatInfo", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures")]
+    [System.SerializableAttribute()]
+    public partial class StatInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime endDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime startDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TRC_Redesign.ServiceRent.StatBalanceInfo[] statBalancesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TRC_Redesign.ServiceRent.StatVehicleInfo[] statVehiclesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float totalbalanceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime endDate {
+            get {
+                return this.endDateField;
+            }
+            set {
+                if ((this.endDateField.Equals(value) != true)) {
+                    this.endDateField = value;
+                    this.RaisePropertyChanged("endDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime startDate {
+            get {
+                return this.startDateField;
+            }
+            set {
+                if ((this.startDateField.Equals(value) != true)) {
+                    this.startDateField = value;
+                    this.RaisePropertyChanged("startDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TRC_Redesign.ServiceRent.StatBalanceInfo[] statBalances {
+            get {
+                return this.statBalancesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.statBalancesField, value) != true)) {
+                    this.statBalancesField = value;
+                    this.RaisePropertyChanged("statBalances");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TRC_Redesign.ServiceRent.StatVehicleInfo[] statVehicles {
+            get {
+                return this.statVehiclesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.statVehiclesField, value) != true)) {
+                    this.statVehiclesField = value;
+                    this.RaisePropertyChanged("statVehicles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float totalbalance {
+            get {
+                return this.totalbalanceField;
+            }
+            set {
+                if ((this.totalbalanceField.Equals(value) != true)) {
+                    this.totalbalanceField = value;
+                    this.RaisePropertyChanged("totalbalance");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatBalanceInfo", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures")]
+    [System.SerializableAttribute()]
+    public partial class StatBalanceInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TRC_Redesign.ServiceRent.Account accountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float cardnumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float valueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TRC_Redesign.ServiceRent.Account account {
+            get {
+                return this.accountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.accountField, value) != true)) {
+                    this.accountField = value;
+                    this.RaisePropertyChanged("account");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float cardnumber {
+            get {
+                return this.cardnumberField;
+            }
+            set {
+                if ((this.cardnumberField.Equals(value) != true)) {
+                    this.cardnumberField = value;
+                    this.RaisePropertyChanged("cardnumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dateTime {
+            get {
+                return this.dateTimeField;
+            }
+            set {
+                if ((this.dateTimeField.Equals(value) != true)) {
+                    this.dateTimeField = value;
+                    this.RaisePropertyChanged("dateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float value {
+            get {
+                return this.valueField;
+            }
+            set {
+                if ((this.valueField.Equals(value) != true)) {
+                    this.valueField = value;
+                    this.RaisePropertyChanged("value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatVehicleInfo", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures")]
+    [System.SerializableAttribute()]
+    public partial class StatVehicleInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VINField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TRC_Redesign.ServiceRent.Account accountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float creditField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float paymentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime rent_endDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime rent_startDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float returningField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int useridField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TRC_Redesign.ServiceRent.Vehicle vehicleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VIN {
+            get {
+                return this.VINField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VINField, value) != true)) {
+                    this.VINField = value;
+                    this.RaisePropertyChanged("VIN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TRC_Redesign.ServiceRent.Account account {
+            get {
+                return this.accountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.accountField, value) != true)) {
+                    this.accountField = value;
+                    this.RaisePropertyChanged("account");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float credit {
+            get {
+                return this.creditField;
+            }
+            set {
+                if ((this.creditField.Equals(value) != true)) {
+                    this.creditField = value;
+                    this.RaisePropertyChanged("credit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float payment {
+            get {
+                return this.paymentField;
+            }
+            set {
+                if ((this.paymentField.Equals(value) != true)) {
+                    this.paymentField = value;
+                    this.RaisePropertyChanged("payment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime rent_endDate {
+            get {
+                return this.rent_endDateField;
+            }
+            set {
+                if ((this.rent_endDateField.Equals(value) != true)) {
+                    this.rent_endDateField = value;
+                    this.RaisePropertyChanged("rent_endDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime rent_startDate {
+            get {
+                return this.rent_startDateField;
+            }
+            set {
+                if ((this.rent_startDateField.Equals(value) != true)) {
+                    this.rent_startDateField = value;
+                    this.RaisePropertyChanged("rent_startDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float returning {
+            get {
+                return this.returningField;
+            }
+            set {
+                if ((this.returningField.Equals(value) != true)) {
+                    this.returningField = value;
+                    this.RaisePropertyChanged("returning");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int userid {
+            get {
+                return this.useridField;
+            }
+            set {
+                if ((this.useridField.Equals(value) != true)) {
+                    this.useridField = value;
+                    this.RaisePropertyChanged("userid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TRC_Redesign.ServiceRent.Vehicle vehicle {
+            get {
+                return this.vehicleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.vehicleField, value) != true)) {
+                    this.vehicleField = value;
+                    this.RaisePropertyChanged("vehicle");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent", CallbackContract=typeof(TRC_Redesign.ServiceRent.IServiceRentCallback))]
     public interface IServiceRent {
@@ -766,6 +1173,18 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/topAccountMoney", ReplyAction="http://tempuri.org/IServiceRent/topAccountMoneyResponse")]
         System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account[]> topAccountMoneyAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SendStatInfo", ReplyAction="http://tempuri.org/IServiceRent/SendStatInfoResponse")]
+        TRC_Redesign.ServiceRent.StatInfo SendStatInfo(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SendStatInfo", ReplyAction="http://tempuri.org/IServiceRent/SendStatInfoResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.StatInfo> SendStatInfoAsync(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/selectVehicle", ReplyAction="http://tempuri.org/IServiceRent/selectVehicleResponse")]
+        TRC_Redesign.ServiceRent.Vehicle selectVehicle(string VIN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/selectVehicle", ReplyAction="http://tempuri.org/IServiceRent/selectVehicleResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> selectVehicleAsync(string VIN);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1047,6 +1466,22 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Account[]> topAccountMoneyAsync() {
             return base.Channel.topAccountMoneyAsync();
+        }
+        
+        public TRC_Redesign.ServiceRent.StatInfo SendStatInfo(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.SendStatInfo(startDate, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.StatInfo> SendStatInfoAsync(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.SendStatInfoAsync(startDate, endDate);
+        }
+        
+        public TRC_Redesign.ServiceRent.Vehicle selectVehicle(string VIN) {
+            return base.Channel.selectVehicle(VIN);
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> selectVehicleAsync(string VIN) {
+            return base.Channel.selectVehicleAsync(VIN);
         }
     }
 }

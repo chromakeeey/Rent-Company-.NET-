@@ -13,6 +13,7 @@
       <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceRent_userConnect_InputMessage">
@@ -153,6 +154,18 @@
   <wsdl:message name="IServiceRent_topAccountMoney_OutputMessage">
     <wsdl:part name="parameters" element="tns:topAccountMoneyResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_SendStatInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatInfo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SendStatInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_selectVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:selectVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_selectVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:selectVehicleResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:onSaveVehicle" />
   </wsdl:message>
@@ -268,6 +281,14 @@
     <wsdl:operation name="topAccountMoney">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/topAccountMoney" message="tns:IServiceRent_topAccountMoney_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/topAccountMoneyResponse" message="tns:IServiceRent_topAccountMoney_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendStatInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SendStatInfo" message="tns:IServiceRent_SendStatInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/SendStatInfoResponse" message="tns:IServiceRent_SendStatInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="selectVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/selectVehicle" message="tns:IServiceRent_selectVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/selectVehicleResponse" message="tns:IServiceRent_selectVehicle_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="onSaveVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
@@ -503,6 +524,24 @@
     </wsdl:operation>
     <wsdl:operation name="topAccountMoney">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/topAccountMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendStatInfo">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/SendStatInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/selectVehicle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -70,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerUser.cs" />
     <Compile Include="ServiceRent.cs" />
+    <Compile Include="Structures\StatInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8301/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" />
+  <xs:import schemaLocation="http://localhost:8301/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures" />
   <xs:element name="userConnect">
     <xs:complexType>
       <xs:sequence />
@@ -325,17 +326,46 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SendStatInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendStatInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures" minOccurs="0" name="SendStatInfoResult" nillable="true" type="q15:StatInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="selectVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="selectVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="selectVehicleResult" nillable="true" type="q16:Vehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="onSaveVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q15:Vehicle" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q17:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="onDeleteVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q16:Vehicle" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q18:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

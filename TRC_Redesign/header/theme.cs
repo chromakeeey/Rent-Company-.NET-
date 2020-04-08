@@ -43,6 +43,8 @@ namespace TRC_Redesign.header
             clrMainPanel = ColorTranslator.ToHtml(customMainPanel);
             clrSecondPanel = ColorTranslator.ToHtml(customSecondPanel);
             clrButton = ColorTranslator.ToHtml(customButton);
+
+            
         }
 
         public void ColorsToARGB()

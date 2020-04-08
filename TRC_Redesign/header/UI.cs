@@ -41,6 +41,12 @@ namespace TRC_Redesign.header
         public int STATISTIC_VEHICLE = 1;
         public int STATISTIC_MONEY = 2;
 
+        // statistic last update information
+        public DateTime year_LastUpdate;
+        public DateTime month_LastUpdate;
+        public DateTime week_LastUpdate;
+        public DateTime day_LastUpdate;
+
         public void CreateAdminSubPanel(int panelid, admin_page object_page)
         {
             if (panelid == this.subPanelNow)
