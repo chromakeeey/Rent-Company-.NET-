@@ -85,6 +85,7 @@ namespace TRC_Redesign
             }
             else
             {
+                mainWindow.clientData.checkData.saveCheckData();
                 mainWindow.clientData.ui.SaveTheme();
                 mainWindow.serverData.disconnect();
             }
@@ -118,6 +119,7 @@ namespace TRC_Redesign
                     {
                         label2.Text = "Вигрузка інформацію про оформлення.";
 
+                        mainWindow.clientData.checkData.loadCheckData();
                         List<UI> tmpUI = mainWindow.clientData.ui.LoadTheme();
                         foreach (UI itemUI in tmpUI) { mainWindow.clientData.ui = itemUI; }
 

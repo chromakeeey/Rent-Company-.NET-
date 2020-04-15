@@ -4,7 +4,9 @@ using System.IO;
 using System.Windows.Forms;
 using System.Media;
 
+
 using TRC_Redesign.ServiceRent;
+using TRC_Redesign.CashChecks;
 
 
 namespace TRC_Redesign.header
@@ -14,10 +16,12 @@ namespace TRC_Redesign.header
         public Form1 mainWindow;
         public UI ui = new UI();
         public Account account;
+        public CheckData checkData = new CheckData();
 
         // Forms
         public VehicleInfo vehicleinfo = new VehicleInfo();
         public login Login = new login();
+        public CheckStartRent checkStartRent = new CheckStartRent();
 
         private string applogPath = AppDomain.CurrentDomain.BaseDirectory + @"\applog.txt";
         private string notificationPath = AppDomain.CurrentDomain.BaseDirectory + @"sounds\notification.mp3";

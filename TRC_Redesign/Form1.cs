@@ -165,8 +165,10 @@ namespace TRC_Redesign
 
             clientData.ui.CreateStatisticPanel(clientData.ui.STATISTIC_CLIENT, ucStatistic);
 
+
             clientData.mainWindow = this;
             serverData.mainWindow = this;
+            clientData.checkStartRent.mainWindow = this;
 
             main_page1.updateVehicleData();
             main_page1.updateNameData();

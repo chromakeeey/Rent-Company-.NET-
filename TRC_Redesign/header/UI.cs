@@ -47,6 +47,9 @@ namespace TRC_Redesign.header
         public DateTime week_LastUpdate;
         public DateTime day_LastUpdate;
 
+        public string companyName;
+        public string streetName; 
+
         public void CreateAdminSubPanel(int panelid, admin_page object_page)
         {
             if (panelid == this.subPanelNow)
@@ -187,5 +190,7 @@ namespace TRC_Redesign.header
             else
                 return new List<UI>();
         }
+
+
     }
 }

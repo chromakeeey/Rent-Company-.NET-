@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using TRC_Redesign.CashChecks;
+
 namespace TRC_Redesign
 {
     public partial class settings_page : UserControl
@@ -135,6 +137,17 @@ namespace TRC_Redesign
                 mainWindow.clientData.ui.customForm = PickColor.Color;
                 mainWindow.clientData.ui.SetFormColor(mainWindow, PickColor.Color);
             }
+        }
+
+        private void btn_check_edit_Click(object sender, EventArgs e)
+        {
+            CheckEdit checkEdit = new CheckEdit();
+
+            checkEdit.mainWindow = mainWindow;
+            checkEdit.textBox1.Text = mainWindow.clientData.checkData.companyName;
+            checkEdit.textBox2.Text = mainWindow.clientData.checkData.streetName;
+
+            checkEdit.ShowDialog();
         }
 
         // 

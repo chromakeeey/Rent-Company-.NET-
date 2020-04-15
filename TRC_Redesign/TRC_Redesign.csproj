@@ -127,6 +127,19 @@
     <Compile Include="admin_vehicleadd.Designer.cs">
       <DependentUpon>admin_vehicleadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="CashChecks\CheckData.cs" />
+    <Compile Include="CashChecks\CheckEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashChecks\CheckEdit.Designer.cs">
+      <DependentUpon>CheckEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashChecks\CheckStartRent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashChecks\CheckStartRent.Designer.cs">
+      <DependentUpon>CheckStartRent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceRent\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -271,6 +284,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="admin_vehicleadd.resx">
       <DependentUpon>admin_vehicleadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashChecks\CheckEdit.resx">
+      <DependentUpon>CheckEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashChecks\CheckStartRent.resx">
+      <DependentUpon>CheckStartRent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomMessageBox\msgBoxOK.resx">
       <DependentUpon>msgBoxOK.cs</DependentUpon>

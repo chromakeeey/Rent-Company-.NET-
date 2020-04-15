@@ -13,10 +13,12 @@ namespace TRC_Redesign
     public partial class main_page : UserControl
     {
         public Form1 mainWindow;
+        public Vehicle vehicleObject;
 
         public void updateVehicleData()
         {
             Vehicle vehicle = mainWindow.serverData.client.getUserVehicle(mainWindow.clientData.account);
+            vehicleObject = vehicle;
 
             if (vehicle.plate != "none")
             {
@@ -150,6 +152,13 @@ namespace TRC_Redesign
 
             this.updateVehicleData();
 
+        }
+
+        private void btn_check_Click(object sender, EventArgs e)
+        {
+            mainWindow.clientData.checkStartRent.setCheckData(vehicleObject, mainWindow.clientData.account);
+
+            mainWindow.clientData.checkStartRent.ShowDialog();
         }
     }
 }

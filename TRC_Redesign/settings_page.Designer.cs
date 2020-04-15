@@ -59,6 +59,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_check_edit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -415,11 +416,29 @@
             this.panel2.Size = new System.Drawing.Size(160, 80);
             this.panel2.TabIndex = 2;
             // 
+            // btn_check_edit
+            // 
+            this.btn_check_edit.FlatAppearance.BorderSize = 0;
+            this.btn_check_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_check_edit.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_check_edit.ForeColor = System.Drawing.Color.DarkGray;
+            this.btn_check_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_check_edit.Image")));
+            this.btn_check_edit.Location = new System.Drawing.Point(547, 23);
+            this.btn_check_edit.Name = "btn_check_edit";
+            this.btn_check_edit.Size = new System.Drawing.Size(190, 32);
+            this.btn_check_edit.TabIndex = 13;
+            this.btn_check_edit.Text = "Змінити налаштування чеку";
+            this.btn_check_edit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_check_edit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_check_edit.UseVisualStyleBackColor = true;
+            this.btn_check_edit.Click += new System.EventHandler(this.btn_check_edit_Click);
+            // 
             // settings_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.Controls.Add(this.btn_check_edit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel10);
@@ -467,5 +486,6 @@
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btn_check_edit;
     }
 }

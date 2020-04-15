@@ -66,6 +66,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_check = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -168,6 +169,7 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel12.Controls.Add(this.btn_check);
             this.panel12.Controls.Add(this.label22);
             this.panel12.Controls.Add(this.label23);
             this.panel12.Controls.Add(this.label20);
@@ -505,6 +507,23 @@
             this.label1.Text = "Вітаємо, Олександр!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btn_check
+            // 
+            this.btn_check.FlatAppearance.BorderSize = 0;
+            this.btn_check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_check.Font = new System.Drawing.Font("SF UI Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_check.ForeColor = System.Drawing.Color.White;
+            this.btn_check.Image = ((System.Drawing.Image)(resources.GetObject("btn_check.Image")));
+            this.btn_check.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_check.Location = new System.Drawing.Point(59, 101);
+            this.btn_check.Name = "btn_check";
+            this.btn_check.Size = new System.Drawing.Size(156, 33);
+            this.btn_check.TabIndex = 21;
+            this.btn_check.Text = "           Переглянути чек";
+            this.btn_check.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_check.UseVisualStyleBackColor = true;
+            this.btn_check.Click += new System.EventHandler(this.btn_check_Click);
+            // 
             // main_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,5 +583,6 @@
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button btn_check;
     }
 }

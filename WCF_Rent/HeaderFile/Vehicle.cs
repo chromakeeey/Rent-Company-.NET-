@@ -31,8 +31,6 @@ namespace WCF_Rent.HeaderFile
         public string type;
         public string transmission;
         public string category;
-
-        
         
         public Vehicle()
         {
