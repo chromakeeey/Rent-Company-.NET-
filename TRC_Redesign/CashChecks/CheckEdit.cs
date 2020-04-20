@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using TRC_Redesign.ServiceRent;
+
 namespace TRC_Redesign.CashChecks
 {
     public partial class CheckEdit : Form
     {
         public Form1 mainWindow;
+        
 
         public CheckEdit()
         {

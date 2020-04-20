@@ -281,9 +281,9 @@
             this.lbl_vehcount.ForeColor = System.Drawing.Color.White;
             this.lbl_vehcount.Location = new System.Drawing.Point(226, 159);
             this.lbl_vehcount.Name = "lbl_vehcount";
-            this.lbl_vehcount.Size = new System.Drawing.Size(56, 15);
+            this.lbl_vehcount.Size = new System.Drawing.Size(13, 15);
             this.lbl_vehcount.TabIndex = 17;
-            this.lbl_vehcount.Text = "456 шт.";
+            this.lbl_vehcount.Text = "-";
             // 
             // lbl_salary
             // 
@@ -292,9 +292,9 @@
             this.lbl_salary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lbl_salary.Location = new System.Drawing.Point(226, 178);
             this.lbl_salary.Name = "lbl_salary";
-            this.lbl_salary.Size = new System.Drawing.Size(56, 15);
+            this.lbl_salary.Size = new System.Drawing.Size(13, 15);
             this.lbl_salary.TabIndex = 18;
-            this.lbl_salary.Text = "456 шт.";
+            this.lbl_salary.Text = "-";
             // 
             // lbl_credit
             // 
@@ -303,9 +303,9 @@
             this.lbl_credit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lbl_credit.Location = new System.Drawing.Point(226, 197);
             this.lbl_credit.Name = "lbl_credit";
-            this.lbl_credit.Size = new System.Drawing.Size(56, 15);
+            this.lbl_credit.Size = new System.Drawing.Size(13, 15);
             this.lbl_credit.TabIndex = 19;
-            this.lbl_credit.Text = "456 шт.";
+            this.lbl_credit.Text = "-";
             // 
             // lbl_allmoney
             // 
@@ -314,9 +314,9 @@
             this.lbl_allmoney.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lbl_allmoney.Location = new System.Drawing.Point(226, 231);
             this.lbl_allmoney.Name = "lbl_allmoney";
-            this.lbl_allmoney.Size = new System.Drawing.Size(56, 15);
+            this.lbl_allmoney.Size = new System.Drawing.Size(13, 15);
             this.lbl_allmoney.TabIndex = 20;
-            this.lbl_allmoney.Text = "456 шт.";
+            this.lbl_allmoney.Text = "-";
             // 
             // lbl_addbalance
             // 
@@ -325,9 +325,9 @@
             this.lbl_addbalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lbl_addbalance.Location = new System.Drawing.Point(226, 270);
             this.lbl_addbalance.Name = "lbl_addbalance";
-            this.lbl_addbalance.Size = new System.Drawing.Size(56, 15);
+            this.lbl_addbalance.Size = new System.Drawing.Size(13, 15);
             this.lbl_addbalance.TabIndex = 21;
-            this.lbl_addbalance.Text = "456 шт.";
+            this.lbl_addbalance.Text = "-";
             // 
             // lbl_minusbalance
             // 
@@ -336,9 +336,9 @@
             this.lbl_minusbalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lbl_minusbalance.Location = new System.Drawing.Point(226, 287);
             this.lbl_minusbalance.Name = "lbl_minusbalance";
-            this.lbl_minusbalance.Size = new System.Drawing.Size(56, 15);
+            this.lbl_minusbalance.Size = new System.Drawing.Size(13, 15);
             this.lbl_minusbalance.TabIndex = 22;
-            this.lbl_minusbalance.Text = "456 шт.";
+            this.lbl_minusbalance.Text = "-";
             // 
             // lbl_balanceall
             // 
@@ -347,9 +347,9 @@
             this.lbl_balanceall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lbl_balanceall.Location = new System.Drawing.Point(226, 348);
             this.lbl_balanceall.Name = "lbl_balanceall";
-            this.lbl_balanceall.Size = new System.Drawing.Size(56, 15);
+            this.lbl_balanceall.Size = new System.Drawing.Size(13, 15);
             this.lbl_balanceall.TabIndex = 23;
-            this.lbl_balanceall.Text = "456 шт.";
+            this.lbl_balanceall.Text = "-";
             // 
             // btn_date
             // 
@@ -362,6 +362,7 @@
             this.btn_date.Size = new System.Drawing.Size(20, 23);
             this.btn_date.TabIndex = 142;
             this.btn_date.UseVisualStyleBackColor = true;
+            this.btn_date.Visible = false;
             this.btn_date.Click += new System.EventHandler(this.btn_date_Click);
             // 
             // UCMoneyStat

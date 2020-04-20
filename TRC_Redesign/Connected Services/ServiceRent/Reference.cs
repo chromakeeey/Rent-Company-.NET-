@@ -1133,10 +1133,10 @@ namespace TRC_Redesign.ServiceRent {
         System.Threading.Tasks.Task log_AddVehicleAsync(int userid, string VIN);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_Balance")]
-        void log_Balance(int userid, int card, float value);
+        void log_Balance(int userid, string card, float value);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_Balance")]
-        System.Threading.Tasks.Task log_BalanceAsync(int userid, int card, float value);
+        System.Threading.Tasks.Task log_BalanceAsync(int userid, string card, float value);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/log_DeleteVehicle")]
         void log_DeleteVehicle(int userid, string VIN, string name);
@@ -1412,11 +1412,11 @@ namespace TRC_Redesign.ServiceRent {
             return base.Channel.log_AddVehicleAsync(userid, VIN);
         }
         
-        public void log_Balance(int userid, int card, float value) {
+        public void log_Balance(int userid, string card, float value) {
             base.Channel.log_Balance(userid, card, value);
         }
         
-        public System.Threading.Tasks.Task log_BalanceAsync(int userid, int card, float value) {
+        public System.Threading.Tasks.Task log_BalanceAsync(int userid, string card, float value) {
             return base.Channel.log_BalanceAsync(userid, card, value);
         }
         

@@ -95,7 +95,7 @@ namespace WCF_Rent
         void log_AddVehicle(int userid, string VIN);
 
         [OperationContract(IsOneWay = true)]
-        void log_Balance(int userid, int card, float value);
+        void log_Balance(int userid, string card, float value);
 
         [OperationContract(IsOneWay = true)]
         void log_DeleteVehicle(int userid, string VIN, string name);

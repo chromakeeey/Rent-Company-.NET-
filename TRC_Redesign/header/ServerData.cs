@@ -97,9 +97,19 @@ namespace TRC_Redesign.header
 
         public void connect()
         {
-            client = new ServiceRentClient(new System.ServiceModel.InstanceContext(this));
-            client_id = client.userConnect();
-            is_connected = true;
+            try
+            {
+                client = new ServiceRentClient(new System.ServiceModel.InstanceContext(this));
+                client_id = client.userConnect();
+                is_connected = true;
+            }
+
+            catch(Exception ex)
+            {
+                Application.Exit();
+                MessageBox.Show("Сервер недоступний. Підключення неможливе.", "Відмова", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
         }
         public void disconnect()
         {
@@ -115,6 +125,8 @@ namespace TRC_Redesign.header
         {
             mainWindow.clientData.showPanelMessage(message);
         }
+
+        //public int createCashVoucher()
 
         /*public void uploadImage(Image path)
         {

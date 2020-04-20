@@ -52,7 +52,7 @@ namespace WCF_Rent.HeaderFile
 
             using (StreamWriter streamWriter = new StreamWriter(localPath() + "log.txt", true, System.Text.Encoding.Default))
             {
-                string input = String.Format("\n[{0}] [{1}] {2}", type, DateTime.Now.ToString(), message);
+                string input = String.Format("[{0}] [{1}] {2}", type, DateTime.Now.ToString(), message);
                 streamWriter.WriteLine(input);
             }
         }

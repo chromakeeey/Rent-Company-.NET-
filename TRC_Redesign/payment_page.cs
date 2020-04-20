@@ -73,6 +73,7 @@ namespace TRC_Redesign
                     return;
                 }
 
+                mainWindow.serverData.client.log_Balance(mainWindow.clientData.account.id, maskedTextBox1.Text, Convert.ToSingle(textBox1.Text));
                 mainWindow.clientData.account.balance += Convert.ToSingle(textBox1.Text);
                 mainWindow.updateAccountData();
 
@@ -95,6 +96,7 @@ namespace TRC_Redesign
                     return;
                 }
 
+                mainWindow.serverData.client.log_Balance(mainWindow.clientData.account.id, maskedTextBox1.Text, -Convert.ToSingle(textBox1.Text));
                 mainWindow.clientData.account.balance -= Convert.ToSingle(textBox1.Text);
                 mainWindow.updateAccountData();
 

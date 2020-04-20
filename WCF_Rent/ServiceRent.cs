@@ -21,14 +21,24 @@ namespace WCF_Rent
     {
         [DataMember]
         public List<Vehicle> vehicle = new List<Vehicle>();
+        private List<ServerUser> serverUser = new List<ServerUser>();
+        private SqlConnection sqlconnection;
 
-        List<ServerUser> serverUser = new List<ServerUser>();
-
-        SqlConnection sqlconnection;
+        private CashVoucher cashVoucher;
 
         int nextUserID = 1;
         const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|rentcar.mdf;Integrated Security=True";
         //const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TRC_Redesign\WCF_Rent\rentcar.mdf;Integrated Security=True";
+
+        public ServiceRent()
+        {
+            ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "Server started");
+
+            cashVoucher = new CashVoucher();
+            cashVoucher.readCashVoucher();
+
+            createSqlConnection(sqlString);
+        }
 
         string localPath()
         {
@@ -96,7 +106,9 @@ namespace WCF_Rent
             catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
+            ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "SQL Base connected");
             selectAllVehicle();
+            
         }
 
         /*      vehicle block       */
@@ -677,7 +689,7 @@ namespace WCF_Rent
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
         }
 
-        public void log_Balance(int userid, int card, float value)
+        public void log_Balance(int userid, string card, float value)
         {
             try
             {
@@ -867,7 +879,6 @@ namespace WCF_Rent
 
             try
             {
-
                 for (int i = 0; i < allAccount.Count; i++)
                 {
                     using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (price) AS INCOME FROM [log_takerent] WHERE userid = @userid", sqlconnection))
@@ -945,14 +956,9 @@ namespace WCF_Rent
                         statVehicle = new StatVehicleInfo();
 
                         statVehicle.VIN = Convert.ToString(reader["VIN"]);
-
-                        ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "VIN ! - " + statVehicle.VIN);
-
                         statVehicle.userid = Convert.ToInt32(reader["userid"]);
-
                         statVehicle.id = Convert.ToInt32(reader["id"]);
                         statVehicle.payment = Convert.ToInt32(reader["price"]);
-
                         statVehicle.rent_startDate = Convert.ToDateTime(reader["startdate"]);
                         statVehicle.rent_endDate = Convert.ToDateTime(reader["enddate"]);
 
@@ -1024,8 +1030,6 @@ namespace WCF_Rent
                     if (reader != null)
                         reader.Close();
                 }
-
-
             }
 
             catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }

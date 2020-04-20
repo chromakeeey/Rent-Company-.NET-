@@ -30,6 +30,8 @@ namespace TRC_Redesign.StatisticComponent
 
         public bool customUpdate;
 
+
+
         [DefaultValue(20)]
         public int Radius
         {
