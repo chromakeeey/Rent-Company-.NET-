@@ -120,6 +120,14 @@ namespace WCF_Rent
 
         [OperationContract]
         Vehicle selectVehicle(string VIN);
+
+        [OperationContract]
+        CashVoucherData sendCashVoucherData();
+
+        [OperationContract]
+        CashVoucher readCashVoucher(int Id);
+
+        int writeCashVoucher(CashVoucher cashVoucher);
     }
 
     public interface IServerRentCallback

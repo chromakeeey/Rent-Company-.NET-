@@ -396,13 +396,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceRent\item.disco" />
-    <None Include="Connected Services\ServiceRent\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceRent\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceRent\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Resources\black_bg.png" />
     <None Include="Resources\bg.png" />
     <None Include="Resources\Warning.png" />
@@ -432,9 +425,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceRent\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StatisticComponent\StatisticDialog\" />
@@ -467,6 +457,24 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceRent\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceRent\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceRent\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceRent\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceRent\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

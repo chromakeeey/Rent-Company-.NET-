@@ -7,6 +7,7 @@
       <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="statBalances" nillable="true" type="tns:ArrayOfStatBalanceInfo" />
       <xs:element minOccurs="0" name="statVehicles" nillable="true" type="tns:ArrayOfStatVehicleInfo" />
+      <xs:element minOccurs="0" name="statVouchers" nillable="true" type="tns:ArrayOfStatVoucherInfo" />
       <xs:element minOccurs="0" name="totalbalance" type="xs:float" />
     </xs:sequence>
   </xs:complexType>
@@ -48,4 +49,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StatVehicleInfo" nillable="true" type="tns:StatVehicleInfo" />
+  <xs:complexType name="ArrayOfStatVoucherInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatVoucherInfo" nillable="true" type="tns:StatVoucherInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatVoucherInfo" nillable="true" type="tns:ArrayOfStatVoucherInfo" />
+  <xs:complexType name="StatVoucherInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="operation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="time" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatVoucherInfo" nillable="true" type="tns:StatVoucherInfo" />
 </xs:schema>

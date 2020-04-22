@@ -11,6 +11,7 @@ using System.Drawing;
 using WCF_Rent.HeaderFile;
 using WCF_Rent.Structures;
 
+
 using System.Drawing.Imaging;
 using System.Diagnostics;
 
@@ -19,12 +20,11 @@ namespace WCF_Rent
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ServiceRent : IServiceRent
     {
-        [DataMember]
         public List<Vehicle> vehicle = new List<Vehicle>();
         private List<ServerUser> serverUser = new List<ServerUser>();
         private SqlConnection sqlconnection;
 
-        private CashVoucher cashVoucher;
+        private CashVoucherData cashVoucherData;
 
         int nextUserID = 1;
         const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|rentcar.mdf;Integrated Security=True";
@@ -34,10 +34,15 @@ namespace WCF_Rent
         {
             ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, "Server started");
 
-            cashVoucher = new CashVoucher();
-            cashVoucher.readCashVoucher();
+            //cashVoucher = new CashVoucher();
+            //cashVoucher.readCashVoucher();
+
+            cashVoucherData = new CashVoucherData();
+            cashVoucherData.readCashVoucher();
 
             createSqlConnection(sqlString);
+
+           
         }
 
         string localPath()
@@ -655,12 +660,19 @@ namespace WCF_Rent
             string path = String.Format(@"{0}{1}", localpath, vehicleObject.picturepath);
             string errorpath = String.Format(@"{0}pictures\error_vehicle.png", localpath, vehicleObject.picturepath);
 
-            byte[] buffer;
+            try
+            {
+                byte[] buffer;
+                buffer = File.ReadAllBytes(path);
 
-            try { buffer = File.ReadAllBytes(path); }
-            catch { return File.ReadAllBytes(errorpath); }
+                return buffer;
+            }
 
-            return buffer;
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return File.ReadAllBytes(errorpath);
         }
 
         public Vehicle findVehicle(string plate)
@@ -941,6 +953,8 @@ namespace WCF_Rent
             statInfo.statBalances = new List<StatBalanceInfo>();
             statInfo.statVehicles = new List<StatVehicleInfo>();
 
+            
+
             try
             {
                 using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_takerent] WHERE startdate > @startDate AND startdate < @endDate", sqlconnection))
@@ -1037,6 +1051,25 @@ namespace WCF_Rent
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
             return bufferData;
+        }
+
+        public CashVoucherData sendCashVoucherData()
+        {
+            return cashVoucherData;
+        }
+
+        public CashVoucher readCashVoucher(int Id)
+        {
+            return CashVoucher.readCashVoucher(Id, sqlconnection);
+        }
+
+        public int writeCashVoucher(CashVoucher cashVoucher)
+        {
+            return CashVoucherData.addCashVoucher(
+                cashVoucher.User, cashVoucher.Vehicle,
+                cashVoucher.StartDate, cashVoucher.FinalDate,
+                cashVoucher.Price, sqlconnection
+            );
         }
     }
 }

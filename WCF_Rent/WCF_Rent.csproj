@@ -65,6 +65,7 @@
     <Compile Include="HeaderFile\Account.cs" />
     <Compile Include="HeaderFile\Admin.cs" />
     <Compile Include="HeaderFile\CashVoucher.cs" />
+    <Compile Include="HeaderFile\CashVoucherData.cs" />
     <Compile Include="HeaderFile\Rent.cs" />
     <Compile Include="HeaderFile\ServerLog.cs" />
     <Compile Include="HeaderFile\Vehicle.cs" />
@@ -91,6 +92,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CashVoucherInfo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

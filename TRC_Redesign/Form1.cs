@@ -69,7 +69,7 @@ namespace TRC_Redesign
         public Form1()
         {
             InitializeComponent();
-
+            
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
 
             Opacity = 0;
@@ -190,6 +190,8 @@ namespace TRC_Redesign
             //account.instance.ClearAccountData();
             Login.textBox1.Text = "";
             Login.textBox2.Text = "";
+
+            
 
             this.Hide();
 

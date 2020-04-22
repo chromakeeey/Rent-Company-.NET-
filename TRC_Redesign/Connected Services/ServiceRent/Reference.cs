@@ -605,6 +605,9 @@ namespace TRC_Redesign.ServiceRent {
         private TRC_Redesign.ServiceRent.StatVehicleInfo[] statVehiclesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TRC_Redesign.ServiceRent.StatVoucherInfo[] statVouchersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private float totalbalanceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -665,6 +668,19 @@ namespace TRC_Redesign.ServiceRent {
                 if ((object.ReferenceEquals(this.statVehiclesField, value) != true)) {
                     this.statVehiclesField = value;
                     this.RaisePropertyChanged("statVehicles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TRC_Redesign.ServiceRent.StatVoucherInfo[] statVouchers {
+            get {
+                return this.statVouchersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.statVouchersField, value) != true)) {
+                    this.statVouchersField = value;
+                    this.RaisePropertyChanged("statVouchers");
                 }
             }
         }
@@ -976,6 +992,83 @@ namespace TRC_Redesign.ServiceRent {
                 if ((object.ReferenceEquals(this.vehicleField, value) != true)) {
                     this.vehicleField = value;
                     this.RaisePropertyChanged("vehicle");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatVoucherInfo", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures")]
+    [System.SerializableAttribute()]
+    public partial class StatVoucherInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string operationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string timeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string operation {
+            get {
+                return this.operationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.operationField, value) != true)) {
+                    this.operationField = value;
+                    this.RaisePropertyChanged("operation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string time {
+            get {
+                return this.timeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.timeField, value) != true)) {
+                    this.timeField = value;
+                    this.RaisePropertyChanged("time");
                 }
             }
         }

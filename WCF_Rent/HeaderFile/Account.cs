@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace WCF_Rent.HeaderFile
 {
+
+
     public class Account : Admin
     {
         // singleton

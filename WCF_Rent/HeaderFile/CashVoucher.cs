@@ -6,103 +6,99 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Web.Script.Serialization;
 using System.Data.SqlClient;
-using System.Runtime.Serialization;
 
 namespace WCF_Rent.HeaderFile
 {
-    [DataContract]
+
     public class CashVoucher
     {
-        [DataMember]
-        public string companyName;
+        public int Id { get; private set; }
 
-        [DataMember]
-        public string streetName;
+        public string Company { get; private set; }
 
-        [DataMember]
-        public string path;
+        public string Street { get; private set; }
 
-        public CashVoucher() 
-        { 
-            companyName = "Rent Company"; 
-            streetName = "None street";
+        public string User { get; private set; }
 
-            path = localPath() + "cashvoucher.dat";
+        public string Vehicle { get; private set; }
+ 
+        public float Price { get; private set; }
+
+
+        public DateTime Date { get; private set; }
+
+        public DateTime StartDate { get; private set; }
+
+        public DateTime FinalDate { get; private set; }
+
+        public CashVoucher()
+        {
+            this.Id = 0;
+            this.Company = "INVALID";
+            this.Street = "INVALID";
+            this.User = "INVALID";
+            this.Vehicle = "INVALID";
+            this.Price = 0;
+            this.Date = DateTime.Now;
+            this.StartDate = DateTime.Now;
+            this.FinalDate = DateTime.Now;
         }
 
-        private static string localPath()
+        public CashVoucher(int Id, string Company, string Street, string User, string Vehicle, float Price, 
+            DateTime Date, DateTime StartDate, DateTime FinalDate)
         {
-            string localpath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            this.Id = Id;
+            this.Company = Company;
+            this.Street = Street;
+            this.User = User;
+            this.Vehicle = Vehicle;
+            this.Price = Price;
+            this.Date = Date;
+            this.StartDate = StartDate;
+            this.FinalDate = FinalDate;
+        }
 
-            int endpos = localpath.Length;
-            int startpos = 0;
-
-            for (int i = localpath.Length - 1; i > -1; i--)
+        public static CashVoucher readCashVoucher(int Id, SqlConnection sqlConnection)
+        {
+            try
             {
-                if (localpath[i] == 'W')
+                CashVoucher cashVoucher = new CashVoucher();
+                SqlCommand sqlCommand;
+
+                sqlCommand = new SqlCommand("SELECT * FROM [cashvoucher] WHERE id = @id", sqlConnection);
+                sqlCommand.Parameters.AddWithValue("id", Id);
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    startpos = i;
+                    cashVoucher = new CashVoucher(
+                        Convert.ToInt32(reader["id"]),
+                        Convert.ToString(reader["company"]),
+                        Convert.ToString(reader["street"]),
+                        Convert.ToString(reader["user"]),
+                        Convert.ToString(reader["vehicle"]),
+                        Convert.ToSingle(reader["price"]),
+                        Convert.ToDateTime(reader["date"]),
+                        Convert.ToDateTime(reader["datestart"]),
+                        Convert.ToDateTime(reader["dateend"])
+                    );
 
                     break;
                 }
-            }
 
-            //localpath.Remove(startpos, endpos - startpos);
+                if (reader != null)
+                    reader.Close();
 
-            return localpath.Remove(startpos, endpos - startpos);
-        }
-
-        public void readCashVoucher()
-        {
-            List<CashVoucher> checkData = new List<CashVoucher>();
-            checkData.Add(this);
-
-            File.WriteAllText(path, new JavaScriptSerializer().Serialize(checkData));
-        }
-
-        public void writeCashVoucher()
-        {
-            if (File.Exists(path))
-            {
-                List<CashVoucher> checkData = new List<CashVoucher>();
-
-                checkData = new JavaScriptSerializer().Deserialize<List<CashVoucher>>(File.ReadAllText(path));
-
-                this.companyName = checkData[0].companyName;
-                this.streetName = checkData[0].streetName;
-            }
-        }
-
-        public int addCashVoucher(string user, string vehicle, DateTime dateStart, DateTime dateFinal, float price, SqlConnection sqlConnection)
-        {
-            int modified = -1;
-
-            try
-            {
-                using (SqlCommand sqlCommand = new SqlCommand(
-                   "INSERT INTO [cashvoucher] (company, street, user, vehicle, datestart, dateend, price, date) OUTPUT INSERTED.ID VALUES" +
-                   "(@company, @street, @user, @vehicle, @datestart, @dateend, @price, @date)", sqlConnection))
-                {
-
-                    sqlCommand.Parameters.AddWithValue("company", this.companyName);
-                    sqlCommand.Parameters.AddWithValue("street", this.streetName);
-                    sqlCommand.Parameters.AddWithValue("user", user);
-                    sqlCommand.Parameters.AddWithValue("vehicle", vehicle);
-                    sqlCommand.Parameters.AddWithValue("datestart", dateStart);
-                    sqlCommand.Parameters.AddWithValue("dateend", dateFinal);
-                    sqlCommand.Parameters.AddWithValue("price", price);
-                    sqlCommand.Parameters.AddWithValue("date", DateTime.Now);
-
-                    sqlCommand.ExecuteNonQuery();
-                    modified = (int)sqlCommand.ExecuteScalar();
-                }
+                return cashVoucher;
             }
 
             catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
             catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
-            return modified;
+            return new CashVoucher();
         }
+
+
     }
 }

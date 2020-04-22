@@ -7,6 +7,13 @@ using WCF_Rent.HeaderFile;
 
 namespace WCF_Rent.Structures
 {
+    public class StatVoucherInfo
+    {
+        public int id;
+        public string operation;
+        public string time;
+    }
+
     public class StatBalanceInfo
     {
         public int id;
@@ -43,6 +50,7 @@ namespace WCF_Rent.Structures
 
         public List<StatVehicleInfo> statVehicles;
         public List<StatBalanceInfo> statBalances;
+        public List<StatVoucherInfo> statVouchers;
 
         public float totalbalance;
     }

@@ -210,6 +210,8 @@ namespace TRC_Redesign.StatisticComponent
 
         private void btn_statistic_Click(object sender, EventArgs e)
         {
+            stat_Year.statVouchers.
+
             if (!ExcelSave.isTemplateValid(ExcelSave.RentTemplate))
             {
                 mainWindow.dialogCreate("Сталась помилка!\n Не було знайдено шаблоний файл user.xslx",

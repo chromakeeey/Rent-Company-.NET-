@@ -106,6 +106,7 @@ namespace TRC_Redesign.header
 
             catch(Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 Application.Exit();
                 MessageBox.Show("Сервер недоступний. Підключення неможливе.", "Відмова", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
