@@ -6,6 +6,7 @@ using System.IO;
 using TRC_Redesign.CustomMessageBox;
 using TRC_Redesign.header;
 using TRC_Redesign.ServiceRent;
+using TRC_Redesign.CashChecks;
 
 
 namespace TRC_Redesign
@@ -156,9 +157,14 @@ namespace TRC_Redesign
 
         private void btn_check_Click(object sender, EventArgs e)
         {
-            mainWindow.clientData.checkStartRent.setCheckData(vehicleObject, mainWindow.clientData.account);
+            int Id = mainWindow.serverData.client.sendCashVoucherID(vehicleObject.rentlogid);
 
-            mainWindow.clientData.checkStartRent.ShowDialog();
+            if (Id != -1)
+                ShowCashVoucher.Create(mainWindow.serverData.client.readCashVoucher(Id));
+            else
+            {
+                mainWindow.dialogCreate("Чек недоступний.", "Чек недоступний", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

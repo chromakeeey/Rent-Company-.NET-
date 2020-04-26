@@ -7,6 +7,7 @@ using TRC_Redesign.header;
 using TRC_Redesign.RentPicker;
 using TRC_Redesign.ServiceRent;
 using TRC_Redesign.CustomMessageBox;
+using TRC_Redesign.CashChecks;
 
 namespace TRC_Redesign
 {
@@ -145,14 +146,22 @@ namespace TRC_Redesign
 
                 vehicle.clientid = mainWindow.clientData.account.id;
 
-                vehicle.rentlogid = mainWindow.serverData.client.log_TakeRent(
-                    mainWindow.clientData.account.id, vehicle.VIN, totalPrice, vehicle.start_date, vehicle.end_date);
+                
 
                 mainWindow.serverData.client.saveVehicle(vehicle);
                 mainWindow.updateAccountData();
                 mainWindow.main_page1.updateVehicleData();
                 mainWindow.clientData.ui.CreatePanel(mainWindow.clientData.ui.MAIN_PANEL, mainWindow);
+
+                CashVoucher voucher = ShowCashVoucher.Collect(mainWindow.clientData.account, vehicle, totalPrice, vehicle.start_date, vehicle.end_date);
                 
+                int Id = mainWindow.serverData.client.writeCashVoucher(voucher);
+                ShowCashVoucher.Create(mainWindow.serverData.client.readCashVoucher(Id));
+
+                vehicle.rentlogid = mainWindow.serverData.client.log_TakeRent(
+                    mainWindow.clientData.account.id, vehicle.VIN, totalPrice, Id, vehicle.start_date, vehicle.end_date);
+
+
                 mainWindow.dialogCreate("Ви орендовали автомобіль. Вітаємо!", "Підтвердження оренди", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Hide();

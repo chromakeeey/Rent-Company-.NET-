@@ -166,6 +166,33 @@
   <wsdl:message name="IServiceRent_selectVehicle_OutputMessage">
     <wsdl:part name="parameters" element="tns:selectVehicleResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherData_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_readCashVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:readCashVoucher" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_readCashVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:readCashVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_writeCashVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:writeCashVoucher" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_writeCashVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:writeCashVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_setCashVoucherData_InputMessage">
+    <wsdl:part name="parameters" element="tns:setCashVoucherData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherID_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:onSaveVehicle" />
   </wsdl:message>
@@ -289,6 +316,25 @@
     <wsdl:operation name="selectVehicle">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/selectVehicle" message="tns:IServiceRent_selectVehicle_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/selectVehicleResponse" message="tns:IServiceRent_selectVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherData" message="tns:IServiceRent_sendCashVoucherData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherDataResponse" message="tns:IServiceRent_sendCashVoucherData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="readCashVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/readCashVoucher" message="tns:IServiceRent_readCashVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/readCashVoucherResponse" message="tns:IServiceRent_readCashVoucher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="writeCashVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/writeCashVoucher" message="tns:IServiceRent_writeCashVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/writeCashVoucherResponse" message="tns:IServiceRent_writeCashVoucher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setCashVoucherData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/setCashVoucherData" message="tns:IServiceRent_setCashVoucherData_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherID" message="tns:IServiceRent_sendCashVoucherID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherIDResponse" message="tns:IServiceRent_sendCashVoucherID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="onSaveVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
@@ -542,6 +588,48 @@
     </wsdl:operation>
     <wsdl:operation name="selectVehicle">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/selectVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherData">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendCashVoucherData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readCashVoucher">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/readCashVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="writeCashVoucher">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/writeCashVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCashVoucherData">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/setCashVoucherData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherID">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendCashVoucherID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

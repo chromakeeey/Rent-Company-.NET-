@@ -140,6 +140,7 @@
     <Compile Include="CashChecks\CheckStartRent.Designer.cs">
       <DependentUpon>CheckStartRent.cs</DependentUpon>
     </Compile>
+    <Compile Include="CashChecks\ShowCashVoucher.cs" />
     <Compile Include="Connected Services\ServiceRent\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -373,6 +374,12 @@
     </None>
     <None Include="Connected Services\ServiceRent\ServiceRent.wsdl" />
     <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.CashVoucher.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.CashVoucherData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceRent\TRC_Redesign.ServiceRent.StatInfo.datasource">

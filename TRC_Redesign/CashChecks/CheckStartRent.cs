@@ -27,7 +27,20 @@ namespace TRC_Redesign.CashChecks
             
         }
 
-        public void setCheckData(Vehicle vehicle, Account account)
+        public void setCashVoucher(CashVoucher item)
+        {
+            lbl_num_check.Text      = String.Format("Номер чека - {0}", item.Id);
+            lbl_name_company.Text   = item.Company;
+            lbl_street_name.Text    = item.Street;
+            lbl_name.Text           = item.User;
+            lbl_startrent.Text      = item.StartDate.ToString();
+            lbl_endrent.Text        = item.FinalDate.ToString();
+            lbl_datatime.Text       = item.Date.ToString();
+            lbl_totalprice.Text     = String.Format("{0} грн.", item.Price);
+            lbl_vehicle.Text        = item.Vehicle;
+        }
+
+        /*public void setCheckData(Vehicle vehicle, Account account)
         {
             this.account = account;
             this.vehicle = vehicle;
@@ -51,7 +64,7 @@ namespace TRC_Redesign.CashChecks
 
             lbl_vehicle.Text = String.Format("VIN: {0}\nІм'я: {1}\nНомерний знак: {2}\nБензина в баці: {3} л.\nПробіг: {4} км.",
                 vehicle.VIN, vehicle.name + " " + vehicle.model, vehicle.plate, vehicle.fuel.ToString(), vehicle.mileage.ToString());
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {

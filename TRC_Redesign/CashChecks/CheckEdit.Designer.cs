@@ -39,7 +39,6 @@
             // 
             // btn_OK
             // 
-            this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_OK.FlatAppearance.BorderSize = 0;
             this.btn_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_OK.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -116,7 +115,6 @@
             // 
             // CheckEdit
             // 
-            this.AcceptButton = this.btn_OK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));

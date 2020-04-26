@@ -1083,6 +1083,256 @@ namespace TRC_Redesign.ServiceRent {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CashVoucherData", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
+    [System.SerializableAttribute()]
+    public partial class CashVoucherData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string companyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string streetNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string companyName {
+            get {
+                return this.companyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.companyNameField, value) != true)) {
+                    this.companyNameField = value;
+                    this.RaisePropertyChanged("companyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string path {
+            get {
+                return this.pathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.pathField, value) != true)) {
+                    this.pathField = value;
+                    this.RaisePropertyChanged("path");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string streetName {
+            get {
+                return this.streetNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.streetNameField, value) != true)) {
+                    this.streetNameField = value;
+                    this.RaisePropertyChanged("streetName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CashVoucher", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
+    [System.SerializableAttribute()]
+    public partial class CashVoucher : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FinalDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StreetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Company {
+            get {
+                return this.CompanyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyField, value) != true)) {
+                    this.CompanyField = value;
+                    this.RaisePropertyChanged("Company");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FinalDate {
+            get {
+                return this.FinalDateField;
+            }
+            set {
+                if ((this.FinalDateField.Equals(value) != true)) {
+                    this.FinalDateField = value;
+                    this.RaisePropertyChanged("FinalDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Street {
+            get {
+                return this.StreetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StreetField, value) != true)) {
+                    this.StreetField = value;
+                    this.RaisePropertyChanged("Street");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Vehicle {
+            get {
+                return this.VehicleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleField, value) != true)) {
+                    this.VehicleField = value;
+                    this.RaisePropertyChanged("Vehicle");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRent.IServiceRent", CallbackContract=typeof(TRC_Redesign.ServiceRent.IServiceRentCallback))]
     public interface IServiceRent {
@@ -1256,10 +1506,10 @@ namespace TRC_Redesign.ServiceRent {
         System.Threading.Tasks.Task log_RequestAsync(int admin_userid, int application_userid, int answer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/log_TakeRent", ReplyAction="http://tempuri.org/IServiceRent/log_TakeRentResponse")]
-        int log_TakeRent(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate);
+        int log_TakeRent(int userid, string VIN, float price, int cashVoucherId, System.DateTime startdate, System.DateTime enddate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/log_TakeRent", ReplyAction="http://tempuri.org/IServiceRent/log_TakeRentResponse")]
-        System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate);
+        System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, int cashVoucherId, System.DateTime startdate, System.DateTime enddate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/topAccountMoney", ReplyAction="http://tempuri.org/IServiceRent/topAccountMoneyResponse")]
         TRC_Redesign.ServiceRent.Account[] topAccountMoney();
@@ -1278,6 +1528,36 @@ namespace TRC_Redesign.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/selectVehicle", ReplyAction="http://tempuri.org/IServiceRent/selectVehicleResponse")]
         System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> selectVehicleAsync(string VIN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/sendCashVoucherData", ReplyAction="http://tempuri.org/IServiceRent/sendCashVoucherDataResponse")]
+        TRC_Redesign.ServiceRent.CashVoucherData sendCashVoucherData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/sendCashVoucherData", ReplyAction="http://tempuri.org/IServiceRent/sendCashVoucherDataResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.CashVoucherData> sendCashVoucherDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/readCashVoucher", ReplyAction="http://tempuri.org/IServiceRent/readCashVoucherResponse")]
+        TRC_Redesign.ServiceRent.CashVoucher readCashVoucher(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/readCashVoucher", ReplyAction="http://tempuri.org/IServiceRent/readCashVoucherResponse")]
+        System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.CashVoucher> readCashVoucherAsync(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/writeCashVoucher", ReplyAction="http://tempuri.org/IServiceRent/writeCashVoucherResponse")]
+        int writeCashVoucher(TRC_Redesign.ServiceRent.CashVoucher cashVoucher);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/writeCashVoucher", ReplyAction="http://tempuri.org/IServiceRent/writeCashVoucherResponse")]
+        System.Threading.Tasks.Task<int> writeCashVoucherAsync(TRC_Redesign.ServiceRent.CashVoucher cashVoucher);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/setCashVoucherData")]
+        void setCashVoucherData(string Company, string Street);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/setCashVoucherData")]
+        System.Threading.Tasks.Task setCashVoucherDataAsync(string Company, string Street);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/sendCashVoucherID", ReplyAction="http://tempuri.org/IServiceRent/sendCashVoucherIDResponse")]
+        int sendCashVoucherID(int logtakerentid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/sendCashVoucherID", ReplyAction="http://tempuri.org/IServiceRent/sendCashVoucherIDResponse")]
+        System.Threading.Tasks.Task<int> sendCashVoucherIDAsync(int logtakerentid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1545,12 +1825,12 @@ namespace TRC_Redesign.ServiceRent {
             return base.Channel.log_RequestAsync(admin_userid, application_userid, answer);
         }
         
-        public int log_TakeRent(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate) {
-            return base.Channel.log_TakeRent(userid, VIN, price, startdate, enddate);
+        public int log_TakeRent(int userid, string VIN, float price, int cashVoucherId, System.DateTime startdate, System.DateTime enddate) {
+            return base.Channel.log_TakeRent(userid, VIN, price, cashVoucherId, startdate, enddate);
         }
         
-        public System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, System.DateTime startdate, System.DateTime enddate) {
-            return base.Channel.log_TakeRentAsync(userid, VIN, price, startdate, enddate);
+        public System.Threading.Tasks.Task<int> log_TakeRentAsync(int userid, string VIN, float price, int cashVoucherId, System.DateTime startdate, System.DateTime enddate) {
+            return base.Channel.log_TakeRentAsync(userid, VIN, price, cashVoucherId, startdate, enddate);
         }
         
         public TRC_Redesign.ServiceRent.Account[] topAccountMoney() {
@@ -1575,6 +1855,46 @@ namespace TRC_Redesign.ServiceRent {
         
         public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.Vehicle> selectVehicleAsync(string VIN) {
             return base.Channel.selectVehicleAsync(VIN);
+        }
+        
+        public TRC_Redesign.ServiceRent.CashVoucherData sendCashVoucherData() {
+            return base.Channel.sendCashVoucherData();
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.CashVoucherData> sendCashVoucherDataAsync() {
+            return base.Channel.sendCashVoucherDataAsync();
+        }
+        
+        public TRC_Redesign.ServiceRent.CashVoucher readCashVoucher(int Id) {
+            return base.Channel.readCashVoucher(Id);
+        }
+        
+        public System.Threading.Tasks.Task<TRC_Redesign.ServiceRent.CashVoucher> readCashVoucherAsync(int Id) {
+            return base.Channel.readCashVoucherAsync(Id);
+        }
+        
+        public int writeCashVoucher(TRC_Redesign.ServiceRent.CashVoucher cashVoucher) {
+            return base.Channel.writeCashVoucher(cashVoucher);
+        }
+        
+        public System.Threading.Tasks.Task<int> writeCashVoucherAsync(TRC_Redesign.ServiceRent.CashVoucher cashVoucher) {
+            return base.Channel.writeCashVoucherAsync(cashVoucher);
+        }
+        
+        public void setCashVoucherData(string Company, string Street) {
+            base.Channel.setCashVoucherData(Company, Street);
+        }
+        
+        public System.Threading.Tasks.Task setCashVoucherDataAsync(string Company, string Street) {
+            return base.Channel.setCashVoucherDataAsync(Company, Street);
+        }
+        
+        public int sendCashVoucherID(int logtakerentid) {
+            return base.Channel.sendCashVoucherID(logtakerentid);
+        }
+        
+        public System.Threading.Tasks.Task<int> sendCashVoucherIDAsync(int logtakerentid) {
+            return base.Channel.sendCashVoucherIDAsync(logtakerentid);
         }
     }
 }

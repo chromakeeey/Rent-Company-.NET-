@@ -804,18 +804,19 @@ namespace WCF_Rent
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
         }
 
-        public int log_TakeRent(int userid, string VIN, float price, DateTime startdate, DateTime enddate)
+        public int log_TakeRent(int userid, string VIN, float price, int cashVoucherId, DateTime startdate, DateTime enddate)
         {
             try
             {
                 using (SqlCommand sqlCommand = new SqlCommand(
-                   "INSERT INTO [log_takerent] (userid, VIN, price, startdate, enddate) OUTPUT INSERTED.ID VALUES" +
-                   "(@userid, @VIN, @price, @startdate, @enddate)", sqlconnection))
+                   "INSERT INTO [log_takerent] (userid, VIN, price, cashvoucherid, startdate, enddate) OUTPUT INSERTED.ID VALUES" +
+                   "(@userid, @VIN, @price, @cashvoucherid, @startdate, @enddate)", sqlconnection))
                 {
 
                     sqlCommand.Parameters.AddWithValue("userid", userid);
                     sqlCommand.Parameters.AddWithValue("VIN", VIN);
                     sqlCommand.Parameters.AddWithValue("price", price);
+                    sqlCommand.Parameters.AddWithValue("cashvoucherid", cashVoucherId);
                     sqlCommand.Parameters.AddWithValue("startdate", startdate);
                     sqlCommand.Parameters.AddWithValue("enddate", enddate);
 
@@ -836,6 +837,43 @@ namespace WCF_Rent
             }
 
             return -1;
+        }
+
+        public int sendCashVoucherID(int logtakerentid)
+        {
+            const int INVALID_ID = -1;
+            int Id = INVALID_ID;
+
+            try
+            {
+                SqlCommand sqlCommand;
+
+                sqlCommand = new SqlCommand("SELECT * FROM [log_takerent] WHERE id = @id", sqlconnection);
+                sqlCommand.Parameters.AddWithValue("id", logtakerentid);
+
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    object item = reader["cashvoucherid"];
+
+                    if (item != DBNull.Value && item != null)
+                        Id = Convert.ToInt32(item);
+
+                    break;
+                }
+
+                if (reader != null)
+                    reader.Close();
+
+                return Id;
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return INVALID_ID;
         }
 
         public List<Account> selectAllAccount()
@@ -1058,6 +1096,21 @@ namespace WCF_Rent
             return cashVoucherData;
         }
 
+        public void setCashVoucherData(string Company, string Street)
+        {
+            try
+            {
+                cashVoucherData.companyName = Company;
+                cashVoucherData.streetName = Street;
+
+                cashVoucherData.readCashVoucher();
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+        }
+
         public CashVoucher readCashVoucher(int Id)
         {
             return CashVoucher.readCashVoucher(Id, sqlconnection);
@@ -1065,7 +1118,7 @@ namespace WCF_Rent
 
         public int writeCashVoucher(CashVoucher cashVoucher)
         {
-            return CashVoucherData.addCashVoucher(
+            return cashVoucherData.addCashVoucher(
                 cashVoucher.User, cashVoucher.Vehicle,
                 cashVoucher.StartDate, cashVoucher.FinalDate,
                 cashVoucher.Price, sqlconnection

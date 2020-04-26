@@ -210,7 +210,7 @@ namespace TRC_Redesign.StatisticComponent
 
         private void btn_statistic_Click(object sender, EventArgs e)
         {
-            stat_Year.statVouchers.
+              
 
             if (!ExcelSave.isTemplateValid(ExcelSave.RentTemplate))
             {

@@ -302,6 +302,7 @@
         <xs:element minOccurs="0" name="userid" type="xs:int" />
         <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="price" type="xs:float" />
+        <xs:element minOccurs="0" name="cashVoucherId" type="xs:int" />
         <xs:element minOccurs="0" name="startdate" type="xs:dateTime" />
         <xs:element minOccurs="0" name="enddate" type="xs:dateTime" />
       </xs:sequence>
@@ -355,17 +356,79 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="sendCashVoucherData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendCashVoucherDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="sendCashVoucherDataResult" nillable="true" type="q17:CashVoucherData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="readCashVoucher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="readCashVoucherResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="readCashVoucherResult" nillable="true" type="q18:CashVoucher" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="writeCashVoucher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="cashVoucher" nillable="true" type="q19:CashVoucher" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="writeCashVoucherResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="writeCashVoucherResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setCashVoucherData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendCashVoucherID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="logtakerentid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendCashVoucherIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sendCashVoucherIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="onSaveVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q17:Vehicle" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q20:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="onDeleteVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q18:Vehicle" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q21:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

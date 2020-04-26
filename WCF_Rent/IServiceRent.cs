@@ -110,7 +110,7 @@ namespace WCF_Rent
         void log_Request(int admin_userid, int application_userid, int answer);
 
         [OperationContract]
-        int log_TakeRent(int userid, string VIN, float price, DateTime startdate, DateTime enddate);
+        int log_TakeRent(int userid, string VIN, float price, int cashVoucherId, DateTime startdate, DateTime enddate);
 
         [OperationContract]
         List<Account> topAccountMoney();
@@ -127,7 +127,14 @@ namespace WCF_Rent
         [OperationContract]
         CashVoucher readCashVoucher(int Id);
 
+        [OperationContract]
         int writeCashVoucher(CashVoucher cashVoucher);
+
+        [OperationContract(IsOneWay = true)]
+        void setCashVoucherData(string Company, string Street);
+
+        [OperationContract]
+        int sendCashVoucherID(int logtakerentid);
     }
 
     public interface IServerRentCallback

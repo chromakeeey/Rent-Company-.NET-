@@ -66,17 +66,17 @@ namespace WCF_Rent.HeaderFile
             }
         }
 
-        public static int addCashVoucher(string user, string vehicle, DateTime dateStart, DateTime dateFinal, float price, SqlConnection sqlConnection)
+        public int addCashVoucher(string user, string vehicle, DateTime dateStart, DateTime dateFinal, float price, SqlConnection sqlConnection)
         {
             int modified = -1;
 
             try
             {
                 using (SqlCommand sqlCommand = new SqlCommand(
-                   "INSERT INTO [cashvoucher] (company, street, user, vehicle, datestart, dateend, price, date) OUTPUT INSERTED.ID VALUES" +
+                   "INSERT INTO [cashvoucher] (company, street, [user], vehicle, datestart, dateend, price, date) OUTPUT INSERTED.ID VALUES" +
                    "(@company, @street, @user, @vehicle, @datestart, @dateend, @price, @date)", sqlConnection))
                 {
-
+      
                     sqlCommand.Parameters.AddWithValue("company", this.companyName);
                     sqlCommand.Parameters.AddWithValue("street", this.streetName);
                     sqlCommand.Parameters.AddWithValue("user", user);
@@ -86,12 +86,15 @@ namespace WCF_Rent.HeaderFile
                     sqlCommand.Parameters.AddWithValue("price", price);
                     sqlCommand.Parameters.AddWithValue("date", DateTime.Now);
 
+                    ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, sqlCommand.CommandText);
+                    
+
                     sqlCommand.ExecuteNonQuery();
                     modified = (int)sqlCommand.ExecuteScalar();
                 }
             }
 
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString() + " LINE: " + ex.LineNumber.ToString()); }
             catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
 

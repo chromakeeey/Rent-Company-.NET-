@@ -24,8 +24,10 @@ namespace TRC_Redesign.CashChecks
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            mainWindow.clientData.checkData.companyName = textBox1.Text;
-            mainWindow.clientData.checkData.streetName = textBox2.Text;
+            mainWindow.serverData.client.setCashVoucherData(textBox1.Text, textBox2.Text);
+            mainWindow.dialogCreate("Інформація про чек було успішно змінена.", "Зміна чека", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Hide();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

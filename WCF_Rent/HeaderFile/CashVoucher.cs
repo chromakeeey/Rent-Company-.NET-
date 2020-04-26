@@ -6,29 +6,39 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Web.Script.Serialization;
 using System.Data.SqlClient;
+using System.Runtime.Serialization;
 
 namespace WCF_Rent.HeaderFile
 {
 
+    [DataContract]
     public class CashVoucher
     {
+        [DataMember]
         public int Id { get; private set; }
 
+        [DataMember]
         public string Company { get; private set; }
 
+        [DataMember]
         public string Street { get; private set; }
 
+        [DataMember]
         public string User { get; private set; }
 
+        [DataMember]
         public string Vehicle { get; private set; }
- 
+
+        [DataMember]
         public float Price { get; private set; }
 
-
+        [DataMember]
         public DateTime Date { get; private set; }
 
+        [DataMember]
         public DateTime StartDate { get; private set; }
 
+        [DataMember]
         public DateTime FinalDate { get; private set; }
 
         public CashVoucher()

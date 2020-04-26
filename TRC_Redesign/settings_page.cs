@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TRC_Redesign.CashChecks;
+using TRC_Redesign.ServiceRent;
 
 namespace TRC_Redesign
 {
@@ -143,9 +144,12 @@ namespace TRC_Redesign
         {
             CheckEdit checkEdit = new CheckEdit();
 
+            CashVoucherData voucherData = new CashVoucherData();
+            voucherData = mainWindow.serverData.client.sendCashVoucherData();
+
             checkEdit.mainWindow = mainWindow;
-            checkEdit.textBox1.Text = mainWindow.clientData.checkData.companyName;
-            checkEdit.textBox2.Text = mainWindow.clientData.checkData.streetName;
+            checkEdit.textBox1.Text = voucherData.companyName;
+            checkEdit.textBox2.Text = voucherData.streetName;
 
             checkEdit.ShowDialog();
         }
