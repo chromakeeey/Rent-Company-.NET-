@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(admin_page));
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.vehicleEdit = new TRC_Redesign.UCVehicleEdit();
             this.admin_vehicleadd1 = new TRC_Redesign.admin_vehicleadd();
             this.admin_account1 = new TRC_Redesign.admin_account();
             this.admin_check1 = new TRC_Redesign.admin_check();
@@ -40,10 +41,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -64,12 +61,10 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.vehicleEdit = new TRC_Redesign.UCVehicleEdit();
+            this.btn_search = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
@@ -83,8 +78,8 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.panel7.Controls.Add(this.btn_search);
             this.panel7.Controls.Add(this.panel6);
-            this.panel7.Controls.Add(this.panel5);
             this.panel7.Controls.Add(this.panel4);
             this.panel7.Controls.Add(this.panel3);
             this.panel7.Controls.Add(this.panel2);
@@ -97,6 +92,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(766, 600);
             this.panel7.TabIndex = 6;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // panel6
             // 
@@ -110,6 +106,14 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(732, 319);
             this.panel6.TabIndex = 18;
+            // 
+            // vehicleEdit
+            // 
+            this.vehicleEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.vehicleEdit.Location = new System.Drawing.Point(0, 49);
+            this.vehicleEdit.Name = "vehicleEdit";
+            this.vehicleEdit.Size = new System.Drawing.Size(732, 270);
+            this.vehicleEdit.TabIndex = 6;
             // 
             // admin_vehicleadd1
             // 
@@ -226,50 +230,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Controls.Add(this.pictureBox15);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Location = new System.Drawing.Point(501, 16);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(247, 56);
-            this.panel5.TabIndex = 17;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Gray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(10, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 15);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
-            this.pictureBox15.Location = new System.Drawing.Point(198, 8);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(38, 38);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox15.TabIndex = 15;
-            this.pictureBox15.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.ForeColor = System.Drawing.Color.Silver;
-            this.label10.Location = new System.Drawing.Point(9, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 16);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Пошук аккаунта";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel4
             // 
@@ -485,13 +445,23 @@
             this.label1.Text = "Панель адміністратора";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // vehicleEdit
+            // btn_search
             // 
-            this.vehicleEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.vehicleEdit.Location = new System.Drawing.Point(0, 49);
-            this.vehicleEdit.Name = "vehicleEdit";
-            this.vehicleEdit.Size = new System.Drawing.Size(732, 270);
-            this.vehicleEdit.TabIndex = 6;
+            this.btn_search.FlatAppearance.BorderSize = 0;
+            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_search.Font = new System.Drawing.Font("SF UI Display", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_search.ForeColor = System.Drawing.Color.White;
+            this.btn_search.Image = ((System.Drawing.Image)(resources.GetObject("btn_search.Image")));
+            this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_search.Location = new System.Drawing.Point(606, 22);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(132, 41);
+            this.btn_search.TabIndex = 10;
+            this.btn_search.Text = "Пошук аккаунтів";
+            this.btn_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_search.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.onClickSearchButton);
             // 
             // admin_page
             // 
@@ -503,9 +473,6 @@
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -541,10 +508,6 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label27;
         public System.Windows.Forms.Label label26;
-        public System.Windows.Forms.Panel panel5;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.PictureBox pictureBox15;
-        public System.Windows.Forms.Label label10;
         public System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.Panel panel8;
         public System.Windows.Forms.Panel panel9;
@@ -556,5 +519,6 @@
         public admin_account admin_account1;
         public admin_vehicleadd admin_vehicleadd1;
         public UCVehicleEdit vehicleEdit;
+        public System.Windows.Forms.Button btn_search;
     }
 }

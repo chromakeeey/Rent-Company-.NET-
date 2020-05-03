@@ -65,6 +65,14 @@ namespace TRC_Redesign
             mainWindow.clientData.ui.CreateAdminSubPanel(mainWindow.clientData.ui.SUB_ACCOUNT_PANEL, this);
         }
 
-        
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void onClickSearchButton(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -392,7 +392,7 @@ namespace TRC_Redesign.header
             objectForm.admin_page1.panel2.BackColor = color;
             objectForm.admin_page1.panel3.BackColor = color;
             objectForm.admin_page1.panel4.BackColor = color;
-            objectForm.admin_page1.panel5.BackColor = color;
+            //objectForm.admin_page1.panel5.BackColor = color;
 
             // main panel
             objectForm.main_page1.panel11.BackColor = color;

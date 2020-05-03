@@ -135,6 +135,8 @@ namespace TRC_Redesign.StatisticComponent
         private void lbl_year_Click(object sender, EventArgs e)
         {
 
+            btn_date.Visible = false;
+
             if (DateTime.Now > mainWindow.clientData.ui.year_LastUpdate.AddMinutes(10))
             {
                 stat_Year = mainWindow.serverData.client.SendStatInfo(DateTime.Now.AddDays(-365), DateTime.Now);
@@ -149,6 +151,7 @@ namespace TRC_Redesign.StatisticComponent
 
         private void lbl_month_Click(object sender, EventArgs e)
         {
+            btn_date.Visible = false;
 
             if (DateTime.Now > mainWindow.clientData.ui.month_LastUpdate.AddMinutes(10))
             {
@@ -164,6 +167,8 @@ namespace TRC_Redesign.StatisticComponent
 
         private void lbl_week_Click(object sender, EventArgs e)
         {
+            btn_date.Visible = false;
+
             if (DateTime.Now > mainWindow.clientData.ui.week_LastUpdate.AddMinutes(10))
             {
                 stat_Week = mainWindow.serverData.client.SendStatInfo(DateTime.Now.AddDays(-7), DateTime.Now);
@@ -178,6 +183,7 @@ namespace TRC_Redesign.StatisticComponent
 
         private void lbl_custom_Click(object sender, EventArgs e)
         {
+            btn_date.Visible = true;
          
             if (!customUpdate)
             {
@@ -194,6 +200,7 @@ namespace TRC_Redesign.StatisticComponent
             }
 
             setTimeButton(3);
+            setStatObject(stat_Custom);
         }
 
         private void btn_date_Click(object sender, EventArgs e)

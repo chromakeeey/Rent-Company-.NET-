@@ -43,7 +43,7 @@
             // 
             // btn_client
             // 
-            this.btn_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
             this.btn_client.Controls.Add(this.lbl_client);
             this.btn_client.Location = new System.Drawing.Point(19, 17);
             this.btn_client.Name = "btn_client";
@@ -127,6 +127,7 @@
             this.ucMoneyStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ucMoneyStat.Location = new System.Drawing.Point(5, 121);
             this.ucMoneyStat.Name = "ucMoneyStat";
+            this.ucMoneyStat.Radius = 30;
             this.ucMoneyStat.Size = new System.Drawing.Size(785, 486);
             this.ucMoneyStat.TabIndex = 4;
             this.ucMoneyStat.Visible = false;

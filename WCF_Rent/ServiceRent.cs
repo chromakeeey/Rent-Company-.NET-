@@ -38,7 +38,7 @@ namespace WCF_Rent
             //cashVoucher.readCashVoucher();
 
             cashVoucherData = new CashVoucherData();
-            cashVoucherData.readCashVoucher();
+            cashVoucherData.writeCashVoucher();
 
             createSqlConnection(sqlString);
 

@@ -71,9 +71,9 @@
             // lbl_street_name
             // 
             this.lbl_street_name.Font = new System.Drawing.Font("SF UI Display", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_street_name.Location = new System.Drawing.Point(-1, 49);
+            this.lbl_street_name.Location = new System.Drawing.Point(15, 49);
             this.lbl_street_name.Name = "lbl_street_name";
-            this.lbl_street_name.Size = new System.Drawing.Size(387, 30);
+            this.lbl_street_name.Size = new System.Drawing.Size(353, 30);
             this.lbl_street_name.TabIndex = 2;
             this.lbl_street_name.Text = "lbl_street_name";
             this.lbl_street_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

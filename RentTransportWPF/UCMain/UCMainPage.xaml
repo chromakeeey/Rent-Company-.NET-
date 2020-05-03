@@ -1,0 +1,163 @@
+﻿<UserControl x:Class="RentTransportWPF.UCMain.UCMainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RentTransportWPF.UCMain"
+             mc:Ignorable="d"
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             d:DesignWidth="1043" d:DesignHeight="713">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid Margin="20">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Search" Foreground="#8E94A4" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                    <TextBox materialDesign:HintAssist.Hint="Пошук" Width="279"
+                             FontFamily="Gilroy" FontWeight="Heavy"
+                             materialDesign:HintAssist.Foreground="#2644F7"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"/>
+                </StackPanel>    
+            </Grid>        
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid Margin="70,20,70,20">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock TextAlignment="Center" Foreground="#25292A" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                    Вітаємо, Олександр
+                        </TextBlock>
+                        <Image Source="handwave.png" Height="30" Margin="5,0,0,0"/>
+                    </StackPanel>
+
+                    <Grid Margin="0,30,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <StackPanel>
+                                <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Баланс
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
+                                    65 543
+                                    </TextBlock>
+                                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Bottom" TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="17">
+                                    грн.
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>    
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <StackPanel>
+                                <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Борг
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
+                                    -543
+                                    </TextBlock>
+                                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Bottom" TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="17">
+                                    грн.
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <StackPanel>
+                                <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Номер карти
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
+                                    6545 **** **** 3456
+                                    </TextBlock>
+                                    
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+
+                    </Grid>
+                    
+                </StackPanel>
+            </Grid>   
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid Margin="40,20,40,20">
+                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="32" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Назва автомобіля
+                                </TextBlock>
+                                <TextBlock TextAlignment="Center" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
+                                    Toyota Prius
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Image Margin="10" Source="infiniti_PNG42.png"/>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="16">
+                                   VIN
+                                    </TextBlock>
+                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="25">
+                                    1FAFP40674F159608
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Button Background="Transparent" BorderBrush="Transparent">
+                                    <materialDesign:PackIcon Kind="MoreHoriz" Foreground="Black" Height="42" Width="42"/>    
+                                </Button>
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>        
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

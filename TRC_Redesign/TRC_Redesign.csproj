@@ -103,6 +103,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountSearch.Designer.cs">
+      <DependentUpon>AccountSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin_account.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -244,6 +250,12 @@
     <Compile Include="StatisticComponent\UCStatClient.Designer.cs">
       <DependentUpon>UCStatClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCRowAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRowAccount.Designer.cs">
+      <DependentUpon>UCRowAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCStatistic.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +286,9 @@
     <Compile Include="vehicle_page.Designer.cs">
       <DependentUpon>vehicle_page.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountSearch.resx">
+      <DependentUpon>AccountSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin_account.resx">
       <DependentUpon>admin_account.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticComponent\UCStatClient.resx">
       <DependentUpon>UCStatClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRowAccount.resx">
+      <DependentUpon>UCRowAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCStatistic.resx">
       <DependentUpon>UCStatistic.cs</DependentUpon>

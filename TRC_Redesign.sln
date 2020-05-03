@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_Rent", "WCF_Rent\WCF_Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerHost", "ServerHost\ServerHost.csproj", "{A3C850A0-6211-40BA-870E-6206BF9DB2CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentTransportWPF", "RentTransportWPF\RentTransportWPF.csproj", "{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A3C850A0-6211-40BA-870E-6206BF9DB2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3C850A0-6211-40BA-870E-6206BF9DB2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3C850A0-6211-40BA-870E-6206BF9DB2CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
