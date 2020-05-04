@@ -1,0 +1,365 @@
+﻿<UserControl x:Class="RentTransportWPF.UCHelp.UCVehicleEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RentTransportWPF.UCHelp"
+             xmlns:UCHelp="clr-namespace:RentTransportWPF.UCHelp"
+             mc:Ignorable="d"
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="0" Padding="10" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+                        <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    VIN
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    JHLRE48518C025907
+                            </TextBlock>
+                            <materialDesign:PackIcon Kind="Lock" Margin="3,0,0,2" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                        </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid HorizontalAlignment="Right">
+                            <StackPanel Orientation="Horizontal">
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+                                <Image Source="infiniti_PNG42.png" />
+                            </StackPanel>    
+                        </Grid>    
+                    </Grid>
+                    
+                </Grid>
+
+                <Grid Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Назва
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    Toyota
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Категорія прав
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    B
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                   
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Модель
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    Prius
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+
+
+                            </StackPanel>
+                        </StackPanel>    
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Тип автомобіля
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    Легковий
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>    
+                    </Grid>
+                    
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Макс. швидкість
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    100 км/г
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+
+
+                            </StackPanel>
+                        </StackPanel>    
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Трансмісія
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    Автоматична
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+
+
+                            </StackPanel>
+                        </StackPanel>    
+                    </Grid>
+                    
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Пробіг
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    25 000 км
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+
+
+                            </StackPanel>
+                        </StackPanel>    
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Номерний знак
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    AA 5356 AA
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+
+
+                            </StackPanel>
+                        </StackPanel>    
+                    </Grid>
+                    
+                </Grid>
+
+                <Grid Grid.Row="5">
+                    <Grid Grid.Row="1">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Об'єм бака
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    65 л
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
+                                    Бензина в баці
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    32 л
+                                </TextBlock>
+
+                                <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                                    <materialDesign:PackIcon Kind="ModeEdit" Margin="3,0,0,0" VerticalAlignment="Bottom" Foreground="#8B92A6"/>
+                                </Button>
+
+
+                            </StackPanel>
+                        </StackPanel>    
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Button HorizontalContentAlignment="Left"
+                                            FontFamily="Gilroy" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Left"    
+                                            Padding="0"
+                                            Foreground="LightGray" Background="Transparent"              
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                                            Height="Auto" ToolTip="Resource name: MaterialDesignRaisedLightButton" >
+                            <TextBlock TextAlignment="Left" Foreground="#2644F7" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
+                                    Зберігти інформацію
+                            </TextBlock>
+                        </Button>
+                    </Grid>
+                    
+                </Grid>
+                
+            </Grid>    
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

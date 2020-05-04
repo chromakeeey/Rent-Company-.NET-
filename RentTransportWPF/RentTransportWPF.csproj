@@ -63,15 +63,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DGCustom\DGSearchVehicle.xaml.cs">
+      <DependentUpon>DGSearchVehicle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DGCustom\DialogSearchVehicle.cs" />
+    <Compile Include="UCHelp\UCReceipt.xaml.cs">
+      <DependentUpon>UCReceipt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCHelp\UCVehicleCard.xaml.cs">
       <DependentUpon>UCVehicleCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCHelp\UCVehicleEdit.xaml.cs">
+      <DependentUpon>UCVehicleEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCHelp\UCVehicleRow.xaml.cs">
+      <DependentUpon>UCVehicleRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCMain\UCAVehiclePage.xaml.cs">
+      <DependentUpon>UCAVehiclePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCMain\UCMainPage.xaml.cs">
       <DependentUpon>UCMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCMain\UCOperationReceipt.xaml.cs">
+      <DependentUpon>UCOperationReceipt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCMain\UCVListPage.xaml.cs">
       <DependentUpon>UCVListPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="DGCustom\DGSearchVehicle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,11 +111,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCHelp\UCReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCHelp\UCVehicleCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCHelp\UCVehicleEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCHelp\UCVehicleRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCMain\UCAVehiclePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCMain\UCMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCMain\UCOperationReceipt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

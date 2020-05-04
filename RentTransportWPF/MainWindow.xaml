@@ -7,6 +7,7 @@
         
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:UCMain="clr-namespace:RentTransportWPF.UCMain" x:Class="RentTransportWPF.MainWindow"
+        xmlns:DGCustom="clr-namespace:RentTransportWPF.DGCustom"
         mc:Ignorable="d"
         
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -18,127 +19,146 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         
         Title="MainWindow" Width="1280" Height="720" WindowStyle="None">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Background="#F7F6FB" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0" Margin="0,0,0,5">
-                <StackPanel Orientation="Horizontal" Margin="20">
-                    <materialDesign:PackIcon Kind="LocationOn" Foreground="#4B5C7D" Margin="0,0,5,0" VerticalAlignment="Center" Height="35" Width="35"/>
-                    <TextBlock TextAlignment="Center" Foreground="#4B5C7D" FontFamily="Gilroy" FontWeight="Black" FontSize="20"  VerticalAlignment="Center"><Run Text="Car Rental"/></TextBlock>
-                </StackPanel>
+    <materialDesign:DialogHost x:Name="dgHost" Identifier="dialogHost">
+        <materialDesign:DialogHost.DialogContent>
+            <Grid x:Name="dialogHostContent">
+                
             </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="1" Margin="20,0,20,20">
-                <StackPanel>
-                    <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#2644F7" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="ГОЛОВНЕ"/></TextBlock>
 
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Home" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Основна інформація"/></TextBlock>
-                        </StackPanel>
-                    </Button>
+            <Grid Grid.Column="0" Background="#F7F6FB" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="CarConvertible" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Автомобілі"/></TextBlock>
-                        </StackPanel>
-                    </Button>
+                <Grid Grid.Row="0" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal" Margin="20">
+                        <materialDesign:PackIcon Kind="LocationOn" Foreground="#4B5C7D" Margin="0,0,5,0" VerticalAlignment="Center" Height="35" Width="35"/>
+                        <TextBlock TextAlignment="Center" Foreground="#4B5C7D" FontFamily="Gilroy" FontWeight="Black" FontSize="20"  VerticalAlignment="Center"><Run Text="Car Rental"/></TextBlock>
+                    </StackPanel>
+                </Grid>
 
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Basket" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Збережено"/></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                </StackPanel>
-            </Grid>
-
-            <Grid Grid.Row="2" Margin="20,0,20,0">
-                <StackPanel>
-                    <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#2644F7" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="АДМІН-ПАНЕЛЬ"/></TextBlock>
-
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="CarCog" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Дії з автомобілями"/></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="UserGroup" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Дії з клієнтами"/></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="UserMultipleCheckOutline" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Перевевірка аккаунтів"/></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="FileDocumentBoxCheck" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Операції з чеками"/></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ChartAreaspline" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Статистика"/></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                </StackPanel>
-            </Grid>
-
-            <Grid Grid.Row="3" Margin="0,0,0,10" VerticalAlignment="Bottom">
-                <Grid Grid.Row="2" Margin="20,0,20,0">
+                <Grid Grid.Row="1" Margin="20,0,20,20">
                     <StackPanel>
-                        <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#2644F7" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="АККАУНТ"/></TextBlock>
+                        <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#2644F7" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="ГОЛОВНЕ"/></TextBlock>
 
-                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                        ToolTip="Resource name: MaterialDesignRaisedLightButton" BorderThickness="0" Background="Transparent"  VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Cog" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Налаштування"/></TextBlock>
+                                <materialDesign:PackIcon Kind="Home" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Основна інформація"/></TextBlock>
                             </StackPanel>
                         </Button>
 
                         <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ExitToApp" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Вийти з аккаунта"/></TextBlock>
+                                <materialDesign:PackIcon Kind="CarConvertible" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Автомобілі"/></TextBlock>
                             </StackPanel>
                         </Button>
 
-
+                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Basket" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Збережено"/></TextBlock>
+                            </StackPanel>
+                        </Button>
 
                     </StackPanel>
                 </Grid>
+
+                <Grid Grid.Row="2" Margin="20,0,20,0">
+                    <StackPanel>
+                        <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#2644F7" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="АДМІН-ПАНЕЛЬ"/></TextBlock>
+
+                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CarCog" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Дії з автомобілями"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="UserGroup" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Дії з клієнтами"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="UserMultipleCheckOutline" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Перевевірка аккаунтів"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FileDocumentBoxCheck" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Операції з чеками"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ChartAreaspline" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Статистика"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="0,0,0,10" VerticalAlignment="Bottom">
+                    <Grid Grid.Row="2" Margin="20,0,20,0">
+                        <StackPanel>
+                            <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#2644F7" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="АККАУНТ"/></TextBlock>
+
+                            <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="History" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                    <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Історія оренд"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Cog" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                    <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Налаштування"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="ExitToApp" Foreground="#8E94A4" Margin="0,0,5,0"/>
+                                    <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Вийти з аккаунта"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+
+
+
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+
+            <Grid x:Name="mainPageGrid" Grid.Column="1" Background="White">
+                <UCMain:UCOperationReceipt/>
             </Grid>
 
         </Grid>
-
-        <Grid Grid.Column="1" Background="White">
-            <UCMain:UCVListPage/>
-        </Grid>
-
-    </Grid>
+    </materialDesign:DialogHost>
+    
+    
 </Window>
