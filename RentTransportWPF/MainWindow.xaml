@@ -97,13 +97,6 @@
 
                         <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="UserMultipleCheckOutline" Foreground="#8E94A4" Margin="0,0,5,0"/>
-                                <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Перевевірка аккаунтів"/></TextBlock>
-                            </StackPanel>
-                        </Button>
-
-                        <Button Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0">
-                            <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="FileDocumentBoxCheck" Foreground="#8E94A4" Margin="0,0,5,0"/>
                                 <TextBlock Margin="0,0,0,10" TextAlignment="Left" Foreground="#8E94A4" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="Операції з чеками"/></TextBlock>
                             </StackPanel>
@@ -154,7 +147,7 @@
             </Grid>
 
             <Grid x:Name="mainPageGrid" Grid.Column="1" Background="White">
-                <UCMain:UCOperationReceipt/>
+                
             </Grid>
 
         </Grid>

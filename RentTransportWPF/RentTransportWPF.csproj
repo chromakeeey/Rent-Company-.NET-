@@ -79,6 +79,9 @@
     <Compile Include="UCHelp\UCVehicleRow.xaml.cs">
       <DependentUpon>UCVehicleRow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCMain\UCAAccountPage.xaml.cs">
+      <DependentUpon>UCAAccountPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCMain\UCAVehiclePage.xaml.cs">
       <DependentUpon>UCAVehiclePage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
     </Compile>
     <Compile Include="UCMain\UCOperationReceipt.xaml.cs">
       <DependentUpon>UCOperationReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCMain\UCStatisticPage.xaml.cs">
+      <DependentUpon>UCStatisticPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCMain\UCVListPage.xaml.cs">
       <DependentUpon>UCVListPage.xaml</DependentUpon>
@@ -127,6 +133,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCMain\UCAAccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCMain\UCAVehiclePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCMain\UCOperationReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCMain\UCStatisticPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
