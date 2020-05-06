@@ -27,6 +27,10 @@
             </Grid>
         </materialDesign:DialogHost.DialogContent>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="356*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
@@ -147,7 +151,7 @@
             </Grid>
 
             <Grid x:Name="mainPageGrid" Grid.Column="1" Background="White">
-                
+                <UCMain:UCAVehiclePage/>
             </Grid>
 
         </Grid>

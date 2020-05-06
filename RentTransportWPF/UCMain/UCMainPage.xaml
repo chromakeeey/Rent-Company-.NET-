@@ -16,148 +16,169 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
              
              d:DesignWidth="1043" d:DesignHeight="713">
-    <Grid Background="White">
+    <Grid Background="#F9F9F9">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Search" Foreground="#8E94A4" Margin="0,0,5,0" VerticalAlignment="Center"/>
-                    <TextBox materialDesign:HintAssist.Hint="Пошук" Width="279"
-                             FontFamily="Gilroy" FontWeight="Heavy"
-                             materialDesign:HintAssist.Foreground="#2644F7"
-                             materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"/>
+                    <materialDesign:PackIcon Kind="KeyVariant" Foreground="#C62530" Height="50" Width="50" Margin="0,0,8,0"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="13"><Run Text="Автомобіль"/></TextBlock>
+                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="Toyota Prius"/></TextBlock>
+                    </StackPanel>
                 </StackPanel>    
-            </Grid>        
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}"  
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                            Background="#6490F1"
+                            BorderBrush="#6490F1">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CloseThick" Foreground="White" Margin="0,0,5,0" Height="20" Width="20"/>
+                                <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Відмінити оренду"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                            Background="#6490F1"
+                            BorderBrush="#6490F1">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="MoreHoriz" Foreground="White" Margin="0,0,0,0" Height="20" Width="20"/>
+                                
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
         </Grid>
 
         <Grid Grid.Row="1">
-            <Grid Margin="70,20,70,20">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock TextAlignment="Center" Foreground="#25292A" FontFamily="Gilroy" FontWeight="Bold" FontSize="20">
-                    Вітаємо, Олександр
-                        </TextBlock>
-                        <Image Source="handwave.png" Height="30" Margin="5,0,0,0"/>
-                    </StackPanel>
+            <materialDesign:Card Margin="0,10,0,20" 
+                                 materialDesign:ShadowAssist.ShadowEdges="Top,Bottom"
+                                 materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                 Padding="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                    <Grid Margin="0,30,0,0">
+                    <Grid Grid.Row="0">
+
+                        <Border BorderThickness="0,0,0,0.1" BorderBrush="Black" Margin="0,0,0,-5"/>
+
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="15"><Run Text="VIN"/></TextBlock>
+                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="30"><Run Text="4T3ZF13C3YU236585"/></TextBlock>
+                        </StackPanel>    
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid Margin="75">
+                            <Image Source="infiniti_PNG42.png"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        
+
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
+                        <Border Grid.Column="0" BorderThickness="0,0.1,0,0" BorderBrush="Black" Margin="0,-7,0,0"/>
+                        <Border Grid.Column="1" BorderThickness="0,0.1,0,0" BorderBrush="Black" Margin="0,-7,0,0"/>
+                        <Border Grid.Column="2" BorderThickness="0,0.1,0,0" BorderBrush="Black" Margin="0,-7,0,0"/>
+                        <Border Grid.Column="3" BorderThickness="0,0.1,0,0" BorderBrush="Black" Margin="0,-7,0,0"/>
+                        
                         <Grid Grid.Column="0">
-                            <StackPanel>
-                                <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
-                                    Баланс
-                                </TextBlock>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
-                                    65 543
-                                    </TextBlock>
-                                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Bottom" TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="17">
-                                    грн.
-                                    </TextBlock>
-                                </StackPanel>
-                            </StackPanel>    
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Початок оренди"/></TextBlock>
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="26.05.2020 16:15:18"/></TextBlock>
+                            </StackPanel>
                         </Grid>
 
                         <Grid Grid.Column="1">
-                            <StackPanel>
-                                <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
-                                    Борг
-                                </TextBlock>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
-                                    -543
-                                    </TextBlock>
-                                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Bottom" TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="17">
-                                    грн.
-                                    </TextBlock>
-                                </StackPanel>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Завершення оренди"/></TextBlock>
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="26.05.2020 16:15:18"/></TextBlock>
                             </StackPanel>
                         </Grid>
 
                         <Grid Grid.Column="2">
-                            <StackPanel>
-                                <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
-                                    Номер карти
-                                </TextBlock>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
-                                    6545 **** **** 3456
-                                    </TextBlock>
-                                    
-                                </StackPanel>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Борг"/></TextBlock>
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="₴ 0"/></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Ціна в день"/></TextBlock>
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="₴ 500"/></TextBlock>
                             </StackPanel>
                         </Grid>
 
                     </Grid>
-                    
-                </StackPanel>
-            </Grid>   
+
+                </Grid>
+            </materialDesign:Card>
         </Grid>
 
-        <Grid Grid.Row="2">
-            <Grid Margin="40,20,40,20">
-                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="32" >
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition />
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="2" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-                        <Grid Grid.Row="0">
-                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="17">
-                                    Назва автомобіля
-                                </TextBlock>
-                                <TextBlock TextAlignment="Center" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="32">
-                                    Toyota Prius
-                                </TextBlock>
-                            </StackPanel>
-                        </Grid>
+                <Grid Grid.Column="0">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Банківська карта"/></TextBlock>
+                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="3565 **** **** 3546"/></TextBlock>
+                    </StackPanel>
+                </Grid>
 
-                        <Grid Grid.Row="1">
-                            <Image Margin="10" Source="infiniti_PNG42.png"/>
-                        </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Баланс"/></TextBlock>
+                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="₴ 12 500"/></TextBlock>
+                    </StackPanel>
+                </Grid>
 
-                        <Grid Grid.Row="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Grid Grid.Column="0">
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
-                                    <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="16">
-                                   VIN
-                                    </TextBlock>
-                                    <TextBlock TextAlignment="Left" Foreground="#2D353D" FontFamily="Gilroy" FontWeight="Bold" FontSize="25">
-                                    1FAFP40674F159608
-                                    </TextBlock>
-                                </StackPanel>
-                            </Grid>
-
-                            <Grid Grid.Column="1">
-                                <Button Background="Transparent" BorderBrush="Transparent">
-                                    <materialDesign:PackIcon Kind="MoreHoriz" Foreground="Black" Height="42" Width="42"/>    
-                                </Button>
-                            </Grid>
-
-                        </Grid>
-
-                    </Grid>        
-                </materialDesign:Card>
-            </Grid>
-        </Grid>
+                <Grid Grid.Column="2">
+                    <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                            Background="#6490F1"
+                            BorderBrush="#6490F1">
+                        <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Операції з рахунком"/></TextBlock>
+                    </Button>
+                </Grid>
+                
+            </Grid>        
+        </materialDesign:Card>
 
     </Grid>
 </UserControl>

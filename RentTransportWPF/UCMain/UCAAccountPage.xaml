@@ -15,8 +15,8 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
              
              d:DesignWidth="1043" d:DesignHeight="713">
-    <Grid Background="White">
-        <Grid Margin="20">
+    <Grid Background="Transparent">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

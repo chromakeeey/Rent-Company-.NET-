@@ -14,10 +14,11 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-             
+             MaxHeight="450" MaxWidth="339.668"
+             MinHeight="450" MinWidth="339.668"
              d:DesignHeight="450" Width="339.668">
-    <Grid Background="White">
-        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="10" Padding="10" Background="White">
+    <Grid Background="Transparent">
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="10" Padding="10" Background="White" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>

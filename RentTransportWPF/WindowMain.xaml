@@ -1,0 +1,134 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentTransportWPF"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:UCMain="clr-namespace:RentTransportWPF.UCMain" x:Class="RentTransportWPF.WindowMain"
+        mc:Ignorable="d"
+        Background="Transparent" WindowStyle="None"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Title="WindowMain" Height="730" Width="1490">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="#FFFFFF">
+
+            <materialDesign:Card Margin="0,0,5,0"
+    materialDesign:ShadowAssist.ShadowDepth="Depth3"
+    materialDesign:ShadowAssist.ShadowEdges="Right"
+    >
+                <Grid Margin="12,10,12,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0,0,0,50">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" Background="#FF5659" BorderBrush="#FF5659"
+                            materialDesign:ButtonAssist.CornerRadius="100" Height="12" Width="12"
+                            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="onCloseWindow"
+                                Margin="0,0,5,0"/>
+                            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" Background="#FFBD00" BorderBrush="#FFBD00"
+                            materialDesign:ButtonAssist.CornerRadius="100" Height="12" Width="12"
+                            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="onResizeWindow"
+                                Margin="0,0,5,0"/>
+                            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" Background="#00CE2F" BorderBrush="#00CE2F"
+                            materialDesign:ButtonAssist.CornerRadius="100" Height="12" Width="12"
+                            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="onHideWindow"
+                                Margin="0,0,5,0"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid HorizontalAlignment="Center">
+                            <StackPanel>
+                                <Ellipse Height="50" Width="50">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="me.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock VerticalAlignment="Center" TextAlignment="Center" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="palamarchuk"/></TextBlock>
+                                    <Button Background="Transparent" BorderThickness="0" Width="Auto" Height="Auto" Padding="0">
+                                        <materialDesign:PackIcon Kind="MenuDownOutline" Foreground="#768089" Height="12" Width="12"/>                    
+                                    </Button>
+                                </StackPanel>
+                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Foreground="#C62530" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Admin"/></TextBlock>
+                            </StackPanel>
+                        </Grid>    
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                            
+                    </Grid>
+
+                </Grid>
+            </materialDesign:Card>
+
+
+        </Grid>
+
+        <Grid Grid.Column="1" Background="#F9F9F9">
+
+            <Grid Margin="40,15,40,15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" BorderThickness="0,0,0,0.1" BorderBrush="Black" Margin="0,0,0,-10"/>
+                    <Border Grid.Column="1" BorderThickness="0,0,0,0.1" BorderBrush="Black" Margin="0,0,0,-10"/>
+
+                    <Grid Grid.Column="0" HorizontalAlignment="Left" Margin="0,7,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Аккаунт    /    "/></TextBlock>
+                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Паламарчук Олександр"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Margin="0,7,0,0">
+                        <Grid HorizontalAlignment="Right" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CloudDone" Foreground="#76C466" Margin="0,0,10,0" Height="25" Width="25"/>
+                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Підключення до сервера активне"/></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,30,0,0">
+                    <UCMain:UCMainPage/>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

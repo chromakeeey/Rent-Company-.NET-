@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RentTransportWPF
+namespace RentTransportWPF.UCHelp
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for UCVehicleRowButton.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class UCVehicleRowButton : UserControl
     {
-        public LoginWindow()
+        public UCVehicleRowButton()
         {
             InitializeComponent();
-        }
-
-        private void onLoginClick(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            new WindowMain().Show();
         }
     }
 }
