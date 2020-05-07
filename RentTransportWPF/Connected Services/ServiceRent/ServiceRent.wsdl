@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceRent" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IServiceRent_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.Structures" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceRent_userConnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:userConnect" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_userConnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:userConnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_userDisconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:userDisconnect" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_userDisconnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:userDisconnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_selectAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:selectAccount" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_selectAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:selectAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_createSqlConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:createSqlConnection" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_selectAllVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:selectAllVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_deleteVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_addVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:addVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_saveVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_isAccountValid_InputMessage">
+    <wsdl:part name="parameters" element="tns:isAccountValid" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_isAccountValid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isAccountValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_isSqlConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:isSqlConnection" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_isSqlConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isSqlConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_getUserVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_getUserVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_saveAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveAccount" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_addAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:addAccount" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_deleteAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_createVehicleObjectParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:createVehicleObjectParams" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_createVehicleObjectParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createVehicleObjectParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_GetAllVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_GetAllVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_GetAllRentVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRentVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_GetAllRentVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRentVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_GetAllNoRentVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNoRentVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_GetAllNoRentVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNoRentVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_noAcceptedAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:noAcceptedAccount" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_noAcceptedAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:noAcceptedAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_findVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:findVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_findVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:findVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_uploadVehicleImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:uploadVehicleImage" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_uploadVehicleImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:uploadVehicleImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_vehicleImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:vehicleImage" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_vehicleImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:vehicleImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_AddVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_AddVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_Balance_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_Balance" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_DeleteVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_DeleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_EditVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_EditVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_RemoveRent_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_RemoveRent" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_Request_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_Request" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_TakeRent_InputMessage">
+    <wsdl:part name="parameters" element="tns:log_TakeRent" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_log_TakeRent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:log_TakeRentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_topAccountMoney_InputMessage">
+    <wsdl:part name="parameters" element="tns:topAccountMoney" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_topAccountMoney_OutputMessage">
+    <wsdl:part name="parameters" element="tns:topAccountMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SendStatInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatInfo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SendStatInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_selectVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:selectVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_selectVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:selectVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherData_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_readCashVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:readCashVoucher" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_readCashVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:readCashVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_writeCashVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:writeCashVoucher" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_writeCashVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:writeCashVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_setCashVoucherData_InputMessage">
+    <wsdl:part name="parameters" element="tns:setCashVoucherData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherID_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendCashVoucherID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendCashVoucherIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:onSaveVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_onDeleteVehicle_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:onDeleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_sendNotification_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:sendNotification" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceRent">
+    <wsdl:operation name="userConnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/userConnect" message="tns:IServiceRent_userConnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/userConnectResponse" message="tns:IServiceRent_userConnect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="userDisconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/userDisconnect" message="tns:IServiceRent_userDisconnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/userDisconnectResponse" message="tns:IServiceRent_userDisconnect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/selectAccount" message="tns:IServiceRent_selectAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/selectAccountResponse" message="tns:IServiceRent_selectAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createSqlConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/createSqlConnection" message="tns:IServiceRent_createSqlConnection_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/selectAllVehicle" message="tns:IServiceRent_selectAllVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/deleteVehicle" message="tns:IServiceRent_deleteVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/addVehicle" message="tns:IServiceRent_addVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/saveVehicle" message="tns:IServiceRent_saveVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isAccountValid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/isAccountValid" message="tns:IServiceRent_isAccountValid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/isAccountValidResponse" message="tns:IServiceRent_isAccountValid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isSqlConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/isSqlConnection" message="tns:IServiceRent_isSqlConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/isSqlConnectionResponse" message="tns:IServiceRent_isSqlConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/getUserVehicle" message="tns:IServiceRent_getUserVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/getUserVehicleResponse" message="tns:IServiceRent_getUserVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/saveAccount" message="tns:IServiceRent_saveAccount_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/addAccount" message="tns:IServiceRent_addAccount_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/deleteAccount" message="tns:IServiceRent_deleteAccount_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createVehicleObjectParams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/createVehicleObjectParams" message="tns:IServiceRent_createVehicleObjectParams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/createVehicleObjectParamsResponse" message="tns:IServiceRent_createVehicleObjectParams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/GetAllVehicle" message="tns:IServiceRent_GetAllVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/GetAllVehicleResponse" message="tns:IServiceRent_GetAllVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRentVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/GetAllRentVehicle" message="tns:IServiceRent_GetAllRentVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/GetAllRentVehicleResponse" message="tns:IServiceRent_GetAllRentVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNoRentVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/GetAllNoRentVehicle" message="tns:IServiceRent_GetAllNoRentVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/GetAllNoRentVehicleResponse" message="tns:IServiceRent_GetAllNoRentVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="noAcceptedAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/noAcceptedAccount" message="tns:IServiceRent_noAcceptedAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/noAcceptedAccountResponse" message="tns:IServiceRent_noAcceptedAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="findVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/findVehicle" message="tns:IServiceRent_findVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/findVehicleResponse" message="tns:IServiceRent_findVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadVehicleImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/uploadVehicleImage" message="tns:IServiceRent_uploadVehicleImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/uploadVehicleImageResponse" message="tns:IServiceRent_uploadVehicleImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="vehicleImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/vehicleImage" message="tns:IServiceRent_vehicleImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/vehicleImageResponse" message="tns:IServiceRent_vehicleImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_AddVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_AddVehicle" message="tns:IServiceRent_log_AddVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_Balance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_Balance" message="tns:IServiceRent_log_Balance_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_DeleteVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_DeleteVehicle" message="tns:IServiceRent_log_DeleteVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_EditVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_EditVehicle" message="tns:IServiceRent_log_EditVehicle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_RemoveRent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_RemoveRent" message="tns:IServiceRent_log_RemoveRent_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_Request">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_Request" message="tns:IServiceRent_log_Request_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="log_TakeRent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/log_TakeRent" message="tns:IServiceRent_log_TakeRent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/log_TakeRentResponse" message="tns:IServiceRent_log_TakeRent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="topAccountMoney">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/topAccountMoney" message="tns:IServiceRent_topAccountMoney_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/topAccountMoneyResponse" message="tns:IServiceRent_topAccountMoney_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendStatInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SendStatInfo" message="tns:IServiceRent_SendStatInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/SendStatInfoResponse" message="tns:IServiceRent_SendStatInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="selectVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/selectVehicle" message="tns:IServiceRent_selectVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/selectVehicleResponse" message="tns:IServiceRent_selectVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherData" message="tns:IServiceRent_sendCashVoucherData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherDataResponse" message="tns:IServiceRent_sendCashVoucherData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="readCashVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/readCashVoucher" message="tns:IServiceRent_readCashVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/readCashVoucherResponse" message="tns:IServiceRent_readCashVoucher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="writeCashVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/writeCashVoucher" message="tns:IServiceRent_writeCashVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/writeCashVoucherResponse" message="tns:IServiceRent_writeCashVoucher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setCashVoucherData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/setCashVoucherData" message="tns:IServiceRent_setCashVoucherData_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherID" message="tns:IServiceRent_sendCashVoucherID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherIDResponse" message="tns:IServiceRent_sendCashVoucherID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="onSaveVehicle">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="onDeleteVehicle">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onDeleteVehicle" message="tns:IServiceRent_onDeleteVehicle_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendNotification">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendNotification" message="tns:IServiceRent_sendNotification_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IServiceRent" type="tns:IServiceRent">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServiceRent_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="userConnect">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/userConnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userDisconnect">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/userDisconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAccount">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/selectAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSqlConnection">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/createSqlConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/selectAllVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deleteVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/deleteVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="addVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/addVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="saveVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/saveVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="isAccountValid">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/isAccountValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isSqlConnection">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/isSqlConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/getUserVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveAccount">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/saveAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="addAccount">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/addAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAccount">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/deleteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="createVehicleObjectParams">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/createVehicleObjectParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/GetAllVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRentVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/GetAllRentVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNoRentVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/GetAllNoRentVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="noAcceptedAccount">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/noAcceptedAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/findVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadVehicleImage">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/uploadVehicleImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vehicleImage">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/vehicleImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="log_AddVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_AddVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_Balance">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_Balance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_DeleteVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_DeleteVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_EditVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_EditVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_RemoveRent">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_RemoveRent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_Request">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_Request" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="log_TakeRent">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/log_TakeRent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="topAccountMoney">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/topAccountMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendStatInfo">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/SendStatInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/selectVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherData">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendCashVoucherData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readCashVoucher">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/readCashVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="writeCashVoucher">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/writeCashVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCashVoucherData">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/setCashVoucherData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="sendCashVoucherID">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendCashVoucherID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="onSaveVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/onSaveVehicle" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="onDeleteVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/onDeleteVehicle" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendNotification">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendNotification" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceRent">
+    <wsdl:port name="NetTcpBinding_IServiceRent" binding="tns:NetTcpBinding_IServiceRent">
+      <soap12:address location="net.tcp://localhost:8302/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8302/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

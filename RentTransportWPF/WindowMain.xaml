@@ -37,6 +37,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
@@ -60,7 +61,7 @@
                     <Grid Grid.Row="1">
                         <Grid HorizontalAlignment="Center">
                             <StackPanel>
-                                <Ellipse Height="50" Width="50">
+                                <Ellipse Height="50" Width="50" Margin="0,0,0,7">
                                     <Ellipse.Fill>
                                         <ImageBrush ImageSource="me.png"/>
                                     </Ellipse.Fill>
@@ -68,7 +69,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock VerticalAlignment="Center" TextAlignment="Center" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="palamarchuk"/></TextBlock>
                                     <Button Background="Transparent" BorderThickness="0" Width="Auto" Height="Auto" Padding="0">
-                                        <materialDesign:PackIcon Kind="MenuDownOutline" Foreground="#768089" Height="12" Width="12"/>                    
+                                        <!--<materialDesign:PackIcon Kind="MenuDownOutline" Foreground="#768089" Height="12" Width="12"/>-->                    
                                     </Button>
                                 </StackPanel>
                                 <TextBlock VerticalAlignment="Center" TextAlignment="Center" Foreground="#C62530" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Admin"/></TextBlock>
@@ -77,9 +78,129 @@
                     </Grid>
 
                     <Grid Grid.Row="2">
-                            
+                        <Grid HorizontalAlignment="Center" Margin="0,15,0,0">
+                            <StackPanel>
+                                <Button Click="onClickButtonMain" x:Name="buttonMain" Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Home" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Головна сторінка"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Click="onClickButtonVehicle" x:Name="buttonVehicle" 
+                                    Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="CarConvertible" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Список автомобілів"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Click="onClickButtonOVehicle" x:Name="buttonOVehicle"
+                                    Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="CarCog" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Дії з транспортами"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Click="onClickButtonOUser" x:Name="buttonOUser"
+                                    Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="UserGroup" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Дії з аккаунтами"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Click="onClickButtonReceipt" x:Name="buttonReceipt" 
+                                    Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="FileDocumentBoxCheck" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Операції з чеками"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Click="onClickButtonChart" x:Name="buttonChart" 
+                                    Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ChartAreaspline" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Статистика"/>
+                                    </StackPanel>
+                                </Button>
+                                
+                            </StackPanel>
+                           
+                        </Grid>    
                     </Grid>
 
+                    <Grid Grid.Row="3">
+                        <Grid VerticalAlignment="Bottom">
+                            <StackPanel>
+                                <Button Click="onClickButtonSetting" x:Name="buttonSetting" 
+                                    Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Cog" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Налаштування"/>
+                                    </StackPanel>
+                                </Button>
+                                
+                                <Button Background="White" BorderBrush="White"
+                                    Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
+                                    ToolTip="MaterialDesignFlatAccentBackgroundButton"
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ExitToApp" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
+                                        <TextBlock 
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                        Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" 
+                                        FontSize="13" Text="Вийти з аккаунта"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>    
+                        </Grid>    
+                    </Grid>
+                    
                 </Grid>
             </materialDesign:Card>
 
@@ -121,8 +242,8 @@
 
                 </Grid>
 
-                <Grid Grid.Row="1" Margin="0,30,0,0">
-                    <UCMain:UCMainPage/>
+                <Grid x:Name="MainGrid" Grid.Row="1" Margin="0,30,0,0">
+                    
 
                 </Grid>
 

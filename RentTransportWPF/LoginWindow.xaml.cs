@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using RentTransportWPF.HeaderFile;
 
 namespace RentTransportWPF
 {
@@ -27,7 +28,19 @@ namespace RentTransportWPF
         private void onLoginClick(object sender, RoutedEventArgs e)
         {
             Hide();
-            new WindowMain().Show();
+
+            var item = new WindowMain();
+
+            item.clientData = new ClientData(item);
+            item.clientData.uiOperation.childrenAdd();
+            item.clientData.uiOperation.Page = UiPageType.MAIN;
+
+            item.Show();
+        }
+
+        private void loginWindowLoaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

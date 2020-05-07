@@ -1,5 +1,4 @@
-﻿using MaterialDesignThemes.Wpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,23 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using RentTransportWPF.UCMain;
-
 namespace RentTransportWPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoadWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoadWindow : Window
     {
-
-        
-
-        public MainWindow()
+        public LoadWindow()
         {
-            
+            InitializeComponent();
         }
-
-     
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using RentTransportWPF.HeaderFile;
+
 namespace RentTransportWPF
 {
     /// <summary>
@@ -19,6 +21,9 @@ namespace RentTransportWPF
     /// </summary>
     public partial class WindowMain : Window
     {
+        public ClientData clientData;
+        public ServerData serverData;
+
         public WindowMain()
         {
             InitializeComponent();
@@ -55,6 +60,41 @@ namespace RentTransportWPF
                     WindowState = WindowState.Maximized;
                     break;
             }
+        }
+
+        private void onClickButtonMain(object sender, RoutedEventArgs e)
+        {
+            clientData.uiOperation.Page = UiPageType.MAIN;
+        }
+
+        private void onClickButtonVehicle(object sender, RoutedEventArgs e)
+        {
+            clientData.uiOperation.Page = UiPageType.VEHICLE;
+        }
+
+        private void onClickButtonOVehicle(object sender, RoutedEventArgs e)
+        {
+            clientData.uiOperation.Page = UiPageType.OVEHICLE;
+        }
+
+        private void onClickButtonOUser(object sender, RoutedEventArgs e)
+        {
+            clientData.uiOperation.Page = UiPageType.OUSER;
+        }
+
+        private void onClickButtonReceipt(object sender, RoutedEventArgs e)
+        {
+            clientData.uiOperation.Page = UiPageType.RECEIPT;
+        }
+
+        private void onClickButtonChart(object sender, RoutedEventArgs e)
+        {
+            clientData.uiOperation.Page = UiPageType.CHART;
+        }
+
+        private void onClickButtonSetting(object sender, RoutedEventArgs e)
+        {
+            clientData.uiOperation.Page = UiPageType.SETTING;
         }
     }
 }

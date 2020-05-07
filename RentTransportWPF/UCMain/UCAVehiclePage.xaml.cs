@@ -23,7 +23,7 @@ namespace RentTransportWPF.UCMain
     public partial class UCAVehiclePage : UserControl
     {
 
-        public MainWindow mainWindow;
+        
 
         public UCAVehiclePage()
         {
