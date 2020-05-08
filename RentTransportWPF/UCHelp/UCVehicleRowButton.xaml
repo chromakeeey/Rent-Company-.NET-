@@ -13,49 +13,70 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="Transparent"
-        FontFamily="Gilroy" Height="81.612" Width="322.796">
-    <Grid>
-        <Button Height="Auto" Background="Transparent" Padding="0" BorderThickness="0" BorderBrush="White"
-                Style="{StaticResource MaterialDesignRaisedLightButton}" VerticalAlignment="Center" Width="Auto"
-                ToolTip="Resource name: MaterialDesignRaisedLightButton">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+        FontFamily="Gilroy" Height="205.725" Width="322.796">
+    <Button
+        Height="Auto" Width="Auto" Background="Transparent" BorderBrush="Transparent" Padding="0" Click="onButtonClick">
+        <Grid Height="205" Width="322">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-                <Grid Grid.Column="0" VerticalAlignment="Center">
-                    <Image Source="infiniti_PNG42.png" Height="100" Width="100" Margin="0,0,20,0"/>
+            <Grid Grid.Row="0">
+                <Image x:Name="image_Vehicle" Source="infiniti_PNG42.png" Height="64"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Назва" TextAlignment="Center" FontSize="12" Foreground="#768089"/>
+                            <TextBlock x:Name="text_Name" Text="Toyota Prius" TextAlignment="Center" Foreground="Black" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="VIN" TextAlignment="Center" FontSize="12" Foreground="#768089"/>
+                            <TextBlock x:Name="text_VIN" Text="KNADC125856401661" TextAlignment="Center" Foreground="Black" FontWeight="Bold"/>
+                        </StackPanel>    
+                    </Grid>
+                    
                 </Grid>
 
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalAlignment="Center">
-                    <StackPanel>
-                        <StackPanel VerticalAlignment="Top" Margin="0,0,0,5">
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="10"><Run Text="Назва"/></TextBlock>
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Toyota Prius"/></TextBlock>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Статус оренди" TextAlignment="Center" FontSize="12" Foreground="#768089"/>
+                            <TextBlock x:Name="text_Status" Text="Орендований" TextAlignment="Center" Foreground="Black" FontWeight="Bold"/>
                         </StackPanel>
-                        <StackPanel VerticalAlignment="Top">
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="10"><Run Text="Бензина"/></TextBlock>
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="32 л."/></TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Ціна" TextAlignment="Center" FontSize="12" Foreground="#768089"/>
+                            <TextBlock x:Name="text_Price" Text="₴ 500" TextAlignment="Center" Foreground="Black" FontWeight="Bold"/>
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
                 </Grid>
 
-                <Grid Grid.Column="2" VerticalAlignment="Center">
-                    <StackPanel>
-                        <StackPanel VerticalAlignment="Top" Margin="0,0,0,5">
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="10"><Run Text="Категорія прав"/></TextBlock>
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="₴ 250"/></TextBlock>
-                        </StackPanel>
-                        <StackPanel VerticalAlignment="Top">
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="10"><Run Text="Ціна в день"/></TextBlock>
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="₴ 250"/></TextBlock>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
+            </Grid>
 
-            </Grid>        
-        </Button>
-    </Grid>
+        </Grid>
+    </Button>
 </UserControl>

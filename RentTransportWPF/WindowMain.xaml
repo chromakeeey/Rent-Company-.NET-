@@ -17,7 +17,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="WindowMain" Height="730" Width="1490">
+        Title="WindowMain" Height="730" Width="1490" Loaded="onMainWindowLoaded">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
@@ -190,7 +190,7 @@
                                 <Button Background="White" BorderBrush="White"
                                     Style="{StaticResource MaterialDesignFlatAccentBgButton}" 
                                     ToolTip="MaterialDesignFlatAccentBackgroundButton"
-                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left">
+                                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="onLogoutClick">
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon Kind="ExitToApp" Foreground="#768089" Margin="0,0,15,0" Height="25" Width="25"/>
                                         <TextBlock 

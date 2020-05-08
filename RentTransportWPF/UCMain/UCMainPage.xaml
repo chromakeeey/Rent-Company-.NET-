@@ -34,7 +34,7 @@
                     <materialDesign:PackIcon Kind="KeyVariant" Foreground="#C62530" Height="50" Width="50" Margin="0,0,8,0"/>
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="13"><Run Text="Автомобіль"/></TextBlock>
-                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="Toyota Prius"/></TextBlock>
+                        <TextBlock x:Name="text_VehicleName" Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="Toyota Prius"/></TextBlock>
                     </StackPanel>
                 </StackPanel>    
             </Grid>
@@ -42,7 +42,8 @@
             <Grid Grid.Column="1">
                 <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}"  
+                        <Button x:Name="button_CancelRent" 
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"  
                             materialDesign:ButtonAssist.CornerRadius="5"
                             ToolTip="MaterialDesignRaisedLightButton with Round Corners"
                             Background="#6490F1"
@@ -52,7 +53,8 @@
                                 <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Відмінити оренду"/></TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
+                        <Button x:Name="button_More" 
+                            Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
                             materialDesign:ButtonAssist.CornerRadius="5"
                             ToolTip="MaterialDesignRaisedLightButton with Round Corners"
                             Background="#6490F1"
@@ -69,10 +71,15 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <materialDesign:Card Margin="0,10,0,20" 
+            <TextBlock x:Name="label_NonRent" Text="Автомобіль не орендований" 
+                       FontFamily="Gilroy" FontWeight="ExtraBlack" FontSize="32" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Visibility="Hidden"/>
+            <materialDesign:Card x:Name="card_VehicleInfo" Margin="0,10,0,20" 
                                  materialDesign:ShadowAssist.ShadowEdges="Top,Bottom"
                                  materialDesign:ShadowAssist.ShadowDepth="Depth3"
-                                 Padding="15">
+                                 Padding="15" Visibility="Visible">
+                
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -86,13 +93,13 @@
 
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="15"><Run Text="VIN"/></TextBlock>
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="30"><Run Text="4T3ZF13C3YU236585"/></TextBlock>
+                            <TextBlock x:Name="text_VIN" Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="30"><Run Text="4T3ZF13C3YU236585"/></TextBlock>
                         </StackPanel>    
                     </Grid>
 
                     <Grid Grid.Row="1">
                         <Grid Margin="75">
-                            <Image Source="infiniti_PNG42.png"/>
+                            <Image x:Name="image_Vehicle" Source="infiniti_PNG42.png"/>
                         </Grid>
                     </Grid>
 
@@ -114,34 +121,35 @@
                         <Grid Grid.Column="0">
                             <StackPanel VerticalAlignment="Center">
                                 <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Початок оренди"/></TextBlock>
-                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="26.05.2020 16:15:18"/></TextBlock>
+                                <TextBlock x:Name="text_StartDate" Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="26.05.2020 16:15:18"/></TextBlock>
                             </StackPanel>
                         </Grid>
 
                         <Grid Grid.Column="1">
                             <StackPanel VerticalAlignment="Center">
                                 <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Завершення оренди"/></TextBlock>
-                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="26.05.2020 16:15:18"/></TextBlock>
+                                <TextBlock x:Name="text_FinalDate" Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="26.05.2020 16:15:18"/></TextBlock>
                             </StackPanel>
                         </Grid>
 
                         <Grid Grid.Column="2">
                             <StackPanel VerticalAlignment="Center">
                                 <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Борг"/></TextBlock>
-                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="₴ 0"/></TextBlock>
+                                <TextBlock x:Name="text_Credit" Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="₴ 0"/></TextBlock>
                             </StackPanel>
                         </Grid>
 
                         <Grid Grid.Column="3">
                             <StackPanel VerticalAlignment="Center">
                                 <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Normal" FontSize="14"><Run Text="Ціна в день"/></TextBlock>
-                                <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="₴ 500"/></TextBlock>
+                                <TextBlock x:Name="text_DayPrice" Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="Black" FontFamily="Gilroy" FontWeight="Bold" FontSize="20"><Run Text="₴ 500"/></TextBlock>
                             </StackPanel>
                         </Grid>
 
                     </Grid>
 
                 </Grid>
+                
             </materialDesign:Card>
         </Grid>
 

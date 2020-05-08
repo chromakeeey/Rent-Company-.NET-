@@ -48,6 +48,9 @@ namespace RentTransportWPF.HeaderFile
             mainWindow.MainGrid.Children.Add(uCAAccountPage);
             mainWindow.MainGrid.Children.Add(uCOperationReceipt);
             mainWindow.MainGrid.Children.Add(uCStatisticPage);
+
+            uCMainPage.mainWindow = mainWindow;
+            uCVListPage.mainWindow = mainWindow;
         }
     }
 }

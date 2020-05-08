@@ -418,17 +418,29 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getAllVehicleToUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllVehicleToUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="getAllVehicleToUserResult" nillable="true" type="q20:ArrayOfVehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="onSaveVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q20:Vehicle" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q21:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="onDeleteVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q21:Vehicle" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q22:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

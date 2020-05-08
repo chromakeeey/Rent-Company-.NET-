@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using RentTransportWPF.ServiceRent;
 using System.Windows;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace RentTransportWPF.HeaderFile
 {
@@ -57,6 +59,25 @@ namespace RentTransportWPF.HeaderFile
         public void sendNotification(string message)
         {
             //throw new NotImplementedException();
+        }
+
+        public static BitmapImage BytesToBitmapImage(byte[] stream)
+        {
+            var image = new BitmapImage();
+
+            using (var memory = new MemoryStream(stream))
+            {
+                memory.Position = 0;
+                image.BeginInit();
+                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.UriSource = null;
+                image.StreamSource = memory;
+                image.EndInit();
+            }
+
+            image.Freeze();
+            return image;
         }
     }
 }

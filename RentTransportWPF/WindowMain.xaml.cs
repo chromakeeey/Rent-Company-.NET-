@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using RentTransportWPF.HeaderFile;
+using RentTransportWPF.ServiceRent;
 
 namespace RentTransportWPF
 {
@@ -24,7 +25,7 @@ namespace RentTransportWPF
         public ClientData clientData;
         public ServerData serverData;
 
-
+        public LoginWindow loginWindow;
 
         public WindowMain()
         {
@@ -97,10 +98,23 @@ namespace RentTransportWPF
             clientData.uiOperation.Page = UiPageType.SETTING;
         }
 
+        
+
         public void onExitApplication()
         {    
             serverData.userDisconnect();
             Application.Current.Shutdown();
+        }
+
+        private void onMainWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void onLogoutClick(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            loginWindow.Show();
         }
     }
 }

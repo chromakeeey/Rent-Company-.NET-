@@ -343,7 +343,7 @@ namespace WCF_Rent
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
         }
 
-        public List<Vehicle> getAllVehicleToUser(int id)
+        public List<Vehicle> getAllVehicleToUser()
         {
             return vehicle;
         }

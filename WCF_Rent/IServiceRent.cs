@@ -135,6 +135,9 @@ namespace WCF_Rent
 
         [OperationContract]
         int sendCashVoucherID(int logtakerentid);
+
+        [OperationContract]
+        List<Vehicle> getAllVehicleToUser();
     }
 
     public interface IServerRentCallback

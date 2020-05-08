@@ -27,9 +27,11 @@ namespace RentTransportWPF
         {
             InitializeComponent();
             mainWindow = new WindowMain();
+            mainWindow.loginWindow = this;
 
             mainWindow.clientData = new ClientData(mainWindow);
             mainWindow.serverData = new ServerData();
+            mainWindow.clientData.uiOperation.childrenAdd();
         }
 
         private void onLoginClick(object sender, RoutedEventArgs e)
@@ -54,7 +56,13 @@ namespace RentTransportWPF
                     this.Hide();
 
                     mainWindow.clientData.setAccount(account);
-                    mainWindow.clientData.uiOperation.childrenAdd();
+                    mainWindow.clientData.uiOperation.uCMainPage.updateVehicleInfo();
+
+                    mainWindow.clientData.uiOperation.uCVListPage.showVehicleList
+                    (
+                        mainWindow.serverData.ConnectProvider.getAllVehicleToUser().ToList()
+                    );
+
                     mainWindow.clientData.uiOperation.Page = UiPageType.MAIN;
 
                     mainWindow.Show();

@@ -193,6 +193,12 @@
   <wsdl:message name="IServiceRent_sendCashVoucherID_OutputMessage">
     <wsdl:part name="parameters" element="tns:sendCashVoucherIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_getAllVehicleToUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllVehicleToUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_getAllVehicleToUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllVehicleToUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:onSaveVehicle" />
   </wsdl:message>
@@ -335,6 +341,10 @@
     <wsdl:operation name="sendCashVoucherID">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherID" message="tns:IServiceRent_sendCashVoucherID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendCashVoucherIDResponse" message="tns:IServiceRent_sendCashVoucherID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllVehicleToUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/getAllVehicleToUser" message="tns:IServiceRent_getAllVehicleToUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/getAllVehicleToUserResponse" message="tns:IServiceRent_getAllVehicleToUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="onSaveVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
@@ -630,6 +640,15 @@
     </wsdl:operation>
     <wsdl:operation name="sendCashVoucherID">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendCashVoucherID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllVehicleToUser">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/getAllVehicleToUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

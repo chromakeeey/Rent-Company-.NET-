@@ -1558,6 +1558,12 @@ namespace RentTransportWPF.ServiceRent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/sendCashVoucherID", ReplyAction="http://tempuri.org/IServiceRent/sendCashVoucherIDResponse")]
         System.Threading.Tasks.Task<int> sendCashVoucherIDAsync(int logtakerentid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/getAllVehicleToUser", ReplyAction="http://tempuri.org/IServiceRent/getAllVehicleToUserResponse")]
+        RentTransportWPF.ServiceRent.Vehicle[] getAllVehicleToUser();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/getAllVehicleToUser", ReplyAction="http://tempuri.org/IServiceRent/getAllVehicleToUserResponse")]
+        System.Threading.Tasks.Task<RentTransportWPF.ServiceRent.Vehicle[]> getAllVehicleToUserAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1895,6 +1901,14 @@ namespace RentTransportWPF.ServiceRent {
         
         public System.Threading.Tasks.Task<int> sendCashVoucherIDAsync(int logtakerentid) {
             return base.Channel.sendCashVoucherIDAsync(logtakerentid);
+        }
+        
+        public RentTransportWPF.ServiceRent.Vehicle[] getAllVehicleToUser() {
+            return base.Channel.getAllVehicleToUser();
+        }
+        
+        public System.Threading.Tasks.Task<RentTransportWPF.ServiceRent.Vehicle[]> getAllVehicleToUserAsync() {
+            return base.Channel.getAllVehicleToUserAsync();
         }
     }
 }
