@@ -72,13 +72,15 @@
                         <TextBlock TextAlignment="Left" Foreground="#797C92" FontFamily="Gilroy" FontWeight="Bold" FontSize="16" Margin="0,0,0,30">
                                    Зареєструйтесь, якщо немаєте аккаунта
                         </TextBlock>
-                        <TextBox materialDesign:HintAssist.Hint="Login" Width="200"
+                        <TextBox x:Name="field_Login" 
+                            materialDesign:HintAssist.Hint="Login" Width="200"
                                  HorizontalAlignment="Center" Margin="0,0,0,10"
                                              FontFamily="Gilroy" FontWeight="Heavy"
                                              materialDesign:HintAssist.Foreground="#3E64BE"
                                              materialDesign:TextFieldAssist.UnderlineBrush="#3E64BE"
                                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                        <TextBox materialDesign:HintAssist.Hint="Password" Width="200"
+                        <TextBox x:Name="field_Password" 
+                            materialDesign:HintAssist.Hint="Password" Width="200"
                                  HorizontalAlignment="Center" Margin="0,0,0,40"
                                              FontFamily="Gilroy" FontWeight="Heavy"
                                              materialDesign:HintAssist.Foreground="#3E64BE"

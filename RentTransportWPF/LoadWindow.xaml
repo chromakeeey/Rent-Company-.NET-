@@ -13,24 +13,28 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="Gilroy"
+        FontWeight="Normal"
         
-        Title="LoadWindow" Height="250" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-    <Border CornerRadius="10" Background="White">
-        <Grid Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        
+        Title="LoadWindow" Height="450" Width="750" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Loaded="OnLoadLoaded">
+    <Grid Background="#282828">
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <materialDesign:PackIcon Kind="KeyVariant" Foreground="#C62530" Height="30" Width="30"/>            
+            <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Foreground="White" Text="Loading" FontSize="25"/>
+                    <materialDesign:PackIcon Kind="CarSaloon" Foreground="White" Height="20" Width="20" HorizontalAlignment="Right"/>
+                </StackPanel>
             </Grid>
 
-            <Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            
+            <Grid Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <TextBlock Foreground="White" Text="2020" FontSize="18" FontWeight="Light"/>
             </Grid>
-
         </Grid>
-            
-    </Border>
+    </Grid>
 </Window>

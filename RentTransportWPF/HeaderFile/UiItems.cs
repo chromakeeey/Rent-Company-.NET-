@@ -12,7 +12,7 @@ namespace RentTransportWPF.HeaderFile
     public class UiItems : UiItemsAnimation
     {
 
-        protected WindowMain mainWindow;
+        public WindowMain mainWindow;
 
         public UCMainPage uCMainPage { get; set; }
         public UCVListPage uCVListPage { get; set; }

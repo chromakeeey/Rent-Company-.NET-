@@ -24,6 +24,8 @@ namespace RentTransportWPF
         public ClientData clientData;
         public ServerData serverData;
 
+
+
         public WindowMain()
         {
             InitializeComponent();
@@ -36,12 +38,12 @@ namespace RentTransportWPF
 
         private void onHideWindow(object sender, RoutedEventArgs e)
         {
-            
+            WindowState = WindowState.Minimized;
         }
 
         private void onCloseWindow(object sender, RoutedEventArgs e)
         {
-
+            this.onExitApplication();
         }
 
         private void onResizeWindow(object sender, RoutedEventArgs e)
@@ -50,13 +52,11 @@ namespace RentTransportWPF
             {
                 case (WindowState.Maximized):
                     ResizeMode = ResizeMode.CanResize;
-                    WindowStyle = WindowStyle.SingleBorderWindow;
                     WindowState = WindowState.Normal;
                     break;
 
                 case (WindowState.Normal):
                     ResizeMode = ResizeMode.NoResize;
-                    WindowStyle = WindowStyle.None;
                     WindowState = WindowState.Maximized;
                     break;
             }
@@ -95,6 +95,12 @@ namespace RentTransportWPF
         private void onClickButtonSetting(object sender, RoutedEventArgs e)
         {
             clientData.uiOperation.Page = UiPageType.SETTING;
+        }
+
+        public void onExitApplication()
+        {    
+            serverData.userDisconnect();
+            Application.Current.Shutdown();
         }
     }
 }

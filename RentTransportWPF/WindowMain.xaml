@@ -63,16 +63,18 @@
                             <StackPanel>
                                 <Ellipse Height="50" Width="50" Margin="0,0,0,7">
                                     <Ellipse.Fill>
-                                        <ImageBrush ImageSource="me.png"/>
+                                        <ImageBrush x:Name="image_Avatar" ImageSource="me.png"/>
                                     </Ellipse.Fill>
                                 </Ellipse>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock VerticalAlignment="Center" TextAlignment="Center" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="15"><Run Text="palamarchuk"/></TextBlock>
+                                    <TextBlock x:Name="text_Login" 
+                                        VerticalAlignment="Center" TextAlignment="Center" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="15" Text="palamarchuk"/>
                                     <Button Background="Transparent" BorderThickness="0" Width="Auto" Height="Auto" Padding="0">
                                         <!--<materialDesign:PackIcon Kind="MenuDownOutline" Foreground="#768089" Height="12" Width="12"/>-->                    
                                     </Button>
                                 </StackPanel>
-                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Foreground="#C62530" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Admin"/></TextBlock>
+                                <TextBlock x:Name="label_IsAdmin" 
+                                    VerticalAlignment="Center" TextAlignment="Center" Foreground="#C62530" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Admin"/></TextBlock>
                             </StackPanel>
                         </Grid>    
                     </Grid>
@@ -227,7 +229,8 @@
                     <Grid Grid.Column="0" HorizontalAlignment="Left" Margin="0,7,0,0">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Аккаунт    /    "/></TextBlock>
-                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Паламарчук Олександр"/></TextBlock>
+                            <TextBlock x:Name="text_FullName" 
+                                Margin="0,0,0,0" VerticalAlignment="Center" TextAlignment="Left" Foreground="#768089" FontFamily="Gilroy" FontWeight="Bold" FontSize="12"><Run Text="Паламарчук Олександр"/></TextBlock>
                         </StackPanel>
                     </Grid>
 

@@ -10,7 +10,7 @@ namespace RentTransportWPF.HeaderFile
 {
     public class ServerData : IServiceRentCallback
     {
-
+        
         public ServiceRentClient ConnectProvider { get; private set; }
         public bool ConnectStatus { get; private set; }
         public int ClientId { get; private set; }

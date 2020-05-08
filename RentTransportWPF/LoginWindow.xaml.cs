@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using RentTransportWPF.HeaderFile;
+using RentTransportWPF.ServiceRent;
 
 namespace RentTransportWPF
 {
@@ -20,22 +21,55 @@ namespace RentTransportWPF
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public WindowMain mainWindow;
+
         public LoginWindow()
         {
             InitializeComponent();
+            mainWindow = new WindowMain();
+
+            mainWindow.clientData = new ClientData(mainWindow);
+            mainWindow.serverData = new ServerData();
         }
 
         private void onLoginClick(object sender, RoutedEventArgs e)
         {
-            Hide();
+            string login = field_Login.Text;
+            string password = field_Password.Text;
+            Account account;
 
-            var item = new WindowMain();
+            // empty textbox
+            if (login == "" || password == "")
+            {
+                MessageBox.Show("Incorrent login or password");
+                return;
+            }
 
-            item.clientData = new ClientData(item);
-            item.clientData.uiOperation.childrenAdd();
-            item.clientData.uiOperation.Page = UiPageType.MAIN;
+            account = mainWindow.serverData.ConnectProvider.selectAccount(login, password);
 
-            item.Show();
+            if (account.documentid != 0)
+            {
+                if (account.accepted != 0)
+                {
+                    this.Hide();
+
+                    mainWindow.clientData.setAccount(account);
+                    mainWindow.clientData.uiOperation.childrenAdd();
+                    mainWindow.clientData.uiOperation.Page = UiPageType.MAIN;
+
+                    mainWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Account not activated");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrent login or password");
+            }
+
+            
         }
 
         private void loginWindowLoaded(object sender, RoutedEventArgs e)
