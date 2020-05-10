@@ -20,6 +20,7 @@ namespace RentTransportWPF.HeaderFile
         public UCAAccountPage uCAAccountPage { get; set; }
         public UCOperationReceipt uCOperationReceipt { get; set; }
         public UCStatisticPage uCStatisticPage { get; set; }
+        public UCSettingPage uCSettingPage { get; set; }
 
         public UiItems()
         {
@@ -29,6 +30,7 @@ namespace RentTransportWPF.HeaderFile
             uCAAccountPage = new UCAAccountPage();
             uCOperationReceipt = new UCOperationReceipt();
             uCStatisticPage = new UCStatisticPage();
+            uCSettingPage = new UCSettingPage();
 
             uCMainPage.Visibility = System.Windows.Visibility.Hidden;
             uCVListPage.Visibility = System.Windows.Visibility.Hidden;
@@ -36,8 +38,9 @@ namespace RentTransportWPF.HeaderFile
             uCAAccountPage.Visibility = System.Windows.Visibility.Hidden;
             uCOperationReceipt.Visibility = System.Windows.Visibility.Hidden;
             uCStatisticPage.Visibility = System.Windows.Visibility.Hidden;
+            uCSettingPage.Visibility = System.Windows.Visibility.Hidden;
 
-            
+
         }
 
         public void childrenAdd()
@@ -48,6 +51,7 @@ namespace RentTransportWPF.HeaderFile
             mainWindow.MainGrid.Children.Add(uCAAccountPage);
             mainWindow.MainGrid.Children.Add(uCOperationReceipt);
             mainWindow.MainGrid.Children.Add(uCStatisticPage);
+            mainWindow.MainGrid.Children.Add(uCSettingPage);
 
             uCMainPage.mainWindow = mainWindow;
             uCVListPage.mainWindow = mainWindow;

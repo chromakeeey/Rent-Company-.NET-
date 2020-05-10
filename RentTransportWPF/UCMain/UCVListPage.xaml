@@ -248,11 +248,11 @@
                         </Grid>
 
                         <Grid Grid.Column="3">
-                            <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
+                            <Button x:Name="button_Rent" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
                             materialDesign:ButtonAssist.CornerRadius="5"
                             ToolTip="MaterialDesignRaisedLightButton with Round Corners"
                             Background="#6490F1"
-                            BorderBrush="#6490F1">
+                            BorderBrush="#6490F1" Click="onRentClick">
                                 <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="Орендувати"/>
                             </Button>
                         </Grid>

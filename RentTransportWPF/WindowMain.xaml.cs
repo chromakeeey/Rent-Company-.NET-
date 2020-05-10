@@ -22,6 +22,10 @@ namespace RentTransportWPF
     /// </summary>
     public partial class WindowMain : Window
     {
+
+        private bool onMove = false;
+        private Point pointMove = new Point();
+
         public ClientData clientData;
         public ServerData serverData;
 
@@ -115,6 +119,22 @@ namespace RentTransportWPF
         {
             Hide();
             loginWindow.Show();
+        }
+
+        private void moveMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+            
+        }
+
+        private void moveMouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void moveMouseMove(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

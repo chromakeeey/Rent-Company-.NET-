@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using RentTransportWPF.ServiceRent;
 using RentTransportWPF.UCHelp;
 using RentTransportWPF.HeaderFile;
+using RentTransportWPF.DGCustom.CustomDefaultDialog;
 
 namespace RentTransportWPF.UCMain
 {
@@ -56,7 +57,7 @@ namespace RentTransportWPF.UCMain
             row.Background = Brushes.LightGray;
 
             var item = row.itemVehicle;
-            var stream = mainWindow.serverData.ConnectProvider.vehicleImage(item);
+             var stream = mainWindow.serverData.ConnectProvider.vehicleImage(item);
             image_Vehicle.Source = ServerData.BytesToBitmapImage(stream);
 
             text_Category.Text = item.category;  
@@ -66,6 +67,8 @@ namespace RentTransportWPF.UCMain
             text_VIN.Text = item.VIN;
 
             text_IsRent.Text = item.rentlogid == 0 ? "Не орендований" : "Орендований";
+            button_Rent.IsEnabled = item.rentlogid == 0 ? true : false;
+
 
             text_Price.Text = String.Format("₴ {0}", item.price.ToString());
             text_Speed.Text = String.Format("{0} км/г", item.maxspeed.ToString());
@@ -99,6 +102,18 @@ namespace RentTransportWPF.UCMain
             {
                 card_ActiveVehicle.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void onRentClick(object sender, RoutedEventArgs e)
+        {
+            DialogWindow.Show("Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення",
+                "Заголовок", DialogButtons.Ok, DialogStyle.Error);
+
+            DialogWindow.Show("Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення",
+                "Заголовок", DialogButtons.Ok, DialogStyle.Information);
+
+            DialogWindow.Show("Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення Тест повідомлення",
+                "Заголовок", DialogButtons.Ok, DialogStyle.Warning);
         }
     }
 }

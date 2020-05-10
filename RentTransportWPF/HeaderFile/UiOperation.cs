@@ -75,9 +75,9 @@ namespace RentTransportWPF.HeaderFile
                     uCStatisticPage.Visibility = System.Windows.Visibility.Visible;
                     break;
 
-                    /*case UiPageType.SETTING:
-                        .Visibility = System.Windows.Visibility.Hidden;
-                        break;*/
+                case UiPageType.SETTING:
+                        uCSettingPage.Visibility = System.Windows.Visibility.Visible;
+                        break;
             }
 
             updateActiveButton();
@@ -111,9 +111,9 @@ namespace RentTransportWPF.HeaderFile
                     uCStatisticPage.Visibility = System.Windows.Visibility.Hidden;
                     break;
 
-                /*case UiPageType.SETTING:
-                    .Visibility = System.Windows.Visibility.Hidden;
-                    break;*/
+                case UiPageType.SETTING:
+                    uCSettingPage.Visibility = System.Windows.Visibility.Hidden;
+                    break;
             }
 
             
@@ -147,9 +147,9 @@ namespace RentTransportWPF.HeaderFile
                     mainWindow.buttonChart.Background = Brushes.Transparent;
                     break;
 
-                    /*case UiPageType.SETTING:
-                        .Visibility = System.Windows.Visibility.Hidden;
-                        break;*/
+                    case UiPageType.SETTING:
+                    mainWindow.buttonSetting.Background = Brushes.Transparent;
+                        break;
             }
 
             
@@ -186,9 +186,9 @@ namespace RentTransportWPF.HeaderFile
                     mainWindow.buttonChart.Background = Brushes.LightGray;                    
                     break;
 
-                    /*case UiPageType.SETTING:
-                        .Visibility = System.Windows.Visibility.Hidden;
-                        break;*/
+                case UiPageType.SETTING:
+                    mainWindow.buttonSetting.Background = Brushes.LightGray;
+                        break;
             }
         }
 

@@ -1,0 +1,224 @@
+﻿<UserControl x:Class="RentTransportWPF.UCMain.UCSettingPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+             mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="Transparent"
+        FontFamily="Gilroy"
+             
+             
+             d:DesignWidth="1043" d:DesignHeight="713">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <materialDesign:Card x:Name="card_VehicleInfo" Margin="0,10,0,20" 
+                                 materialDesign:ShadowAssist.ShadowEdges="Top,Bottom"
+                                 materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                 Padding="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel>
+                                <materialDesign:Card Margin="0,0,0,30"
+                                 materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                                    <Grid Height="200" Width="400">
+
+                                        <Grid.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="#eacda3" Offset="0.0" />
+                                                <GradientStop Color="#d6ae7b" Offset="1.0" />
+                                            </LinearGradientBrush>
+                                        </Grid.Background>
+
+                                        <Grid Margin="7">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <Grid Grid.Row="0">
+                                                <TextBlock Text="VISA" Foreground="White"  FontFamily="Gilroy" HorizontalAlignment="Right" FontWeight="Bold" FontSize="32"/>
+                                            </Grid>
+
+                                            <Grid Grid.Row="1">
+                                                <TextBlock Margin="0,0,0,10" Text="5375 **** **** 7147" Foreground="White"  FontFamily="Gilroy" HorizontalAlignment="Center" FontWeight="Normal" FontSize="29"/> 
+                                            </Grid>
+
+                                            <Grid Grid.Row="2">
+                                                <TextBlock Text="07/24" Foreground="White"  FontFamily="Gilroy" HorizontalAlignment="Right" FontWeight="Bold" FontSize="22"/>
+                                            </Grid>
+                                        </Grid>
+
+                                    </Grid>    
+                                </materialDesign:Card>
+                                <materialDesign:Card Margin="0,0,0,10"
+                                 materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                                    <Grid Height="200" Width="400">
+
+                                        <Grid.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="#eacda3" Offset="0.0" />
+                                                <GradientStop Color="#d6ae7b" Offset="1.0" />
+                                            </LinearGradientBrush>
+                                        </Grid.Background>
+
+                                        <Grid>
+                                            <Grid Background="LightGray" Height="40" VerticalAlignment="Top" Margin="0,30,0,0"/>
+
+                                            <Grid Background="LightGray" VerticalAlignment="Bottom" Height="40" Margin="300,0,15,20">
+                                                <TextBlock Text="**9" Foreground="White"  
+                                                           FontFamily="Gilroy" 
+                                                           HorizontalAlignment="Center" 
+                                                           VerticalAlignment="Center" 
+                                                           FontWeight="Bold" 
+                                                           FontSize="22"/>            
+                                            </Grid>
+                                            
+                                        </Grid>
+
+                                    </Grid>
+                                </materialDesign:Card>
+                            </StackPanel>        
+                        </Grid>    
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid Margin="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Платіжні реквізити" Foreground="Black"  FontFamily="Gilroy" FontWeight="Bold" FontSize="28"
+                                           Margin="0,0,0,20"/>    
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <StackPanel>
+                                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
+                                         VerticalAlignment="Top" 
+                                         AcceptsReturn="True"
+                                         materialDesign:HintAssist.Hint="Номер карти"
+                                         
+                                         materialDesign:HintAssist.Foreground="#2644F7"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"
+                                         
+                                         
+                                         FontFamily="Gilroy" FontWeight="Bold"
+                                             Margin="0,0,0,20"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
+                                         
+                                         VerticalAlignment="Top" 
+                                         AcceptsReturn="True"
+                                         materialDesign:HintAssist.Hint="Термін дії"
+                                         
+                                         materialDesign:HintAssist.Foreground="#2644F7"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"
+                                         
+                                         Margin="0,0,20,0"
+                                         FontFamily="Gilroy" FontWeight="Bold"/>
+                                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
+                                         VerticalAlignment="Top" 
+                                         AcceptsReturn="True"
+                                         materialDesign:HintAssist.Hint="CVV"
+                                         
+                                         materialDesign:HintAssist.Foreground="#2644F7"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"
+                                         
+                                         
+                                         FontFamily="Gilroy" FontWeight="Bold"/>
+                                    </StackPanel>
+                                    <Button Margin="0,20,0,0"
+                                        Style="{StaticResource MaterialDesignRaisedLightButton}"  
+                                            materialDesign:ButtonAssist.CornerRadius="5"
+                                            ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                                            Background="#6490F1"
+                                            BorderBrush="#6490F1">
+                                        <StackPanel Orientation="Horizontal">
+                                            <materialDesign:PackIcon Kind="ModeEditOutline" Foreground="White" Margin="0,0,5,0" Height="20" Width="20"/>
+                                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="Оновити інформацію"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>   
+                            </Grid>
+                            
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <TextBlock Text="Основна інформація" FontFamily="Gilroy" FontSize="16"/>
+                <materialDesign:Card Margin="0,10,0,0" 
+                                 materialDesign:ShadowAssist.ShadowEdges="Top,Bottom"
+                                 materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                 Padding="10">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Зміна пароля" Margin="5" FontFamily="Gilroy" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Margin="10" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
+                                         VerticalAlignment="Top" 
+                                         AcceptsReturn="True"
+                                         materialDesign:HintAssist.Hint="Ваш пароль на даний момент" 
+                                         materialDesign:HintAssist.Foreground="#2644F7"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"                                         
+                                         FontFamily="Gilroy" FontWeight="Bold"/>
+                                <TextBox Margin="10" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
+                                         VerticalAlignment="Top" 
+                                         AcceptsReturn="True"
+                                         materialDesign:HintAssist.Hint="Новий пароль" 
+                                         materialDesign:HintAssist.Foreground="#2644F7"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"                                         
+                                         FontFamily="Gilroy" FontWeight="Bold"/>
+                                <TextBox Margin="10" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
+                                         VerticalAlignment="Top" 
+                                         AcceptsReturn="True"
+                                         materialDesign:HintAssist.Hint="Введіть новий пароль ще раз" 
+                                         materialDesign:HintAssist.Foreground="#2644F7"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"                                         
+                                         FontFamily="Gilroy" FontWeight="Bold"/>
+                                <Button Margin="5"
+                                        Style="{StaticResource MaterialDesignRaisedLightButton}"  
+                                            materialDesign:ButtonAssist.CornerRadius="5"
+                                            ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                                            Background="#6490F1"
+                                            BorderBrush="#6490F1">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ModeEditOutline" Foreground="White" Margin="0,0,5,0" Height="20" Width="20"/>
+                                        <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="Оновити інформацію"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:Card>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -209,7 +209,7 @@
 
         </Grid>
 
-        <Grid Grid.Column="1" Background="#F9F9F9">
+        <Grid  Grid.Column="1" Background="#F9F9F9" MouseDown="moveMouseDown" MouseUp="moveMouseUp" MouseMove="moveMouseMove">
 
             <Grid Margin="40,15,40,15">
                 <Grid.RowDefinitions>

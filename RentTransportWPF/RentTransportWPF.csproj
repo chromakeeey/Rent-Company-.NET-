@@ -70,6 +70,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="DGCustom\CustomDefaultDialog\DialogOk.xaml.cs">
+      <DependentUpon>DialogOk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DGCustom\CustomDefaultDialog\DialogOkNo.xaml.cs">
+      <DependentUpon>DialogOkNo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DGCustom\CustomDefaultDialog\DialogOkNoCancel.xaml.cs">
+      <DependentUpon>DialogOkNoCancel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DGCustom\CustomDefaultDialog\DialogWindow.cs" />
     <Compile Include="DGCustom\DGSearchVehicle.xaml.cs">
       <DependentUpon>DGSearchVehicle.xaml</DependentUpon>
     </Compile>
@@ -113,6 +123,9 @@
     <Compile Include="UCMain\UCOperationReceipt.xaml.cs">
       <DependentUpon>UCOperationReceipt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCMain\UCSettingPage.xaml.cs">
+      <DependentUpon>UCSettingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCMain\UCStatisticPage.xaml.cs">
       <DependentUpon>UCStatisticPage.xaml</DependentUpon>
     </Compile>
@@ -122,6 +135,18 @@
     <Compile Include="WindowMain.xaml.cs">
       <DependentUpon>WindowMain.xaml</DependentUpon>
     </Compile>
+    <Page Include="DGCustom\CustomDefaultDialog\DialogOk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DGCustom\CustomDefaultDialog\DialogOkNo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DGCustom\CustomDefaultDialog\DialogOkNoCancel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DGCustom\DGSearchVehicle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCMain\UCOperationReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCMain\UCSettingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
