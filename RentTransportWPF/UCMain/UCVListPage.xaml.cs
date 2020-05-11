@@ -57,7 +57,7 @@ namespace RentTransportWPF.UCMain
             row.Background = Brushes.LightGray;
 
             var item = row.itemVehicle;
-             var stream = mainWindow.serverData.ConnectProvider.vehicleImage(item);
+            var stream = mainWindow.serverData.ConnectProvider.vehicleImage(item);
             image_Vehicle.Source = ServerData.BytesToBitmapImage(stream);
 
             text_Category.Text = item.category;  

@@ -7,11 +7,13 @@
              mc:Ignorable="d" 
              
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        
+             
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
+             
         Background="Transparent"
         FontFamily="Gilroy"
              
@@ -101,7 +103,7 @@
                         </Grid>    
                     </Grid>
 
-                    <Grid Grid.Column="1">
+                    <Grid Grid.Column="1" Background="White">
                         <Grid Margin="20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
@@ -115,39 +117,24 @@
 
                             <Grid Grid.Row="1">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
-                                         VerticalAlignment="Top" 
-                                         AcceptsReturn="True"
-                                         materialDesign:HintAssist.Hint="Номер карти"
-                                         
-                                         materialDesign:HintAssist.Foreground="#2644F7"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"
-                                         
-                                         
-                                         FontFamily="Gilroy" FontWeight="Bold"
-                                             Margin="0,0,0,20"/>
+                                    <TextBox Margin="0,0,0,10" 
+                                         materialDesign:HintAssist.Foreground="#6490F1"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#6490F1" 
+                                        materialDesign:HintAssist.Hint="Номер карти" FontFamily="Gilroy" FontWeight="Bold"
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                             VerticalAlignment="Center" />
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
-                                         
-                                         VerticalAlignment="Top" 
-                                         AcceptsReturn="True"
-                                         materialDesign:HintAssist.Hint="Термін дії"
-                                         
-                                         materialDesign:HintAssist.Foreground="#2644F7"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"
-                                         
-                                         Margin="0,0,20,0"
-                                         FontFamily="Gilroy" FontWeight="Bold"/>
-                                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
-                                         VerticalAlignment="Top" 
-                                         AcceptsReturn="True"
-                                         materialDesign:HintAssist.Hint="CVV"
-                                         
-                                         materialDesign:HintAssist.Foreground="#2644F7"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"
-                                         
-                                         
-                                         FontFamily="Gilroy" FontWeight="Bold"/>
+                                        <TextBox materialDesign:HintAssist.Hint="Термін дії" FontFamily="Gilroy" FontWeight="Bold"
+                                             materialDesign:HintAssist.Foreground="#6490F1"
+                                             materialDesign:TextFieldAssist.UnderlineBrush="#6490F1" 
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                             VerticalAlignment="Center" />
+                                        <TextBox Margin="20,0,0,0"
+                                             materialDesign:HintAssist.Foreground="#6490F1"
+                                             materialDesign:TextFieldAssist.UnderlineBrush="#6490F1" 
+                                            materialDesign:HintAssist.Hint="CVV" FontFamily="Gilroy" FontWeight="Bold"
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                             VerticalAlignment="Center" />
                                     </StackPanel>
                                     <Button Margin="0,20,0,0"
                                         Style="{StaticResource MaterialDesignRaisedLightButton}"  
@@ -185,22 +172,22 @@
                                          VerticalAlignment="Top" 
                                          AcceptsReturn="True"
                                          materialDesign:HintAssist.Hint="Ваш пароль на даний момент" 
-                                         materialDesign:HintAssist.Foreground="#2644F7"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"                                         
+                                         materialDesign:HintAssist.Foreground="#6490F1"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#6490F1"                                         
                                          FontFamily="Gilroy" FontWeight="Bold"/>
                                 <TextBox Margin="10" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
                                          VerticalAlignment="Top" 
                                          AcceptsReturn="True"
                                          materialDesign:HintAssist.Hint="Новий пароль" 
-                                         materialDesign:HintAssist.Foreground="#2644F7"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"                                         
+                                         materialDesign:HintAssist.Foreground="#6490F1"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#6490F1"                                         
                                          FontFamily="Gilroy" FontWeight="Bold"/>
                                 <TextBox Margin="10" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" 
                                          VerticalAlignment="Top" 
                                          AcceptsReturn="True"
                                          materialDesign:HintAssist.Hint="Введіть новий пароль ще раз" 
-                                         materialDesign:HintAssist.Foreground="#2644F7"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="#2644F7"                                         
+                                         materialDesign:HintAssist.Foreground="#6490F1"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#6490F1"                                         
                                          FontFamily="Gilroy" FontWeight="Bold"/>
                                 <Button Margin="5"
                                         Style="{StaticResource MaterialDesignRaisedLightButton}"  

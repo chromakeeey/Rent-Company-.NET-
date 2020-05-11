@@ -17,7 +17,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="WindowMain" Height="730" Width="1490" Loaded="onMainWindowLoaded">
+        Title="WindowMain" Height="900" Width="1440" Loaded="onMainWindowLoaded">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
