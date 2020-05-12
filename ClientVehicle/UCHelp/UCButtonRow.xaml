@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="ClientVehicle.UCHelp.UCButtonRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClientVehicle.UCHelp"
+             mc:Ignorable="d" 
+             d:DesignHeight="144" d:DesignWidth="596">
+    <Grid>
+        <Button
+            Background="Transparent"
+            BorderBrush="Transparent"
+            Height="144" 
+            Width="596" 
+            Margin="0 0 0 0" 
+            Padding="0" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center">
+            <Grid Height="124" Width="536">
+                <Border  
+                BorderBrush="Transparent" 
+                BorderThickness="1" 
+                Background="White"
+                CornerRadius="25">
+                    <Border.Effect>
+                        <DropShadowEffect 
+                        BlurRadius="10" 
+                        ShadowDepth="5" 
+                        Opacity="0.3"/>
+                    </Border.Effect>
+                </Border>
+
+                <Grid Margin="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Grid.Column="0" Source="toyota_PNG1953.png"
+                        />
+
+                    <StackPanel
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="1">
+                        <TextBlock
+                              TextAlignment="Center"
+                              HorizontalAlignment="Center"
+                              Text="Toyota Prius" 
+                              FontSize="36"
+                              FontFamily="Gilroy"
+                              Foreground="Black"
+                              FontWeight="Bold"/>
+
+                        <TextBlock 
+                              TextAlignment="Center"
+                              HorizontalAlignment="Center"
+                              Text="1D8GT28K88W124700" 
+                              FontSize="18"
+                              FontFamily="Gilroy"
+                              Foreground="#99A5B6"
+                              FontWeight="Bold"/>
+                    </StackPanel>
+                    
+                </Grid>
+                
+            </Grid>    
+        </Button>        
+    </Grid>
+</UserControl>

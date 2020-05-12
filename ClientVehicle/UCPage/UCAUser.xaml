@@ -1,0 +1,260 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClientVehicle.UCPage"
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:UCHelp="clr-namespace:ClientVehicle.UCHelp" x:Class="ClientVehicle.UCPage.UCAUser"
+             mc:Ignorable="d"
+             
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="Gilroy"
+             
+             d:DesignHeight="860" d:DesignWidth="1312">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Margin="10"
+            Grid.Row="0"
+            Text="Операції з аккаунтами"
+            FontFamily="Gilroy"
+            FontWeight="Bold"
+            Foreground="#99A5B6"
+            FontSize="18"/>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid Height="60" Width="231" HorizontalAlignment="Right"
+                      Margin="0 0 20 0">
+                    <Border  
+                                    BorderBrush="Transparent" 
+                                    BorderThickness="1" 
+                                    Background="White"
+                                     CornerRadius="15">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                            BlurRadius="10" 
+                                            ShadowDepth="5" 
+                                            Opacity="0.3"/>
+                        </Border.Effect>
+                    </Border>
+
+                    <Grid
+                        VerticalAlignment="Center"
+                        Margin="15 5 15 5">
+                        <StackPanel>
+                            <TextBlock
+                                Text="Всього аккаунтів"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                FontSize="15"
+                                Foreground="#99A5B6"/>
+
+                            <TextBlock
+                                Text="256"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                FontSize="18"
+                                Foreground="Black"/>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid Height="60" Width="231" HorizontalAlignment="Right"
+                      Margin="0 0 20 0">
+                    <Border  
+                                    BorderBrush="Transparent" 
+                                    BorderThickness="1" 
+                                    Background="White"
+                                     CornerRadius="15">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                            BlurRadius="10" 
+                                            ShadowDepth="5" 
+                                            Opacity="0.3"/>
+                        </Border.Effect>
+                    </Border>
+
+                    <Grid
+                        VerticalAlignment="Center"
+                        Margin="15 5 15 5">
+                        <StackPanel>
+                            <TextBlock
+                                Text="Деактивованих"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                FontSize="15"
+                                Foreground="#99A5B6"/>
+
+                            <TextBlock
+                                Text="32"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                FontSize="18"
+                                Foreground="Black"/>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid Height="40" Width="265" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Border  
+                                    BorderBrush="Transparent" 
+                                    BorderThickness="1" 
+                                    Background="White"
+                                     CornerRadius="15">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                            BlurRadius="10" 
+                                            ShadowDepth="5" 
+                                            Opacity="0.3"/>
+                        </Border.Effect>
+                    </Border>
+
+                    <Grid
+                        VerticalAlignment="Center"
+                        Margin="15 5 15 5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <TextBox
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            BorderThickness="0"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                            materialDesign:HintAssist.Hint="Введіть ім'я"/>
+
+
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <materialDesign:PackIcon Kind="Search"
+                                                         HorizontalAlignment="Right"
+                                                         VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="19 10 37 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="64"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Text="ID"
+                FontFamily="Gilroy"
+                FontWeight="Bold"
+                FontSize="18"
+                Foreground="Black"/>
+
+            <TextBlock
+                Grid.Column="1"
+                Text="Повне ім'я"
+                FontFamily="Gilroy"
+                FontWeight="Bold"
+                FontSize="18"
+                Foreground="Black"/>
+
+            <TextBlock
+                Grid.Column="2"
+                Text="Баланс"
+                FontFamily="Gilroy"
+                FontWeight="Bold"
+                FontSize="18"
+                Foreground="Black"/>
+
+            <TextBlock
+                Grid.Column="3"
+                Text="Борг"
+                FontFamily="Gilroy"
+                FontWeight="Bold"
+                FontSize="18"
+                Foreground="Black"/>
+
+            <TextBlock
+                Grid.Column="4"
+                Text="Дата створення"
+                FontFamily="Gilroy"
+                FontWeight="Bold"
+                FontSize="18"
+                Foreground="Black"/>
+
+            <TextBlock
+                Grid.Column="5"
+                Text="Детальніше"
+                FontFamily="Gilroy"
+                FontWeight="Bold"
+                FontSize="18"
+                Foreground="Black"/>
+
+        </Grid>
+
+        <ScrollViewer Grid.Row="3">
+            <StackPanel>
+
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+                <UCHelp:UCAUserRow Height="93"/>
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

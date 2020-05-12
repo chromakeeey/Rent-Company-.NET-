@@ -1,0 +1,485 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClientVehicle.UCPage"
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:UCHelp="clr-namespace:ClientVehicle.UCHelp" x:Class="ClientVehicle.UCPage.UCVehicle"
+             mc:Ignorable="d"
+             
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="Gilroy"
+             
+             d:DesignHeight="860" d:DesignWidth="1312">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="10">
+            <Border  
+                BorderBrush="Transparent" 
+                BorderThickness="1" 
+                Background="White"
+                CornerRadius="25">
+                <Border.Effect>
+                    <DropShadowEffect 
+                        BlurRadius="10" 
+                        ShadowDepth="5" 
+                        Opacity="0.3"/>
+                </Border.Effect>
+                
+            </Border>
+
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button
+                    HorizontalAlignment="Left"
+                    Grid.Row="0"
+                    Background="Transparent"
+                    BorderBrush="Transparent">
+                    <TextBlock 
+                        Text="Деталізований пошук" 
+                        FontSize="14"
+                        FontFamily="Gilroy"
+                        Foreground="#99A5B6"
+                        FontWeight="Bold"/>
+                </Button>
+
+                <Grid Grid.Row="1">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <StackPanel HorizontalAlignment="Left">
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                            <UCHelp:UCButtonRow/>
+                        </StackPanel>
+                        
+                    </ScrollViewer>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="10">
+            <Border  
+                BorderBrush="Transparent" 
+                BorderThickness="1" 
+                Background="White"
+                CornerRadius="25">
+                <Border.Effect>
+                    <DropShadowEffect 
+                        BlurRadius="10" 
+                        ShadowDepth="5" 
+                        Opacity="0.3"/>
+                </Border.Effect>
+            </Border>
+
+            <Grid 
+                Margin="40 20 40 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <StackPanel>
+                        <Image
+                            Height="300" Width="450"
+                            HorizontalAlignment="Center" Source="toyota_PNG1953.png"
+                            />
+
+                        <TextBlock
+                              TextAlignment="Center"
+                              HorizontalAlignment="Center"
+                              Text="Toyota Prius" 
+                              FontSize="36"
+                              FontFamily="Gilroy"
+                              Foreground="Black"
+                              FontWeight="Bold"/>
+
+                        <TextBlock 
+                              TextAlignment="Center"
+                              HorizontalAlignment="Center"
+                              Text="1D8GT28K88W124700" 
+                              FontSize="22"
+                              FontFamily="Gilroy"
+                              Foreground="#99A5B6"
+                              FontWeight="Bold"/>
+
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0 25 0 0">
+                        <StackPanel>
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Номерний знак:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="AA 3546 AT" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Категорія прав:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="B" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Бензина в баці:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="32 л." 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Об'єм бака:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="60 л." 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Макс. швидкість:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="150 км/г" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Тип:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="Легковий" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Трансмісія:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="Автоматична" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+                            <!-- Plate -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Пробіг:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="32 000 км" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                            </Grid>
+
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid VerticalAlignment="Bottom">
+                            <StackPanel>
+                                <!-- Plate -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Початок оренди:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                    <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="25.06.2020 12:43:46" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                                </Grid>
+
+                                <!-- Plate -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Кінець оренди:" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                                    <TextBlock 
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="25.06.2020 12:43:46" 
+                                    FontSize="22"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                                </Grid>
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                                    <TextBlock
+                                        Margin="0 20 20 0"
+                                        VerticalAlignment="Center"
+                                        Text="Цей транспорт вже орендовний" 
+                                        FontSize="14"
+                                        FontFamily="Gilroy"
+                                        Foreground="#99A5B6"
+                                        FontWeight="Bold"/>
+
+                                    <Button Margin="0 20 0 0"
+                                    Height="36" Width="155"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                    materialDesign:ButtonAssist.CornerRadius="15"
+                                    Padding="0"
+                                        HorizontalAlignment="Right"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                        Background="#3B93F7"
+                                        BorderBrush="#3B93F7">
+                                        <TextBlock 
+                                        Text="Взяти в оренду" 
+                                        FontSize="14"
+                                        FontFamily="Gilroy"
+                                        Foreground="White"
+                                        FontWeight="Bold"/>
+                                    </Button>
+
+
+
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

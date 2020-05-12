@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerHost", "ServerHost\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentTransportWPF", "RentTransportWPF\RentTransportWPF.csproj", "{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientVehicle", "ClientVehicle\ClientVehicle.csproj", "{EB3E6631-BF74-4288-B5C5-8978129563C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3E6631-BF74-4288-B5C5-8978129563C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3E6631-BF74-4288-B5C5-8978129563C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3E6631-BF74-4288-B5C5-8978129563C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3E6631-BF74-4288-B5C5-8978129563C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
