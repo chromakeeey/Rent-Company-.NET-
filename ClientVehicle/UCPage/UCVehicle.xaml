@@ -60,7 +60,7 @@
 
                 <Grid Grid.Row="1">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                        <StackPanel HorizontalAlignment="Left">
+                        <StackPanel HorizontalAlignment="Center">
                             <UCHelp:UCButtonRow/>
                             <UCHelp:UCButtonRow/>
                             <UCHelp:UCButtonRow/>

@@ -30,3 +30,9 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\UCHelp\UCAUserRow.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCAUser.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\UCHelp\UCAUserRow.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCAUser.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\UCHelp\UCAVehicleRow.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCAVehicle.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\UCHelp\UCAVehicleRow.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCAVehicle.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCStatistic.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCStatistic.baml

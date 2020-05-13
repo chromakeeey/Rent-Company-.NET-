@@ -66,14 +66,23 @@
     <Compile Include="UCHelp\UCAUserRow.xaml.cs">
       <DependentUpon>UCAUserRow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCHelp\UCAVehicleRow.xaml.cs">
+      <DependentUpon>UCAVehicleRow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCHelp\UCButtonRow.xaml.cs">
       <DependentUpon>UCButtonRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCPage\UCAUser.xaml.cs">
       <DependentUpon>UCAUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCPage\UCAVehicle.xaml.cs">
+      <DependentUpon>UCAVehicle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCPage\UCMain.xaml.cs">
       <DependentUpon>UCMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCPage\UCStatistic.xaml.cs">
+      <DependentUpon>UCStatistic.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCPage\UCVehicle.xaml.cs">
       <DependentUpon>UCVehicle.xaml</DependentUpon>
@@ -94,6 +103,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCHelp\UCAVehicleRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCHelp\UCButtonRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,7 +115,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCPage\UCAVehicle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCPage\UCMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCPage\UCStatistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

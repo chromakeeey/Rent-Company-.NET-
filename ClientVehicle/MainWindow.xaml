@@ -92,7 +92,7 @@
         <Grid Grid.Column="1">
             <Grid Margin="20">
 
-                <UCPage:UCAUser />
+                <UCPage:UCMain/>
 
             </Grid>
         </Grid>
