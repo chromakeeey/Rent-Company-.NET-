@@ -78,7 +78,8 @@
                 FontSize="15"
                 Foreground="#99A5B6"/>
 
-            <Button Grid.Column="5" Width="32" Height="32" Padding="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left">
+            
+            <Button Grid.Column="5" Width="32" Height="32" Padding="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" Click="onMoreClick">
                 <Button.ContextMenu>
                     <ContextMenu>
 
@@ -125,7 +126,9 @@
                                      Height="32" Width="32"/>
 
             </Button>
+            
 
+            
         </Grid>        
     </Grid>
 </UserControl>

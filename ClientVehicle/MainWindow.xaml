@@ -18,6 +18,11 @@
         
         WindowStyle="None" Background="#E5E5E5"
         Title="MainWindow" Height="900" Width="1440" MouseDown="onMouseDown">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="88"/>
@@ -40,48 +45,122 @@
 
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-                    <Grid 
-                        VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <StackPanel
+                    Margin="0 20 0 100"
+                    Grid.Row="0" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="KeyVariant"
+                                             HorizontalAlignment="Center"
+                                             Height="30"
+                                             Margin="0 0 0 10"
+                    Width="30"/>
+                    <TextBlock Text="Transport" FontFamily="Gilroy" FontWeight="Bold"/>
+                    <TextBlock Text="Rent" FontFamily="Gilroy" FontWeight="Medium"/>
+                </StackPanel>
+                
+                <Grid Grid.Row="1">
+                    <Grid
+                        Margin="0 0 0 0"
+                        VerticalAlignment="Top" HorizontalAlignment="Center">
                         <StackPanel>
-                            <materialDesign:PackIcon Kind="Home"
-                                             Margin="0,0,0,40"
-                                             Height="25" Width="25"
-                                             Foreground="#3B93F7"/>
 
-                            <materialDesign:PackIcon Kind="CarMultiple"
-                                             Margin="0,0,0,40"
-                                             Height="25" Width="25"
-                                             Foreground="#99A5B6"/>
+                            <Grid 
+                                Margin="0,0,0,20"
+                                Background="White"
+                                Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="mainMouseDown">
+                                <materialDesign:PackIcon
+                                    x:Name="iconMain"
+                                    Margin="10"
+                                    Kind="Home"
+                                    Height="25" Width="25"
+                                    Foreground="#99A5B6"/>
+                            </Grid>
 
-                            <materialDesign:PackIcon Kind="CarCog"
-                                             Margin="0,0,0,40"
-                                             Height="25" Width="25"
-                                             Foreground="#99A5B6"/>
+                            <Grid
+                                Margin="0,0,0,20"
+                                Background="White"
+                                Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="vehicleMouseDown">
+                                <materialDesign:PackIcon
+                                    x:Name="iconVehicle"
+                                    Margin="10"
+                                    Kind="CarMultiple"
+                                    Height="25" Width="25"
+                                    Foreground="#99A5B6"/>
+                            </Grid>
 
-                            <materialDesign:PackIcon Kind="UserGroup"
-                                             Margin="0,0,0,40"
-                                             Height="25" Width="25"
-                                             Foreground="#99A5B6"/>
+                            <Grid
+                                Margin="0,0,0,20"
+                                Background="White"
+                                Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="aVehicleMouseDown">
+                                <materialDesign:PackIcon
+                                    x:Name="iconAVehicle"
+                                    Margin="10"
+                                    Kind="CarCog"
+                                    Height="25" Width="25"
+                                    Foreground="#99A5B6"/>
+                            </Grid>
 
-                            <materialDesign:PackIcon Kind="ChartArc"
-                                             Margin="0,0,0,40"
-                                             Height="25" Width="25"
-                                             Foreground="#99A5B6"/>
+                            <Grid
+                                Margin="0,0,0,20"
+                                Background="White"
+                                Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="aUserMouseDown">
+                                <materialDesign:PackIcon
+                                    x:Name="iconAUser"
+                                    Margin="10"
+                                    Kind="UserGroup"
+                                    Height="25" Width="25"
+                                    Foreground="#99A5B6"/>
+                            </Grid>
+
+                            <Grid
+                                Margin="0,0,0,20"
+                                Background="White"
+                                Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="statMouseDown">
+                                <materialDesign:PackIcon
+                                    x:Name="iconStatistic"
+                                    Margin="10"
+                                    Kind="ChartArc"
+                                    Height="25" Width="25"
+                                    Foreground="#99A5B6"/>
+                            </Grid>
+
+                           
 
                         </StackPanel>
                     </Grid>
                 </Grid>
 
                 <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="ExitToApp"
-                                             Margin="0,0,0,20"
-                                             Height="25" Width="25"
-                                             Foreground="#99A5B6"/>
+                    <StackPanel>
+                        <Grid
+                                Margin="0,0,0,20"
+                                Background="White"
+                                Style="{StaticResource HoverMouseAnimationGrid}">
+                            <materialDesign:PackIcon
+                                    Margin="10"
+                                    Kind="Fullscreen"
+                                    Height="25" Width="25"
+                                    Foreground="#99A5B6"/>
+                        </Grid>
+
+                        <Grid
+                                Margin="0,0,0,20"
+                                Background="White"
+                                Style="{StaticResource HoverMouseAnimationGrid}">
+                            <materialDesign:PackIcon
+                                    Margin="10"
+                                    Kind="ExitToApp"
+                                    Height="25" Width="25"
+                                    Foreground="#99A5B6"/>
+                        </Grid>
+
+                    </StackPanel>
                 </Grid>
 
             </Grid>
@@ -90,9 +169,24 @@
         </Grid>
 
         <Grid Grid.Column="1">
-            <Grid Margin="20">
 
-                <UCPage:UCMain/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <Grid Margin="20 10 10 0" Grid.Row="0">
+                <materialDesign:PackIcon 
+                        Kind="CloseThick" 
+                        HorizontalAlignment="Right"
+                    Style="{StaticResource HoverMouseAnimation}"
+                        />  
+            </Grid>
+            
+            <Grid Margin="20" Grid.Row="1" x:Name="pageGrid">
+                
+
 
             </Grid>
         </Grid>

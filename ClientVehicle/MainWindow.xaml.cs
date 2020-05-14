@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClientVehicle.Header;
+
 namespace ClientVehicle
 {
     /// <summary>
@@ -23,6 +25,8 @@ namespace ClientVehicle
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
 
         private void onMouseDown(object sender, MouseButtonEventArgs e)
@@ -31,6 +35,36 @@ namespace ClientVehicle
                 DragMove();
 
             //DragMove();
+        }
+
+        private void mainMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (MouseButtonState.Pressed == e.LeftButton)
+                UiOperation.SetPage(UIPage.Main);
+        }
+
+        private void vehicleMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (MouseButtonState.Pressed == e.LeftButton)
+                UiOperation.SetPage(UIPage.Vehicle);
+        }
+
+        private void aVehicleMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (MouseButtonState.Pressed == e.LeftButton)
+                UiOperation.SetPage(UIPage.AVehicle);
+        }
+
+        private void aUserMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (MouseButtonState.Pressed == e.LeftButton)
+                UiOperation.SetPage(UIPage.AUser);
+        }
+
+        private void statMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (MouseButtonState.Pressed == e.LeftButton)
+                UiOperation.SetPage(UIPage.Statistic);
         }
     }
 }

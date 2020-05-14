@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\TRC_Redesign\ClientVehicle\App.xaml
-9-773913609
+10112321335
 
-14-970791063
+17-36237362
 15-106507236
-MainWindow.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
+LoginWindow.xaml;MainWindow.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
 
-True
+False
 

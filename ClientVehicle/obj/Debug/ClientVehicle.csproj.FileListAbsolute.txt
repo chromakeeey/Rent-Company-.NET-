@@ -36,3 +36,5 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\UCHelp\UCAVehicleRow.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCAVehicle.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCStatistic.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCStatistic.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\LoginWindow.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\LoginWindow.baml
