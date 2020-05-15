@@ -229,7 +229,7 @@
         </Grid>
 
         <ScrollViewer Grid.Row="3">
-            <StackPanel>
+            <StackPanel Margin="0 0 18 0">
 
                 <UCHelp:UCAUserRow Height="93"/>
                 <UCHelp:UCAUserRow Height="93"/>

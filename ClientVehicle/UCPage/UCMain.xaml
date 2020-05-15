@@ -398,7 +398,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#DF9090"
-                                        BorderBrush="#DF9090">
+                                        BorderBrush="#DF9090" Click="onCancelRent">
                                         <TextBlock 
                                         Text="Відмінити оренду" 
                                         FontSize="14"
@@ -801,7 +801,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onUpdatePasswordClick">
                                 <TextBlock 
                                         Text="Оновити пароль" 
                                         FontSize="14"

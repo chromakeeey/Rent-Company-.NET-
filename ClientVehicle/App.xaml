@@ -11,6 +11,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary Source="Styles/Scroll.xaml" />
+                <ResourceDictionary Source="Styles/MainIconButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="BorderCornerRadius25" TargetType="Border">
@@ -56,18 +58,7 @@
                 </Style.Triggers>
             </Style>
 
-            <Style x:Key="HoverMouseAnimationGrid" TargetType="Grid">
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
-                        <Setter Property="RenderTransform">
-                            <Setter.Value>
-                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                            </Setter.Value>
-                        </Setter>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+            
 
         </ResourceDictionary>
 

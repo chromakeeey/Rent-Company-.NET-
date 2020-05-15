@@ -74,42 +74,73 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Grid Height="60" Width="231" HorizontalAlignment="Right"
+                <StackPanel Orientation="Horizontal">
+                    <Grid Height="60" Width="231" HorizontalAlignment="Right"
                       Margin="0 0 20 0">
-                    <Border  
+                        <Border  
                                     BorderBrush="Transparent" 
                                     BorderThickness="1" 
                                     Background="White"
                                      CornerRadius="15">
-                        <Border.Effect>
-                            <DropShadowEffect 
+                            <Border.Effect>
+                                <DropShadowEffect 
                                             BlurRadius="10" 
                                             ShadowDepth="5" 
                                             Opacity="0.3"/>
-                        </Border.Effect>
-                    </Border>
+                            </Border.Effect>
+                        </Border>
 
-                    <Grid
+                        <Grid
                         VerticalAlignment="Center"
                         Margin="15 5 15 5">
-                        <StackPanel>
-                            <TextBlock
+                            <StackPanel>
+                                <TextBlock
                                 Text="В оренді"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
                                 FontSize="15"
                                 Foreground="#99A5B6"/>
 
-                            <TextBlock
+                                <TextBlock
                                 Text="32"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
                                 FontSize="18"
                                 Foreground="Black"/>
-                        </StackPanel>
+                            </StackPanel>
+                        </Grid>
+
+                        
+
                     </Grid>
 
-                </Grid>
+                    <Button
+                        Background="Transparent"
+                        BorderBrush="Transparent" Click="onClickAddVehicle">
+                        <StackPanel Orientation="Horizontal">
+                            
+                            <TextBlock
+                                Text="Додати новий автомобіль"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                Foreground="#99A5B6"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="Center"/>
+
+                            <materialDesign:PackIcon 
+                                Kind="PlaylistAdd"
+                                Foreground="#99A5B6"
+                                Height="20"
+                                Width="20"
+                                VerticalAlignment="Center"/>
+
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+                
+                
+                
             </Grid>
 
             <Grid Grid.Column="2">
@@ -190,8 +221,8 @@
 
         </Grid>
 
-        <ScrollViewer Grid.Row="3">
-            <StackPanel>
+        <ScrollViewer  Grid.Row="3" Margin="0 0 0 0">
+            <StackPanel Margin="0 0 18 0">
 
                 <UCHelp:UCAVehicleRow Height="93"/>
                 <UCHelp:UCAVehicleRow Height="93"/>
@@ -208,7 +239,7 @@
                 <UCHelp:UCAVehicleRow Height="93"/>
                 <UCHelp:UCAVehicleRow Height="93"/>
                 <UCHelp:UCAVehicleRow Height="93"/>
-                
+
 
             </StackPanel>
         </ScrollViewer>        

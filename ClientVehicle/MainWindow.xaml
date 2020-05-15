@@ -16,6 +16,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="Gilroy"
         
+       WindowStartupLocation="CenterScreen"
         WindowStyle="None" Background="#E5E5E5"
         Title="MainWindow" Height="900" Width="1440" MouseDown="onMouseDown">
 
@@ -24,171 +25,182 @@
     </WindowChrome.WindowChrome>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="88"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        
 
-        <Grid Grid.Column="0">
-            <Border  
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="88"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Border  
                 BorderBrush="Transparent" 
                 BorderThickness="1" 
                 Background="White">
-                <Border.Effect>
-                    <DropShadowEffect 
+                    <Border.Effect>
+                        <DropShadowEffect 
                         BlurRadius="10" 
                         ShadowDepth="1" 
                         Opacity="0.1"/>
-                </Border.Effect>
-            </Border>
+                    </Border.Effect>
+                </Border>
 
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                <StackPanel
+                    <StackPanel
                     Margin="0 20 0 100"
                     Grid.Row="0" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
-                    <materialDesign:PackIcon Kind="KeyVariant"
+                        <materialDesign:PackIcon Kind="KeyVariant"
                                              HorizontalAlignment="Center"
                                              Height="30"
                                              Margin="0 0 0 10"
                     Width="30"/>
-                    <TextBlock Text="Transport" FontFamily="Gilroy" FontWeight="Bold"/>
-                    <TextBlock Text="Rent" FontFamily="Gilroy" FontWeight="Medium"/>
-                </StackPanel>
-                
-                <Grid Grid.Row="1">
-                    <Grid
+                        
+                        <!--
+                        <TextBlock Text="Transport" FontFamily="Gilroy" FontWeight="Bold"/>
+                        <TextBlock Text="Rent" FontFamily="Gilroy" FontWeight="Medium"/>
+                        -->
+                        
+                    </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <Grid
                         Margin="0 0 0 0"
                         VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <StackPanel>
+                            <StackPanel>
 
-                            <Grid 
+                                <Grid 
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="mainMouseDown">
-                                <materialDesign:PackIcon
+                                    <materialDesign:PackIcon
                                     x:Name="iconMain"
                                     Margin="10"
                                     Kind="Home"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
-                            </Grid>
+                                </Grid>
 
-                            <Grid
+                                <Grid
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="vehicleMouseDown">
-                                <materialDesign:PackIcon
+                                    <materialDesign:PackIcon
                                     x:Name="iconVehicle"
                                     Margin="10"
                                     Kind="CarMultiple"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
-                            </Grid>
+                                </Grid>
 
-                            <Grid
+                                <Grid
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="aVehicleMouseDown">
-                                <materialDesign:PackIcon
+                                    <materialDesign:PackIcon
                                     x:Name="iconAVehicle"
                                     Margin="10"
                                     Kind="CarCog"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
-                            </Grid>
+                                </Grid>
 
-                            <Grid
+                                <Grid
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="aUserMouseDown">
-                                <materialDesign:PackIcon
+                                    <materialDesign:PackIcon
                                     x:Name="iconAUser"
                                     Margin="10"
                                     Kind="UserGroup"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
-                            </Grid>
+                                </Grid>
 
-                            <Grid
+                                <Grid
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="statMouseDown">
-                                <materialDesign:PackIcon
+                                    <materialDesign:PackIcon
                                     x:Name="iconStatistic"
                                     Margin="10"
                                     Kind="ChartArc"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
-                            </Grid>
+                                </Grid>
 
-                           
 
-                        </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <StackPanel>
-                        <Grid
+                    <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Grid
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}">
-                            <materialDesign:PackIcon
+                                <materialDesign:PackIcon
                                     Margin="10"
                                     Kind="Fullscreen"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
-                        </Grid>
+                            </Grid>
 
-                        <Grid
+                            <Grid
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}">
-                            <materialDesign:PackIcon
+                                <materialDesign:PackIcon
                                     Margin="10"
                                     Kind="ExitToApp"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
-                        </Grid>
+                            </Grid>
 
-                    </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
                 </Grid>
 
+
             </Grid>
 
+            <Grid Grid.Column="1">
 
-        </Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
 
-        <Grid Grid.Column="1">
+                </Grid.RowDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-
-            </Grid.RowDefinitions>
-
-            <Grid Margin="20 10 10 0" Grid.Row="0">
-                <materialDesign:PackIcon 
+                <Grid Margin="20 10 10 0" Grid.Row="0">
+                    <materialDesign:PackIcon 
                         Kind="CloseThick" 
                         HorizontalAlignment="Right"
-                    Style="{StaticResource HoverMouseAnimation}"
-                        />  
-            </Grid>
-            
-            <Grid Margin="20" Grid.Row="1" x:Name="pageGrid">
-                
+                        Style="{StaticResource HoverMouseAnimation}"/>
+                </Grid>
+
+                <Grid Margin="20" Grid.Row="1" x:Name="pageGrid">
 
 
+
+                </Grid>
             </Grid>
+        </Grid>
+
+        <Grid Background="Black" Opacity="0.5" x:Name="GridBackgroundDialog" Visibility="Hidden">
+
         </Grid>
 
     </Grid>

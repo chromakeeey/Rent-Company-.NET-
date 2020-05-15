@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClientVehicle.Dialogs.CustomDefaultDialog;
+using ClientVehicle.Dialogs.DialogsVehicle;
+
 namespace ClientVehicle.UCPage
 {
     /// <summary>
@@ -23,6 +26,17 @@ namespace ClientVehicle.UCPage
         public UCMain()
         {
             InitializeComponent();
+        }
+
+
+        private void onCancelRent(object sender, RoutedEventArgs e)
+        {
+            DialogWindow.Show("Ви дійсно хочите відмінити оренду?", "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information);
+        }
+
+        private void onUpdatePasswordClick(object sender, RoutedEventArgs e)
+        {
+            new DialogAddVehicle().ShowDialog();
         }
     }
 }

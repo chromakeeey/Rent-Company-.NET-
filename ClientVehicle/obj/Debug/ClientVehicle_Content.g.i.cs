@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bh_reg.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dialogs/dialogsvehicle/toyota_png1953.png")]
 
 

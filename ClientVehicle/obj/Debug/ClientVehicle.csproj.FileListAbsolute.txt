@@ -38,3 +38,13 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCStatistic.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\UCPage\UCStatistic.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\LoginWindow.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\LoginWindow.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Styles\Scroll.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Styles\MainIconButton.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOk.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOkNo.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOkNoCancel.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOk.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOkNo.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOkNoCancel.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\DialogAddVehicle.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\DialogAddVehicle.baml

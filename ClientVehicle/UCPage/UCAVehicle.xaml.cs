@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClientVehicle.Dialogs.DialogsVehicle;
+using ClientVehicle.Header;
+
 namespace ClientVehicle.UCPage
 {
     /// <summary>
@@ -23,6 +26,13 @@ namespace ClientVehicle.UCPage
         public UCAVehicle()
         {
             InitializeComponent();
+        }
+
+        private void onClickAddVehicle(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            new DialogAddVehicle().ShowDialog();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
     }
 }
