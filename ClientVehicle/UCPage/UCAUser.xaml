@@ -38,6 +38,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -120,6 +121,71 @@
             </Grid>
 
             <Grid Grid.Column="2">
+                <StackPanel Orientation="Horizontal">
+                    <Grid Height="60" Width="231" HorizontalAlignment="Right"
+                      Margin="0 0 20 0">
+                        <Border  
+                                    BorderBrush="Transparent" 
+                                    BorderThickness="1" 
+                                    Background="White"
+                                     CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                            BlurRadius="10" 
+                                            ShadowDepth="5" 
+                                            Opacity="0.3"/>
+                            </Border.Effect>
+                        </Border>
+
+                        <Grid
+                        VerticalAlignment="Center"
+                        Margin="15 5 15 5">
+                            <StackPanel>
+                                <TextBlock
+                                Text="На перевірці"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                FontSize="15"
+                                Foreground="#99A5B6"/>
+
+                                <TextBlock
+                                Text="3"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                FontSize="18"
+                                Foreground="Black"/>
+                            </StackPanel>
+                        </Grid>
+
+                    </Grid>
+
+                    <Button
+                        Background="Transparent"
+                        BorderBrush="Transparent" Click="onUserApplicationClick" >
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock
+                                Text="Перевірити аккаунти"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                Foreground="#99A5B6"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="Center"/>
+
+                            <materialDesign:PackIcon 
+                                Kind="Glasses"
+                                Foreground="#99A5B6"
+                                Height="20"
+                                Width="20"
+                                VerticalAlignment="Center"/>
+
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Column="3">
                 <Grid Height="40" Width="265" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <Border  
                                     BorderBrush="Transparent" 

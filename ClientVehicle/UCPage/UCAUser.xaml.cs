@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClientVehicle.Dialogs.DialogsUser;
+using ClientVehicle.Header;
+
+
 namespace ClientVehicle.UCPage
 {
     /// <summary>
@@ -23,6 +27,13 @@ namespace ClientVehicle.UCPage
         public UCAUser()
         {
             InitializeComponent();
+        }
+
+        private void onUserApplicationClick(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            new UserApplication().ShowDialog();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
     }
 }

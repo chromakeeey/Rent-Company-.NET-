@@ -48,3 +48,9 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOkNo.b
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\CustomDefaultDialog\DialogOkNoCancel.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\DialogAddVehicle.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\DialogAddVehicle.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\SignUpWindow.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\SignUpWindow.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\UserDocumentWindow.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\UserDocumentWindow.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\UserApplication.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\UserApplication.baml

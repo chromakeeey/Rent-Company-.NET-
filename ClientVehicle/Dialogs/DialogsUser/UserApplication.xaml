@@ -1,0 +1,298 @@
+﻿<Window x:Class="ClientVehicle.Dialogs.DialogsUser.UserApplication"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsUser"
+        xmlns:controls="clr-namespace:ClientVehicle.Controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="UserApplication" Height="570" Width="800"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Grid Margin="5">
+        <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <materialDesign:PackIcon
+                Grid.Row="0"
+                        Margin="0 0 5 0"
+                        Kind="CloseThick" 
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource HoverMouseAnimation}"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock
+                                HorizontalAlignment="Center"
+                                Text="Лицева сторона"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                Foreground="#99A5B6"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="Center"/>
+
+                    <Grid>
+                        <controls:ZoomBorder ClipToBounds="True" Background="White">
+                            <Image  Height="200" Margin="10 0 10 0" Source="top.png"  />
+                        </controls:ZoomBorder>
+                    </Grid>
+                    
+                    
+                    
+                    
+                </StackPanel>
+
+                <StackPanel x:Name="rigthBorderStack" Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock
+                                HorizontalAlignment="Center"
+                                Text="Задня сторона"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                Foreground="#99A5B6"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="Center"/>
+
+                    <Grid>
+                        <controls:ZoomBorder  ClipToBounds="True" Background="White">
+                            <Image Height="200" Margin="10 0 10 0" Source="bottom.png"  />
+                        </controls:ZoomBorder>
+                    </Grid>
+                    
+                    
+                    
+                </StackPanel>    
+            </Grid>
+
+            <Grid Grid.Row="2" >
+                <Grid Margin="20 10 20 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                        <TextBlock
+                        TextAlignment="Center"
+                        Text="Логін"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="14"
+                        Foreground="#99A5B6"/>
+
+                        <TextBlock
+                        TextAlignment="Center"
+                        Text="palamarchuk"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        Foreground="Black"/>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                        <TextBlock
+                        TextAlignment="Center"
+                        Text="Пошта"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="14"
+                        Foreground="#99A5B6"/>
+
+                        <TextBlock
+                        TextAlignment="Center"
+                        Text="palamarchuk@gmail.com"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        Foreground="Black"/>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" HorizontalAlignment="Center">
+                        <TextBlock
+                        TextAlignment="Center"
+                        Text="Телефон"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="14"
+                        Foreground="#99A5B6"/>
+
+                        <TextBlock
+                        TextAlignment="Center"
+                        Text="+380665300220"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        Foreground="Black"/>
+
+                    </StackPanel>
+                    
+                </Grid>
+                
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid Margin="20 30 20 0">
+                    <StackPanel>
+                        <StackPanel>
+                            <TextBlock
+                        TextAlignment="Center"
+                        Text="Виберіть потрібні категорії прав"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="14"
+                        Foreground="#99A5B6"
+                            Margin="0 0 0 10"/>
+
+                            <ListBox HorizontalAlignment="Center"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                        Style="{StaticResource MaterialDesignFilterChipListBox}">
+                                <ListBoxItem Content="A1"/>
+                                <ListBoxItem Content="A"/>
+                                <ListBoxItem Content="B1"/>
+                                <ListBoxItem Content="B"/>
+                                <ListBoxItem Content="C1"/>
+                                <ListBoxItem Content="C"/>
+                                <ListBoxItem Content="D1"/>
+                                <ListBoxItem Content="D"/>
+                                <ListBoxItem Content="C1E"/>
+                                <ListBoxItem Content="BE"/>
+                                <ListBoxItem Content="CE"/>
+                                <ListBoxItem Content="D1E"/>
+                                <ListBoxItem Content="DE"/>
+                                <ListBoxItem Content="T1"/>
+                                <ListBoxItem Content="T2"/>
+                            </ListBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0">
+                            <TextBlock
+                        TextAlignment="Center"
+                        Text="Дозаповніть інформацію з документа"
+                        FontFamily="Gilroy"
+                        FontWeight="Bold"
+                        FontSize="14"
+                        Foreground="#99A5B6"
+                            Margin="0 0 0 10"/>
+
+                            <!--
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox
+                                    materialDesign:HintAssist.Hint="Прізвище"
+                                    FontFamily="Gilroy"
+                                    FontWeight="Bold"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Foreground="#3B93F7"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                                <TextBox
+                                    materialDesign:HintAssist.Hint="Ім'я"
+                                    FontFamily="Gilroy"
+                                    FontWeight="Bold"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Foreground="#3B93F7"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                            </StackPanel>
+                            -->
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox
+                                    Grid.Column="0"
+                                    Margin="30 0 30 0"
+                                    materialDesign:HintAssist.Hint="Прізвище"
+                                    FontFamily="Gilroy"
+                                    FontWeight="Bold"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Foreground="#3B93F7"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                                <TextBox
+                                    Grid.Column="1"
+                                    Margin="30 0 30 0"
+                                    materialDesign:HintAssist.Hint="Ім'я"
+                                    FontFamily="Gilroy"
+                                    FontWeight="Bold"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Foreground="#3B93F7"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                                <DatePicker
+                                    Grid.Column="2"
+                                    Margin="30 0 30 0"
+                                    FontFamily="Gilroy"
+                                    FontWeight="Bold"
+                                    Foreground="#3B93F7"
+                                    materialDesign:HintAssist.Hint="Дата народження"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                    materialDesign:HintAssist.Foreground="#3B93F7"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                            </Grid>
+                            
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>   
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 30 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0,0,0,0"  
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                                    Padding="0"
+                                    Height="auto"
+                            ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                            Background="#76C466"
+                            BorderBrush="#76C466" >
+                            <TextBlock
+                                    Margin="35 10 35 10"
+                                    VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="16" Text="Підтвердити"/>
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                                    Padding="0" Height="Auto"
+                            ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                            Background="#E25544"
+                            BorderBrush="#E25544" >
+                            <TextBlock
+                                    Margin="35 10 35 10"
+                                    VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="16" Text="Відмовити"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</Window>

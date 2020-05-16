@@ -40,5 +40,11 @@ namespace ClientVehicle
             Hide();
             Items.mainWindow.Show();
         }
+
+        private void onSignUpClick(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            Items.signUpWindow.Show();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace ClientVehicle.Header
         // Main windows
         public static LoginWindow loginWindow;
         public static MainWindow mainWindow;
+        public static SignUpWindow signUpWindow;
 
         // Main pages
         public static UCMain ucMain;
@@ -24,6 +25,7 @@ namespace ClientVehicle.Header
         public static void InitializeItems()
         {
             mainWindow = new MainWindow();
+            signUpWindow = new SignUpWindow();
 
             ucMain = new UCMain();
             ucVehicle = new UCVehicle();

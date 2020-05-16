@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 using ClientVehicle.Dialogs.CustomDefaultDialog;
 using ClientVehicle.Dialogs.DialogsVehicle;
+using ClientVehicle.Dialogs.DialogsUser;
+using ClientVehicle.Header;
 
 namespace ClientVehicle.UCPage
 {
@@ -37,6 +39,13 @@ namespace ClientVehicle.UCPage
         private void onUpdatePasswordClick(object sender, RoutedEventArgs e)
         {
             new DialogAddVehicle().ShowDialog();
+        }
+
+        private void onClickCheckDocument(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            new UserDocumentWindow().ShowDialog();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
     }
 }

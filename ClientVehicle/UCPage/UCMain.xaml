@@ -753,7 +753,32 @@
                                     Foreground="Black"
                                     FontWeight="Bold"/>
                             </Grid>
-                            
+
+                            <Button Margin="0 10 0 0"  
+                                HorizontalAlignment="Left" Height="Auto" Width="Auto" Padding="0"
+                        Background="Transparent"
+                        BorderBrush="Transparent" Click="onClickCheckDocument">
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock
+                                Text="Переглянути свої документи"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                Foreground="#99A5B6"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="Center"/>
+
+                                    <materialDesign:PackIcon 
+                                Kind="RemoveRedEye"
+                                Foreground="#99A5B6"
+                                Height="20"
+                                Width="20"
+                                VerticalAlignment="Center"
+                                        />
+
+                                </StackPanel>
+                            </Button>
+
                         </StackPanel>
                     </Grid>
 

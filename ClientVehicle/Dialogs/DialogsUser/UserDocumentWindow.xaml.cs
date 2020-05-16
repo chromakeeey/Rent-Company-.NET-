@@ -12,21 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ClientVehicle.Dialogs.DialogsVehicle
+namespace ClientVehicle.Dialogs.DialogsUser
 {
     /// <summary>
-    /// Interaction logic for DialogAddVehicle.xaml
+    /// Interaction logic for UserDocumentWindow.xaml
     /// </summary>
-    public partial class DialogAddVehicle : Window
+    public partial class UserDocumentWindow : Window
     {
-        public DialogAddVehicle()
+        public UserDocumentWindow()
         {
             InitializeComponent();
-        }
-
-        private void onClickClose(object sender, MouseButtonEventArgs e)
-        {
-            Hide();
         }
     }
 }
