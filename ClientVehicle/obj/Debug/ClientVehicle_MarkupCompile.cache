@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\TRC_Redesign\ClientVehicle\App.xaml
-19821989638
+21292120589
 
-25423745169
+271503645587
 15-106507236
-Dialogs\CustomDefaultDialog\DialogOk.xaml;Dialogs\CustomDefaultDialog\DialogOkNo.xaml;Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;Dialogs\DialogsUser\UserApplication.xaml;Dialogs\DialogsUser\UserDocumentWindow.xaml;Dialogs\DialogsVehicle\DialogAddVehicle.xaml;LoginWindow.xaml;MainWindow.xaml;SignUpWindow.xaml;Styles\MainIconButton.xaml;Styles\Scroll.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
+Dialogs\CustomDefaultDialog\DialogOk.xaml;Dialogs\CustomDefaultDialog\DialogOkNo.xaml;Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;Dialogs\DialogsUser\UserApplication.xaml;Dialogs\DialogsUser\UserCardAdmin.xaml;Dialogs\DialogsUser\UserDocumentWindow.xaml;Dialogs\DialogsVehicle\DialogAddVehicle.xaml;Dialogs\Receipts\ReceiptEdit.xaml;LoginWindow.xaml;MainWindow.xaml;SignUpWindow.xaml;Styles\MainIconButton.xaml;Styles\Scroll.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
 
 False
 

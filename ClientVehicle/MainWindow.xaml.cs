@@ -68,5 +68,21 @@ namespace ClientVehicle
             if (MouseButtonState.Pressed == e.LeftButton)
                 UiOperation.SetPage(UIPage.Statistic);
         }
+
+        private void onResizeClick(object sender, MouseButtonEventArgs e)
+        {
+            switch (WindowState)
+            {
+                case (WindowState.Maximized):
+                    ResizeMode = ResizeMode.CanResize;
+                    WindowState = WindowState.Normal;
+                    break;
+
+                case (WindowState.Normal):
+                    ResizeMode = ResizeMode.NoResize;
+                    WindowState = WindowState.Maximized;
+                    break;
+            }
+        }
     }
 }

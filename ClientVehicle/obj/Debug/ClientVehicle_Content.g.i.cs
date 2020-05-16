@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dialogs/dialogsuser/bottom.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dialogs/dialogsuser/unnamed.jpg")]
 
 

@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClientVehicle.Header;
+using ClientVehicle.Dialogs.DialogsUser;
+
 namespace ClientVehicle.UCHelp
 {
     /// <summary>
@@ -31,7 +34,14 @@ namespace ClientVehicle.UCHelp
             ContextMenu contextMenu = button.ContextMenu;
             contextMenu.PlacementTarget = button;
             contextMenu.IsOpen = true;
-            e.Handled = true;
+            //e.Handled = true;
+        }
+
+        private void onTopContextClick(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            new UserCardAdmin().ShowDialog();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
     }
 }

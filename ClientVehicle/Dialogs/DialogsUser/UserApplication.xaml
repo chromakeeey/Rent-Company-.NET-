@@ -251,7 +251,6 @@
                                     Margin="30 0 30 0"
                                     FontFamily="Gilroy"
                                     FontWeight="Bold"
-                                    Foreground="#3B93F7"
                                     materialDesign:HintAssist.Hint="Дата народження"
                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                                     materialDesign:HintAssist.Foreground="#3B93F7"

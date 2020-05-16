@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsUser"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="UserDocumentWindow" Height="300" Width="800"
+        Title="UserDocumentWindow" Height="330" Width="800"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent"> 
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
@@ -15,6 +15,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <materialDesign:PackIcon
@@ -86,7 +87,23 @@
                 </StackPanel>
 
             </Grid>
-            
+
+
+            <ListBox
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                        Style="{StaticResource MaterialDesignFilterChipListBox}">
+                <ListBoxItem Content="A1" IsEnabled="False"/>
+                <ListBoxItem Content="A" IsEnabled="False"/>
+                <ListBoxItem Content="B1" IsEnabled="False"/>
+                <ListBoxItem Content="B" IsEnabled="False"/>
+                <ListBoxItem Content="C1" IsEnabled="False"/>
+                <ListBoxItem Content="C" IsEnabled="False"/>
+                
+            </ListBox>
+
         </Grid>
         
     </Grid>

@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClientVehicle.Dialogs.Receipts;
+using ClientVehicle.Header;
+
 namespace ClientVehicle.UCPage
 {
     /// <summary>
@@ -23,6 +26,13 @@ namespace ClientVehicle.UCPage
         public UCStatistic()
         {
             InitializeComponent();
+        }
+
+        private void onCheckEditClick(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            new ReceiptEdit().ShowDialog();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
     }
 }
