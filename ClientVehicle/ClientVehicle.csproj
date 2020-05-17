@@ -45,6 +45,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -88,6 +90,9 @@
     </Compile>
     <Compile Include="Dialogs\Receipts\ReceiptEdit.xaml.cs">
       <DependentUpon>ReceiptEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Receipts\ReceiptWindow.xaml.cs">
+      <DependentUpon>ReceiptWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Header\Items.cs" />
     <Compile Include="Header\UiOperation.cs" />
@@ -150,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\Receipts\ReceiptEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\Receipts\ReceiptWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

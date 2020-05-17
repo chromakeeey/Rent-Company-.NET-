@@ -39,6 +39,7 @@ namespace ClientVehicle
         {
             Hide();
             Items.mainWindow.Show();
+            Items.IsActiveMainWindow = true;
         }
 
         private void onSignUpClick(object sender, RoutedEventArgs e)

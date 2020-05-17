@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using ClientVehicle.Dialogs.CustomDefaultDialog;
 using ClientVehicle.Dialogs.DialogsVehicle;
 using ClientVehicle.Dialogs.DialogsUser;
+using ClientVehicle.Dialogs.Receipts;
 using ClientVehicle.Header;
 
 namespace ClientVehicle.UCPage
@@ -45,6 +46,13 @@ namespace ClientVehicle.UCPage
         {
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
             new UserDocumentWindow().ShowDialog();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+        }
+
+        private void onReceiptSee(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            new ReceiptWindow().ShowDialog();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
     }

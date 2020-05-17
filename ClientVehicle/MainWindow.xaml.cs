@@ -84,5 +84,20 @@ namespace ClientVehicle
                     break;
             }
         }
+
+        private void onMouseDownLogout(object sender, MouseButtonEventArgs e)
+        {
+            Items.IsActiveMainWindow = false;
+            Items.mainWindow.Hide();
+            Items.loginWindow.Show();
+        }
+
+        private void onCloseMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Items.mainWindow.Hide();
+
+            Items.notifyIcon.ShowBalloonTip(1500, "Програма згортнута в трей", "Программа була згортуна в трей, нажміть на іконку справа внизу для закриття программи або відкриття головного вікна.",
+                System.Windows.Forms.ToolTipIcon.Info);
+        }
     }
 }

@@ -377,10 +377,10 @@
                                 </Grid>
 
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Button
+                                    <Button 
                                         Margin="0 20 0 0"
                                         Background="Transparent"
-                                        BorderBrush="Transparent">
+                                        BorderBrush="Transparent" Click="onReceiptSee">
                                         <TextBlock 
                                             Text="Переглянути чек" 
                                             FontSize="14"

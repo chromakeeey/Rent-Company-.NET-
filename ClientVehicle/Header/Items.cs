@@ -22,10 +22,31 @@ namespace ClientVehicle.Header
         public static UCAUser ucAUser;
         public static UCStatistic ucStatistic;
 
+        // notify icon
+        public static System.Windows.Forms.NotifyIcon notifyIcon;
+        public static System.Windows.Forms.ContextMenu notifyContext;
+
+        public static bool IsActiveMainWindow;
+
+        private static void exitContextClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private static void notifyClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                if (IsActiveMainWindow && mainWindow.Visibility == System.Windows.Visibility.Hidden)
+                    mainWindow.Show();
+            }
+        }
+
         public static void InitializeItems()
         {
             mainWindow = new MainWindow();
             signUpWindow = new SignUpWindow();
+            IsActiveMainWindow = false;
 
             ucMain = new UCMain();
             ucVehicle = new UCVehicle();
@@ -44,6 +65,16 @@ namespace ClientVehicle.Header
             ucAVehicle.Visibility = System.Windows.Visibility.Hidden;
             ucAUser.Visibility = System.Windows.Visibility.Hidden;
             ucStatistic.Visibility = System.Windows.Visibility.Hidden;
+
+            notifyIcon = new System.Windows.Forms.NotifyIcon();
+            notifyIcon.Icon = new System.Drawing.Icon("notify.ico");
+            notifyIcon.Visible = true;
+            notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(notifyClick);
+
+            notifyContext = new System.Windows.Forms.ContextMenu();
+            notifyContext.MenuItems.Add("Выход", new EventHandler(exitContextClick));
+
+            notifyIcon.ContextMenu = notifyContext;
         }
 
     }

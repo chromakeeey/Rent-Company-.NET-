@@ -157,10 +157,10 @@
                                     Foreground="#99A5B6"/>
                             </Grid>
 
-                            <Grid
+                            <Grid 
                                 Margin="0,0,0,20"
                                 Background="White"
-                                Style="{StaticResource HoverMouseAnimationGrid}">
+                                Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="onMouseDownLogout">
                                 <materialDesign:PackIcon
                                     Margin="10"
                                     Kind="ExitToApp"
@@ -188,7 +188,7 @@
                     <materialDesign:PackIcon 
                         Kind="CloseThick" 
                         HorizontalAlignment="Right"
-                        Style="{StaticResource HoverMouseAnimation}"/>
+                        Style="{StaticResource HoverMouseAnimation}" MouseDown="onCloseMouseDown"/>
                 </Grid>
 
                 <Grid Margin="20" Grid.Row="1" x:Name="pageGrid">
