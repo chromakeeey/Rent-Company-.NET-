@@ -18,7 +18,7 @@
         
        WindowStartupLocation="CenterScreen"
         WindowStyle="None" Background="#E5E5E5"
-        Title="MainWindow" Height="900" Width="1440" MouseDown="onMouseDown">
+        Title="MainWindow" Height="900" Width="1440" MouseDown="onMouseDown" Icon="icon.png">
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>

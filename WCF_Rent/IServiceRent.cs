@@ -22,11 +22,6 @@ namespace WCF_Rent
         void userDisconnect(int id);
 
 
-        [OperationContract]
-        Account selectAccount(string login, string password);
-
-        [OperationContract(IsOneWay = true)]
-        void createSqlConnection(string path);
 
         /*      vehicle block       */
 
@@ -43,28 +38,13 @@ namespace WCF_Rent
         [OperationContract(IsOneWay = true)]
         void saveVehicle(Vehicle vehicleObject);
 
-        [OperationContract]
-        bool isAccountValid(string login);
-
-        [OperationContract]
-        bool isSqlConnection();
-
-        [OperationContract]
-        Vehicle getUserVehicle(Account account);
+        
 
         /*      account block       */
 
-        [OperationContract(IsOneWay = true)]
-        void saveAccount(Account accountObject);
+        
 
-        [OperationContract(IsOneWay = true)]
-        void addAccount(Account accountObject);
-
-        [OperationContract(IsOneWay = true)]
-        void deleteAccount(Account accountObject);
-
-        [OperationContract]
-        List<Vehicle> createVehicleObjectParams(int min, int max, int type);
+      
 
         [OperationContract]
         int GetAllVehicle();
@@ -76,8 +56,7 @@ namespace WCF_Rent
         int GetAllNoRentVehicle();
 
 
-        [OperationContract]
-        Account noAcceptedAccount();
+       
 
         [OperationContract]
         Vehicle findVehicle(string plate);
@@ -112,8 +91,6 @@ namespace WCF_Rent
         [OperationContract]
         int log_TakeRent(int userid, string VIN, float price, int cashVoucherId, DateTime startdate, DateTime enddate);
 
-        [OperationContract]
-        List<Account> topAccountMoney();
 
         [OperationContract]
         StatInfo SendStatInfo(DateTime startDate, DateTime endDate);
@@ -136,8 +113,6 @@ namespace WCF_Rent
         [OperationContract]
         int sendCashVoucherID(int logtakerentid);
 
-        [OperationContract]
-        List<Vehicle> getAllVehicleToUser();
     }
 
     public interface IServerRentCallback

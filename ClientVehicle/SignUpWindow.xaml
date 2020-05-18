@@ -9,7 +9,8 @@
         Title="SignUpWindow" Height="735" Width="400"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent">
+        Background="Transparent"
+        Icon="icon.png">
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
 

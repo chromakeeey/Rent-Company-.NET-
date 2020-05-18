@@ -3,24 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace WCF_Rent.HeaderFile
 {
+    [DataContract]
     public class Rent
     {
-        public DateTime start_date;
-        public DateTime end_date;
+        [DataMember]
+        public DateTime StartDate { get; set; }
 
-        public int clientid;
-        public int rentlogid;
+        [DataMember]
+        public DateTime FinalDate { get; set; }
+
+        [DataMember]
+        public int ClientId { get; set; }
+
+        [DataMember]
+        public int RentLogId { get; set; }
 
         public Rent()
         {
-            clientid = 0;
-            rentlogid = 0;
+            ClientId = 0;
+            RentLogId = 0;
 
-            start_date = DateTime.Now;
-            end_date = DateTime.Now;
+            StartDate = DateTime.Now;
+            FinalDate = DateTime.Now;
         }
     }
 }

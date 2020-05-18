@@ -9,7 +9,7 @@
         Background="Transparent"
         Title="LoginWindow" Height="700" Width="550" AllowsTransparency="True"
         WindowStyle="None" MouseDown="windowMouseDown"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="icon.png">
     <Grid Margin="10">
         <Border Style="{StaticResource BorderCornerRadius25}" Background="White"/>
 

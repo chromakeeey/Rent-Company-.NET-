@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
+using System.Web.Hosting;
 
 namespace ServerHost
 {
@@ -28,8 +29,8 @@ namespace ServerHost
 
                 host.Open();
                 Console.WriteLine("Host has been started [" + DateTime.Now.ToString() + "]");
+                Console.WriteLine(HostingEnvironment.ApplicationPhysicalPath);
 
-               
 
                 Console.ReadLine();
 

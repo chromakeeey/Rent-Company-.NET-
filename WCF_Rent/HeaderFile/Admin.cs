@@ -4,13 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Runtime.Serialization;
+
 namespace WCF_Rent.HeaderFile
 {
-    public class Admin
+    [DataContract]
+    public class Admin : BankCard
     {
-        public int level;
 
-        public int GetAdminLevel() { return this.level; }
-        public void SetAdminLevel(int level) { this.level = level; }
+        [DataMember]
+        public int Level { get; set; }
+        
+
+        public int GetAdminLevel() { return this.Level; }
+        public void SetAdminLevel(int level) { this.Level = level; }
     }
 }
