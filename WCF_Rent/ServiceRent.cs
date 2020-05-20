@@ -29,8 +29,6 @@ namespace WCF_Rent
         private CashVoucherData cashVoucherData;
 
         int nextUserID = 1;
-        const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|rentcar.mdf;Integrated Security=True";
-        //const string sqlString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TRC_Redesign\WCF_Rent\rentcar.mdf;Integrated Security=True";
 
         public ServiceRent()
         {
@@ -91,8 +89,6 @@ namespace WCF_Rent
                 serverUser.Remove(user);
         }
 
-        /*      vehicle block       */
-
         public void showNotification(int id, string message)
         {
             foreach(var userObject in serverUser)
@@ -140,7 +136,6 @@ namespace WCF_Rent
             Vehicle.SaveVehicle(item);           
         }
 
-        // remastered
         public int GetAllVehicle()
         {
             return vehicle.Count;
@@ -166,35 +161,14 @@ namespace WCF_Rent
             return this.GetAllVehicle() - this.GetAllRentVehicle();
         }
 
-        //
-
         public void uploadVehicleImage(byte[] buffer, string name, string extenstion)
         {
-            string localpath = localPath();
-            string path = String.Format(@"{0}pictures\{1}{2}", localpath, name, extenstion);
-
-            File.WriteAllBytes(path, buffer);
+            Vehicle.SaveVehicleImage(buffer, name, extenstion);
         }
 
-        public byte[] vehicleImage(Vehicle vehicleObject)
+        public byte[] vehicleImage(Vehicle item)
         {
-            string localpath = localPath();
-            string path = String.Format(@"{0}{1}", localpath, vehicleObject.PicturePath);
-            string errorpath = String.Format(@"{0}pictures\error_vehicle.png", localpath, vehicleObject.PicturePath);
-
-            try
-            {
-                byte[] buffer;
-                buffer = File.ReadAllBytes(path);
-
-                return buffer;
-            }
-
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-
-            return File.ReadAllBytes(errorpath);
+            return item.VehicleImage();
         }
 
         public Vehicle findVehicle(string VIN)
@@ -205,63 +179,17 @@ namespace WCF_Rent
 
         public void log_AddVehicle(int userid, string VIN)
         {
-            try
-            {
-                SqlCommand sqlCommand = new SqlCommand(
-                   "INSERT INTO [log_addvehicle] (userid, VIN) VALUES" +
-                   "(@userid, @VIN)", sqlconnection);
-
-                sqlCommand.Parameters.AddWithValue("userid", userid);
-                sqlCommand.Parameters.AddWithValue("VIN", VIN);
-
-                sqlCommand.ExecuteNonQuery();
-
-            }
-
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            ActionLog.AddVehicle(userid, VIN);
         }
 
         public void log_Balance(int userid, string card, float value)
         {
-            try
-            {
-                SqlCommand sqlCommand = new SqlCommand(
-                   "INSERT INTO [log_balance] (userid, card, value) VALUES" +
-                   "(@userid, @card, @value)", sqlconnection);
-
-                sqlCommand.Parameters.AddWithValue("userid", userid);
-                sqlCommand.Parameters.AddWithValue("card", card);
-                sqlCommand.Parameters.AddWithValue("value", value);
-
-                sqlCommand.ExecuteNonQuery();
-            }
-
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            ActionLog.Balance(userid, card, value);
         }
 
         public void log_DeleteVehicle(int userid, string VIN, string name)
         {
-
-            try
-            {
-                SqlCommand sqlCommand = new SqlCommand(
-                   "INSERT INTO [log_deletevehicle] (userid, VIN, name) VALUES" +
-                   "(@userid, @VIN, @name)", sqlconnection);
-
-                sqlCommand.Parameters.AddWithValue("userid", userid);
-                sqlCommand.Parameters.AddWithValue("VIN", VIN);
-                sqlCommand.Parameters.AddWithValue("name", name);
-
-                sqlCommand.ExecuteNonQuery();
-            }
-
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            ActionLog.DeleteVehicle(userid, VIN, name);
         }
 
         public void log_EditVehicle(int userid, string VIN, string str_params)
@@ -335,8 +263,6 @@ namespace WCF_Rent
 
             return INVALID_ID;
         }
-
-        
 
         public StatInfo SendStatInfo(DateTime startDate, DateTime endDate)
         {
@@ -480,6 +406,51 @@ namespace WCF_Rent
                 cashVoucher.StartDate, cashVoucher.FinalDate,
                 cashVoucher.Price, sqlconnection
             );
+        }
+
+        public User SelectUser_LoginPassword(string Login, string Password)
+        {
+            return User.SelectUser_LoginPassword(Login, Password);
+        }
+
+        public User SelectUser(int Id)
+        {
+            return User.SelectUser(Id);
+        }
+
+        public void SaveUser(User item)
+        {
+            User.SaveUser(item);
+        }
+
+        public void AddUser(User item)
+        {
+            User.AddUser(item);
+        }
+
+        public void DeleteUser(User item)
+        {
+            User.DeleteUser(item);
+        }
+
+        public void SaveBackImage(byte[] Image, string Name, string Extension)
+        {
+            User.SaveBackImage(Image, Name, Extension);
+        }
+
+        public void SaveFrontImage(byte[] Image, string Name, string Extension)
+        {
+            User.SaveFrontImage(Image, Name, Extension);
+        }
+
+        public byte[] BackImageBytes(User item)
+        {
+            return item.BackImageBytes();
+        }
+
+        public byte[] FrontImageBytes(User item)
+        {
+            return item.FrontImageBytes();
         }
     }
 }

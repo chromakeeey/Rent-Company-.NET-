@@ -21,11 +21,6 @@ namespace WCF_Rent
         [OperationContract]
         void userDisconnect(int id);
 
-
-
-        /*      vehicle block       */
-
-
         [OperationContract(IsOneWay = true)]
         void selectAllVehicle();
 
@@ -38,14 +33,6 @@ namespace WCF_Rent
         [OperationContract(IsOneWay = true)]
         void saveVehicle(Vehicle vehicleObject);
 
-        
-
-        /*      account block       */
-
-        
-
-      
-
         [OperationContract]
         int GetAllVehicle();
 
@@ -54,9 +41,6 @@ namespace WCF_Rent
 
         [OperationContract]
         int GetAllNoRentVehicle();
-
-
-       
 
         [OperationContract]
         Vehicle findVehicle(string plate);
@@ -68,7 +52,7 @@ namespace WCF_Rent
         Stream downloadVehicleImage(Vehicle vehicleObject);*/
 
         [OperationContract]
-        byte[] vehicleImage(Vehicle vehicleObject);
+        byte[] vehicleImage(Vehicle item);
 
         [OperationContract(IsOneWay = true)]
         void log_AddVehicle(int userid, string VIN);
@@ -91,7 +75,6 @@ namespace WCF_Rent
         [OperationContract]
         int log_TakeRent(int userid, string VIN, float price, int cashVoucherId, DateTime startdate, DateTime enddate);
 
-
         [OperationContract]
         StatInfo SendStatInfo(DateTime startDate, DateTime endDate);
 
@@ -113,6 +96,32 @@ namespace WCF_Rent
         [OperationContract]
         int sendCashVoucherID(int logtakerentid);
 
+        [OperationContract]
+        User SelectUser_LoginPassword(string Login, string Password);
+
+        [OperationContract]
+        User SelectUser(int Id);
+
+        [OperationContract(IsOneWay = true)]
+        void SaveUser(User item);
+
+        [OperationContract(IsOneWay = true)]
+        void AddUser(User item);
+
+        [OperationContract(IsOneWay = true)]
+        void DeleteUser(User item);
+
+        [OperationContract(IsOneWay = true)]
+        void SaveBackImage(byte[] Image, string Name, string Extension);
+
+        [OperationContract(IsOneWay = true)]
+        void SaveFrontImage(byte[] Image, string Name, string Extension);
+
+        [OperationContract]
+        byte[] BackImageBytes(User item);
+
+        [OperationContract]
+        byte[] FrontImageBytes(User item);
     }
 
     public interface IServerRentCallback

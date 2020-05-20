@@ -58,18 +58,7 @@ namespace WCF_Rent.HeaderFile
         [DataMember]
         public string FrontImageName { get; set; }
 
-        public void SaveBackImage(byte[] Image, string Name, string Extension)
-        {
-            string path = Log.AppPath + "\\documentimage\\" + Name + Extension;
-            File.WriteAllBytes(path, Image);
-        }
-
-        public void SaveFrontImage(byte[] Image, string Name, string Extension)
-        {
-            string path = Log.AppPath + "\\documentimage\\" + Name + Extension;
-            File.WriteAllBytes(path, Image);
-        }
-
+        
         public byte[] BackImageBytes()
         {
             string path = Log.AppPath + "\\documentimage\\" + BackImageName;
@@ -110,7 +99,19 @@ namespace WCF_Rent.HeaderFile
             return File.ReadAllBytes(errorpath);
         }
 
-        // static methods (operation with sql)
+        // static methods (operation with sql and images)
+
+        public static void SaveBackImage(byte[] Image, string Name, string Extension)
+        {
+            string path = Log.AppPath + "\\documentimage\\" + Name + Extension;
+            File.WriteAllBytes(path, Image);
+        }
+
+        public static void SaveFrontImage(byte[] Image, string Name, string Extension)
+        {
+            string path = Log.AppPath + "\\documentimage\\" + Name + Extension;
+            File.WriteAllBytes(path, Image);
+        }
 
         public static User SelectUser_LoginPassword(string Login, string Password)
         {

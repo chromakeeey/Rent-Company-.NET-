@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Drawing;
+using System.IO;
 
 using WCF_Rent.Providers;
 
@@ -263,6 +264,32 @@ namespace WCF_Rent.HeaderFile
             catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
             catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
             catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+        }
+
+        public static void SaveVehicleImage(byte[] Image, string Name, string Extension)
+        {
+            string path = Log.AppPath + "\\pictures\\" + Name + Extension;
+            File.WriteAllBytes(path, Image);
+        }
+
+        public byte[] VehicleImage()
+        {
+            string path = Log.AppPath + "\\pictures\\" + PicturePath;
+            string errorpath = Log.AppPath + "\\documentimage\\error.png";
+
+            try
+            {
+                byte[] buffer;
+                buffer = File.ReadAllBytes(path);
+
+                return buffer;
+            }
+
+            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+
+            return File.ReadAllBytes(errorpath);
         }
     }
 

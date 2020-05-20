@@ -81,5 +81,65 @@ namespace WCF_Rent.Providers
             catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
             catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
         }
+
+        public static void DeleteVehicle(int userid, string VIN, string name)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand(
+                   "INSERT INTO [log_deletevehicle] (userid, VIN, name) VALUES" +
+                   "(@userid, @VIN, @name)", SqlData.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("userid", userid);
+                sqlCommand.Parameters.AddWithValue("VIN", VIN);
+                sqlCommand.Parameters.AddWithValue("name", name);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+        }
+
+        public static void Balance(int userid, string card, float value)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand(
+                   "INSERT INTO [log_balance] (userid, card, value) VALUES" +
+                   "(@userid, @card, @value)", SqlData.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("userid", userid);
+                sqlCommand.Parameters.AddWithValue("card", card);
+                sqlCommand.Parameters.AddWithValue("value", value);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+        }
+
+        public static void AddVehicle(int userid, string VIN)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand(
+                   "INSERT INTO [log_addvehicle] (userid, VIN) VALUES" +
+                   "(@userid, @VIN)", SqlData.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("userid", userid);
+                sqlCommand.Parameters.AddWithValue("VIN", VIN);
+
+                sqlCommand.ExecuteNonQuery();
+
+            }
+
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+        }
     }
 }
