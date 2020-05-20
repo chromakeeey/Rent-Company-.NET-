@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientVehicle"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="SignUpWindow" Height="735" Width="400"
+        Title="SignUpWindow" Height="777" Width="400"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
@@ -30,16 +30,17 @@
                 HorizontalAlignment="Center"
                 Foreground="#99A5B6"/>
 
-            <materialDesign:PackIcon
+            <materialDesign:PackIcon 
                         Margin="0 0 5 0"
                         Kind="CloseThick" 
                         HorizontalAlignment="Right"
-                        Style="{StaticResource HoverMouseAnimation}"/>
+                        Style="{StaticResource HoverMouseAnimation}" MouseDown="onClickReturn"/>
 
             <Grid Grid.Row="1">
                 <StackPanel>
 
                     <TextBox
+                        x:Name="field_Login"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Логін"
                             materialDesign:HintAssist.HelperText="Тільки латиниця, від 3 до 16 символів"
@@ -52,6 +53,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                     <TextBox
+                        x:Name="field_Password"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Пароль"
                             materialDesign:HintAssist.HelperText="Від 6 до 32 символів"
@@ -64,6 +66,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                     <TextBox
+                        x:Name="field_Mail"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Електронна пошта"
                             materialDesign:HintAssist.HelperText="gmail, mail, ukr, тощо."
@@ -76,6 +79,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                     <TextBox
+                        x:Name="field_Number"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Номер телефона"
                             materialDesign:HintAssist.HelperText="Тільки український номер (починати з +380..)"
@@ -95,9 +99,15 @@
                         Foreground="#99A5B6"/>
 
                     <Grid>
-                        <Image Height="128" Margin="20 0 20 15"/>
-                        <Grid Background="White" Style="{StaticResource HoverMouseAnimationGrid}" Height="110">
-                            <materialDesign:PackIcon 
+                        <Image x:Name="frontDocumentImage" Height="128" Margin="20 0 20 15"/>
+                        <Grid Background="White" 
+                              Style="{StaticResource HoverMouseAnimationGrid}" 
+                              Height="110" 
+                              MouseDown="onClickFrontImage" 
+                              x:Name="icon_Front"
+                              Margin="10 0 10 0">
+                            <materialDesign:PackIcon
+                                
                             Kind="CameraPlus"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -114,9 +124,15 @@
                         Foreground="#99A5B6"/>
 
                     <Grid>
-                        <Image Height="128" Margin="20 0 20 20"/>
-                        <Grid Background="White" Style="{StaticResource HoverMouseAnimationGrid}" Height="110">
+                        <Image x:Name="backDocumentImage" Height="128" Margin="20 0 20 20"/>
+                        <Grid Background="White" 
+                              Style="{StaticResource HoverMouseAnimationGrid}" 
+                              Height="110" 
+                              MouseDown="onClickBackImage" 
+                              x:Name="icon_Back"
+                              Margin="10 0 10 0">
                             <materialDesign:PackIcon 
+                                
                             Kind="CameraPlus"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -124,6 +140,17 @@
                             Foreground="#99A5B6"/>
                         </Grid>
                     </Grid>
+
+                    <TextBlock
+                        x:Name="label_Error"
+                        Text=" "
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Center"
+                        FontWeight="Bold"
+                        FontFamily="Gilroy"
+                        FontSize="14"
+                        Margin="0 0 0 5"
+                        Foreground="RosyBrown"/>
 
                     <Button
                                 HorizontalAlignment="Center"
@@ -135,7 +162,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onRegistrerClick">
                         <TextBlock 
                                         Text="Подати заявку на реєстрацію" 
                                         FontSize="14"

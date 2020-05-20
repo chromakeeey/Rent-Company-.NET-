@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\TRC_Redesign\ClientVehicle\App.xaml
-22368051088
+23-399749849
 
-281705012272
-17-1498488126
-Dialogs\CustomDefaultDialog\DialogOk.xaml;Dialogs\CustomDefaultDialog\DialogOkNo.xaml;Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;Dialogs\DialogsUser\UserApplication.xaml;Dialogs\DialogsUser\UserCardAdmin.xaml;Dialogs\DialogsUser\UserDocumentWindow.xaml;Dialogs\DialogsVehicle\DialogAddVehicle.xaml;Dialogs\Receipts\ReceiptEdit.xaml;Dialogs\Receipts\ReceiptWindow.xaml;LoginWindow.xaml;MainWindow.xaml;SignUpWindow.xaml;Styles\MainIconButton.xaml;Styles\Scroll.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
+34-873017579
+191849377043
+Dialogs\CustomDefaultDialog\DialogOk.xaml;Dialogs\CustomDefaultDialog\DialogOkNo.xaml;Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;Dialogs\DialogsUser\FailSignIn.xaml;Dialogs\DialogsUser\UserApplication.xaml;Dialogs\DialogsUser\UserCardAdmin.xaml;Dialogs\DialogsUser\UserDocumentWindow.xaml;Dialogs\DialogsVehicle\DialogAddVehicle.xaml;Dialogs\Receipts\ReceiptEdit.xaml;Dialogs\Receipts\ReceiptWindow.xaml;LoginWindow.xaml;MainWindow.xaml;SignUpWindow.xaml;Styles\MainIconButton.xaml;Styles\Scroll.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
 
 False
 

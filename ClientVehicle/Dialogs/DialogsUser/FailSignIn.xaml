@@ -1,0 +1,47 @@
+﻿<Window x:Class="ClientVehicle.Dialogs.DialogsUser.FailSignIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsUser"
+        mc:Ignorable="d"
+        Title="FailSignIn" Height="170" Width="350"
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Background="Transparent">
+    <Grid Margin="5">
+        <Border Style="{StaticResource BorderCornerRadius25}" Background="White"/>
+
+        <Grid Margin="15" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock 
+                    Text="Помилка авторизації"
+                    FontFamily="Gilroy"
+                    FontWeight="Heavy"
+                    FontSize="14"
+                    Foreground="#E25544"
+                    HorizontalAlignment="Center"/>
+
+                <TextBlock
+                    x:Name="label_Error"
+                    Margin="0 10 0 0"
+                    Text="Неправильний логін або пароль."
+                    FontFamily="Gilroy"
+                    TextWrapping="Wrap"
+                    FontWeight="Bold"
+                    FontSize="14"
+                    HorizontalAlignment="Center"/>
+
+                <Button
+                    Margin="0 20 0 0"
+                    Width="Auto" Content="Окей"
+                    FontFamily="Gilroy"
+                    FontWeight="Bold"
+                    Background="Transparent"
+                    Foreground="Gray"
+                    BorderBrush="Transparent" Click="onOkayClick"/>
+
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</Window>

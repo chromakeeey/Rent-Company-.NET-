@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using ClientVehicle.Header;
+using ClientVehicle.Dialogs.DialogsUser;
+using ClientVehicle.ServerReference;
 
 namespace ClientVehicle
 {
@@ -21,12 +23,21 @@ namespace ClientVehicle
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private Server server;
+
         public LoginWindow()
         {
             InitializeComponent();
 
             Items.loginWindow = this;
+
             Items.InitializeItems();
+            Client.InitializeItems();
+
+            server = new Server();
+
+            server.userConnect();
+
             UiOperation.SetPage(UIPage.Main);
         }
 
@@ -37,6 +48,33 @@ namespace ClientVehicle
 
         private void onSignInClick(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(field_Login.Text) || string.IsNullOrEmpty(field_Password.Password))
+            {
+                SignInFail.Show("Ви не заповнили логін або пароль.");
+                return;
+            }
+
+            User item = new User();
+
+            /*item = Client.Server.ConnectProvider.SelectUser_LoginPassword(
+                field_Login.Text,
+                field_Password.Password
+            );*/
+
+            item = server.ConnectProvider.SelectUser(1);
+
+            if (item.Id == 0)
+            {
+                SignInFail.Show("Логін або пароль були введені неправильно.");
+                return;
+            }
+
+            if (item.Status != 256)
+            {
+                SignInFail.Show(item.StatusReason);
+                return;
+            }
+
             Hide();
             Items.mainWindow.Show();
             Items.IsActiveMainWindow = true;
@@ -44,6 +82,8 @@ namespace ClientVehicle
 
         private void onSignUpClick(object sender, RoutedEventArgs e)
         {
+            
+
             Hide();
             Items.signUpWindow.Show();
         }

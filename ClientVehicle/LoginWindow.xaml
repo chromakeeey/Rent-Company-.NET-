@@ -71,6 +71,7 @@
                                                      Width="20"
                                                      Margin="0 0 15 0"/>
                             <TextBox
+                                x:Name="field_Login"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 Width="300"
                                 materialDesign:HintAssist.Hint="Введіть логін"
@@ -90,6 +91,7 @@
                                                      Width="20"
                                                      Margin="0 0 15 0"/>
                             <PasswordBox
+                                x:Name="field_Password"
                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                                 Width="300"
                                 materialDesign:HintAssist.Hint="Введіть пароль"

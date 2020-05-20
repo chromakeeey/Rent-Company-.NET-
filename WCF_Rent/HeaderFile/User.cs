@@ -10,55 +10,36 @@ using System.IO;
 
 using WCF_Rent.Providers;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace WCF_Rent.HeaderFile
 {
-    [DataContract]
     public class User : Admin
     {
-        [DataMember]
-        public int Id { get; set; }
+        public int Id;
+        public string Name;
+        public string Surname;
+        public string Login;
+        public string Password;
+        public string Mail;
+        public string Phone;
+        public List<string> LicenseCategories;
+        public DateTime BirthdayDate;
+        public DateTime UserCreateDate;
+        public int Status;
+        public string StatusReason;
+        public string BackImageName;
+        public string FrontImageName;
 
-        [DataMember]
-        public string Name { get; set; }
+        public User()
+        {
+            Name = "null";
+            Surname = "null";
+            BirthdayDate = DateTime.Now;
 
-        [DataMember]
-        public string Surname { get; set; }
+            LicenseCategories.Add("null");
+        }
 
-        [DataMember]
-        public string Login { get; set; }
-
-        [DataMember]
-        public string Password { get; set; }
-
-        [DataMember]
-        public string Mail { get; set; }
-
-        [DataMember]
-        public string Phone { get; set; }
-
-        [DataMember]
-        public List<string> LicenseCategories { get; set; }
-
-        [DataMember]
-        public DateTime BirthdayDate { get; set; }
-
-        [DataMember]
-        public DateTime UserCreateDate { get; set; }
-
-        [DataMember]
-        public int Status { get; set; }
-
-        [DataMember]
-        public string StatusReason { get; set; }
-
-        [DataMember]
-        public string BackImageName { get; set; }
-
-        [DataMember]
-        public string FrontImageName { get; set; }
-
-        
         public byte[] BackImageBytes()
         {
             string path = Log.AppPath + "\\documentimage\\" + BackImageName;
@@ -163,49 +144,70 @@ namespace WCF_Rent.HeaderFile
 
         public static User SelectUser(int Id)
         {
-            User item = new User();
-
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Users] WHERE [Id] = @unicalid", SqlData.sqlConnection))
+            try
             {
-                sqlCommand.Parameters.AddWithValue("unicalid", Id);
-                SqlDataReader reader = sqlCommand.ExecuteReader();
+                User item = new User();
 
-                while (reader.Read())
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Users] WHERE [Id] = @unicalid", SqlData.sqlConnection))
                 {
-                    item = new User()
+                    sqlCommand.Parameters.AddWithValue("unicalid", Id);
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        Name = reader["name"].ToString(),
-                        Surname = reader["surname"].ToString(),
-                        Login = reader["login"].ToString(),
-                        Password = reader["password"].ToString(),
-                        Mail = reader["mail"].ToString(),
-                        Phone = reader["phone"].ToString(),
-                        LicenseCategories = JsonConvert.DeserializeObject<List<string>>(reader["category"].ToString()),
-                        Level = Convert.ToInt32(reader["admin"]),
+                        item = new User()
+                        {
+                            Name = reader["name"].ToString(),
+                            Surname = reader["surname"].ToString(),
+                            Login = reader["login"].ToString(),
+                            Password = reader["password"].ToString(),
+                            Mail = reader["mail"].ToString(),
+                            Phone = reader["phone"].ToString(),
+                            LicenseCategories = JsonConvert.DeserializeObject<List<string>>(reader["category"].ToString()),
+                            Level = Convert.ToInt32(reader["admin"]),
 
-                        Status = Convert.ToInt32(reader["status"]),
-                        StatusReason = reader["status_reason"].ToString(),
+                            Status = Convert.ToInt32(reader["status"]),
+                            StatusReason = reader["status_reason"].ToString(),
 
-                        BirthdayDate = Convert.ToDateTime(reader["birthday_date"]),
-                        UserCreateDate = Convert.ToDateTime(reader["create_date"]),
+                            BirthdayDate = Convert.ToDateTime(reader["birthday_date"]),
+                            UserCreateDate = Convert.ToDateTime(reader["create_date"]),
 
-                        BackImageName = reader["back_image"].ToString(),
-                        FrontImageName = reader["front_image"].ToString(),
+                            BackImageName = reader["back_image"].ToString(),
+                            FrontImageName = reader["front_image"].ToString(),
 
-                        CardNumber = reader["cardnumber"].ToString(),
-                        ExpireDate = reader["expiredate"].ToString(),
-                        OwnerName = reader["ownername"].ToString(),
-                        CVV = Convert.ToInt32(reader["cvv"])
-                    };
+                            CardNumber = reader["cardnumber"].ToString(),
+                            ExpireDate = reader["expiredate"].ToString(),
+                            OwnerName = reader["ownername"].ToString(),
+                            CVV = Convert.ToInt32(reader["cvv"])
+                        };
 
-                    break;
+                        break;
+                    }
+
+                    if (reader != null)
+                        reader.Close();
                 }
 
-                if (reader != null)
-                    reader.Close();
+                return item;
             }
 
-            return item;
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) 
+            {
+                // Get stack trace for the exception with source file information
+                var st = new StackTrace(ex, true);
+                // Get the top stack frame
+                var frame = st.GetFrame(0);
+                // Get the line number from the stack frame
+                var line = frame.GetFileLineNumber();
+
+                Log.Add(LogStyle.Error, 
+                    ex.Message.ToString() + " " + ex.Source.ToString() +
+                    Convert.ToString(line) ); 
+            }
+
+            return new User();
         }
 
         public static void SaveUser(User item)

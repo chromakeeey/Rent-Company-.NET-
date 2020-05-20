@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRC_Redesign", "TRC_Redesign\TRC_Redesign.csproj", "{15C14659-07F3-4051-9BA3-455C6D1BC2C7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_Rent", "WCF_Rent\WCF_Rent.csproj", "{A296FFB0-CB1D-40DB-A8A3-4066612D930A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerHost", "ServerHost\ServerHost.csproj", "{A3C850A0-6211-40BA-870E-6206BF9DB2CA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentTransportWPF", "RentTransportWPF\RentTransportWPF.csproj", "{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientVehicle", "ClientVehicle\ClientVehicle.csproj", "{EB3E6631-BF74-4288-B5C5-8978129563C8}"
 EndProject
@@ -19,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{15C14659-07F3-4051-9BA3-455C6D1BC2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15C14659-07F3-4051-9BA3-455C6D1BC2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15C14659-07F3-4051-9BA3-455C6D1BC2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15C14659-07F3-4051-9BA3-455C6D1BC2C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A296FFB0-CB1D-40DB-A8A3-4066612D930A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A296FFB0-CB1D-40DB-A8A3-4066612D930A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A296FFB0-CB1D-40DB-A8A3-4066612D930A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,10 +23,6 @@ Global
 		{A3C850A0-6211-40BA-870E-6206BF9DB2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3C850A0-6211-40BA-870E-6206BF9DB2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3C850A0-6211-40BA-870E-6206BF9DB2CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E62B4B10-77C7-44B3-9F1C-A56C94BF9CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB3E6631-BF74-4288-B5C5-8978129563C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB3E6631-BF74-4288-B5C5-8978129563C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB3E6631-BF74-4288-B5C5-8978129563C8}.Release|Any CPU.ActiveCfg = Release|Any CPU

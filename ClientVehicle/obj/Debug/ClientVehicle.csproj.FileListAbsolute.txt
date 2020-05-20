@@ -60,3 +60,5 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\Receipts\ReceiptEdit.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\Receipts\ReceiptEdit.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\Receipts\ReceiptWindow.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\Receipts\ReceiptWindow.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\FailSignIn.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\FailSignIn.baml

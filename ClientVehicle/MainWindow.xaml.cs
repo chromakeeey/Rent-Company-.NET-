@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 using ClientVehicle.Header;
 using ClientVehicle.Dialogs.CustomDefaultDialog;
@@ -26,10 +27,18 @@ namespace ClientVehicle
         public MainWindow()
         {
             InitializeComponent();
-
-            
+            this.Closing += new System.ComponentModel.CancelEventHandler(OnMainWindow_Closing);
         }
 
+        private void OnMainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+
+            Items.mainWindow.Hide();
+
+            Items.notifyIcon.ShowBalloonTip(1500, "Програма згортнута в трей", "Программа була згортуна в трей, нажміть на іконку справа внизу для закриття программи або відкриття головного вікна.",
+                System.Windows.Forms.ToolTipIcon.Info);
+        }
 
         private void onMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -99,5 +108,6 @@ namespace ClientVehicle
             Items.notifyIcon.ShowBalloonTip(1500, "Програма згортнута в трей", "Программа була згортуна в трей, нажміть на іконку справа внизу для закриття программи або відкриття головного вікна.",
                 System.Windows.Forms.ToolTipIcon.Info);
         }
+
     }
 }

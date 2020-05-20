@@ -30,13 +30,15 @@ namespace ClientVehicle.Header
 
         private static void exitContextClick(object sender, EventArgs e)
         {
-
+            Client.ApplicationShutdown();
         }
 
         private static void notifyClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
+                
+
                 if (IsActiveMainWindow && mainWindow.Visibility == System.Windows.Visibility.Hidden)
                     mainWindow.Show();
             }
@@ -72,6 +74,9 @@ namespace ClientVehicle.Header
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(notifyClick);
 
             notifyContext = new System.Windows.Forms.ContextMenu();
+
+            notifyContext.MenuItems.Add("Головна сторінка");
+            notifyContext.MenuItems.Add("Транспортні засоби");
             notifyContext.MenuItems.Add("Выход", new EventHandler(exitContextClick));
 
             notifyIcon.ContextMenu = notifyContext;
