@@ -96,9 +96,13 @@
     <Compile Include="Dialogs\DialogsUser\UserDocumentWindow.xaml.cs">
       <DependentUpon>UserDocumentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DialogsVehicle\BetterSearchVehicle.xaml.cs">
+      <DependentUpon>BetterSearchVehicle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\DialogsVehicle\DialogAddVehicle.xaml.cs">
       <DependentUpon>DialogAddVehicle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DialogsVehicle\SearchVehicle.cs" />
     <Compile Include="Dialogs\Receipts\ReceiptEdit.xaml.cs">
       <DependentUpon>ReceiptEdit.xaml</DependentUpon>
     </Compile>
@@ -165,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\DialogsUser\UserDocumentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogsVehicle\BetterSearchVehicle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

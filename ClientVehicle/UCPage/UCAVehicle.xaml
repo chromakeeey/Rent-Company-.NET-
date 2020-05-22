@@ -62,6 +62,7 @@
                                 Foreground="#99A5B6"/>
 
                             <TextBlock
+                                x:Name="label_Count"
                                 Text="256"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
@@ -102,6 +103,7 @@
                                 Foreground="#99A5B6"/>
 
                                 <TextBlock
+                                    x:Name="label_Rent"
                                 Text="32"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
@@ -115,6 +117,7 @@
                     </Grid>
 
                     <Button
+                        
                         Background="Transparent"
                         BorderBrush="Transparent" Click="onClickAddVehicle">
                         <StackPanel Orientation="Horizontal">
@@ -145,10 +148,11 @@
 
             <Grid Grid.Column="2">
                 <Button
+                    
                     HorizontalAlignment="Right"
                     Grid.Row="0"
                     Background="Transparent"
-                    BorderBrush="Transparent">
+                    BorderBrush="Transparent" Click="onSearchClick">
                     <TextBlock 
                         Text="Деталізований пошук" 
                         FontSize="14"
@@ -176,7 +180,7 @@
                 "
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -184,7 +188,7 @@
                 Text="Повна назва"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -192,7 +196,7 @@
                 Text="Ціна"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -200,7 +204,7 @@
                 Text="Статус оренди"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -208,7 +212,7 @@
                 Text="Бензина"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -216,29 +220,15 @@
                 Text="Детальніше"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
         </Grid>
 
         <ScrollViewer  Grid.Row="3" Margin="0 0 0 0">
-            <StackPanel Margin="0 0 18 0">
+            <StackPanel Margin="0 0 18 0" x:Name="panel_VehicleRow">
 
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
-                <UCHelp:UCAVehicleRow Height="93"/>
+                
 
 
             </StackPanel>

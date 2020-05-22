@@ -345,6 +345,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUserVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q16:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="GetUserVehicleResult" nillable="true" type="q17:Vehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SaveBackImage">
     <xs:complexType>
       <xs:sequence>
@@ -366,7 +380,7 @@
   <xs:element name="BackImageBytes">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q16:User" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q18:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -380,7 +394,7 @@
   <xs:element name="FrontImageBytes">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q17:User" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q19:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -391,17 +405,55 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IsVehicleValid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsVehicleValidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsVehicleValidResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAllVehicle">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAllVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="SendAllVehicleResult" nillable="true" type="q20:ArrayOfVehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectAllUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectAllUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="SelectAllUserResult" nillable="true" type="q21:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="onSaveVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q18:Vehicle" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q22:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="onDeleteVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q19:Vehicle" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q23:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

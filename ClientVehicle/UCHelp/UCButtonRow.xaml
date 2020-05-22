@@ -15,7 +15,7 @@
             Margin="0 0 0 0" 
             Padding="0" 
             VerticalAlignment="Center" 
-            HorizontalAlignment="Center">
+            HorizontalAlignment="Center" Click="onClickButton">
             <Grid Height="124" Width="536">
                 <Border  
                 BorderBrush="Transparent" 
@@ -37,6 +37,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Image
+                        x:Name="image_Vehicle"
                         Grid.Column="0" Source="toyota_PNG1953.png"
                         />
 
@@ -45,6 +46,7 @@
                         HorizontalAlignment="Center"
                         Grid.Column="1">
                         <TextBlock
+                            x:Name="label_Name"
                               TextAlignment="Center"
                               HorizontalAlignment="Center"
                               Text="Toyota Prius" 
@@ -54,6 +56,7 @@
                               FontWeight="Bold"/>
 
                         <TextBlock 
+                            x:Name="label_VIN"
                               TextAlignment="Center"
                               HorizontalAlignment="Center"
                               Text="1D8GT28K88W124700" 

@@ -1168,6 +1168,9 @@ namespace ClientVehicle.ServerReference {
         private string BackImageNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float BalanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime BirthdayDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1215,6 +1218,19 @@ namespace ClientVehicle.ServerReference {
                 if ((object.ReferenceEquals(this.BackImageNameField, value) != true)) {
                     this.BackImageNameField = value;
                     this.RaisePropertyChanged("BackImageName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Balance {
+            get {
+                return this.BalanceField;
+            }
+            set {
+                if ((this.BalanceField.Equals(value) != true)) {
+                    this.BalanceField = value;
+                    this.RaisePropertyChanged("Balance");
                 }
             }
         }
@@ -1829,6 +1845,12 @@ namespace ClientVehicle.ServerReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/DeleteUser")]
         System.Threading.Tasks.Task DeleteUserAsync(ClientVehicle.ServerReference.User item);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetUserVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetUserVehicleResponse")]
+        ClientVehicle.ServerReference.Vehicle GetUserVehicle(ClientVehicle.ServerReference.User item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/GetUserVehicle", ReplyAction="http://tempuri.org/IServiceRent/GetUserVehicleResponse")]
+        System.Threading.Tasks.Task<ClientVehicle.ServerReference.Vehicle> GetUserVehicleAsync(ClientVehicle.ServerReference.User item);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/SaveBackImage")]
         void SaveBackImage(byte[] Image, string Name, string Extension);
         
@@ -1852,6 +1874,24 @@ namespace ClientVehicle.ServerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/FrontImageBytes", ReplyAction="http://tempuri.org/IServiceRent/FrontImageBytesResponse")]
         System.Threading.Tasks.Task<byte[]> FrontImageBytesAsync(ClientVehicle.ServerReference.User item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/IsVehicleValid", ReplyAction="http://tempuri.org/IServiceRent/IsVehicleValidResponse")]
+        bool IsVehicleValid(string VIN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/IsVehicleValid", ReplyAction="http://tempuri.org/IServiceRent/IsVehicleValidResponse")]
+        System.Threading.Tasks.Task<bool> IsVehicleValidAsync(string VIN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SendAllVehicle", ReplyAction="http://tempuri.org/IServiceRent/SendAllVehicleResponse")]
+        ClientVehicle.ServerReference.Vehicle[] SendAllVehicle();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SendAllVehicle", ReplyAction="http://tempuri.org/IServiceRent/SendAllVehicleResponse")]
+        System.Threading.Tasks.Task<ClientVehicle.ServerReference.Vehicle[]> SendAllVehicleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SelectAllUser", ReplyAction="http://tempuri.org/IServiceRent/SelectAllUserResponse")]
+        ClientVehicle.ServerReference.User[] SelectAllUser();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SelectAllUser", ReplyAction="http://tempuri.org/IServiceRent/SelectAllUserResponse")]
+        System.Threading.Tasks.Task<ClientVehicle.ServerReference.User[]> SelectAllUserAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2143,6 +2183,14 @@ namespace ClientVehicle.ServerReference {
             return base.Channel.DeleteUserAsync(item);
         }
         
+        public ClientVehicle.ServerReference.Vehicle GetUserVehicle(ClientVehicle.ServerReference.User item) {
+            return base.Channel.GetUserVehicle(item);
+        }
+        
+        public System.Threading.Tasks.Task<ClientVehicle.ServerReference.Vehicle> GetUserVehicleAsync(ClientVehicle.ServerReference.User item) {
+            return base.Channel.GetUserVehicleAsync(item);
+        }
+        
         public void SaveBackImage(byte[] Image, string Name, string Extension) {
             base.Channel.SaveBackImage(Image, Name, Extension);
         }
@@ -2173,6 +2221,30 @@ namespace ClientVehicle.ServerReference {
         
         public System.Threading.Tasks.Task<byte[]> FrontImageBytesAsync(ClientVehicle.ServerReference.User item) {
             return base.Channel.FrontImageBytesAsync(item);
+        }
+        
+        public bool IsVehicleValid(string VIN) {
+            return base.Channel.IsVehicleValid(VIN);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsVehicleValidAsync(string VIN) {
+            return base.Channel.IsVehicleValidAsync(VIN);
+        }
+        
+        public ClientVehicle.ServerReference.Vehicle[] SendAllVehicle() {
+            return base.Channel.SendAllVehicle();
+        }
+        
+        public System.Threading.Tasks.Task<ClientVehicle.ServerReference.Vehicle[]> SendAllVehicleAsync() {
+            return base.Channel.SendAllVehicleAsync();
+        }
+        
+        public ClientVehicle.ServerReference.User[] SelectAllUser() {
+            return base.Channel.SelectAllUser();
+        }
+        
+        public System.Threading.Tasks.Task<ClientVehicle.ServerReference.User[]> SelectAllUserAsync() {
+            return base.Channel.SelectAllUserAsync();
         }
     }
 }

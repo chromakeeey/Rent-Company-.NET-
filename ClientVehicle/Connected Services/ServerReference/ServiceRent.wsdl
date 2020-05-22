@@ -161,6 +161,12 @@
   <wsdl:message name="IServiceRent_DeleteUser_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUser" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_GetUserVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_GetUserVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserVehicleResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceRent_SaveBackImage_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveBackImage" />
   </wsdl:message>
@@ -178,6 +184,24 @@
   </wsdl:message>
   <wsdl:message name="IServiceRent_FrontImageBytes_OutputMessage">
     <wsdl:part name="parameters" element="tns:FrontImageBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_IsVehicleValid_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsVehicleValid" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_IsVehicleValid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsVehicleValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SendAllVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendAllVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SendAllVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendAllVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SelectAllUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SelectAllUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUserResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:onSaveVehicle" />
@@ -299,6 +323,10 @@
     <wsdl:operation name="DeleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/DeleteUser" message="tns:IServiceRent_DeleteUser_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUserVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/GetUserVehicle" message="tns:IServiceRent_GetUserVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/GetUserVehicleResponse" message="tns:IServiceRent_GetUserVehicle_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SaveBackImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SaveBackImage" message="tns:IServiceRent_SaveBackImage_InputMessage" />
     </wsdl:operation>
@@ -312,6 +340,18 @@
     <wsdl:operation name="FrontImageBytes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/FrontImageBytes" message="tns:IServiceRent_FrontImageBytes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/FrontImageBytesResponse" message="tns:IServiceRent_FrontImageBytes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsVehicleValid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/IsVehicleValid" message="tns:IServiceRent_IsVehicleValid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/IsVehicleValidResponse" message="tns:IServiceRent_IsVehicleValid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAllVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SendAllVehicle" message="tns:IServiceRent_SendAllVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/SendAllVehicleResponse" message="tns:IServiceRent_SendAllVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SelectAllUser" message="tns:IServiceRent_SelectAllUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/SelectAllUserResponse" message="tns:IServiceRent_SelectAllUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="onSaveVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
@@ -563,6 +603,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="GetUserVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/GetUserVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SaveBackImage">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/SaveBackImage" style="document" />
       <wsdl:input>
@@ -586,6 +635,33 @@
     </wsdl:operation>
     <wsdl:operation name="FrontImageBytes">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/FrontImageBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsVehicleValid">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/IsVehicleValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAllVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/SendAllVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUser">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/SelectAllUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

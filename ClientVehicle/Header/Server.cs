@@ -18,7 +18,7 @@ namespace ClientVehicle.Header
 
         public int ClientId { get; private set; }
 
-        public void userConnect()
+        public void InitializeConnection()
         {
             try
             {

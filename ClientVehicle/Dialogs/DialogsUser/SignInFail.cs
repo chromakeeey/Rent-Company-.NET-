@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ClientVehicle.Header;
+
 namespace ClientVehicle.Dialogs.DialogsUser
 {
     public static class SignInFail
@@ -12,8 +14,12 @@ namespace ClientVehicle.Dialogs.DialogsUser
 
         public static void Show(string Message)
         {
+            Items.loginWindow.grid_DialogShow.Visibility = System.Windows.Visibility.Visible;
+
             Dialog.label_Error.Text = Message;
             Dialog.ShowDialog();
+
+            Items.loginWindow.grid_DialogShow.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

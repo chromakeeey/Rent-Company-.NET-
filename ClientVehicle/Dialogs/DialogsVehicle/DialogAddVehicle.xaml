@@ -41,6 +41,7 @@
                     <StackPanel Margin="0 0 15 0">
 
                         <TextBox
+                            x:Name="field_VIN"
                             Margin="10"
                             materialDesign:HintAssist.Hint="VIN"
                             materialDesign:HintAssist.HelperText="Унікальний ідентифікатор автомобіля"
@@ -53,6 +54,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_Name"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Назва транспорта"
                             materialDesign:HintAssist.HelperText="Зазвичай це марка автомобіль"
@@ -65,6 +67,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_Model"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Модель транспорта"
                             materialDesign:HintAssist.HelperText="Конкретна модель"
@@ -77,6 +80,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_Mileage"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Пробіг"
                             materialDesign:HintAssist.HelperText="Пробіг автомобіля на даний момент"
@@ -89,6 +93,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_MaxSpeed"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Максимальна швидкість"
                             materialDesign:HintAssist.HelperText="Максимальна швидкість автомобіля"
@@ -101,6 +106,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_MaxFuel"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Об'єм бака"
                             materialDesign:HintAssist.HelperText="Загальний об'єм бака"
@@ -113,6 +119,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_Fuel"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Бензина в баці"
                             materialDesign:HintAssist.HelperText="Бензина в баці на даний момент"
@@ -125,6 +132,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_Plate"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Номерний знак"
                             materialDesign:HintAssist.HelperText="Унікальний номерний знак автомобіля"
@@ -137,6 +145,7 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <TextBox
+                            x:Name="field_Price"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Ціна"
                             materialDesign:HintAssist.HelperText="Ціна оренди автомобіля в день (грн.)"
@@ -149,10 +158,11 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                         <ComboBox
+                            x:Name="combo_Type"
                             Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Тип автомобіля"
-                            materialDesign:HintAssist.HelperText="Ціна оренди автомобіля в день (грн.)"
+                            materialDesign:HintAssist.HelperText="Тип автомобіля"
                             VerticalAlignment="Center"
                             IsEditable="True"
                             FontFamily="Gilroy"
@@ -170,6 +180,7 @@
                         </ComboBox>
 
                         <ComboBox
+                            x:Name="combo_Transmission"
                             Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Трансмісія"
@@ -188,6 +199,7 @@
                         </ComboBox>
                         
                         <ComboBox
+                            x:Name="combo_Category"
                             Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                             Margin="10 10 10 20"
                             materialDesign:HintAssist.Hint="Категорія прав"
@@ -218,14 +230,16 @@
 
                         </ComboBox>
 
-                        <Image Width="330" Height="140" Source="toyota_PNG1953.png" Margin="0 0 0 20"/>
+                        <Image
+                            x:Name="image_Vehicle"
+                            Width="330" Height="140"  Margin="0 0 0 20"/>
 
                         <Button
                             Margin="0 0 0 30"
                             Height="Auto"
                             Width="Auto"
                             Background="Transparent"
-                            BorderBrush="Transparent">
+                            BorderBrush="Transparent" Click="onAddImage">
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 TextAlignment="Center"
@@ -243,7 +257,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onAddClick">
                             <TextBlock 
                                         Text="Додати автомобіль" 
                                         FontSize="14"
@@ -257,6 +271,7 @@
                         </Button>
 
                         <TextBlock
+                            x:Name="label_Error"
                                 HorizontalAlignment="Center"
                                 TextAlignment="Center"
                                 Foreground="#DF9090"

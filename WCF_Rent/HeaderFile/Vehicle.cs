@@ -268,14 +268,14 @@ namespace WCF_Rent.HeaderFile
 
         public static void SaveVehicleImage(byte[] Image, string Name, string Extension)
         {
-            string path = Log.AppPath + "\\pictures\\" + Name + Extension;
+            string path = Log.AppPath + "\\vehicleimage\\" + Name + Extension;
             File.WriteAllBytes(path, Image);
         }
 
         public byte[] VehicleImage()
         {
-            string path = Log.AppPath + "\\pictures\\" + PicturePath;
-            string errorpath = Log.AppPath + "\\documentimage\\error.png";
+            string path = Log.AppPath + "\\vehicleimage\\" + PicturePath;
+            string errorpath = Log.AppPath + "\\vehicleimage\\error.png";
 
             try
             {
@@ -290,6 +290,17 @@ namespace WCF_Rent.HeaderFile
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
             return File.ReadAllBytes(errorpath);
+        }
+
+        public static bool IsVehicleValid(string VIN, List<Vehicle> numerable)
+        {
+            foreach (var item in numerable)
+            {
+                if (item.VIN == VIN)
+                    return true;
+            }
+
+            return false;
         }
     }
 

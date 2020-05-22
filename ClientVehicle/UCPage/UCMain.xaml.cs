@@ -55,5 +55,10 @@ namespace ClientVehicle.UCPage
             new ReceiptWindow().ShowDialog();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
+
+        private void onClickVehiclePage(object sender, RoutedEventArgs e)
+        {
+            UiOperation.SetPage(UIPage.Vehicle);
+        }
     }
 }

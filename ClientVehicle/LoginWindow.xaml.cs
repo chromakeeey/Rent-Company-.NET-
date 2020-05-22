@@ -33,10 +33,7 @@ namespace ClientVehicle
 
             Items.InitializeItems();
             Client.InitializeItems();
-
-            server = new Server();
-
-            server.userConnect();
+            Client.Server.InitializeConnection();
 
             UiOperation.SetPage(UIPage.Main);
         }
@@ -56,12 +53,10 @@ namespace ClientVehicle
 
             User item = new User();
 
-            /*item = Client.Server.ConnectProvider.SelectUser_LoginPassword(
+            item = Client.Server.ConnectProvider.SelectUser_LoginPassword(
                 field_Login.Text,
                 field_Password.Password
-            );*/
-
-            item = server.ConnectProvider.SelectUser(1);
+            );
 
             if (item.Id == 0)
             {
@@ -74,6 +69,8 @@ namespace ClientVehicle
                 SignInFail.Show(item.StatusReason);
                 return;
             }
+
+            Client.SetActiveUser(item);
 
             Hide();
             Items.mainWindow.Show();

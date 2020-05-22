@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 using ClientVehicle.Dialogs.DialogsVehicle;
 using ClientVehicle.Header;
+using ClientVehicle.UCHelp;
+using ClientVehicle.ServerReference;
 
 namespace ClientVehicle.UCPage
 {
@@ -23,9 +25,13 @@ namespace ClientVehicle.UCPage
     /// </summary>
     public partial class UCAVehicle : UserControl
     {
+        public List<UCAVehicleRow> vehicleRow;
+        public List<Vehicle> vehicleNumerable;
+
         public UCAVehicle()
         {
             InitializeComponent();
+            vehicleRow = new List<UCAVehicleRow>();
         }
 
         private void onClickAddVehicle(object sender, RoutedEventArgs e)
@@ -33,6 +39,15 @@ namespace ClientVehicle.UCPage
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
             new DialogAddVehicle().ShowDialog();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+        }
+
+        private void onSearchClick(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            SearchVehicle.Show();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+
+            Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
         }
     }
 }

@@ -39,6 +39,7 @@ namespace WCF_Rent
             cashVoucherData.writeCashVoucher();
 
             SqlData.InitializeConnection();
+            selectAllVehicle();
         }
 
         string localPath()
@@ -110,6 +111,11 @@ namespace WCF_Rent
         public void selectAllVehicle()
         {
             vehicle = Vehicle.SelectAllVehicle();
+        }
+
+        public List<Vehicle> SendAllVehicle()
+        {
+            return vehicle;
         }
 
         public void deleteVehicle(Vehicle item)
@@ -433,6 +439,11 @@ namespace WCF_Rent
             User.DeleteUser(item);
         }
 
+        public Vehicle GetUserVehicle(User item)
+        {
+            return item.GetVehicle(vehicle);
+        }
+
         public void SaveBackImage(byte[] Image, string Name, string Extension)
         {
             User.SaveBackImage(Image, Name, Extension);
@@ -451,6 +462,16 @@ namespace WCF_Rent
         public byte[] FrontImageBytes(User item)
         {
             return item.FrontImageBytes();
+        }
+
+        public bool IsVehicleValid(string VIN)
+        {
+            return Vehicle.IsVehicleValid(VIN, vehicle);
+        }
+
+        public List<User> SelectAllUser()
+        {
+            return User.SelectAllUser();
         }
     }
 }

@@ -33,6 +33,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock
+                x:Name="label_VIN"
                 VerticalAlignment="Center"
                 Grid.Column="0"
                 Text="1FTLR4FE8APA75891"
@@ -42,6 +43,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Fullname"
                 VerticalAlignment="Center"
                 Grid.Column="1"
                 TextWrapping="Wrap"
@@ -52,6 +54,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Price"
                 VerticalAlignment="Center"
                 Grid.Column="2"
                 Text="₴ 500"
@@ -61,6 +64,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Status"
                 VerticalAlignment="Center"
                 Grid.Column="3"
                 Text="Не орендований"
@@ -70,6 +74,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Fuel"
                 VerticalAlignment="Center"
                 Grid.Column="4"
                 Text="36 л."

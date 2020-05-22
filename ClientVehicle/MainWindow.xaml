@@ -103,6 +103,7 @@
                                 </Grid>
 
                                 <Grid
+                                    x:Name="button_AVehicle"
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="aVehicleMouseDown">
@@ -115,6 +116,7 @@
                                 </Grid>
 
                                 <Grid
+                                    x:Name="button_AUser"
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="aUserMouseDown">
@@ -127,6 +129,7 @@
                                 </Grid>
 
                                 <Grid
+                                    x:Name="button_Statistic"
                                 Margin="0,0,0,20"
                                 Background="White"
                                 Style="{StaticResource HoverMouseAnimationGrid}" MouseDown="statMouseDown">

@@ -14,30 +14,101 @@ using System.Diagnostics;
 
 namespace WCF_Rent.HeaderFile
 {
+    [DataContract]
     public class User : Admin
     {
-        public int Id;
-        public string Name;
-        public string Surname;
-        public string Login;
-        public string Password;
-        public string Mail;
-        public string Phone;
-        public List<string> LicenseCategories;
-        public DateTime BirthdayDate;
-        public DateTime UserCreateDate;
-        public int Status;
-        public string StatusReason;
-        public string BackImageName;
-        public string FrontImageName;
+        [DataMember]
+        public int Id { get; set; }
+
+        [DataMember]
+        public string Name { get; set; }
+
+        [DataMember]
+        public string Surname { get; set; }
+
+        [DataMember]
+        public string Login { get; set; }
+
+        [DataMember]
+        public string Password { get; set; }
+
+        [DataMember]
+        public string Mail { get; set; }
+
+        [DataMember]
+        public string Phone { get; set; }
+
+        [DataMember]
+        public float Balance { get; set; }
+
+        [DataMember]
+        public List<string> LicenseCategories { get; set; }
+
+        [DataMember]
+        public DateTime BirthdayDate { get; set; }
+
+        [DataMember]
+        public DateTime UserCreateDate { get; set; }
+
+        [DataMember]
+        public int Status { get; set; }
+
+        [DataMember]
+        public string StatusReason { get; set; }
+
+        [DataMember]
+        public string BackImageName { get; set; }
+
+        [DataMember]
+        public string FrontImageName { get; set; }
 
         public User()
         {
             Name = "null";
             Surname = "null";
             BirthdayDate = DateTime.Now;
+            Balance = 0;
 
+            LicenseCategories = new List<string>();
             LicenseCategories.Add("null");
+        }
+
+        public Vehicle GetVehicle(List<Vehicle> numerable)
+        {
+            try
+            {
+                Vehicle item = new Vehicle();
+                item.VIN = "null";
+
+                foreach (var i in numerable)
+                {
+                    if (i.ClientId == Id)
+                    {
+                        item = i;
+                        break;
+                    }
+                }
+
+                return item;
+            }
+
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex)
+            {
+                // Get stack trace for the exception with source file information
+                var st = new StackTrace(ex, true);
+                // Get the top stack frame
+                var frame = st.GetFrame(0);
+                // Get the line number from the stack frame
+                var line = frame.GetFileLineNumber();
+
+                Log.Add(LogStyle.Error,
+                    ex.Message.ToString() + " " + ex.Source.ToString() +
+                    Convert.ToString(line));
+            }
+
+            return new Vehicle();
         }
 
         public byte[] BackImageBytes()
@@ -96,50 +167,142 @@ namespace WCF_Rent.HeaderFile
 
         public static User SelectUser_LoginPassword(string Login, string Password)
         {
-            User item = new User();
-
-            using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Users] WHERE [login] = @login AND [password] = @password", SqlData.sqlConnection))
+            try
             {
-                sqlCommand.Parameters.AddWithValue("login", Login);
-                sqlCommand.Parameters.AddWithValue("password", Password);
-                SqlDataReader reader = sqlCommand.ExecuteReader();
+                User item = new User();
 
-                while (reader.Read())
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Users] WHERE [login] = @login AND [password] = @password", SqlData.sqlConnection))
                 {
-                    item = new User()
+                    sqlCommand.Parameters.AddWithValue("login", Login);
+                    sqlCommand.Parameters.AddWithValue("password", Password);
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        Name = reader["name"].ToString(),
-                        Surname = reader["surname"].ToString(),
-                        Login = reader["login"].ToString(),
-                        Password = reader["password"].ToString(),
-                        Mail = reader["mail"].ToString(),
-                        Phone = reader["phone"].ToString(),
-                        LicenseCategories = JsonConvert.DeserializeObject<List<string>>(reader["category"].ToString()),
-                        Level = Convert.ToInt32(reader["admin"]),
+                        item = new User()
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            Name = reader["name"].ToString(),
+                            Surname = reader["surname"].ToString(),
+                            Login = reader["login"].ToString(),
+                            Password = reader["password"].ToString(),
+                            Mail = reader["mail"].ToString(),
+                            Phone = reader["phone"].ToString(),
+                            LicenseCategories = JsonConvert.DeserializeObject<List<string>>(reader["category"].ToString()),
+                            Level = Convert.ToInt32(reader["admin"]),
+                            Balance = Convert.ToInt32(reader["balance"]),
 
-                        Status = Convert.ToInt32(reader["status"]),
-                        StatusReason = reader["status_reason"].ToString(),
+                            Status = Convert.ToInt32(reader["status"]),
+                            StatusReason = reader["status_reason"].ToString(),
 
-                        BirthdayDate = Convert.ToDateTime(reader["birthday_date"]),
-                        UserCreateDate = Convert.ToDateTime(reader["create_date"]),
+                            BirthdayDate = Convert.ToDateTime(reader["birthday_date"]),
+                            UserCreateDate = Convert.ToDateTime(reader["create_date"]),
 
-                        BackImageName = reader["back_image"].ToString(),
-                        FrontImageName = reader["front_image"].ToString(),
+                            BackImageName = reader["back_image"].ToString(),
+                            FrontImageName = reader["front_image"].ToString(),
 
-                        CardNumber = reader["cardnumber"].ToString(),
-                        ExpireDate = reader["expiredate"].ToString(),
-                        OwnerName = reader["ownername"].ToString(),
-                        CVV = Convert.ToInt32(reader["cvv"])
-                    };
+                            CardNumber = reader["cardnumber"].ToString(),
+                            ExpireDate = reader["expiredate"].ToString(),
+                            OwnerName = reader["ownername"].ToString(),
+                            CVV = Convert.ToInt32(reader["cvv"])
+                        };
 
-                    break;
+                        break;
+                    }
+
+                    if (reader != null)
+                        reader.Close();
+
+                    return item;
                 }
-
-                if (reader != null)
-                    reader.Close();
             }
 
-            return item;
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex)
+            {
+                // Get stack trace for the exception with source file information
+                var st = new StackTrace(ex, true);
+                // Get the top stack frame
+                var frame = st.GetFrame(0);
+                // Get the line number from the stack frame
+                var line = frame.GetFileLineNumber();
+
+                Log.Add(LogStyle.Error,
+                    ex.Message.ToString() + " " + ex.Source.ToString() +
+                    Convert.ToString(line));
+            }
+
+            return new User();
+        }
+
+        public static List<User> SelectAllUser()
+        {
+            try
+            {
+                List<User> numerable = new List<User>();
+
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Users]", SqlData.sqlConnection))
+                {
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        User item = new User()
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            Name = reader["name"].ToString(),
+                            Surname = reader["surname"].ToString(),
+                            Login = reader["login"].ToString(),
+                            Password = reader["password"].ToString(),
+                            Mail = reader["mail"].ToString(),
+                            Phone = reader["phone"].ToString(),
+                            LicenseCategories = JsonConvert.DeserializeObject<List<string>>(reader["category"].ToString()),
+                            Level = Convert.ToInt32(reader["admin"]),
+                            Balance = Convert.ToInt32(reader["balance"]),
+
+                            Status = Convert.ToInt32(reader["status"]),
+                            StatusReason = reader["status_reason"].ToString(),
+
+                            BirthdayDate = Convert.ToDateTime(reader["birthday_date"]),
+                            UserCreateDate = Convert.ToDateTime(reader["create_date"]),
+
+                            BackImageName = reader["back_image"].ToString(),
+                            FrontImageName = reader["front_image"].ToString(),
+
+                            CardNumber = reader["cardnumber"].ToString(),
+                            ExpireDate = reader["expiredate"].ToString(),
+                            OwnerName = reader["ownername"].ToString(),
+                            CVV = Convert.ToInt32(reader["cvv"])
+                        };
+
+                        numerable.Add(item);
+                    }
+
+                    if (reader != null)
+                        reader.Close();
+                }
+
+                return numerable;
+            }
+
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex)
+            {
+                // Get stack trace for the exception with source file information
+                var st = new StackTrace(ex, true);
+                // Get the top stack frame
+                var frame = st.GetFrame(0);
+                // Get the line number from the stack frame
+                var line = frame.GetFileLineNumber();
+
+                Log.Add(LogStyle.Error,
+                    ex.Message.ToString() + " " + ex.Source.ToString() +
+                    Convert.ToString(line));
+            }
+
+            return new List<User>();
         }
 
         public static User SelectUser(int Id)
@@ -157,6 +320,7 @@ namespace WCF_Rent.HeaderFile
                     {
                         item = new User()
                         {
+                            Id = Convert.ToInt32(reader["id"]),
                             Name = reader["name"].ToString(),
                             Surname = reader["surname"].ToString(),
                             Login = reader["login"].ToString(),
@@ -165,6 +329,7 @@ namespace WCF_Rent.HeaderFile
                             Phone = reader["phone"].ToString(),
                             LicenseCategories = JsonConvert.DeserializeObject<List<string>>(reader["category"].ToString()),
                             Level = Convert.ToInt32(reader["admin"]),
+                            Balance = Convert.ToInt32(reader["balance"]),
 
                             Status = Convert.ToInt32(reader["status"]),
                             StatusReason = reader["status_reason"].ToString(),
@@ -219,7 +384,7 @@ namespace WCF_Rent.HeaderFile
                     command.CommandText = "UPDATE [Users] SET [name] = @name, [surname] = @surname, [login] = @login, [password] = @password" +
                         "[mail] = @mail, [phone] = @phone, [category] = @category, [admin] = @admin, [status] = @status, [status_reason] = @status_reason" +
                         "[birthday_date] = @birthday_date, [create_date] = @create_date, [back_image] = @back_image, [front_image] = @front_image" +
-                        "[cardnumber] = @cardnumber, [expiredate] = @expiredate, [ownername] = @ownername, [cvv] = @cvv" +
+                        "[cardnumber] = @cardnumber, [expiredate] = @expiredate, [ownername] = @ownername, [cvv] = @cvv, [balance] = @balance" +
                         "WHERE [id] = @id";
 
                     command.Parameters.AddWithValue("name", item.Name);
@@ -240,6 +405,7 @@ namespace WCF_Rent.HeaderFile
                     command.Parameters.AddWithValue("expiredate", item.ExpireDate);
                     command.Parameters.AddWithValue("ownername", item.OwnerName);
                     command.Parameters.AddWithValue("cvv", item.CVV);
+                    command.Parameters.AddWithValue("balance", item.Balance);
 
                     command.Parameters.AddWithValue("id", item.Id);
                     command.ExecuteNonQuery();
@@ -263,7 +429,7 @@ namespace WCF_Rent.HeaderFile
                         "front_image, cardnumber, expiredate, ownername, cvv) " +
                         "VALUES " +
                         "(@name, @surname, @login, @password, @mail, @phone, @category, @admin, @status, @status_reason, @birthday_date, @create_date, @back_image," +
-                        "@front_image, @cardnumber, @expiredate, @ownername, @cvv)";
+                        "@front_image, @cardnumber, @expiredate, @ownername, @cvv, @balance)";
 
                     command.Parameters.AddWithValue("name", item.Name);
                     command.Parameters.AddWithValue("surname", item.Surname);
@@ -283,6 +449,7 @@ namespace WCF_Rent.HeaderFile
                     command.Parameters.AddWithValue("expiredate", item.ExpireDate);
                     command.Parameters.AddWithValue("ownername", item.OwnerName);
                     command.Parameters.AddWithValue("cvv", item.CVV);
+                    command.Parameters.AddWithValue("balance", item.Balance);
 
                     command.ExecuteNonQuery();
                 }

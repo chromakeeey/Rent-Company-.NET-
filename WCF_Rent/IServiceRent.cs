@@ -111,6 +111,9 @@ namespace WCF_Rent
         [OperationContract(IsOneWay = true)]
         void DeleteUser(User item);
 
+        [OperationContract]
+        Vehicle GetUserVehicle(User item);
+
         [OperationContract(IsOneWay = true)]
         void SaveBackImage(byte[] Image, string Name, string Extension);
 
@@ -122,6 +125,15 @@ namespace WCF_Rent
 
         [OperationContract]
         byte[] FrontImageBytes(User item);
+
+        [OperationContract]
+        bool IsVehicleValid(string VIN);
+
+        [OperationContract]
+        List<Vehicle> SendAllVehicle();
+
+        [OperationContract]
+        List<User> SelectAllUser();
     }
 
     public interface IServerRentCallback

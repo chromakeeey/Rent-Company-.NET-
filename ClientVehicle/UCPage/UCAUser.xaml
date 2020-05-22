@@ -70,6 +70,7 @@
                                 Foreground="#99A5B6"/>
 
                             <TextBlock
+                                x:Name="label_Count"
                                 Text="256"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
@@ -109,6 +110,7 @@
                                 Foreground="#99A5B6"/>
 
                             <TextBlock
+                                x:Name="label_Deactive"
                                 Text="32"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
@@ -149,6 +151,7 @@
                                 Foreground="#99A5B6"/>
 
                                 <TextBlock
+                                    x:Name="label_Check"
                                 Text="3"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
@@ -160,6 +163,7 @@
                     </Grid>
 
                     <Button
+                        x:Name="button_AccountCheck"
                         Background="Transparent"
                         BorderBrush="Transparent" Click="onUserApplicationClick" >
                         <StackPanel Orientation="Horizontal">
@@ -249,7 +253,7 @@
                 Text="ID"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -257,7 +261,7 @@
                 Text="Повне ім'я"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -265,7 +269,7 @@
                 Text="Баланс"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -273,7 +277,7 @@
                 Text="Борг"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -281,7 +285,7 @@
                 Text="Дата створення"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
             <TextBlock
@@ -289,7 +293,7 @@
                 Text="Детальніше"
                 FontFamily="Gilroy"
                 FontWeight="Bold"
-                FontSize="18"
+                FontSize="14"
                 Foreground="Black"/>
 
         </Grid>

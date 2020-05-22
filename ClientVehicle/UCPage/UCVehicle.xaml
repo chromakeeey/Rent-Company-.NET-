@@ -46,10 +46,11 @@
                 </Grid.RowDefinitions>
 
                 <Button
+                    
                     HorizontalAlignment="Left"
                     Grid.Row="0"
                     Background="Transparent"
-                    BorderBrush="Transparent">
+                    BorderBrush="Transparent" Click="onClickSearch">
                     <TextBlock 
                         Text="Деталізований пошук" 
                         FontSize="14"
@@ -60,19 +61,8 @@
 
                 <Grid Grid.Row="1">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                        <StackPanel HorizontalAlignment="Center">
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
-                            <UCHelp:UCButtonRow/>
+                        <StackPanel HorizontalAlignment="Center" x:Name="panel_VehicleNumerable">
+                            
                         </StackPanel>
                         
                     </ScrollViewer>
@@ -96,7 +86,8 @@
                 </Border.Effect>
             </Border>
 
-            <Grid 
+            <Grid
+                x:Name="VehicleGrid"
                 Margin="40 20 40 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -106,11 +97,13 @@
                 <Grid Grid.Row="0">
                     <StackPanel>
                         <Image
+                            x:Name="image_Vehicle"
                             Height="300" Width="450"
                             HorizontalAlignment="Center" Source="toyota_PNG1953.png"
                             />
 
                         <TextBlock
+                            x:Name="label_HeaderVehicle"
                               TextAlignment="Center"
                               HorizontalAlignment="Center"
                               Text="Toyota Prius" 
@@ -119,7 +112,8 @@
                               Foreground="Black"
                               FontWeight="Bold"/>
 
-                        <TextBlock 
+                        <TextBlock
+                            x:Name="label_VIN"
                               TextAlignment="Center"
                               HorizontalAlignment="Center"
                               Text="1D8GT28K88W124700" 
@@ -157,7 +151,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Plate"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -187,7 +182,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Category"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -216,7 +212,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Fuel"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -245,7 +242,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_MaxFuel"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -274,7 +272,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_MaxSpeed"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -303,7 +302,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Type"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -332,7 +332,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Transmission"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -361,7 +362,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Mileage"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -396,7 +398,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="label_StartRent"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -425,7 +428,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="label_FinalRent"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -440,6 +444,7 @@
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
                                     <TextBlock
+                                        x:Name="label_Status"
                                         Margin="0 20 20 0"
                                         VerticalAlignment="Center"
                                         Text="Цей транспорт вже орендовний" 
@@ -448,7 +453,9 @@
                                         Foreground="#99A5B6"
                                         FontWeight="Bold"/>
 
-                                    <Button Margin="0 20 0 0"
+                                    <Button
+                                        x:Name="button_Rent"
+                                        Margin="0 20 0 0"
                                     Height="36" Width="155"
                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                     materialDesign:ButtonAssist.CornerRadius="15"

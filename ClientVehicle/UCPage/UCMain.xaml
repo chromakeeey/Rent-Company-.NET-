@@ -35,7 +35,42 @@
                 </Border.Effect>
             </Border>
 
-            <Grid 
+            <Grid Visibility="Hidden"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                x:Name="notFoundVehicle_Grid">
+                <StackPanel>
+                    <TextBlock
+                    TextAlignment="Center"
+                    FontFamily="Gilroy"
+                    FontWeight="Bold"
+                    Text="Ви не орендували автомобіль"
+                    TextWrapping="Wrap"
+                    Foreground="#99A5B6"
+                    FontSize="32"/>
+                    <Button 
+                        HorizontalAlignment="Center"
+                        Margin="0 20 0 0"
+                        Height="36" Width="200"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        materialDesign:ButtonAssist.CornerRadius="15"
+                        Padding="0"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                        ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                        Background="#3B93F7"
+                        BorderBrush="#3B93F7" Click="onClickVehiclePage">
+                        <TextBlock 
+                            Text="Список автомобілів" 
+                            FontSize="14"
+                            FontFamily="Gilroy"
+                            Foreground="White"
+                            FontWeight="Bold"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            
+            <Grid
+                x:Name="VehicleGrid"
                 Margin="40 20 40 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -45,11 +80,13 @@
                 <Grid Grid.Row="0">
                     <StackPanel>
                         <Image
+                            x:Name="image_Vehicle"
                             Height="300" Width="450"
                             HorizontalAlignment="Center" Source="toyota_PNG1953.png"
                             />
 
                         <TextBlock
+                            x:Name="label_HeaderVehicle"
                               TextAlignment="Center"
                               HorizontalAlignment="Center"
                               Text="Toyota Prius" 
@@ -58,7 +95,8 @@
                               Foreground="Black"
                               FontWeight="Bold"/>
 
-                        <TextBlock 
+                        <TextBlock
+                            x:Name="label_VIN"
                               TextAlignment="Center"
                               HorizontalAlignment="Center"
                               Text="1D8GT28K88W124700" 
@@ -96,7 +134,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Plate"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -126,7 +165,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Category"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -155,7 +195,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Fuel"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -184,7 +225,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_MaxFuel"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -213,7 +255,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_MaxSpeed"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -242,7 +285,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Type"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -271,7 +315,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Transmission"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -300,7 +345,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Mileage"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -335,7 +381,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="label_StartRent"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -364,7 +411,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Regular"/>
 
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="label_FinalRent"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -459,6 +507,7 @@
                                         Foreground="#99A5B6"
                                         FontWeight="Bold"/>
                                     <TextBlock 
+                                        x:Name="label_Balance"
                                         Text="₴ 52 000" 
                                         FontSize="36"
                                         FontFamily="Gilroy"
@@ -472,7 +521,8 @@
                                         FontFamily="Gilroy"
                                         Foreground="#99A5B6"
                                         FontWeight="Bold"/>
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="label_Credit"
                                         Text="₴ 600" 
                                         FontSize="24"
                                         FontFamily="Gilroy"
@@ -531,7 +581,9 @@
                                 </Grid.RowDefinitions>
 
                                 <Grid Grid.Row="0">
-                                    <TextBlock HorizontalAlignment="Right"
+                                    <TextBlock
+                                        x:Name="label_PayType"
+                                        HorizontalAlignment="Right"
                                         Text="VISA" 
                                         FontSize="18"
                                         FontFamily="Gilroy"
@@ -540,7 +592,8 @@
                                 </Grid>
 
                                 <Grid Grid.Row="1">
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="label_Cardnumber"
                                         HorizontalAlignment="Center"
                                         TextAlignment="Center"
                                         Text="2567 **** **** 3545" 
@@ -559,6 +612,7 @@
 
                                         <Grid Grid.Column="0">
                                             <TextBlock
+                                                x:Name="label_OwnerCard"
                                                 VerticalAlignment="Bottom"
                                             HorizontalAlignment="Left"
                                             TextAlignment="Left"
@@ -570,7 +624,8 @@
                                         </Grid>
 
                                         <Grid Grid.Column="1">
-                                            <TextBlock 
+                                            <TextBlock
+                                                x:Name="label_ExpireDate"
                                             HorizontalAlignment="Right"
                                             TextAlignment="Right"
                                             Text="09/22" 
@@ -630,6 +685,7 @@
                                     </Ellipse>
 
                                     <TextBlock
+                                        x:Name="label_FullName"
                                         Width="162"
                                         TextWrapping="Wrap"
                                         Margin="15 0 0 0"
@@ -657,6 +713,7 @@
                                             FontWeight="Bold"/>
 
                                         <TextBlock
+                                            x:Name="label_DateSignUp"
                                             TextAlignment="Right"
                                             Text="25.06.2020 12:18:12" 
                                             FontSize="14"
@@ -690,6 +747,7 @@
                                     FontWeight="Bold"/>
 
                                 <TextBlock 
+                                    x:Name="label_Login"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -716,7 +774,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Bold"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Mail"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
@@ -743,7 +802,8 @@
                                     Foreground="#99A5B6"
                                     FontWeight="Bold"/>
 
-                                <TextBlock 
+                                <TextBlock
+                                    x:Name="label_Phone"
                                     Grid.Column="1"
                                     TextAlignment="Right"
                                     HorizontalAlignment="Right"
