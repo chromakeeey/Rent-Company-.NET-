@@ -16,7 +16,7 @@
         FontFamily="Gilroy"
         
         Title="DialogOk" Height="332.927" Width="747.561" WindowStyle="None" AllowsTransparency="True"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterScreen">
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius25}" Background="White"/>
 

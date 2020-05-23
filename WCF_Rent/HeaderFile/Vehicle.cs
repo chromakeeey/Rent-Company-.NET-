@@ -168,7 +168,7 @@ namespace WCF_Rent.HeaderFile
             try
             {
 
-                SqlCommand sqlCommand = new SqlCommand("DELETE FROM [vehicles] WHERE [VIN] = @VIN");
+                SqlCommand sqlCommand = new SqlCommand("DELETE FROM [vehicles] WHERE [VIN] = @VIN", SqlData.sqlConnection);
                 sqlCommand.Parameters.AddWithValue("VIN", item.VIN);
                 sqlCommand.ExecuteNonQuery();
             }

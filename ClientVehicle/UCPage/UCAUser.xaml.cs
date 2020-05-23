@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 using ClientVehicle.Dialogs.DialogsUser;
 using ClientVehicle.Header;
+using ClientVehicle.UCHelp;
+using ClientVehicle.ServerReference;
 
 
 namespace ClientVehicle.UCPage
@@ -24,6 +26,11 @@ namespace ClientVehicle.UCPage
     /// </summary>
     public partial class UCAUser : UserControl
     {
+        public List<User> userNumerable = new List<User>();
+        public List<UCAUserRow> userRow = new List<UCAUserRow>();
+
+        private string oldSearch = "INVALID_SEARCH_PARAMS";
+
         public UCAUser()
         {
             InitializeComponent();
@@ -34,6 +41,36 @@ namespace ClientVehicle.UCPage
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
             new UserApplication().ShowDialog();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+        }
+
+        public List<User> SearchAsLogin(List<User> numerable)
+        {
+            if (string.IsNullOrEmpty(textbox_Search.Text))
+                return numerable;
+
+            string filter = textbox_Search.Text;
+
+            List<User> sortNumerable = (
+                from i in numerable 
+                where (i.Surname + " " + i.Name).StartsWith(filter) 
+                select i).ToList();
+
+            return sortNumerable;
+        }
+
+        private void onClickSearch(object sender, MouseButtonEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textbox_Search.Text))
+                return;
+
+            if (textbox_Search.Text == oldSearch)
+                return;
+
+            oldSearch = textbox_Search.Text;
+
+            User[] numerableUser = Client.Server.ConnectProvider.SelectAllUser();
+            List<User> sortedApplication = (from i in numerableUser where i.Status != 0 select i).ToList();
+            Items.UpdateAUser(SearchAsLogin(sortedApplication));
         }
     }
 }

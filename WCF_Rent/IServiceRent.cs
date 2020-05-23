@@ -139,13 +139,23 @@ namespace WCF_Rent
     public interface IServerRentCallback
     {
         [OperationContract(IsOneWay = true)]
-        void onSaveVehicle(Vehicle vehicleObject);
+        void OnEditVehicle(Vehicle item, List<Vehicle> numerable);
 
         [OperationContract(IsOneWay = true)]
-        void onDeleteVehicle(Vehicle vehicleObject);
+        void OnAddVehicle(Vehicle item, List<Vehicle> numerable);
 
         [OperationContract(IsOneWay = true)]
-        void sendNotification(string message);
+        void OnDeleteVehicle(Vehicle item, List<Vehicle> numerable);
+
+
+        [OperationContract(IsOneWay = true)]
+        void OnUserEdit(User Item, List<User> numerable);
+
+        [OperationContract(IsOneWay = true)]
+        void OnUserAdd(User Item, List<User> numerable);
+
+        [OperationContract(IsOneWay = true)]
+        void OnUserDelete(User Item, List<User> numerable);
     }
 
     

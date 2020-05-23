@@ -97,6 +97,8 @@ namespace ClientVehicle
         private void onMouseDownLogout(object sender, MouseButtonEventArgs e)
         {
             Items.IsActiveMainWindow = false;
+            Client.User.Id = 0;
+
             Items.mainWindow.Hide();
             Items.loginWindow.Show();
         }

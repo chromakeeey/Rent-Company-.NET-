@@ -92,7 +92,7 @@ namespace WCF_Rent
 
         public void showNotification(int id, string message)
         {
-            foreach(var userObject in serverUser)
+            /*foreach(var userObject in serverUser)
             {
                 var user = serverUser.FirstOrDefault(i => i.ID == id);
 
@@ -100,7 +100,7 @@ namespace WCF_Rent
                 {
                     userObject.operationContext.GetCallbackChannel<IServerRentCallback>().sendNotification(message);
                 }
-            }
+            }*/
         }
 
         public Vehicle selectVehicle(string VIN)
@@ -125,13 +125,25 @@ namespace WCF_Rent
                 item.operationContext.GetCallbackChannel<IServerRentCallback>().onSaveVehicle(vehicleObject);
             }*/
 
+
             Vehicle.DeleteVehicle(item);
+            vehicle = (from i in vehicle where i.VIN != item.VIN select i).ToList();
+
+            foreach (var user in serverUser)
+            {
+                user.operationContext.GetCallbackChannel<IServerRentCallback>().OnDeleteVehicle(item, vehicle);
+            }
         }
 
         public void addVehicle(Vehicle item)
         {
             vehicle.Add(item);
             Vehicle.AddVehicle(item);
+
+            foreach (var user in serverUser)
+            {
+                user.operationContext.GetCallbackChannel<IServerRentCallback>().OnAddVehicle(item, vehicle);
+            }
         }
 
         public void saveVehicle(Vehicle item)
@@ -139,7 +151,11 @@ namespace WCF_Rent
             int index = vehicle.FindIndex(i => i.VIN == item.VIN);
             vehicle[index] = item;
 
-            Vehicle.SaveVehicle(item);           
+            Vehicle.SaveVehicle(item);
+            foreach (var user in serverUser)
+            {
+                user.operationContext.GetCallbackChannel<IServerRentCallback>().OnEditVehicle(item, vehicle);
+            }
         }
 
         public int GetAllVehicle()
@@ -427,16 +443,31 @@ namespace WCF_Rent
         public void SaveUser(User item)
         {
             User.SaveUser(item);
+
+            foreach (var user in serverUser)
+            {
+                user.operationContext.GetCallbackChannel<IServerRentCallback>().OnUserEdit(item, User.SelectAllUser());
+            }
         }
 
         public void AddUser(User item)
         {
             User.AddUser(item);
+
+            foreach (var user in serverUser)
+            {
+                user.operationContext.GetCallbackChannel<IServerRentCallback>().OnUserAdd(item, User.SelectAllUser());
+            }
         }
 
         public void DeleteUser(User item)
         {
             User.DeleteUser(item);
+
+            foreach (var user in serverUser)
+            {
+                user.operationContext.GetCallbackChannel<IServerRentCallback>().OnUserDelete(item, User.SelectAllUser());
+            }
         }
 
         public Vehicle GetUserVehicle(User item)

@@ -1897,14 +1897,23 @@ namespace ClientVehicle.ServerReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceRentCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/onSaveVehicle")]
-        void onSaveVehicle(ClientVehicle.ServerReference.Vehicle vehicleObject);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/OnEditVehicle")]
+        void OnEditVehicle(ClientVehicle.ServerReference.Vehicle item, ClientVehicle.ServerReference.Vehicle[] numerable);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/onDeleteVehicle")]
-        void onDeleteVehicle(ClientVehicle.ServerReference.Vehicle vehicleObject);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/OnAddVehicle")]
+        void OnAddVehicle(ClientVehicle.ServerReference.Vehicle item, ClientVehicle.ServerReference.Vehicle[] numerable);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/sendNotification")]
-        void sendNotification(string message);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/OnDeleteVehicle")]
+        void OnDeleteVehicle(ClientVehicle.ServerReference.Vehicle item, ClientVehicle.ServerReference.Vehicle[] numerable);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/OnUserEdit")]
+        void OnUserEdit(ClientVehicle.ServerReference.User Item, ClientVehicle.ServerReference.User[] numerable);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/OnUserAdd")]
+        void OnUserAdd(ClientVehicle.ServerReference.User Item, ClientVehicle.ServerReference.User[] numerable);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceRent/OnUserDelete")]
+        void OnUserDelete(ClientVehicle.ServerReference.User Item, ClientVehicle.ServerReference.User[] numerable);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

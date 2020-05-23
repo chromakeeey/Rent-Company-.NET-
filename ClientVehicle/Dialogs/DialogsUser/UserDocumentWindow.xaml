@@ -39,7 +39,7 @@
                                 Foreground="#99A5B6"
                                 Margin="0 0 10 0"
                                 VerticalAlignment="Center"/>
-                    <Image Height="200" Margin="10 0 10 0" Source="top.png" />
+                    <Image x:Name="image_Front" Height="200" Margin="10 0 10 0" Source="top.png" />
                     <Button
                         Background="Transparent" HorizontalAlignment="Center"
                         BorderBrush="Transparent" >
@@ -61,13 +61,13 @@
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                     <TextBlock
                                 HorizontalAlignment="Center"
-                                Text="Лицева сторона"
+                                Text="Задня сторона"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
                                 Foreground="#99A5B6"
                                 Margin="0 0 10 0"
                                 VerticalAlignment="Center"/>
-                    <Image Height="200" Margin="10 0 10 0" Source="bottom.png" />
+                    <Image x:Name="image_Back" Height="200" Margin="10 0 10 0" Source="bottom.png" />
                     <Button
                         Background="Transparent" HorizontalAlignment="Center"
                         BorderBrush="Transparent">
@@ -90,6 +90,7 @@
 
 
             <ListBox
+                x:Name="lbox_Category"
                 Grid.Row="2"
                 HorizontalAlignment="Center"
                             FontFamily="Gilroy"

@@ -13,8 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClientVehicle.ServerReference;
 using ClientVehicle.Header;
 using ClientVehicle.Dialogs.DialogsUser;
+using ClientVehicle.UCHelp;
+using System.Windows.Threading;
 
 namespace ClientVehicle.UCHelp
 {
@@ -23,6 +26,22 @@ namespace ClientVehicle.UCHelp
     /// </summary>
     public partial class UCAUserRow : UserControl
     {
+
+        //private string oldSearch = "null";
+
+        private User _activeUser;
+
+        public User Item
+        {
+            get { return _activeUser; }
+
+            set
+            {
+                _activeUser = value;
+                UpdateUser();
+            }
+        }
+
         public UCAUserRow()
         {
             InitializeComponent();
@@ -42,6 +61,28 @@ namespace ClientVehicle.UCHelp
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
             new UserCardAdmin().ShowDialog();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+        }
+
+        public void UpdateUser()
+        {
+            label_ID.Text = _activeUser.Id.ToString();
+            label_Name.Text = $"{_activeUser.Surname} {_activeUser.Name}";
+            label_Balance.Text = $"₴ {_activeUser.Balance}";
+            label_Credit.Text = "₴ 0";
+            label_Create.Text = _activeUser.UserCreateDate.ToString();
+
+
+            Opacity = 0;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.10d) == 1) timer.Stop();
+            });
+
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            timer.Start();
+
+
         }
     }
 }

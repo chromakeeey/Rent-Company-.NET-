@@ -203,14 +203,23 @@
   <wsdl:message name="IServiceRent_SelectAllUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IServiceRent_onSaveVehicle_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:onSaveVehicle" />
+  <wsdl:message name="IServiceRent_OnEditVehicle_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnEditVehicle" />
   </wsdl:message>
-  <wsdl:message name="IServiceRent_onDeleteVehicle_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:onDeleteVehicle" />
+  <wsdl:message name="IServiceRent_OnAddVehicle_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnAddVehicle" />
   </wsdl:message>
-  <wsdl:message name="IServiceRent_sendNotification_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:sendNotification" />
+  <wsdl:message name="IServiceRent_OnDeleteVehicle_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnDeleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_OnUserEdit_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnUserEdit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_OnUserAdd_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnUserAdd" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_OnUserDelete_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnUserDelete" />
   </wsdl:message>
   <wsdl:portType name="IServiceRent">
     <wsdl:operation name="userConnect">
@@ -353,14 +362,23 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SelectAllUser" message="tns:IServiceRent_SelectAllUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/SelectAllUserResponse" message="tns:IServiceRent_SelectAllUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="onSaveVehicle">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onSaveVehicle" message="tns:IServiceRent_onSaveVehicle_OutputCallbackMessage" />
+    <wsdl:operation name="OnEditVehicle">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/OnEditVehicle" message="tns:IServiceRent_OnEditVehicle_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="onDeleteVehicle">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/onDeleteVehicle" message="tns:IServiceRent_onDeleteVehicle_OutputCallbackMessage" />
+    <wsdl:operation name="OnAddVehicle">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/OnAddVehicle" message="tns:IServiceRent_OnAddVehicle_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="sendNotification">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/sendNotification" message="tns:IServiceRent_sendNotification_OutputCallbackMessage" />
+    <wsdl:operation name="OnDeleteVehicle">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/OnDeleteVehicle" message="tns:IServiceRent_OnDeleteVehicle_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnUserEdit">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/OnUserEdit" message="tns:IServiceRent_OnUserEdit_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnUserAdd">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/OnUserAdd" message="tns:IServiceRent_OnUserAdd_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnUserDelete">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/OnUserDelete" message="tns:IServiceRent_OnUserDelete_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServiceRent" type="tns:IServiceRent">
@@ -669,20 +687,38 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="onSaveVehicle">
-      <soap12:operation soapAction="http://tempuri.org/IServiceRent/onSaveVehicle" style="document" />
+    <wsdl:operation name="OnEditVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/OnEditVehicle" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="onDeleteVehicle">
-      <soap12:operation soapAction="http://tempuri.org/IServiceRent/onDeleteVehicle" style="document" />
+    <wsdl:operation name="OnAddVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/OnAddVehicle" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="sendNotification">
-      <soap12:operation soapAction="http://tempuri.org/IServiceRent/sendNotification" style="document" />
+    <wsdl:operation name="OnDeleteVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/OnDeleteVehicle" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnUserEdit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/OnUserEdit" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnUserAdd">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/OnUserAdd" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnUserDelete">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/OnUserDelete" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

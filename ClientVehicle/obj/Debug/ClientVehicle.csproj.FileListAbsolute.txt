@@ -64,3 +64,5 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\FailSignIn.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\FailSignIn.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\BetterSearchVehicle.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\BetterSearchVehicle.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\VehicleEditPage.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\VehicleEditPage.baml

@@ -28,7 +28,7 @@ namespace ClientVehicle.UCPage
         public List<UCButtonRow> vehicleRow = new List<UCButtonRow>();
         public List<Vehicle> vehicleNumerable = new List<Vehicle>();
 
-        private Vehicle _activeVehicle;
+        private Vehicle _activeVehicle = new Vehicle();
 
         public Vehicle Vehicle
         {

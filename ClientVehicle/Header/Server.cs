@@ -5,11 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.Threading;
+
 using System.Windows.Media.Imaging;
 using ClientVehicle.ServerReference;
+using ClientVehicle.Dialogs.DialogsVehicle;
 
 namespace ClientVehicle.Header
 {
+    [CallbackBehaviorAttribute(ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class Server : IServiceRentCallback
     {
         public ServiceRentClient ConnectProvider { get; private set; }
@@ -64,19 +71,98 @@ namespace ClientVehicle.Header
             return image;
         }
 
-        public void onDeleteVehicle(Vehicle vehicleObject)
+        public void OnUserEdit(User Item, User[] numerable)
         {
-            //throw new NotImplementedException();
+            if (Client.IsLogin())
+            {
+                List<User> sortedApplication = (from i in numerable where i.Status != 0 select i).ToList();
+                Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
+                Items.UpdateAUserHeader(numerable.ToList());
+            }
         }
 
-        public void onSaveVehicle(Vehicle vehicleObject)
+        public void OnUserAdd(User Item, User[] numerable)
         {
-            //throw new NotImplementedException();
+            if (Client.IsLogin())
+            {
+                List<User> sortedApplication = (from i in numerable where i.Status != 0 select i).ToList();
+                Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
+                Items.UpdateAUserHeader(numerable.ToList());
+            }
         }
 
-        public void sendNotification(string message)
+        public void OnUserDelete(User Item, User[] numerable)
         {
-            //throw new NotImplementedException();
+            if (Client.IsLogin())
+            {
+                List<User> sortedApplication = (from i in numerable where i.Status != 0 select i).ToList();
+                Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
+                Items.UpdateAUserHeader(numerable.ToList());
+            }
+        }
+
+        public void OnEditVehicle(Vehicle item, Vehicle[] numerable)
+        {
+            if (Client.IsLogin())
+            {
+                SearchVehicle.ComplectSearchObject(numerable.ToList());
+                Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
+                Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
+                Items.UpdateVehicle(SearchVehicle.GetItemSearched());
+
+                if (VehicleEdit.Dialog.Item.VIN == item.VIN && VehicleEdit.Dialog.Visibility == System.Windows.Visibility.Visible)
+                {
+                    VehicleEdit.Dialog.Item = item;
+                }
+
+                if (Client.Vehicle.VIN == item.VIN)
+                {
+                    Items.UpdateMainPage();
+                }
+
+                if (Items.ucVehicle.VehicleGrid.Visibility == System.Windows.Visibility.Visible && Items.ucVehicle.Vehicle.VIN == item.VIN)
+                {
+                    Items.UpdateVehicleActive(item);
+                }
+            }
+        }
+
+        public void OnAddVehicle(Vehicle item, Vehicle[] numerable)
+        {
+            if (Client.IsLogin())
+            {
+                SearchVehicle.ComplectSearchObject(numerable.ToList());
+                Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
+                Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
+                Items.UpdateVehicle(SearchVehicle.GetItemSearched());
+            }
+        }
+
+        public void OnDeleteVehicle(Vehicle item, Vehicle[] numerable)
+        {
+            if (Client.IsLogin())
+            {
+                SearchVehicle.ComplectSearchObject(numerable.ToList());
+                Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
+                Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
+                Items.UpdateVehicle(SearchVehicle.GetItemSearched());
+            }
+
+            if (VehicleEdit.Dialog.Item.VIN == item.VIN && VehicleEdit.Dialog.Visibility == System.Windows.Visibility.Visible)
+            {
+                VehicleEdit.Dialog.Hide();
+            }
+
+            if (Client.Vehicle.VIN == item.VIN)
+            {
+                Items.UpdateMainPage();
+            }
+
+            if (Items.ucVehicle.VehicleGrid.Visibility == System.Windows.Visibility.Visible && Items.ucVehicle.Vehicle.VIN == item.VIN)
+            {
+                Items.ucVehicle.VehicleGrid.Visibility = System.Windows.Visibility.Hidden;
+                Items.ucVehicle.Vehicle.VIN = "null";
+            }
         }
     }
 }

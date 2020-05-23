@@ -215,6 +215,7 @@
 
                             <Grid Grid.Column="0">
                                 <TextBox
+                                    x:Name="textbox_Search"
                             FontFamily="Gilroy"
                             FontWeight="Bold"
                             BorderThickness="0"
@@ -227,7 +228,7 @@
                             <Grid Grid.Column="1">
                                 <materialDesign:PackIcon Kind="Search"
                                                          HorizontalAlignment="Right"
-                                                         VerticalAlignment="Center"/>
+                                                         VerticalAlignment="Center" MouseDown="onClickSearch"/>
                             </Grid>
 
                         </Grid>
@@ -299,7 +300,7 @@
         </Grid>
 
         <ScrollViewer Grid.Row="3">
-            <StackPanel Margin="0 0 18 0">
+            <StackPanel Margin="0 0 18 0" x:Name="panel_UserRow">
 
                 <UCHelp:UCAUserRow Height="93"/>
                 <UCHelp:UCAUserRow Height="93"/>

@@ -17,7 +17,9 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
         public static void Show()
         {
             Dialog.ShowDialog();
-            ComplectSearchObject();
+
+            Vehicle[] numerableArray = Client.Server.ConnectProvider.SendAllVehicle();
+            ComplectSearchObject(numerableArray.ToList());
             //return Dialog.numerableVehicle;
         }
 
@@ -37,10 +39,8 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
             return itemSearched;
         }
 
-        public static void ComplectSearchObject()
+        public static void ComplectSearchObject(List<Vehicle> numerable)
         {
-            Vehicle[] numerableArray = Client.Server.ConnectProvider.SendAllVehicle();
-            List<Vehicle> numerable = numerableArray.ToList();
             var numerableNew = numerable;
 
             // min price

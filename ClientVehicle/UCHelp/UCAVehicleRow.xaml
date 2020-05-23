@@ -87,40 +87,45 @@
             <Button Grid.Column="5" Width="32" Height="32" Padding="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" Click="onMoreClick">
                 <Button.ContextMenu>
                     <ContextMenu>
-
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Margin="0 0 10 0"
+                        <MenuItem Click="onEditClick">
+                            <MenuItem.Header>
+                                <StackPanel Orientation="Horizontal" >
+                                    <materialDesign:PackIcon Margin="0 0 10 0"
                                                 VerticalAlignment="Center"
                                                 Kind="Cog"
                                                 Height="20" Width="20"
         
                                                 Foreground="#99A5B6"/>
 
-                            <TextBlock
+                                    <TextBlock
                                                 VerticalAlignment="Center"
                                                 Text="Редагувати"
                                                 Foreground="#99A5B6"
                                                 FontFamily="Gilroy"
                                                 FontSize="12"
                                                 FontWeight="Bold"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Margin="0 0 10 0"
+                                </StackPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem Click="onDeleteClick">
+                            <MenuItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="0 0 10 0"
                                                 VerticalAlignment="Center"
                                                 Kind="DeleteForever"
                                                 Height="20" Width="20"
                                                 Foreground="#DF9090"/>
 
-                            <TextBlock
+                                    <TextBlock
                                                 VerticalAlignment="Center"
                                                 Text="Видалити"
                                                 FontSize="12"
                                                 Foreground="#DF9090"
                                                 FontFamily="Gilroy" 
                                                 FontWeight="Bold"/>
-                        </StackPanel>
-
+                                </StackPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
                     </ContextMenu>
                 </Button.ContextMenu>
 

@@ -45,7 +45,7 @@ namespace ClientVehicle.UCPage
         private void onClickCheckDocument(object sender, RoutedEventArgs e)
         {
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
-            new UserDocumentWindow().ShowDialog();
+            new UserDocumentWindow(Client.User).ShowDialog();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
 

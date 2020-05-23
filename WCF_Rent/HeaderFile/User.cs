@@ -426,7 +426,7 @@ namespace WCF_Rent.HeaderFile
                 {
                     command.CommandText = "INSERT INTO [Users] " +
                         "(name, surname, login, password, mail, phone, category, admin, status, status_reason, birthday_date, create_date, back_image," +
-                        "front_image, cardnumber, expiredate, ownername, cvv) " +
+                        "front_image, cardnumber, expiredate, ownername, cvv, balance) " +
                         "VALUES " +
                         "(@name, @surname, @login, @password, @mail, @phone, @category, @admin, @status, @status_reason, @birthday_date, @create_date, @back_image," +
                         "@front_image, @cardnumber, @expiredate, @ownername, @cvv, @balance)";

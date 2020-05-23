@@ -129,6 +129,8 @@ namespace ClientVehicle.Header
 
             if (item.VIN != "null")
             {
+                Client.Vehicle = item;
+
                 ucMain.image_Vehicle.Source = Server.BytesToBitmapImage(
                     Client.Server.ConnectProvider.vehicleImage(item)
                 );
@@ -153,6 +155,7 @@ namespace ClientVehicle.Header
             }
             else
             {
+                Client.Vehicle.VIN = "null";
                 ucMain.VehicleGrid.Visibility = System.Windows.Visibility.Hidden;
                 ucMain.notFoundVehicle_Grid.Visibility = System.Windows.Visibility.Visible;
             }
@@ -201,7 +204,7 @@ namespace ClientVehicle.Header
                 ucVehicle.panel_VehicleNumerable.Children.Add(row);
             }
 
-            if (numerable.Count != 0)
+            /*if (numerable.Count != 0)
             {
                 UpdateVehicleActive(numerable[0]);
                 ucVehicle.VehicleGrid.Visibility = System.Windows.Visibility.Visible;
@@ -209,7 +212,10 @@ namespace ClientVehicle.Header
             else
             {
                 ucVehicle.VehicleGrid.Visibility = System.Windows.Visibility.Hidden;
-            }
+            }*/
+
+            ucVehicle.VehicleGrid.Visibility = System.Windows.Visibility.Hidden;
+            ucVehicle.Vehicle.VIN = "null";
         }
 
         public static void UpdateAUserHeader(List<User> numerable)
@@ -222,6 +228,25 @@ namespace ClientVehicle.Header
             ucAUser.label_Count.Text = numerable.Count.ToString();
             ucAUser.label_Deactive.Text = numerableDeactive.Count.ToString();
             ucAUser.label_Check.Text = numerableCheck.Count.ToString();
+        }
+
+        public static void UpdateAUser(List<User> numerable)
+        {
+            ucAUser.userNumerable = numerable;
+
+            ucAUser.userRow.Clear();
+            ucAUser.panel_UserRow.Children.Clear();
+
+            foreach (var item in ucAUser.userNumerable)
+            {
+                var row = new UCAUserRow();
+
+                row.Height = 93;
+                row.Item = item;
+
+                ucAUser.userRow.Add(row);
+                ucAUser.panel_UserRow.Children.Add(row);
+            }
         }
 
         public static void UpdateVehicleActive(Vehicle item)
@@ -250,7 +275,7 @@ namespace ClientVehicle.Header
                 : System.Windows.Visibility.Visible;
 
             ucVehicle.button_Rent.IsEnabled = item.ClientId == 0 ? true : false;
-
+            ucVehicle.VehicleGrid.Visibility = System.Windows.Visibility.Visible;
 
             ucVehicle.VehicleGrid.Opacity = 0;
             DispatcherTimer timer = new DispatcherTimer();
@@ -262,6 +287,8 @@ namespace ClientVehicle.Header
             timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
             timer.Start();
         }
+
+        
 
     }
 

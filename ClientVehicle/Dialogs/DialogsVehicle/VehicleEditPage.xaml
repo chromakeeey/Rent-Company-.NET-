@@ -1,0 +1,380 @@
+﻿<Window x:Class="ClientVehicle.Dialogs.DialogsVehicle.VehicleEditPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsVehicle"
+        mc:Ignorable="d"
+        Title="VehicleEditPage" Height="450" Width="800"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
+
+        <Grid Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Margin="0 0 15 0">
+
+                        <TextBlock
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Text="Редагування основної інформації"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Foreground="#99A5B6"/>
+
+                        <TextBox
+                            x:Name="field_Name"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Назва транспорта"
+                            materialDesign:HintAssist.HelperText="Зазвичай це марка автомобіль"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <TextBox
+                            x:Name="field_Model"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Модель транспорта"
+                            materialDesign:HintAssist.HelperText="Конкретна модель"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <TextBox
+                            x:Name="field_Mileage"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Пробіг"
+                            materialDesign:HintAssist.HelperText="Пробіг автомобіля на даний момент"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <TextBox
+                            x:Name="field_MaxSpeed"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Максимальна швидкість"
+                            materialDesign:HintAssist.HelperText="Максимальна швидкість автомобіля"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <TextBox
+                            x:Name="field_MaxFuel"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Об'єм бака"
+                            materialDesign:HintAssist.HelperText="Загальний об'єм бака"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <TextBox
+                            x:Name="field_Fuel"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Бензина в баці"
+                            materialDesign:HintAssist.HelperText="Бензина в баці на даний момент"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <TextBox
+                            x:Name="field_Plate"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Номерний знак"
+                            materialDesign:HintAssist.HelperText="Унікальний номерний знак автомобіля"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <TextBox
+                            x:Name="field_Price"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Ціна"
+                            materialDesign:HintAssist.HelperText="Ціна оренди автомобіля в день (грн.)"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+
+                        <ComboBox
+                            x:Name="combo_Type"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            Margin="10"
+                            materialDesign:HintAssist.Hint="Тип автомобіля"
+                            materialDesign:HintAssist.HelperText="Тип автомобіля"
+                            VerticalAlignment="Center"
+                            IsEditable="True"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+
+                            <ComboBoxItem Content="Легковий"/>
+                            <ComboBoxItem Content="Позашляховик"/>
+                            <ComboBoxItem Content="Вантажний"/>
+                            <ComboBoxItem Content="Мотоцикл"/>
+                            <ComboBoxItem Content="Мопед"/>
+
+                        </ComboBox>
+
+                        <ComboBox
+                            x:Name="combo_Transmission"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            Margin="10"
+                            IsEditable="True"
+                            materialDesign:HintAssist.Hint="Трансмісія"
+                            materialDesign:HintAssist.HelperText="Трансмісія автомобіля"
+                            VerticalAlignment="Center"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+
+                            <ComboBoxItem Content="Механічна"/>
+                            <ComboBoxItem Content="Автоматична"/>
+
+                        </ComboBox>
+
+                        <ComboBox
+                            x:Name="combo_Category"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            Margin="10 10 10 20"
+                            IsEditable="True"
+                            materialDesign:HintAssist.Hint="Категорія прав"
+                            materialDesign:HintAssist.HelperText="Категорія прав яка має право на оренду цього автомобіля"
+                            VerticalAlignment="Center"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+
+                            <ComboBoxItem Content="A1"/>
+                            <ComboBoxItem Content="A"/>
+                            <ComboBoxItem Content="B1"/>
+                            <ComboBoxItem Content="B"/>
+                            <ComboBoxItem Content="C1"/>
+                            <ComboBoxItem Content="C"/>
+                            <ComboBoxItem Content="D1"/>
+                            <ComboBoxItem Content="D"/>
+                            <ComboBoxItem Content="C1E"/>
+                            <ComboBoxItem Content="BE"/>
+                            <ComboBoxItem Content="CE"/>
+                            <ComboBoxItem Content="D1E"/>
+                            <ComboBoxItem Content="DE"/>
+                            <ComboBoxItem Content="T1"/>
+                            <ComboBoxItem Content="T2"/>
+
+                        </ComboBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <materialDesign:PackIcon
+                        Margin="0 0 5 0"
+                        Kind="CloseThick" 
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource HoverMouseAnimation}" MouseDown="onCloseClick"/>
+
+                    <TextBlock
+                        x:Name="label_VIN"
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="18"
+                            Text="WDCGG8JB0DG099158"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Foreground="#99A5B6"/>
+
+                    <Image
+                            x:Name="image_Vehicle"
+                            Height="200"
+                            HorizontalAlignment="Center" Source="toyota_PNG1953.png"
+                            />
+
+                    <Grid Margin="10 20 10 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Початок оренди:" 
+                                    FontSize="16"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                        <TextBlock
+                                        x:Name="label_StartRent"
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="25.06.2020 12:43:46" 
+                                    FontSize="16"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                    </Grid>
+
+                    
+                    <Grid Margin="10 0 10 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock 
+                                    Grid.Column="0"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Left"
+                                    Text="Кінець оренди:" 
+                                    FontSize="16"
+                                    FontFamily="Gilroy"
+                                    Foreground="#99A5B6"
+                                    FontWeight="Regular"/>
+
+                        <TextBlock
+                                        x:Name="label_FinalRent"
+                                    Grid.Column="1"
+                                    TextAlignment="Right"
+                                    HorizontalAlignment="Right"
+                                    Text="25.06.2020 12:43:46" 
+                                    FontSize="16"
+                                    FontFamily="Gilroy"
+                                    Foreground="Black"
+                                    FontWeight="Medium"/>
+
+                        
+
+
+                    </Grid>
+
+                    <Button 
+                        x:Name="button_User"
+                        Margin="10 20 0 0"
+                                HorizontalAlignment="Left" Height="Auto" Width="Auto" Padding="0"
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock
+                                Text="Переглянути аккаунт орендаря"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                Foreground="#99A5B6"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="Center"/>
+
+                            <materialDesign:PackIcon 
+                                Kind="RemoveRedEye"
+                                Foreground="#99A5B6"
+                                Height="20"
+                                Width="20"
+                                VerticalAlignment="Center"
+                                        />
+
+                        </StackPanel>
+                    </Button>
+
+                    <Button  
+                        x:Name="button_Stop"
+                        Margin="10 0 0 0"
+                                HorizontalAlignment="Left" Height="Auto" Width="Auto" Padding="0"
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock
+                                Text="Відмінити оренду"
+                                FontFamily="Gilroy"
+                                FontWeight="Bold"
+                                Foreground="#99A5B6"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="Center"/>
+
+                            <materialDesign:PackIcon 
+                                Kind="StopCircle"
+                                Foreground="#99A5B6"
+                                Height="20"
+                                Width="20"
+                                VerticalAlignment="Center"
+                                        />
+
+                        </StackPanel>
+                    </Button>
+
+
+                </StackPanel>
+
+                <Button Margin="0 20 0 0"
+                                    Height="36" Width="170"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                    materialDesign:ButtonAssist.CornerRadius="15"
+                                    Padding="0"
+                                        HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                        Background="#3B93F7"
+                                        BorderBrush="#3B93F7">
+                    <TextBlock 
+                                        Text="Зберігти інформацію" 
+                                        FontSize="14"
+                                        FontFamily="Gilroy"
+                                        Foreground="White"
+                                        FontWeight="Bold"/>
+                </Button>
+
+            </Grid>
+            
+        </Grid>
+        
+    </Grid>
+</Window>

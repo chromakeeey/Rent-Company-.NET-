@@ -11,16 +11,22 @@ namespace ClientVehicle.Header
 {
     public static class Client
     {
-        public static User User;
-
-
-     
+        public static Vehicle Vehicle = new Vehicle();
+        public static User User = new User();
         public static Server Server = new Server();
+
+        public static bool IsLogin()
+        {
+            return (User.Id != 0);
+        }
 
         public static void InitializeItems()
         {
             User = new User();
             Server = new Server();
+
+            Vehicle = new Vehicle();
+            Vehicle.VIN = "null";
         }
 
         public static void SetActiveUser(User item)
@@ -32,16 +38,20 @@ namespace ClientVehicle.Header
             Items.UpdateMainPage();
             Items.UpdateMenuButtons();
 
+            Vehicle[] numerableVehicle = Server.ConnectProvider.SendAllVehicle();
+
             SearchVehicle.ClearSearchFields();
-            SearchVehicle.ComplectSearchObject();
+            SearchVehicle.ComplectSearchObject(numerableVehicle.ToList());
             Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
             Items.UpdateVehicle(SearchVehicle.GetItemSearched());
-
-            Vehicle[] numerableVehicle = Server.ConnectProvider.SendAllVehicle();
             Items.UpdateAVehicleHeader(numerableVehicle.ToList());
 
             User[] numerableUser = Server.ConnectProvider.SelectAllUser();
+            List<User> sortedApplication = (from i in numerableUser where i.Status != 0 select i).ToList();
+            Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
             Items.UpdateAUserHeader(numerableUser.ToList());
+
+
         }
 
         public static void ApplicationShutdown()

@@ -14,8 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-
+using ClientVehicle.Header;
 using ClientVehicle.ServerReference;
+using ClientVehicle.Dialogs.DialogsVehicle;
+using ClientVehicle.Dialogs.CustomDefaultDialog;
 
 namespace ClientVehicle.UCHelp
 {
@@ -70,6 +72,33 @@ namespace ClientVehicle.UCHelp
             label_Price.Text = $"₴ {_activeVehicle.Price}";
             label_Status.Text = _activeVehicle.ClientId == 0 ? "Не орендований" : "Орендований";
             label_Fuel.Text = $"{_activeVehicle.Fuel} л.";
+        }
+
+        private void onEditClick(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            VehicleEdit.Show(_activeVehicle);
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+        }
+
+        private void onDeleteClick(object sender, RoutedEventArgs e)
+        {
+            if (_activeVehicle.ClientId != 0)
+            {
+                DialogWindow.Show("Видалення неможливо, якщо автомобіль орендований. Спочатку відмініть оренду в налаштуваннях автомобіля",
+                    "Видалення автомобіля",
+                    DialogButtons.Ok,
+                    DialogStyle.Error);
+
+                return;
+            }
+
+            string message = $"Ви дійсно хочите видалити автомобіль {_activeVehicle.Name} {_activeVehicle.Model} ({_activeVehicle.VIN})?";
+
+            if (DialogWindow.Show(message, "Видалення автомобіля", DialogButtons.OkNo, DialogStyle.Information) == DialogResult.Ok)
+            {
+                Client.Server.ConnectProvider.deleteVehicle(_activeVehicle);
+            }
         }
     }
 }

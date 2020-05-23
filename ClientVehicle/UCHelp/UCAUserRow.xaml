@@ -33,6 +33,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock
+                x:Name="label_ID"
                 VerticalAlignment="Center"
                 Grid.Column="0"
                 Text="256"
@@ -42,6 +43,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Name"
                 VerticalAlignment="Center"
                 Grid.Column="1"
                 TextWrapping="Wrap"
@@ -52,6 +54,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Balance"
                 VerticalAlignment="Center"
                 Grid.Column="2"
                 Text="₴ 35 000"
@@ -61,6 +64,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Credit"
                 VerticalAlignment="Center"
                 Grid.Column="3"
                 Text="₴ 5 000"
@@ -70,6 +74,7 @@
                 Foreground="#99A5B6"/>
 
             <TextBlock
+                x:Name="label_Create"
                 VerticalAlignment="Center"
                 Grid.Column="4"
                 Text="25.06.2020 12:24:2020"

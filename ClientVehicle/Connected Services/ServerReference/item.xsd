@@ -443,24 +443,51 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="onSaveVehicle">
+  <xs:element name="OnEditVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q22:Vehicle" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q22:Vehicle" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="numerable" nillable="true" type="q23:ArrayOfVehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="onDeleteVehicle">
+  <xs:element name="OnAddVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="vehicleObject" nillable="true" type="q23:Vehicle" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q24:Vehicle" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="numerable" nillable="true" type="q25:ArrayOfVehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="sendNotification">
+  <xs:element name="OnDeleteVehicle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="item" nillable="true" type="q26:Vehicle" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="numerable" nillable="true" type="q27:ArrayOfVehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnUserEdit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="Item" nillable="true" type="q28:User" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="numerable" nillable="true" type="q29:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnUserAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="Item" nillable="true" type="q30:User" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="numerable" nillable="true" type="q31:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnUserDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="Item" nillable="true" type="q32:User" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile" minOccurs="0" name="numerable" nillable="true" type="q33:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
