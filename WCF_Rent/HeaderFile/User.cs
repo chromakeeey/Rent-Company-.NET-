@@ -305,6 +305,75 @@ namespace WCF_Rent.HeaderFile
             return new List<User>();
         }
 
+        public static User SelectUserApplication()
+        {
+            try
+            {
+                User item = new User();
+
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Users] WHERE [status] = 0", SqlData.sqlConnection))
+                {
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        item = new User()
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            Name = reader["name"].ToString(),
+                            Surname = reader["surname"].ToString(),
+                            Login = reader["login"].ToString(),
+                            Password = reader["password"].ToString(),
+                            Mail = reader["mail"].ToString(),
+                            Phone = reader["phone"].ToString(),
+                            LicenseCategories = JsonConvert.DeserializeObject<List<string>>(reader["category"].ToString()),
+                            Level = Convert.ToInt32(reader["admin"]),
+                            Balance = Convert.ToInt32(reader["balance"]),
+
+                            Status = Convert.ToInt32(reader["status"]),
+                            StatusReason = reader["status_reason"].ToString(),
+
+                            BirthdayDate = Convert.ToDateTime(reader["birthday_date"]),
+                            UserCreateDate = Convert.ToDateTime(reader["create_date"]),
+
+                            BackImageName = reader["back_image"].ToString(),
+                            FrontImageName = reader["front_image"].ToString(),
+
+                            CardNumber = reader["cardnumber"].ToString(),
+                            ExpireDate = reader["expiredate"].ToString(),
+                            OwnerName = reader["ownername"].ToString(),
+                            CVV = Convert.ToInt32(reader["cvv"])
+                        };
+
+                        break;
+                    }
+
+                    if (reader != null)
+                        reader.Close();
+                }
+
+                return item;
+            }
+
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex)
+            {
+                // Get stack trace for the exception with source file information
+                var st = new StackTrace(ex, true);
+                // Get the top stack frame
+                var frame = st.GetFrame(0);
+                // Get the line number from the stack frame
+                var line = frame.GetFileLineNumber();
+
+                Log.Add(LogStyle.Error,
+                    ex.Message.ToString() + " " + ex.Source.ToString() +
+                    Convert.ToString(line));
+            }
+
+            return new User();
+        }
+
         public static User SelectUser(int Id)
         {
             try
@@ -381,10 +450,10 @@ namespace WCF_Rent.HeaderFile
             {
                 using (SqlCommand command = SqlData.sqlConnection.CreateCommand())
                 {
-                    command.CommandText = "UPDATE [Users] SET [name] = @name, [surname] = @surname, [login] = @login, [password] = @password" +
-                        "[mail] = @mail, [phone] = @phone, [category] = @category, [admin] = @admin, [status] = @status, [status_reason] = @status_reason" +
-                        "[birthday_date] = @birthday_date, [create_date] = @create_date, [back_image] = @back_image, [front_image] = @front_image" +
-                        "[cardnumber] = @cardnumber, [expiredate] = @expiredate, [ownername] = @ownername, [cvv] = @cvv, [balance] = @balance" +
+                    command.CommandText = "UPDATE [Users] SET [name] = @name, [surname] = @surname, [login] = @login, [password] = @password," +
+                        "[mail] = @mail, [phone] = @phone, [category] = @category, [admin] = @admin, [status] = @status, [status_reason] = @status_reason," +
+                        "[birthday_date] = @birthday_date, [create_date] = @create_date, [back_image] = @back_image, [front_image] = @front_image," +
+                        "[cardnumber] = @cardnumber, [expiredate] = @expiredate, [ownername] = @ownername, [cvv] = @cvv, [balance] = @balance " +
                         "WHERE [id] = @id";
 
                     command.Parameters.AddWithValue("name", item.Name);

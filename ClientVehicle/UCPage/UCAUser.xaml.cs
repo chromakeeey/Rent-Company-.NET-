@@ -39,7 +39,18 @@ namespace ClientVehicle.UCPage
         private void onUserApplicationClick(object sender, RoutedEventArgs e)
         {
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
-            new UserApplication().ShowDialog();
+
+            User Item = Client.Server.ConnectProvider.SelectUserApplication();
+
+            if (Item.Id != 0)
+            {
+                ApplicationUser.Show(Item);
+            }
+            else
+            {
+                button_AccountCheck.IsEnabled = false;
+            }
+
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
 

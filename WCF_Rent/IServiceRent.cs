@@ -134,6 +134,9 @@ namespace WCF_Rent
 
         [OperationContract]
         List<User> SelectAllUser();
+
+        [OperationContract]
+        User SelectUserApplication();
     }
 
     public interface IServerRentCallback

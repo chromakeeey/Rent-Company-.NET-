@@ -13,6 +13,7 @@ using System.Threading;
 using System.Windows.Media.Imaging;
 using ClientVehicle.ServerReference;
 using ClientVehicle.Dialogs.DialogsVehicle;
+using ClientVehicle.Dialogs.DialogsUser;
 
 namespace ClientVehicle.Header
 {
@@ -75,9 +76,14 @@ namespace ClientVehicle.Header
         {
             if (Client.IsLogin())
             {
-                List<User> sortedApplication = (from i in numerable where i.Status != 0 select i).ToList();
+                List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
                 Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
                 Items.UpdateAUserHeader(numerable.ToList());
+
+                if (ApplicationUser.Dialog.Item.Id == Item.Id && ApplicationUser.Dialog.Visibility == System.Windows.Visibility.Visible)
+                {
+                    ApplicationUser.Dialog.Hide();
+                }
             }
         }
 
@@ -85,7 +91,7 @@ namespace ClientVehicle.Header
         {
             if (Client.IsLogin())
             {
-                List<User> sortedApplication = (from i in numerable where i.Status != 0 select i).ToList();
+                List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
                 Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
                 Items.UpdateAUserHeader(numerable.ToList());
             }
@@ -95,9 +101,14 @@ namespace ClientVehicle.Header
         {
             if (Client.IsLogin())
             {
-                List<User> sortedApplication = (from i in numerable where i.Status != 0 select i).ToList();
+                List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
                 Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
                 Items.UpdateAUserHeader(numerable.ToList());
+
+                if (ApplicationUser.Dialog.Item.Id == Item.Id && ApplicationUser.Dialog.Visibility == System.Windows.Visibility.Visible)
+                {
+                    ApplicationUser.Dialog.Hide();
+                }
             }
         }
 

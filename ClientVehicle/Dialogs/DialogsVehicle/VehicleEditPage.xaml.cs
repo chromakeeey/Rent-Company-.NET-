@@ -47,6 +47,8 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
 
         private void UpdateVehicle()
         {
+            image_Vehicle.Source = Server.BytesToBitmapImage(Client.Server.ConnectProvider.vehicleImage(_vehicleNow));
+
             combo_Type.Text = _vehicleNow.Type;
             combo_Transmission.Text = _vehicleNow.Transmission;
             combo_Category.Text = _vehicleNow.Category;
@@ -54,8 +56,6 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
             label_VIN.Text = _vehicleNow.VIN;
             label_StartRent.Text = _vehicleNow.ClientId == 0 ? "-" :  _vehicleNow.StartDate.ToString();
             label_FinalRent.Text = _vehicleNow.ClientId == 0 ? "-" : _vehicleNow.FinalDate.ToString();
-
-            image_Vehicle.Source = Server.BytesToBitmapImage(Client.Server.ConnectProvider.vehicleImage(_vehicleNow));
 
             button_User.IsEnabled = _vehicleNow.ClientId == 0 ? false : true;
             button_Stop.IsEnabled = _vehicleNow.ClientId == 0 ? false : true;

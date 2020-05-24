@@ -47,7 +47,7 @@ namespace ClientVehicle.Header
             Items.UpdateAVehicleHeader(numerableVehicle.ToList());
 
             User[] numerableUser = Server.ConnectProvider.SelectAllUser();
-            List<User> sortedApplication = (from i in numerableUser where i.Status != 0 select i).ToList();
+            List<User> sortedApplication = (from i in numerableUser where i.Status != 0 && i.Status != 3 select i).ToList();
             Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
             Items.UpdateAUserHeader(numerableUser.ToList());
 

@@ -15,6 +15,7 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
         public static void Show(Vehicle Item)
         {
             Dialog.Item = Item;
+            
             Dialog.ShowDialog();
         }
     }

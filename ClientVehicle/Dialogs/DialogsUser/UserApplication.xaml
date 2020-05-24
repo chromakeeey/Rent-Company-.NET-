@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:ClientVehicle.Controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="UserApplication" Height="570" Width="800"
+        Title="UserApplication" Height="590" Width="800"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
@@ -46,7 +46,7 @@
 
                     <Grid>
                         <controls:ZoomBorder ClipToBounds="True" Background="White">
-                            <Image  Height="200" Margin="10 0 10 0" Source="top.png"  />
+                            <Image  x:Name="image_Front" Height="200" Margin="10 0 10 0" Source="top.png"  />
                         </controls:ZoomBorder>
                     </Grid>
                     
@@ -67,7 +67,7 @@
 
                     <Grid>
                         <controls:ZoomBorder  ClipToBounds="True" Background="White">
-                            <Image Height="200" Margin="10 0 10 0" Source="bottom.png"  />
+                            <Image x:Name="image_Back" Height="200" Margin="10 0 10 0" Source="bottom.png"  />
                         </controls:ZoomBorder>
                     </Grid>
                     
@@ -94,6 +94,7 @@
                         Foreground="#99A5B6"/>
 
                         <TextBlock
+                            x:Name="label_Login"
                         TextAlignment="Center"
                         Text="palamarchuk"
                         FontFamily="Gilroy"
@@ -113,6 +114,7 @@
                         Foreground="#99A5B6"/>
 
                         <TextBlock
+                            x:Name="label_Mail"
                         TextAlignment="Center"
                         Text="palamarchuk@gmail.com"
                         FontFamily="Gilroy"
@@ -132,6 +134,7 @@
                         Foreground="#99A5B6"/>
 
                         <TextBlock
+                            x:Name="label_Phone"
                         TextAlignment="Center"
                         Text="+380665300220"
                         FontFamily="Gilroy"
@@ -158,7 +161,9 @@
                         Foreground="#99A5B6"
                             Margin="0 0 0 10"/>
 
-                            <ListBox HorizontalAlignment="Center"
+                            <ListBox 
+                                x:Name="listbox_Category"
+                                HorizontalAlignment="Center"
                             FontFamily="Gilroy"
                             FontWeight="Bold"
                         Style="{StaticResource MaterialDesignFilterChipListBox}">
@@ -223,6 +228,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBox
+                                    x:Name="field_Surname"
                                     Grid.Column="0"
                                     Margin="30 0 30 0"
                                     materialDesign:HintAssist.Hint="Прізвище"
@@ -235,6 +241,7 @@
                                     materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                                 <TextBox
+                                    x:Name="field_Name"
                                     Grid.Column="1"
                                     Margin="30 0 30 0"
                                     materialDesign:HintAssist.Hint="Ім'я"
@@ -247,6 +254,7 @@
                                     materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
                                 <DatePicker
+                                    x:Name="field_Birthday"
                                     Grid.Column="2"
                                     Margin="30 0 30 0"
                                     FontFamily="Gilroy"
@@ -266,28 +274,42 @@
 
             <Grid Grid.Row="4">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 30 0 0">
-                    <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0,0,0,0"  
+                    <StackPanel>
+
+                        <TextBlock
+                            x:Name="label_Error"
+                            Margin="0 0 0 5"
+                            Text=" "
+                            FontFamily="Gilroy"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            HorizontalAlignment="Center"
+                            TextAlignment="Center"
+                            Foreground="#E25544"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0,0,0,0"  
                             materialDesign:ButtonAssist.CornerRadius="5"
                                     Padding="0"
                                     Height="auto"
                             ToolTip="MaterialDesignRaisedLightButton with Round Corners"
                             Background="#76C466"
-                            BorderBrush="#76C466" >
-                            <TextBlock
+                            BorderBrush="#76C466" Click="onClickAccept" >
+                                <TextBlock
                                     Margin="35 10 35 10"
                                     VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="16" Text="Підтвердити"/>
-                        </Button>
-                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10,0,0,0"  
                             materialDesign:ButtonAssist.CornerRadius="5"
                                     Padding="0" Height="Auto"
                             ToolTip="MaterialDesignRaisedLightButton with Round Corners"
                             Background="#E25544"
-                            BorderBrush="#E25544" >
-                            <TextBlock
+                            BorderBrush="#E25544" Click="onClickNoAccept" >
+                                <TextBlock
                                     Margin="35 10 35 10"
                                     VerticalAlignment="Center" TextAlignment="Left" Foreground="White" FontFamily="Gilroy" FontWeight="Bold" FontSize="16" Text="Відмовити"/>
-                        </Button>
+                            </Button>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </Grid>

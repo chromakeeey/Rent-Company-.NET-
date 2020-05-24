@@ -83,6 +83,7 @@
       <DependentUpon>DialogOkNoCancel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\CustomDefaultDialog\DialogWindow.cs" />
+    <Compile Include="Dialogs\DialogsUser\ApplicationUser.cs" />
     <Compile Include="Dialogs\DialogsUser\FailSignIn.xaml.cs">
       <DependentUpon>FailSignIn.xaml</DependentUpon>
     </Compile>

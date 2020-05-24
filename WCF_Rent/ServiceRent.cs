@@ -504,5 +504,10 @@ namespace WCF_Rent
         {
             return User.SelectAllUser();
         }
+
+        public User SelectUserApplication()
+        {
+            return User.SelectUserApplication();
+        }
     }
 }

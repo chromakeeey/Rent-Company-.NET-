@@ -1892,6 +1892,12 @@ namespace ClientVehicle.ServerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SelectAllUser", ReplyAction="http://tempuri.org/IServiceRent/SelectAllUserResponse")]
         System.Threading.Tasks.Task<ClientVehicle.ServerReference.User[]> SelectAllUserAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SelectUserApplication", ReplyAction="http://tempuri.org/IServiceRent/SelectUserApplicationResponse")]
+        ClientVehicle.ServerReference.User SelectUserApplication();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceRent/SelectUserApplication", ReplyAction="http://tempuri.org/IServiceRent/SelectUserApplicationResponse")]
+        System.Threading.Tasks.Task<ClientVehicle.ServerReference.User> SelectUserApplicationAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2254,6 +2260,14 @@ namespace ClientVehicle.ServerReference {
         
         public System.Threading.Tasks.Task<ClientVehicle.ServerReference.User[]> SelectAllUserAsync() {
             return base.Channel.SelectAllUserAsync();
+        }
+        
+        public ClientVehicle.ServerReference.User SelectUserApplication() {
+            return base.Channel.SelectUserApplication();
+        }
+        
+        public System.Threading.Tasks.Task<ClientVehicle.ServerReference.User> SelectUserApplicationAsync() {
+            return base.Channel.SelectUserApplicationAsync();
         }
     }
 }

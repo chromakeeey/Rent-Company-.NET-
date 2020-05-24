@@ -203,6 +203,12 @@
   <wsdl:message name="IServiceRent_SelectAllUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceRent_SelectUserApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUserApplication" />
+  </wsdl:message>
+  <wsdl:message name="IServiceRent_SelectUserApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUserApplicationResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceRent_OnEditVehicle_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnEditVehicle" />
   </wsdl:message>
@@ -361,6 +367,10 @@
     <wsdl:operation name="SelectAllUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SelectAllUser" message="tns:IServiceRent_SelectAllUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/SelectAllUserResponse" message="tns:IServiceRent_SelectAllUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceRent/SelectUserApplication" message="tns:IServiceRent_SelectUserApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/SelectUserApplicationResponse" message="tns:IServiceRent_SelectUserApplication_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="OnEditVehicle">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceRent/OnEditVehicle" message="tns:IServiceRent_OnEditVehicle_OutputCallbackMessage" />
@@ -680,6 +690,15 @@
     </wsdl:operation>
     <wsdl:operation name="SelectAllUser">
       <soap12:operation soapAction="http://tempuri.org/IServiceRent/SelectAllUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserApplication">
+      <soap12:operation soapAction="http://tempuri.org/IServiceRent/SelectUserApplication" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
