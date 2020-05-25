@@ -66,3 +66,6 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\BetterSearchVehic
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\BetterSearchVehicle.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\VehicleEditPage.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\VehicleEditPage.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Templates\ComboBoxCategory.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Templates\ComboBoxTransmission.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Templates\ComboBoxType.baml

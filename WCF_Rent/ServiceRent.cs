@@ -290,13 +290,11 @@ namespace WCF_Rent
         {
             StatInfo statInfo = new StatInfo();
 
-            statInfo.startDate = startDate;
-            statInfo.endDate = endDate;
+            statInfo.StartDate = startDate;
+            statInfo.FinalDate = endDate;
 
-            statInfo.statBalances = new List<StatBalanceInfo>();
-            statInfo.statVehicles = new List<StatVehicleInfo>();
-
-            
+            statInfo.StatBalances = new List<StatBalanceInfo>();
+            statInfo.StatVehicles = new List<StatVehicleInfo>();
 
             try
             {
@@ -313,34 +311,34 @@ namespace WCF_Rent
                         statVehicle = new StatVehicleInfo();
 
                         statVehicle.VIN = Convert.ToString(reader["VIN"]);
-                        statVehicle.userid = Convert.ToInt32(reader["userid"]);
-                        statVehicle.id = Convert.ToInt32(reader["id"]);
-                        statVehicle.payment = Convert.ToInt32(reader["price"]);
-                        statVehicle.rent_startDate = Convert.ToDateTime(reader["startdate"]);
-                        statVehicle.rent_endDate = Convert.ToDateTime(reader["enddate"]);
+                        statVehicle.UserId = Convert.ToInt32(reader["userid"]);
+                        statVehicle.Id = Convert.ToInt32(reader["id"]);
+                        statVehicle.Payment = Convert.ToInt32(reader["price"]);
+                        statVehicle.RentStartDate = Convert.ToDateTime(reader["startdate"]);
+                        statVehicle.RentFinalDate = Convert.ToDateTime(reader["enddate"]);
 
-                        statInfo.statVehicles.Add(statVehicle);
+                        statInfo.StatVehicles.Add(statVehicle);
                     }
 
                     if (reader != null)
                         reader.Close();
 
-                    int length = statInfo.statVehicles.Count;
+                    int length = statInfo.StatVehicles.Count;
 
                     for (int i = 0; i < length; i++)
                     {
                         float[] endData = new float[2];
 
-                        statInfo.statVehicles[i].vehicle = new Vehicle();
+                        statInfo.StatVehicles[i].Vehicle = new Vehicle();
                         //statInfo.statVehicles[i].account = new Account();
 
-                        statInfo.statVehicles[i].vehicle = selectVehicle(statInfo.statVehicles[i].VIN);
+                        statInfo.StatVehicles[i].Vehicle = selectVehicle(statInfo.StatVehicles[i].VIN);
                         //statInfo.statVehicles[i].account = selectIDAccount(statInfo.statVehicles[i].userid);
 
-                        endData = endRentData(statInfo.statVehicles[i].id);
+                        endData = endRentData(statInfo.StatVehicles[i].Id);
 
-                        statInfo.statVehicles[i].returning = endData[0];
-                        statInfo.statVehicles[i].credit = endData[1];
+                        statInfo.StatVehicles[i].Returning = endData[0];
+                        statInfo.StatVehicles[i].Credit = endData[1];
                     }
                 } 
 
@@ -351,13 +349,13 @@ namespace WCF_Rent
                     object dataObject = sqlCommand.ExecuteScalar();
 
                     if (dataObject != DBNull.Value && dataObject != null)
-                        statInfo.totalbalance = Convert.ToSingle(dataObject);
+                        statInfo.TotalBalance = Convert.ToSingle(dataObject);
                 }
             }
 
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
             return statInfo;
         }

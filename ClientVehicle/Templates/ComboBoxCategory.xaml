@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClientVehicle.Templates"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <ControlTemplate x:Key="ComboBoxCategoryList" TargetType="ComboBox">
+        <ComboBox
+            materialDesign:HintAssist.Foreground="#3B93F7"
+            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+            <ComboBoxItem Content="A1"/>
+            <ComboBoxItem Content="A"/>
+            <ComboBoxItem Content="B1"/>
+            <ComboBoxItem Content="B"/>
+            <ComboBoxItem Content="C1"/>
+            <ComboBoxItem Content="C"/>
+            <ComboBoxItem Content="D1"/>
+            <ComboBoxItem Content="D"/>
+            <ComboBoxItem Content="C1E"/>
+            <ComboBoxItem Content="BE"/>
+            <ComboBoxItem Content="CE"/>
+            <ComboBoxItem Content="D1E"/>
+            <ComboBoxItem Content="DE"/>
+            <ComboBoxItem Content="T1"/>
+            <ComboBoxItem Content="T2"/>
+        </ComboBox>
+    </ControlTemplate>    
+</ResourceDictionary>

@@ -1,57 +1,102 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using WCF_Rent.HeaderFile;
 
 namespace WCF_Rent.Structures
 {
+    [DataContract]
     public class StatVoucherInfo
     {
-        public int id;
-        public string operation;
-        public string time;
+        [DataMember]
+        public int Id { get; set; }
+
+        [DataMember]
+        public string Operation { get; set; }
+
+        [DataMember]
+        public string Time { get; set; }
     }
 
+    [DataContract]
     public class StatBalanceInfo
     {
-        public int id;
-        public Account account;
+        [DataMember]
+        public int Id { get; set; }
 
-        public DateTime dateTime;
+        [DataMember]
+        public User User { get; set; }
 
-        public float cardnumber;
-        public float value;
+        [DataMember]
+        public DateTime DateNow { get; set; }
+
+
+        [DataMember]
+        public float CardNumber { get; set; }
+
+        [DataMember]
+        public float Value { get; set; }
     }
 
+    [DataContract]
     public class StatVehicleInfo
     {
-        public int id;
+        [DataMember]
+        public int Id { get; set; }
 
-        public int userid;
-        public string VIN;
+        [DataMember]
+        public int UserId { get; set; }
 
-        public Vehicle vehicle;
-        public Account account;
+        [DataMember]
+        public string VIN { get; set; }
 
-        public DateTime rent_startDate;
-        public DateTime rent_endDate;
 
-        public float payment;
-        public float returning;
-        public float credit;
+        [DataMember]
+        public Vehicle Vehicle;
+
+        [DataMember]
+        public User User { get; set; }
+
+
+        [DataMember]
+        public DateTime RentStartDate { get; set; }
+
+        [DataMember]
+        public DateTime RentFinalDate { get; set; }
+
+
+        [DataMember]
+        public float Payment { get; set; }
+
+        [DataMember]
+        public float Returning { get; set; }
+
+        [DataMember]
+        public float Credit { get; set; }
     }
 
+    [DataContract]
     public class StatInfo
     {
-        public DateTime startDate;
-        public DateTime endDate;
+        [DataMember]
+        public DateTime StartDate { get; set; }
 
-        public List<StatVehicleInfo> statVehicles;
-        public List<StatBalanceInfo> statBalances;
-        public List<StatVoucherInfo> statVouchers;
+        [DataMember]
+        public DateTime FinalDate { get; set; }
 
-        public float totalbalance;
+        [DataMember]
+        public List<StatVehicleInfo> StatVehicles { get; set; }
+
+        [DataMember]
+        public List<StatBalanceInfo> StatBalances { get; set; }
+
+        [DataMember]
+        public List<StatVoucherInfo> StatVouchers { get; set; }
+
+        [DataMember]
+        public float TotalBalance { get; set; }
     }
 }

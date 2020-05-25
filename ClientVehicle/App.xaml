@@ -13,6 +13,9 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <ResourceDictionary Source="Styles/Scroll.xaml" />
                 <ResourceDictionary Source="Styles/MainIconButton.xaml" />
+                <ResourceDictionary Source="Templates/ComboBoxCategory.xaml" />
+                <ResourceDictionary Source="Templates/ComboBoxTransmission.xaml" />
+                <ResourceDictionary Source="Templates/ComboBoxType.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="BorderCornerRadius25" TargetType="Border">
