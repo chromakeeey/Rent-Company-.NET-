@@ -88,6 +88,7 @@
       <DependentUpon>FailSignIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\DialogsUser\SignInFail.cs" />
+    <Compile Include="Dialogs\DialogsUser\UserACard.cs" />
     <Compile Include="Dialogs\DialogsUser\UserApplication.xaml.cs">
       <DependentUpon>UserApplication.xaml</DependentUpon>
     </Compile>

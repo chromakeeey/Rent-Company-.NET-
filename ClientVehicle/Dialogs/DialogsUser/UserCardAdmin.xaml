@@ -7,43 +7,45 @@
         xmlns:controls="clr-namespace:ClientVehicle.Controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="UserCardAdmin" Height="650" Width="550"
+        Title="UserCardAdmin" Height="820" Width="550"
         Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Grid Margin="5">
-        <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
+        <Grid>
+            <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
 
-        <Grid Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition />
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <materialDesign:PackIcon
+                <materialDesign:PackIcon
                 Grid.Row="0"
                         Margin="0 0 5 0"
                         Kind="CloseThick" 
                         HorizontalAlignment="Right"
-                        Style="{StaticResource HoverMouseAnimation}"/>
-            
-            <Grid Grid.Row="1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+                        Style="{StaticResource HoverMouseAnimation}" MouseDown="onClickExit"/>
 
-                    <Grid Grid.Column="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Ellipse Width="50" Height="50" HorizontalAlignment="Left">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="unnamed.jpg"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock
+                        <Grid Grid.Column="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="50" Height="50" HorizontalAlignment="Left">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="unnamed.jpg"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock
+                                    x:Name="label_FullName"
                                         Width="162"
                                         TextWrapping="Wrap"
                                         Margin="15 0 0 0"
@@ -53,7 +55,8 @@
                                         FontFamily="Gilroy"
                                         Foreground="#99A5B6"
                                         FontWeight="Bold"/>
-                                <TextBlock
+                                    <TextBlock
+                                    x:Name="label_ID"
                                         Width="162"
                                         TextWrapping="Wrap"
                                         Margin="15 0 0 0"
@@ -63,17 +66,17 @@
                                         FontFamily="Gilroy"
                                         Foreground="#99A5B6"
                                         FontWeight="Bold"/>
+                                </StackPanel>
+
+
+
                             </StackPanel>
+                        </Grid>
 
-
-
-                        </StackPanel>
-                    </Grid>
-
-                    <Grid Grid.Column="1">
-                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
-                            <StackPanel>
-                                <TextBlock
+                        <Grid Grid.Column="1">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                                <StackPanel>
+                                    <TextBlock
                                             TextAlignment="Right"
                                             Text="Дата реєстрації" 
                                             FontSize="14"
@@ -81,7 +84,8 @@
                                             Foreground="#99A5B6"
                                             FontWeight="Bold"/>
 
-                                <TextBlock
+                                    <TextBlock
+                                    x:Name="label_Register"
                                             TextAlignment="Right"
                                             Text="25.06.2020 12:18:12" 
                                             FontSize="14"
@@ -89,20 +93,21 @@
                                             Foreground="Black"
                                             FontWeight="Bold"/>
 
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                        </Grid>
+
                     </Grid>
-
                 </Grid>
-            </Grid>
 
-            <Grid Grid.Row="2">
-                <Grid VerticalAlignment="Top">
+                <Grid Grid.Row="2">
+                    <Grid VerticalAlignment="Top">
 
-                    <ScrollViewer>
-                        <StackPanel Margin="0 0 15 0" MouseWheel="UIElement_OnMouseWheel">
+                        <ScrollViewer>
+                            <StackPanel Margin="0 0 15 0" MouseWheel="UIElement_OnMouseWheel">
 
-                            <TextBox
+                                <TextBox
+                                x:Name="field_Login"
                             Text="palamarchuk"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Логін"
@@ -115,7 +120,8 @@
                             materialDesign:HintAssist.Foreground="#3B93F7"
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
-                            <TextBox
+                                <TextBox
+                                x:Name="field_Surname"
                             Text="Паламарчук"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Прізвище"
@@ -128,7 +134,8 @@
                             materialDesign:HintAssist.Foreground="#3B93F7"
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
-                            <TextBox
+                                <TextBox
+                                x:Name="field_Name"
                             Text="Олександр"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Ім'я"
@@ -141,7 +148,8 @@
                             materialDesign:HintAssist.Foreground="#3B93F7"
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
-                            <TextBox
+                                <TextBox
+                                x:Name="field_Mail"
                             Text="palamarchuk@gmail.com"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Пошта"
@@ -154,7 +162,8 @@
                             materialDesign:HintAssist.Foreground="#3B93F7"
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
-                            <TextBox
+                                <TextBox
+                                x:Name="field_Phone"
                             Text="+380665300220"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Номер телефона"
@@ -167,7 +176,8 @@
                             materialDesign:HintAssist.Foreground="#3B93F7"
                             materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
-                            <DatePicker
+                                <DatePicker
+                                x:Name="date_Birthday"
                                     Grid.Column="2"
                                     Margin="10"
                                     FontFamily="Gilroy"
@@ -177,53 +187,54 @@
                                     materialDesign:HintAssist.Foreground="#3B93F7"
                                     materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
 
-                            <Grid>
-                                <controls:ZoomBorder ClipToBounds="True" Background="White">
-                                    <Image  Height="200" Margin="10 0 10 0" Source="top.png"  />
-                                </controls:ZoomBorder>
-                            </Grid>
+                                <Grid>
+                                    <controls:ZoomBorder ClipToBounds="True" Background="White">
+                                        <Image x:Name="image_Front"  Height="200" Margin="10 0 10 0" Source="top.png"  />
+                                    </controls:ZoomBorder>
+                                </Grid>
 
-                            <Grid Margin="0 10 0 20">
-                                <controls:ZoomBorder ClipToBounds="True" Background="White">
-                                    <Image  Height="200" Margin="10 0 10 0" Source="bottom.png"  />
-                                </controls:ZoomBorder>
-                            </Grid>
+                                <Grid Margin="0 10 0 20">
+                                    <controls:ZoomBorder ClipToBounds="True" Background="White">
+                                        <Image x:Name="image_Back" Height="200" Margin="10 0 10 0" Source="bottom.png"  />
+                                    </controls:ZoomBorder>
+                                </Grid>
 
-                            <Grid Margin="0 0 0 10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                <Grid Margin="0 0 0 10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
 
-                                <Grid Grid.Column="0">
-                                    <Grid Height="36" Width="214" HorizontalAlignment="Left">
-                                        <Border  
+                                    <Grid Grid.Column="0">
+                                        <Grid Height="36" Width="214" HorizontalAlignment="Left">
+                                            <Border  
                                     BorderBrush="Transparent" 
                                     BorderThickness="1" 
                                     Background="White"
                                      CornerRadius="15">
-                                            <Border.Effect>
-                                                <DropShadowEffect 
+                                                <Border.Effect>
+                                                    <DropShadowEffect 
                                             BlurRadius="10" 
                                             ShadowDepth="5" 
                                             Opacity="0.3"/>
-                                            </Border.Effect>
-                                        </Border>
+                                                </Border.Effect>
+                                            </Border>
 
-                                        <Grid Margin="15 5 15 5">
-                                            <TextBox
+                                            <Grid Margin="15 5 15 5">
+                                                <TextBox
+                                                x:Name="field_Password"
                                         FontFamily="Gilroy"
                                         FontWeight="Bold"
                                         BorderThickness="0"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Введіть новий пароль"/>
+                                            </Grid>
+
                                         </Grid>
-
                                     </Grid>
-                                </Grid>
 
-                                <Grid Grid.Column="1">
-                                    <Button
+                                    <Grid Grid.Column="1">
+                                        <Button
                                 HorizontalAlignment="Right" 
                                     Height="36" Width="155"
                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -233,47 +244,120 @@
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="Transparent"
                                         BorderBrush="Transparent">
-                                        <TextBlock 
+                                            <TextBlock 
                                         Text="Оновити пароль" 
                                         FontSize="14"
                                         FontFamily="Gilroy"
                                         Foreground="Black"
                                         FontWeight="Bold"/>
-                                    </Button>
+                                        </Button>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
 
-                        </StackPanel>
-                    </ScrollViewer>
+                            </StackPanel>
+                        </ScrollViewer>
 
-                    
 
+
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Grid.Row="3">
-                <Grid HorizontalAlignment="Center" Margin="0 20 0 0">
-                    <StackPanel>
-                        <Button
+                <Grid Grid.Row="3">
+                    <Grid HorizontalAlignment="Center" Margin="0 20 0 0">
+                        <StackPanel>
+
+
+
+                            <Button
+                            Margin="0 0 0 20"
+                            x:Name="button_VehicleUser"
                             IsEnabled="True"
                                 HorizontalAlignment="Center" 
                                     Height="Auto" Width="Auto"
                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                     materialDesign:ButtonAssist.CornerRadius="15"
-                                    Padding="0"
+                                    Padding="2"
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="Transparent"
                                         BorderBrush="Transparent">
-                            <TextBlock 
+                                <TextBlock 
                                         Text="Переглянути орендований автомобіль" 
                                         FontSize="10"
                                         FontFamily="Gilroy"
                                         Foreground="Black"
                                         FontWeight="Bold"/>
-                        </Button>
+                            </Button>
 
-                        <Button Margin="0 10 0 0"
+                            <Button
+                                Margin="0 0 0 2"
+                            x:Name="button_Deactivate"
+                            IsEnabled="True"
+                                HorizontalAlignment="Center" 
+                                    Height="Auto" Width="Auto"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                    materialDesign:ButtonAssist.CornerRadius="15"
+                                    Padding="2"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent" Click="onClickDeactive">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon 
+                                    Kind="TimerSand"
+                                    Foreground="#99A5B6"
+                                    Height="25"
+                                    Width="25"
+                                    Margin="0 0 5 0"/>
+
+                                    <TextBlock
+                                    VerticalAlignment="Center"
+                                        Text="Деактивувати аккаунт" 
+                                        FontSize="14"
+                                        FontFamily="Gilroy"
+                                        Foreground="#99A5B6"
+                                        FontWeight="Bold"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Grid Height="36" Width="214" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="GridReason" >
+                                <Border  
+                                    BorderBrush="Transparent" 
+                                    BorderThickness="1" 
+                                    Background="White"
+                                     CornerRadius="15">
+                                    <Border.Effect>
+                                        <DropShadowEffect 
+                                            BlurRadius="10" 
+                                            ShadowDepth="5" 
+                                            Opacity="0.3"/>
+                                    </Border.Effect>
+                                </Border>
+
+                                <Grid Margin="15 5 15 5">
+                                    <TextBox
+                                        HorizontalAlignment="Center"
+                                                x:Name="field_Reason"
+                                        FontFamily="Gilroy"
+                                        FontWeight="Bold"
+                                        BorderThickness="0"
+                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                        materialDesign:HintAssist.Hint="Введіть причину "/>
+                                </Grid>
+
+                            </Grid>
+
+                            <TextBlock x:Name="label_Error" Visibility="Collapsed"
+                                    VerticalAlignment="Center"
+                                        Text="Ви не ввели причину" 
+                                        FontSize="14"
+                                HorizontalAlignment="Center"
+                                Margin="0 10 0 5"
+                                        FontFamily="Gilroy"
+                                        Foreground="#E25544"
+                                        FontWeight="Bold"/>
+
+                            <Button Margin="0 10 0 0"
                                     Height="36" Width="256"
                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                     materialDesign:ButtonAssist.CornerRadius="15"
@@ -282,19 +366,82 @@
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
                                         BorderBrush="#3B93F7">
-                            <TextBlock 
+                                <TextBlock 
                                         Text="Оновити інформацію" 
                                         FontSize="14"
                                         FontFamily="Gilroy"
                                         Foreground="White"
                                         FontWeight="Bold"/>
-                        </Button>
+                            </Button>
 
-                    </StackPanel>
-                </Grid>       
+                        </StackPanel>
+                    </Grid>
+                </Grid>
             </Grid>
+
+
         </Grid>
-           
+
+        <Grid Visibility="Hidden" x:Name="InvalidUserPanel">
+            <Border Style="{StaticResource BorderCornerRadius15}" Background="Black" Opacity="0.7"/>
+
+            <Grid Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock
+                        TextAlignment="Center"
+                        Text="Аккаунт деактивовано" 
+                        FontSize="24"
+                        FontFamily="Gilroy"
+                        Foreground="White"
+                        FontWeight="Bold"/>
+                    <TextBlock
+                        x:Name="label_Reason"
+                        TextAlignment="Center"
+                        Text="Причина: неправомірні дії" 
+                        TextWrapping="Wrap"
+                        FontSize="16"
+                        FontFamily="Gilroy"
+                        Foreground="LightGray"
+                        FontWeight="Bold"/>
+
+                    <Button Margin="0 60 0 0" 
+                                    Height="36" Width="256"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                    materialDesign:ButtonAssist.CornerRadius="15"
+                                    Padding="0"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                        Background="#3B93F7"
+                                        BorderBrush="#3B93F7" Click="onClickActive">
+                        <TextBlock 
+                                        Text="Відновити дію аккаунта" 
+                                        FontSize="14"
+                                        FontFamily="Gilroy"
+                                        Foreground="White"
+                                        FontWeight="Bold"/>
+                    </Button>
+
+                    <Button 
+                                    Height="36" Width="256"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                    materialDesign:ButtonAssist.CornerRadius="15"
+                                    Padding="0"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent" Click="onClickBack">
+                        <TextBlock 
+                                        Text="Повернутись" 
+                                        FontSize="14"
+                                        FontFamily="Gilroy"
+                                        Foreground="LightGray"
+                                        FontWeight="Bold"/>
+                    </Button>
+                    
+                </StackPanel>    
+            </Grid>
+            
+        </Grid>
         
     </Grid>
 </Window>

@@ -84,6 +84,11 @@ namespace ClientVehicle.Header
                 {
                     ApplicationUser.Dialog.Hide();
                 }
+
+                if (UserACard.Card.User.Id == Item.Id && UserACard.Card.Visibility == System.Windows.Visibility.Visible)
+                {
+                    UserACard.Card.User = Item;
+                }
             }
         }
 
@@ -108,6 +113,11 @@ namespace ClientVehicle.Header
                 if (ApplicationUser.Dialog.Item.Id == Item.Id && ApplicationUser.Dialog.Visibility == System.Windows.Visibility.Visible)
                 {
                     ApplicationUser.Dialog.Hide();
+                }
+
+                if (UserACard.Card.User.Id == Item.Id && UserACard.Card.Visibility == System.Windows.Visibility.Visible)
+                {
+                    UserACard.Card.Hide();
                 }
             }
         }

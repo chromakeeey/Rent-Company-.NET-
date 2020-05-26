@@ -136,7 +136,7 @@
                                     <materialDesign:PackIcon
                                     x:Name="iconStatistic"
                                     Margin="10"
-                                    Kind="ChartArc"
+                                    Kind="ChartTimelineVariant"
                                     Height="25" Width="25"
                                     Foreground="#99A5B6"/>
                                 </Grid>

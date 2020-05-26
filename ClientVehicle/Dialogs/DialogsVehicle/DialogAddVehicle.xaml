@@ -168,7 +168,16 @@
                             FontFamily="Gilroy"
                             FontWeight="Bold"
                             FontSize="14"
-                            Template="{StaticResource ComboBoxTypeList}"/>
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+
+                            <ComboBoxItem Content="Легковий"/>
+                            <ComboBoxItem Content="Позашляховик"/>
+                            <ComboBoxItem Content="Вантажний"/>
+                            <ComboBoxItem Content="Мотоцикл"/>
+                            <ComboBoxItem Content="Мопед"/>
+
+                        </ComboBox>
 
                         <ComboBox
                             x:Name="combo_Transmission"
@@ -181,7 +190,13 @@
                             FontFamily="Gilroy"
                             FontWeight="Bold"
                             FontSize="14"
-                            Template="{StaticResource ComboBoxTransmissionList}"/>
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+
+                            <ComboBoxItem Content="Механічна"/>
+                            <ComboBoxItem Content="Автоматична"/>
+
+                        </ComboBox>
 
                         <ComboBox
                             x:Name="combo_Category"
@@ -194,7 +209,26 @@
                             FontFamily="Gilroy"
                             FontWeight="Bold"
                             FontSize="14"
-                            Template="{StaticResource ComboBoxCategoryList}"/>
+                            materialDesign:HintAssist.Foreground="#3B93F7"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+
+                            <ComboBoxItem Content="A1"/>
+                            <ComboBoxItem Content="A"/>
+                            <ComboBoxItem Content="B1"/>
+                            <ComboBoxItem Content="B"/>
+                            <ComboBoxItem Content="C1"/>
+                            <ComboBoxItem Content="C"/>
+                            <ComboBoxItem Content="D1"/>
+                            <ComboBoxItem Content="D"/>
+                            <ComboBoxItem Content="C1E"/>
+                            <ComboBoxItem Content="BE"/>
+                            <ComboBoxItem Content="CE"/>
+                            <ComboBoxItem Content="D1E"/>
+                            <ComboBoxItem Content="DE"/>
+                            <ComboBoxItem Content="T1"/>
+                            <ComboBoxItem Content="T2"/>
+
+                        </ComboBox>
 
                         <Image
                             x:Name="image_Vehicle"

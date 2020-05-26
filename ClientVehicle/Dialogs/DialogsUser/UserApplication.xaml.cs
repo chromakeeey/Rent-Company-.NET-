@@ -22,7 +22,7 @@ namespace ClientVehicle.Dialogs.DialogsUser
     /// </summary>
     public partial class UserApplication : Window
     {
-        public User Item;
+        public User Item = new User();
 
         public UserApplication()
         {

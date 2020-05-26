@@ -59,7 +59,7 @@ namespace ClientVehicle.UCHelp
         private void onTopContextClick(object sender, RoutedEventArgs e)
         {
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
-            new UserCardAdmin().ShowDialog();
+            UserACard.Show(_activeUser);
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
 
