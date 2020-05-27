@@ -225,10 +225,10 @@
 
                             </Grid>
 
-                            <Grid Grid.Column="1">
+                            <Grid Grid.Column="1" Background="White" MouseDown="onClickSearch" Style="{StaticResource HoverMouseAnimationGrid}">
                                 <materialDesign:PackIcon Kind="Search"
                                                          HorizontalAlignment="Right"
-                                                         VerticalAlignment="Center" MouseDown="onClickSearch"/>
+                                                         VerticalAlignment="Center"/>
                             </Grid>
 
                         </Grid>

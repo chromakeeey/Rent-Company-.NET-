@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\TRC_Redesign\ClientVehicle\App.xaml
-28-2002558766
+29-1275964201
 
-40826405628
+41-630977845
 191849377043
-Dialogs\CustomDefaultDialog\DialogOk.xaml;Dialogs\CustomDefaultDialog\DialogOkNo.xaml;Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;Dialogs\DialogsUser\FailSignIn.xaml;Dialogs\DialogsUser\UserApplication.xaml;Dialogs\DialogsUser\UserCardAdmin.xaml;Dialogs\DialogsUser\UserDocumentWindow.xaml;Dialogs\DialogsVehicle\BetterSearchVehicle.xaml;Dialogs\DialogsVehicle\DialogAddVehicle.xaml;Dialogs\DialogsVehicle\VehicleEditPage.xaml;Dialogs\Receipts\ReceiptEdit.xaml;Dialogs\Receipts\ReceiptWindow.xaml;LoginWindow.xaml;MainWindow.xaml;SignUpWindow.xaml;Styles\MainIconButton.xaml;Styles\Scroll.xaml;Templates\ComboBoxCategory.xaml;Templates\ComboBoxTransmission.xaml;Templates\ComboBoxType.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
+Dialogs\CustomDefaultDialog\DialogOk.xaml;Dialogs\CustomDefaultDialog\DialogOkNo.xaml;Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;Dialogs\DialogsUser\FailSignIn.xaml;Dialogs\DialogsUser\RentCardWindow.xaml;Dialogs\DialogsUser\UserApplication.xaml;Dialogs\DialogsUser\UserCardAdmin.xaml;Dialogs\DialogsUser\UserDocumentWindow.xaml;Dialogs\DialogsVehicle\BetterSearchVehicle.xaml;Dialogs\DialogsVehicle\DialogAddVehicle.xaml;Dialogs\DialogsVehicle\VehicleEditPage.xaml;Dialogs\Receipts\ReceiptEdit.xaml;Dialogs\Receipts\ReceiptWindow.xaml;LoginWindow.xaml;MainWindow.xaml;SignUpWindow.xaml;Styles\MainIconButton.xaml;Styles\Scroll.xaml;Templates\ComboBoxCategory.xaml;Templates\ComboBoxTransmission.xaml;Templates\ComboBoxType.xaml;UCHelp\UCAUserRow.xaml;UCHelp\UCAVehicleRow.xaml;UCHelp\UCButtonRow.xaml;UCPage\UCAUser.xaml;UCPage\UCAVehicle.xaml;UCPage\UCMain.xaml;UCPage\UCStatistic.xaml;UCPage\UCVehicle.xaml;
 
 False
 

@@ -32,28 +32,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Rent" nillable="true" type="tns:Rent" />
-  <xs:complexType name="Account">
+  <xs:complexType name="User">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Admin">
         <xs:sequence>
-          <xs:element minOccurs="0" name="accepted" type="xs:int" />
-          <xs:element minOccurs="0" name="balance" type="xs:float" />
-          <xs:element minOccurs="0" name="dateCreate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="documentid" type="xs:int" />
-          <xs:element minOccurs="0" name="fathername" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="id" type="xs:int" />
-          <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="secondname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="totalMoney" type="xs:float" />
+          <xs:element minOccurs="0" name="BackImageName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Balance" type="xs:float" />
+          <xs:element minOccurs="0" name="BirthdayDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FrontImageName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LicenseCategories" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="StatusReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserCreateDate" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Account" nillable="true" type="tns:Account" />
+  <xs:element name="User" nillable="true" type="tns:User" />
   <xs:complexType name="Admin">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BankCard">
@@ -95,30 +97,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CashVoucher" nillable="true" type="tns:CashVoucher" />
-  <xs:complexType name="User">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Admin">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="BackImageName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Balance" type="xs:float" />
-          <xs:element minOccurs="0" name="BirthdayDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="FrontImageName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:int" />
-          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LicenseCategories" nillable="true" type="q1:ArrayOfstring" />
-          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Status" type="xs:int" />
-          <xs:element minOccurs="0" name="StatusReason" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="UserCreateDate" type="xs:dateTime" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="User" nillable="true" type="tns:User" />
   <xs:complexType name="ArrayOfVehicle">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehicle" nillable="true" type="tns:Vehicle" />

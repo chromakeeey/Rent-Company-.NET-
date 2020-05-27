@@ -63,7 +63,8 @@ namespace ClientVehicle.UCHelp
 
         private void onClickButton(object sender, RoutedEventArgs e)
         {
-            Items.UpdateVehicleActive(_activeVehicle);
+            Items.ucVehicle.Vehicle = _activeVehicle;
+            //Items.UpdateVehicleActive(_activeVehicle);
         }
     }
 }

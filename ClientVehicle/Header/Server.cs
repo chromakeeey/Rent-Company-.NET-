@@ -14,10 +14,11 @@ using System.Windows.Media.Imaging;
 using ClientVehicle.ServerReference;
 using ClientVehicle.Dialogs.DialogsVehicle;
 using ClientVehicle.Dialogs.DialogsUser;
+using System.Windows.Threading;
 
 namespace ClientVehicle.Header
 {
-    [CallbackBehaviorAttribute(ConcurrencyMode = ConcurrencyMode.Multiple)]
+    [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class Server : IServiceRentCallback
     {
         public ServiceRentClient ConnectProvider { get; private set; }
@@ -74,66 +75,135 @@ namespace ClientVehicle.Header
 
         public void OnUserEdit(User Item, User[] numerable)
         {
-            if (Client.IsLogin())
+            Action a = () =>
             {
-                List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
-                Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
-                Items.UpdateAUserHeader(numerable.ToList());
-
-                if (ApplicationUser.Dialog.Item.Id == Item.Id && ApplicationUser.Dialog.Visibility == System.Windows.Visibility.Visible)
+                if (Client.IsLogin())
                 {
-                    ApplicationUser.Dialog.Hide();
-                }
+                    List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
+                    Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
+                    Items.UpdateAUserHeader(numerable.ToList());
 
-                if (UserACard.Card.User.Id == Item.Id && UserACard.Card.Visibility == System.Windows.Visibility.Visible)
-                {
-                    UserACard.Card.User = Item;
+                    if (ApplicationUser.Dialog.Item.Id == Item.Id && ApplicationUser.Dialog.Visibility == System.Windows.Visibility.Visible)
+                    {
+                        ApplicationUser.Dialog.Hide();
+                    }
+
+                    if (UserACard.Card.User.Id == Item.Id && UserACard.Card.Visibility == System.Windows.Visibility.Visible)
+                    {
+                        UserACard.Card.User = Item;
+                    }
+
+                    if (Client.User.Id == Item.Id)
+                    {
+
+                        Items.UpdateMainPage();
+                    }
                 }
-            }
+            };
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(a);
         }
 
         public void OnUserAdd(User Item, User[] numerable)
         {
-            if (Client.IsLogin())
+            Action a = () =>
             {
-                List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
-                Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
-                Items.UpdateAUserHeader(numerable.ToList());
-            }
+                if (Client.IsLogin())
+                {
+                    List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
+                    Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
+                    Items.UpdateAUserHeader(numerable.ToList());
+                }
+            };
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(a);
         }
 
         public void OnUserDelete(User Item, User[] numerable)
         {
-            if (Client.IsLogin())
+            Action a = () =>
             {
-                List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
-                Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
-                Items.UpdateAUserHeader(numerable.ToList());
-
-                if (ApplicationUser.Dialog.Item.Id == Item.Id && ApplicationUser.Dialog.Visibility == System.Windows.Visibility.Visible)
+                if (Client.IsLogin())
                 {
-                    ApplicationUser.Dialog.Hide();
-                }
+                    List<User> sortedApplication = (from i in numerable where i.Status != 0 && i.Status != 3 select i).ToList();
+                    Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
+                    Items.UpdateAUserHeader(numerable.ToList());
 
-                if (UserACard.Card.User.Id == Item.Id && UserACard.Card.Visibility == System.Windows.Visibility.Visible)
-                {
-                    UserACard.Card.Hide();
+                    if (ApplicationUser.Dialog.Item.Id == Item.Id && ApplicationUser.Dialog.Visibility == System.Windows.Visibility.Visible)
+                    {
+                        ApplicationUser.Dialog.Hide();
+                    }
+
+                    if (UserACard.Card.User.Id == Item.Id && UserACard.Card.Visibility == System.Windows.Visibility.Visible)
+                    {
+                        UserACard.Card.Hide();
+                    }
                 }
-            }
+            };
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(a);
         }
 
         public void OnEditVehicle(Vehicle item, Vehicle[] numerable)
         {
-            if (Client.IsLogin())
+            Action a = () =>
             {
-                SearchVehicle.ComplectSearchObject(numerable.ToList());
-                Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
-                Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
-                Items.UpdateVehicle(SearchVehicle.GetItemSearched());
+                if (Client.IsLogin())
+                {
+                    SearchVehicle.ComplectSearchObject(numerable.ToList());
+                    Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
+                    Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
+                    Items.UpdateVehicle(SearchVehicle.GetItemSearched());
+
+                    if (VehicleEdit.Dialog.Item.VIN == item.VIN && VehicleEdit.Dialog.Visibility == System.Windows.Visibility.Visible)
+                    {
+                        VehicleEdit.Dialog.Item = item;
+                    }
+
+                    if (Client.Vehicle.VIN == item.VIN)
+                    {
+                        Items.UpdateMainPage();
+                    }
+
+                    if (Items.ucVehicle.VehicleGrid.Visibility == System.Windows.Visibility.Visible && Items.ucVehicle.Vehicle.VIN == item.VIN)
+                    {
+                        Items.ucVehicle.Vehicle = item;
+                        //Items.UpdateVehicleActive(item);
+                    }
+                }
+            };
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(a);
+
+            
+        }
+
+        public void OnAddVehicle(Vehicle item, Vehicle[] numerable)
+        {
+            Action a = () =>
+            {
+                if (Client.IsLogin())
+                {
+                    SearchVehicle.ComplectSearchObject(numerable.ToList());
+                    Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
+                    Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
+                    Items.UpdateVehicle(SearchVehicle.GetItemSearched());
+                }
+            };
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(a);
+        }
+
+        public void OnDeleteVehicle(Vehicle item, Vehicle[] numerable)
+        {
+            Action a = () =>
+            {
+                if (Client.IsLogin())
+                {
+                    SearchVehicle.ComplectSearchObject(numerable.ToList());
+                    Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
+                    Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
+                    Items.UpdateVehicle(SearchVehicle.GetItemSearched());
+                }
 
                 if (VehicleEdit.Dialog.Item.VIN == item.VIN && VehicleEdit.Dialog.Visibility == System.Windows.Visibility.Visible)
                 {
-                    VehicleEdit.Dialog.Item = item;
+                    VehicleEdit.Dialog.Hide();
                 }
 
                 if (Client.Vehicle.VIN == item.VIN)
@@ -143,47 +213,11 @@ namespace ClientVehicle.Header
 
                 if (Items.ucVehicle.VehicleGrid.Visibility == System.Windows.Visibility.Visible && Items.ucVehicle.Vehicle.VIN == item.VIN)
                 {
-                    Items.UpdateVehicleActive(item);
+                    Items.ucVehicle.VehicleGrid.Visibility = System.Windows.Visibility.Hidden;
+                    Items.ucVehicle.Vehicle.VIN = "null";
                 }
-            }
-        }
-
-        public void OnAddVehicle(Vehicle item, Vehicle[] numerable)
-        {
-            if (Client.IsLogin())
-            {
-                SearchVehicle.ComplectSearchObject(numerable.ToList());
-                Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
-                Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
-                Items.UpdateVehicle(SearchVehicle.GetItemSearched());
-            }
-        }
-
-        public void OnDeleteVehicle(Vehicle item, Vehicle[] numerable)
-        {
-            if (Client.IsLogin())
-            {
-                SearchVehicle.ComplectSearchObject(numerable.ToList());
-                Items.UpdateAVehicle(SearchVehicle.GetItemSearched());
-                Items.UpdateAVehicleHeader(SearchVehicle.GetItemSearched());
-                Items.UpdateVehicle(SearchVehicle.GetItemSearched());
-            }
-
-            if (VehicleEdit.Dialog.Item.VIN == item.VIN && VehicleEdit.Dialog.Visibility == System.Windows.Visibility.Visible)
-            {
-                VehicleEdit.Dialog.Hide();
-            }
-
-            if (Client.Vehicle.VIN == item.VIN)
-            {
-                Items.UpdateMainPage();
-            }
-
-            if (Items.ucVehicle.VehicleGrid.Visibility == System.Windows.Visibility.Visible && Items.ucVehicle.Vehicle.VIN == item.VIN)
-            {
-                Items.ucVehicle.VehicleGrid.Visibility = System.Windows.Visibility.Hidden;
-                Items.ucVehicle.Vehicle.VIN = "null";
-            }
+            };
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(a);
         }
     }
 }

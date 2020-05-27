@@ -152,6 +152,7 @@ namespace WCF_Rent
             vehicle[index] = item;
 
             Vehicle.SaveVehicle(item);
+
             foreach (var user in serverUser)
             {
                 user.operationContext.GetCallbackChannel<IServerRentCallback>().OnEditVehicle(item, vehicle);

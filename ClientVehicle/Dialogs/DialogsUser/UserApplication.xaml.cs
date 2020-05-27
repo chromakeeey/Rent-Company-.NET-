@@ -90,7 +90,7 @@ namespace ClientVehicle.Dialogs.DialogsUser
         {
             Error = " ";
 
-            Item.Status = 3;
+            Item.Status = 1;
             Item.StatusReason = "Вам було відмовлено в реєстрації.";
 
             Hide();

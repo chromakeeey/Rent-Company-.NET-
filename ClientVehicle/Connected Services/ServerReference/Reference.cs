@@ -332,22 +332,22 @@ namespace ClientVehicle.ServerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime endDateField;
+        private System.DateTime FinalDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime startDateField;
+        private System.DateTime StartDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientVehicle.ServerReference.StatBalanceInfo[] statBalancesField;
+        private ClientVehicle.ServerReference.StatBalanceInfo[] StatBalancesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientVehicle.ServerReference.StatVehicleInfo[] statVehiclesField;
+        private ClientVehicle.ServerReference.StatVehicleInfo[] StatVehiclesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientVehicle.ServerReference.StatVoucherInfo[] statVouchersField;
+        private ClientVehicle.ServerReference.StatVoucherInfo[] StatVouchersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float totalbalanceField;
+        private float TotalBalanceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -360,79 +360,79 @@ namespace ClientVehicle.ServerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime endDate {
+        public System.DateTime FinalDate {
             get {
-                return this.endDateField;
+                return this.FinalDateField;
             }
             set {
-                if ((this.endDateField.Equals(value) != true)) {
-                    this.endDateField = value;
-                    this.RaisePropertyChanged("endDate");
+                if ((this.FinalDateField.Equals(value) != true)) {
+                    this.FinalDateField = value;
+                    this.RaisePropertyChanged("FinalDate");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime startDate {
+        public System.DateTime StartDate {
             get {
-                return this.startDateField;
+                return this.StartDateField;
             }
             set {
-                if ((this.startDateField.Equals(value) != true)) {
-                    this.startDateField = value;
-                    this.RaisePropertyChanged("startDate");
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClientVehicle.ServerReference.StatBalanceInfo[] statBalances {
+        public ClientVehicle.ServerReference.StatBalanceInfo[] StatBalances {
             get {
-                return this.statBalancesField;
+                return this.StatBalancesField;
             }
             set {
-                if ((object.ReferenceEquals(this.statBalancesField, value) != true)) {
-                    this.statBalancesField = value;
-                    this.RaisePropertyChanged("statBalances");
+                if ((object.ReferenceEquals(this.StatBalancesField, value) != true)) {
+                    this.StatBalancesField = value;
+                    this.RaisePropertyChanged("StatBalances");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClientVehicle.ServerReference.StatVehicleInfo[] statVehicles {
+        public ClientVehicle.ServerReference.StatVehicleInfo[] StatVehicles {
             get {
-                return this.statVehiclesField;
+                return this.StatVehiclesField;
             }
             set {
-                if ((object.ReferenceEquals(this.statVehiclesField, value) != true)) {
-                    this.statVehiclesField = value;
-                    this.RaisePropertyChanged("statVehicles");
+                if ((object.ReferenceEquals(this.StatVehiclesField, value) != true)) {
+                    this.StatVehiclesField = value;
+                    this.RaisePropertyChanged("StatVehicles");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClientVehicle.ServerReference.StatVoucherInfo[] statVouchers {
+        public ClientVehicle.ServerReference.StatVoucherInfo[] StatVouchers {
             get {
-                return this.statVouchersField;
+                return this.StatVouchersField;
             }
             set {
-                if ((object.ReferenceEquals(this.statVouchersField, value) != true)) {
-                    this.statVouchersField = value;
-                    this.RaisePropertyChanged("statVouchers");
+                if ((object.ReferenceEquals(this.StatVouchersField, value) != true)) {
+                    this.StatVouchersField = value;
+                    this.RaisePropertyChanged("StatVouchers");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float totalbalance {
+        public float TotalBalance {
             get {
-                return this.totalbalanceField;
+                return this.TotalBalanceField;
             }
             set {
-                if ((this.totalbalanceField.Equals(value) != true)) {
-                    this.totalbalanceField = value;
-                    this.RaisePropertyChanged("totalbalance");
+                if ((this.TotalBalanceField.Equals(value) != true)) {
+                    this.TotalBalanceField = value;
+                    this.RaisePropertyChanged("TotalBalance");
                 }
             }
         }
@@ -457,19 +457,19 @@ namespace ClientVehicle.ServerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientVehicle.ServerReference.Account accountField;
+        private float CardNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float cardnumberField;
+        private System.DateTime DateNowField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateTimeField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
+        private ClientVehicle.ServerReference.User UserField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float valueField;
+        private float ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -482,66 +482,66 @@ namespace ClientVehicle.ServerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClientVehicle.ServerReference.Account account {
+        public float CardNumber {
             get {
-                return this.accountField;
+                return this.CardNumberField;
             }
             set {
-                if ((object.ReferenceEquals(this.accountField, value) != true)) {
-                    this.accountField = value;
-                    this.RaisePropertyChanged("account");
+                if ((this.CardNumberField.Equals(value) != true)) {
+                    this.CardNumberField = value;
+                    this.RaisePropertyChanged("CardNumber");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float cardnumber {
+        public System.DateTime DateNow {
             get {
-                return this.cardnumberField;
+                return this.DateNowField;
             }
             set {
-                if ((this.cardnumberField.Equals(value) != true)) {
-                    this.cardnumberField = value;
-                    this.RaisePropertyChanged("cardnumber");
+                if ((this.DateNowField.Equals(value) != true)) {
+                    this.DateNowField = value;
+                    this.RaisePropertyChanged("DateNow");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime dateTime {
+        public int Id {
             get {
-                return this.dateTimeField;
+                return this.IdField;
             }
             set {
-                if ((this.dateTimeField.Equals(value) != true)) {
-                    this.dateTimeField = value;
-                    this.RaisePropertyChanged("dateTime");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
+        public ClientVehicle.ServerReference.User User {
             get {
-                return this.idField;
+                return this.UserField;
             }
             set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float value {
+        public float Value {
             get {
-                return this.valueField;
+                return this.ValueField;
             }
             set {
-                if ((this.valueField.Equals(value) != true)) {
-                    this.valueField = value;
-                    this.RaisePropertyChanged("value");
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
                 }
             }
         }
@@ -566,34 +566,34 @@ namespace ClientVehicle.ServerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float CreditField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float PaymentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime RentFinalDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime RentStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float ReturningField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientVehicle.ServerReference.User UserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VINField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientVehicle.ServerReference.Account accountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float creditField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float paymentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime rent_endDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime rent_startDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float returningField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int useridField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientVehicle.ServerReference.Vehicle vehicleField;
+        private ClientVehicle.ServerReference.Vehicle VehicleField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -602,6 +602,110 @@ namespace ClientVehicle.ServerReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Credit {
+            get {
+                return this.CreditField;
+            }
+            set {
+                if ((this.CreditField.Equals(value) != true)) {
+                    this.CreditField = value;
+                    this.RaisePropertyChanged("Credit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Payment {
+            get {
+                return this.PaymentField;
+            }
+            set {
+                if ((this.PaymentField.Equals(value) != true)) {
+                    this.PaymentField = value;
+                    this.RaisePropertyChanged("Payment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime RentFinalDate {
+            get {
+                return this.RentFinalDateField;
+            }
+            set {
+                if ((this.RentFinalDateField.Equals(value) != true)) {
+                    this.RentFinalDateField = value;
+                    this.RaisePropertyChanged("RentFinalDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime RentStartDate {
+            get {
+                return this.RentStartDateField;
+            }
+            set {
+                if ((this.RentStartDateField.Equals(value) != true)) {
+                    this.RentStartDateField = value;
+                    this.RaisePropertyChanged("RentStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Returning {
+            get {
+                return this.ReturningField;
+            }
+            set {
+                if ((this.ReturningField.Equals(value) != true)) {
+                    this.ReturningField = value;
+                    this.RaisePropertyChanged("Returning");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientVehicle.ServerReference.User User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
             }
         }
         
@@ -619,118 +723,14 @@ namespace ClientVehicle.ServerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClientVehicle.ServerReference.Account account {
+        public ClientVehicle.ServerReference.Vehicle Vehicle {
             get {
-                return this.accountField;
+                return this.VehicleField;
             }
             set {
-                if ((object.ReferenceEquals(this.accountField, value) != true)) {
-                    this.accountField = value;
-                    this.RaisePropertyChanged("account");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float credit {
-            get {
-                return this.creditField;
-            }
-            set {
-                if ((this.creditField.Equals(value) != true)) {
-                    this.creditField = value;
-                    this.RaisePropertyChanged("credit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float payment {
-            get {
-                return this.paymentField;
-            }
-            set {
-                if ((this.paymentField.Equals(value) != true)) {
-                    this.paymentField = value;
-                    this.RaisePropertyChanged("payment");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime rent_endDate {
-            get {
-                return this.rent_endDateField;
-            }
-            set {
-                if ((this.rent_endDateField.Equals(value) != true)) {
-                    this.rent_endDateField = value;
-                    this.RaisePropertyChanged("rent_endDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime rent_startDate {
-            get {
-                return this.rent_startDateField;
-            }
-            set {
-                if ((this.rent_startDateField.Equals(value) != true)) {
-                    this.rent_startDateField = value;
-                    this.RaisePropertyChanged("rent_startDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float returning {
-            get {
-                return this.returningField;
-            }
-            set {
-                if ((this.returningField.Equals(value) != true)) {
-                    this.returningField = value;
-                    this.RaisePropertyChanged("returning");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int userid {
-            get {
-                return this.useridField;
-            }
-            set {
-                if ((this.useridField.Equals(value) != true)) {
-                    this.useridField = value;
-                    this.RaisePropertyChanged("userid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClientVehicle.ServerReference.Vehicle vehicle {
-            get {
-                return this.vehicleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.vehicleField, value) != true)) {
-                    this.vehicleField = value;
-                    this.RaisePropertyChanged("vehicle");
+                if ((object.ReferenceEquals(this.VehicleField, value) != true)) {
+                    this.VehicleField = value;
+                    this.RaisePropertyChanged("Vehicle");
                 }
             }
         }
@@ -755,13 +755,13 @@ namespace ClientVehicle.ServerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string operationField;
+        private string OperationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string timeField;
+        private string TimeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -774,40 +774,40 @@ namespace ClientVehicle.ServerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
+        public int Id {
             get {
-                return this.idField;
+                return this.IdField;
             }
             set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string operation {
+        public string Operation {
             get {
-                return this.operationField;
+                return this.OperationField;
             }
             set {
-                if ((object.ReferenceEquals(this.operationField, value) != true)) {
-                    this.operationField = value;
-                    this.RaisePropertyChanged("operation");
+                if ((object.ReferenceEquals(this.OperationField, value) != true)) {
+                    this.OperationField = value;
+                    this.RaisePropertyChanged("Operation");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string time {
+        public string Time {
             get {
-                return this.timeField;
+                return this.TimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.timeField, value) != true)) {
-                    this.timeField = value;
-                    this.RaisePropertyChanged("time");
+                if ((object.ReferenceEquals(this.TimeField, value) != true)) {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
                 }
             }
         }
@@ -818,342 +818,6 @@ namespace ClientVehicle.ServerReference {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
-    [System.SerializableAttribute()]
-    public partial class Account : ClientVehicle.ServerReference.Admin {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int acceptedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float balanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateCreateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int documentidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fathernameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string loginField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string mailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string passwordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string phoneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string secondnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float totalMoneyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int accepted {
-            get {
-                return this.acceptedField;
-            }
-            set {
-                if ((this.acceptedField.Equals(value) != true)) {
-                    this.acceptedField = value;
-                    this.RaisePropertyChanged("accepted");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float balance {
-            get {
-                return this.balanceField;
-            }
-            set {
-                if ((this.balanceField.Equals(value) != true)) {
-                    this.balanceField = value;
-                    this.RaisePropertyChanged("balance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime dateCreate {
-            get {
-                return this.dateCreateField;
-            }
-            set {
-                if ((this.dateCreateField.Equals(value) != true)) {
-                    this.dateCreateField = value;
-                    this.RaisePropertyChanged("dateCreate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int documentid {
-            get {
-                return this.documentidField;
-            }
-            set {
-                if ((this.documentidField.Equals(value) != true)) {
-                    this.documentidField = value;
-                    this.RaisePropertyChanged("documentid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fathername {
-            get {
-                return this.fathernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.fathernameField, value) != true)) {
-                    this.fathernameField = value;
-                    this.RaisePropertyChanged("fathername");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string login {
-            get {
-                return this.loginField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.loginField, value) != true)) {
-                    this.loginField = value;
-                    this.RaisePropertyChanged("login");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string mail {
-            get {
-                return this.mailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.mailField, value) != true)) {
-                    this.mailField = value;
-                    this.RaisePropertyChanged("mail");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string phone {
-            get {
-                return this.phoneField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.phoneField, value) != true)) {
-                    this.phoneField = value;
-                    this.RaisePropertyChanged("phone");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string secondname {
-            get {
-                return this.secondnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.secondnameField, value) != true)) {
-                    this.secondnameField = value;
-                    this.RaisePropertyChanged("secondname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float totalMoney {
-            get {
-                return this.totalMoneyField;
-            }
-            set {
-                if ((this.totalMoneyField.Equals(value) != true)) {
-                    this.totalMoneyField = value;
-                    this.RaisePropertyChanged("totalMoney");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BankCard", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.Admin))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.User))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.Account))]
-    public partial class BankCard : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CVVField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CardNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ExpireDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OwnerNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CVV {
-            get {
-                return this.CVVField;
-            }
-            set {
-                if ((this.CVVField.Equals(value) != true)) {
-                    this.CVVField = value;
-                    this.RaisePropertyChanged("CVV");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CardNumber {
-            get {
-                return this.CardNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CardNumberField, value) != true)) {
-                    this.CardNumberField = value;
-                    this.RaisePropertyChanged("CardNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ExpireDate {
-            get {
-                return this.ExpireDateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ExpireDateField, value) != true)) {
-                    this.ExpireDateField = value;
-                    this.RaisePropertyChanged("ExpireDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OwnerName {
-            get {
-                return this.OwnerNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OwnerNameField, value) != true)) {
-                    this.OwnerNameField = value;
-                    this.RaisePropertyChanged("OwnerName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Admin", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.User))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.Account))]
-    public partial class Admin : ClientVehicle.ServerReference.BankCard {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int LevelField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Level {
-            get {
-                return this.LevelField;
-            }
-            set {
-                if ((this.LevelField.Equals(value) != true)) {
-                    this.LevelField = value;
-                    this.RaisePropertyChanged("Level");
-                }
             }
         }
     }
@@ -1400,6 +1064,125 @@ namespace ClientVehicle.ServerReference {
                 if ((this.UserCreateDateField.Equals(value) != true)) {
                     this.UserCreateDateField = value;
                     this.RaisePropertyChanged("UserCreateDate");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BankCard", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.Admin))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.User))]
+    public partial class BankCard : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CVVField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CardNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExpireDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CVV {
+            get {
+                return this.CVVField;
+            }
+            set {
+                if ((this.CVVField.Equals(value) != true)) {
+                    this.CVVField = value;
+                    this.RaisePropertyChanged("CVV");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CardNumber {
+            get {
+                return this.CardNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CardNumberField, value) != true)) {
+                    this.CardNumberField = value;
+                    this.RaisePropertyChanged("CardNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ExpireDate {
+            get {
+                return this.ExpireDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExpireDateField, value) != true)) {
+                    this.ExpireDateField = value;
+                    this.RaisePropertyChanged("ExpireDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OwnerName {
+            get {
+                return this.OwnerNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerNameField, value) != true)) {
+                    this.OwnerNameField = value;
+                    this.RaisePropertyChanged("OwnerName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Admin", Namespace="http://schemas.datacontract.org/2004/07/WCF_Rent.HeaderFile")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientVehicle.ServerReference.User))]
+    public partial class Admin : ClientVehicle.ServerReference.BankCard {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LevelField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Level {
+            get {
+                return this.LevelField;
+            }
+            set {
+                if ((this.LevelField.Equals(value) != true)) {
+                    this.LevelField = value;
+                    this.RaisePropertyChanged("Level");
                 }
             }
         }

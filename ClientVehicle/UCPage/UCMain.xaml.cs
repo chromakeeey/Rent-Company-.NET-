@@ -26,6 +26,8 @@ namespace ClientVehicle.UCPage
     /// </summary>
     public partial class UCMain : UserControl
     {
+         
+
         public UCMain()
         {
             InitializeComponent();
@@ -34,7 +36,70 @@ namespace ClientVehicle.UCPage
 
         private void onCancelRent(object sender, RoutedEventArgs e)
         {
-            DialogWindow.Show("Ви дійсно хочите відмінити оренду?", "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information);
+            //DialogWindow.Show("Ви дійсно хочите відмінити оренду?", "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information);
+
+            int Days = (DateTime.Now - Client.Vehicle.FinalDate).Days;
+
+            if (Days < 1)
+            {
+                int CheckDays = (Client.Vehicle.FinalDate - DateTime.Now).Days;
+
+                if (CheckDays > 0)
+                {
+                    float price = Client.Vehicle.Price * CheckDays;
+
+                    string message = $"Ви дійсно хочете відмінити оренду достроково?\n" +
+                        $"Ви отримаєте ₴‎ {price} на рахунок.";
+
+                    if (DialogWindow.Show(message, "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information) == DialogResult.Ok)
+                    {
+                        Client.User.Balance += CheckDays * Client.Vehicle.Price;
+
+                        Client.Vehicle.ClientId = 0;
+                        Client.Vehicle.RentLogId = 0;
+
+                        Client.Server.ConnectProvider.SaveUser(Client.User);
+                        Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
+                    }
+                }
+                else
+                {
+                    if (DialogWindow.Show("Ви дійсно хочете відмінити оренду:", "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information) == DialogResult.Ok)
+                    {
+                        Client.Vehicle.ClientId = 0;
+                        Client.Vehicle.RentLogId = 0;
+
+                        Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
+                    }
+                }
+            }
+
+            if (Days > 0 && Client.User.Balance < Days * Client.Vehicle.Price)
+            {
+                DialogWindow.Show("Ви просрочили термін здачі автомобіля в автосалон.\n\n" +
+                    "На ваш аккаунт був накладений борг в розмірі - " + Days * Client.Vehicle.Price +
+                    "грн.\nДнів просрочено - " + Days + ".\nЦіна оренди в день - " + Client.Vehicle.Price + "грн.\n\nВи не зможете сдати автомобіль, поки не поповните баланс на сумму боргу.",
+                    "Борг", DialogButtons.Ok, DialogStyle.Information);
+
+                return;
+            }
+
+            if (Days > 0 && Client.User.Balance >= Days * Client.Vehicle.Price)
+            {
+                Client.User.Balance -= Days * Client.Vehicle.Price;
+
+                Client.Vehicle.ClientId = 0;
+                Client.Vehicle.RentLogId = 0;
+
+                Client.Server.ConnectProvider.SaveUser(Client.User);
+                Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
+
+                float price = Days * Client.Vehicle.Price;
+                string message = $"Ви сдали автомобіль з оренди. З вашого рахунку був стягнутий борг (₴‎ {price})";
+
+                DialogWindow.Show(message, "Відміна оренди", DialogButtons.Ok, DialogStyle.Information);
+            }
+
         }
 
         private void onUpdatePasswordClick(object sender, RoutedEventArgs e)

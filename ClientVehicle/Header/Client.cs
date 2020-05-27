@@ -11,7 +11,7 @@ namespace ClientVehicle.Header
 {
     public static class Client
     {
-        public static Vehicle Vehicle = new Vehicle();
+        public static Vehicle Vehicle { get; set; }
         public static User User = new User();
         public static Server Server = new Server();
 
@@ -47,7 +47,7 @@ namespace ClientVehicle.Header
             Items.UpdateAVehicleHeader(numerableVehicle.ToList());
 
             User[] numerableUser = Server.ConnectProvider.SelectAllUser();
-            List<User> sortedApplication = (from i in numerableUser where i.Status != 0 && i.Status != 3 select i).ToList();
+            List<User> sortedApplication = (from i in numerableUser where i.Status != 0 && i.Status != 1 select i).ToList();
             Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
             Items.UpdateAUserHeader(numerableUser.ToList());
 
@@ -64,6 +64,22 @@ namespace ClientVehicle.Header
         {
             Server.userDisconnect();
             Items.notifyIcon.Visible = false;
+        }
+
+        public static CashVoucher CollectReceipt(User User, Vehicle Vehicle, float Price, DateTime StartDate, DateTime FinalDate)
+        {
+            string vehicleData = String.Format("VIN: {0}\nІм'я: {1}\nНомерний знак: {2}\nБензина в баці: {3} л.\nПробіг: {4} км.",
+                Vehicle.VIN, Vehicle.Name + " " + Vehicle.Model, Vehicle.Plate, Vehicle.Fuel.ToString(), Vehicle.Mileage.ToString());
+
+            return new CashVoucher()
+            {
+                Id = -1,
+                User = String.Format("{0} {1}", User.Surname, User.Name),
+                Vehicle = vehicleData,
+                Price = Price,
+                StartDate = StartDate,
+                FinalDate = FinalDate
+            };
         }
     }
 }

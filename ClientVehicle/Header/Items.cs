@@ -164,6 +164,7 @@ namespace ClientVehicle.Header
         public static void UpdateAVehicleHeader(List<Vehicle> numerable)
         {
             var numerableRent = (from i in numerable where i.ClientId != 0 select i).ToList();
+            var numerableDeactive = (from i in numerable where i.ClientId != 0 && i.ClientId != 1 && i.ClientId != 256 select i).ToList();
 
             ucAVehicle.label_Count.Text = numerable.Count.ToString();
             ucAVehicle.label_Rent.Text = numerableRent.Count.ToString();
@@ -220,7 +221,7 @@ namespace ClientVehicle.Header
 
         public static void UpdateAUserHeader(List<User> numerable)
         {
-            var numerableDeactive = (from i in numerable where i.Status == 1 select i).ToList();
+            var numerableDeactive = (from i in numerable where i.Status != 0 && i.Status != 1 && i.Status != 256 select i).ToList();
             var numerableCheck = (from i in numerable where i.Status == 0 select i).ToList();
 
             ucAUser.button_AccountCheck.IsEnabled = numerableCheck.Count == 0 ? false : true;
@@ -251,6 +252,8 @@ namespace ClientVehicle.Header
 
         public static void UpdateVehicleActive(Vehicle item)
         {
+            ucVehicle.Status = " ";
+            ucVehicle.date_Picker.Visibility = System.Windows.Visibility.Collapsed;
             
             ucVehicle.image_Vehicle.Source = Server.BytesToBitmapImage(
                     Client.Server.ConnectProvider.vehicleImage(item)

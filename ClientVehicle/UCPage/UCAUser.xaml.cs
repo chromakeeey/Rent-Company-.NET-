@@ -66,14 +66,13 @@ namespace ClientVehicle.UCPage
                 where (i.Surname + " " + i.Name).StartsWith(filter) 
                 select i).ToList();
 
+            sortNumerable = (from i in sortNumerable where i.Status != 0 select i).ToList();
+
             return sortNumerable;
         }
 
         private void onClickSearch(object sender, MouseButtonEventArgs e)
         {
-            if (string.IsNullOrEmpty(textbox_Search.Text))
-                return;
-
             if (textbox_Search.Text == oldSearch)
                 return;
 

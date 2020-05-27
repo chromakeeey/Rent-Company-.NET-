@@ -107,6 +107,13 @@ namespace ClientVehicle.Dialogs.DialogsUser
 
         private void onClickDeactive(object sender, RoutedEventArgs e)
         {
+            if (User.Id == Client.User.Id)
+            {
+                Error = "Ви не можете деактивувати свій же аккаунт.";
+                return;
+            }
+
+
             if (GridReason.Visibility != Visibility.Visible)
             {
                 GridReason.Visibility = Visibility.Visible;

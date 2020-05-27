@@ -87,6 +87,9 @@
     <Compile Include="Dialogs\DialogsUser\FailSignIn.xaml.cs">
       <DependentUpon>FailSignIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DialogsUser\RentCardWindow.xaml.cs">
+      <DependentUpon>RentCardWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\DialogsUser\SignInFail.cs" />
     <Compile Include="Dialogs\DialogsUser\UserACard.cs" />
     <Compile Include="Dialogs\DialogsUser\UserApplication.xaml.cs">
@@ -163,6 +166,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\DialogsUser\FailSignIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogsUser\RentCardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

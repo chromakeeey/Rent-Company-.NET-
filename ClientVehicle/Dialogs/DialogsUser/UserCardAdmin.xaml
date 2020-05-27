@@ -337,6 +337,7 @@
                                 <Grid Margin="15 5 15 5">
                                     <TextBox
                                         HorizontalAlignment="Center"
+                                        TextAlignment="Center"
                                                 x:Name="field_Reason"
                                         FontFamily="Gilroy"
                                         FontWeight="Bold"

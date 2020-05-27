@@ -444,6 +444,7 @@
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
                                     <TextBlock
+                                        TextWrapping="Wrap"
                                         x:Name="label_Status"
                                         Margin="0 20 20 0"
                                         VerticalAlignment="Center"
@@ -452,6 +453,17 @@
                                         FontFamily="Gilroy"
                                         Foreground="#99A5B6"
                                         FontWeight="Bold"/>
+
+                                    <DatePicker
+                                        x:Name="date_Picker"
+                                                HorizontalAlignment="Center"
+                                        VerticalAlignment="Bottom"
+                                        Margin="0 0 20 5"
+                                                FontFamily="Gilroy"
+                                                FontWeight="Bold"
+                                                BorderThickness="0"
+                                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                                materialDesign:HintAssist.Hint="Виберіть дату  "/>
 
                                     <Button
                                         x:Name="button_Rent"
@@ -464,7 +476,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onClickRent">
                                         <TextBlock 
                                         Text="Взяти в оренду" 
                                         FontSize="14"
