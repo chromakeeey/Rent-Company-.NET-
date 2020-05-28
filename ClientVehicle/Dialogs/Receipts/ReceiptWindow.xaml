@@ -103,11 +103,11 @@
                     <Grid Grid.Row="1">
                         <StackPanel>
                             <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="12" Text="Інформація про автомобіль:"/>
-                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="VIN: JH4CU2F81CC015490"/>
-                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="Ім'я: Audi R6"/>
-                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="Номерний знак: AA 3435 AT"/>
-                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="Бензина в баці: 35 л."/>
-                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="Пробіг: 0 км."/>
+                            
+
+                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" 
+                                       Text="VIN: JH4CU2F81CC015490&#x0a;Ім'я: Audi R6&#x0a;Номерний знак: AA 3435 AT&#x0a;Бензина в баці: 35 л.&#x0a;Пробіг: 0 км."/>
+
                         </StackPanel>
                     </Grid>
 

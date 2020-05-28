@@ -98,7 +98,7 @@
                                 HorizontalContentAlignment="Right"
                                 VerticalContentAlignment="Top"
                                 VerticalAlignment="Center"
-                                Height="Auto">
+                                Height="Auto" Click="onClickYear">
                                     <TextBlock 
                                 FontFamily="Gilroy"
                                 Text="Перейти"
@@ -143,7 +143,7 @@
                                 HorizontalContentAlignment="Right"
                                 VerticalContentAlignment="Top"
                                 VerticalAlignment="Center"
-                                Height="Auto">
+                                Height="Auto" Click="onClickMonth">
                                     <TextBlock 
                                 FontFamily="Gilroy"
                                 Text="Перейти"
@@ -180,7 +180,7 @@
                                            FontWeight="Bold"/>
                                 </StackPanel>
 
-                                <Button
+                                <Button 
                             Grid.Column="1"
                                 Padding="0"
                                 Background="Transparent"
@@ -188,7 +188,7 @@
                                 HorizontalContentAlignment="Right"
                                 VerticalContentAlignment="Top"
                                 VerticalAlignment="Center"
-                                Height="Auto">
+                                Height="Auto" Click="onClickWeek">
                                     <TextBlock 
                                 FontFamily="Gilroy"
                                 Text="Перейти"
@@ -225,7 +225,7 @@
                                            FontWeight="Bold"/>
                                 </StackPanel>
 
-                                <Button
+                                <Button 
                             Grid.Column="1"
                                 Padding="0"
                                 Background="Transparent"
@@ -233,7 +233,7 @@
                                 HorizontalContentAlignment="Right"
                                 VerticalContentAlignment="Top"
                                 VerticalAlignment="Center"
-                                Height="Auto">
+                                Height="Auto" Click="onClickDay">
                                     <TextBlock 
                                 FontFamily="Gilroy"
                                 Text="Перейти"
@@ -261,7 +261,7 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="0 0 120 0">
-                            <TextBlock FontFamily="Gilroy" Text="12/05/2020 - 13/05/2020" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock FontFamily="Gilroy" Text="--/--/--- - --/--/----" FontWeight="Bold" FontSize="14"/>
                             <Button
                                 Padding="0"
                                 Background="Transparent"
@@ -282,7 +282,7 @@
                             </Button>
                         </StackPanel>
 
-                        <Button
+                        <Button 
                             Grid.Column="1"
                                 Padding="0"
                                 Background="Transparent"
@@ -290,7 +290,7 @@
                                 HorizontalContentAlignment="Right"
                                 VerticalContentAlignment="Top"
                                 VerticalAlignment="Center"
-                                Height="Auto">
+                                Height="Auto" Click="onClickCustom">
                             <TextBlock 
                                 FontFamily="Gilroy"
                                 Text="Перейти"
@@ -345,27 +345,27 @@
 
                             <StackPanel Grid.Column="0" Grid.Row="0">
                                 <TextBlock FontFamily="Gilroy" Text="Всього орендовано автомобілів" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                                <TextBlock FontFamily="Gilroy" Text="112" FontWeight="Bold" FontSize="36" Foreground="Black"/>
+                                <TextBlock x:Name="label_Count" FontFamily="Gilroy" Text="112" FontWeight="Bold" FontSize="36" Foreground="Black"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" Grid.Row="0">
                                 <TextBlock FontFamily="Gilroy" Text="Орендовано без подальшого боргу" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                                <TextBlock FontFamily="Gilroy" Text="103" FontWeight="Bold" FontSize="36" Foreground="Black"/>
+                                <TextBlock x:Name="label_CountNoCredit" FontFamily="Gilroy" Text="103" FontWeight="Bold" FontSize="36" Foreground="Black"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="0" Grid.Row="1" Margin="0 40 0 0">
-                                <TextBlock FontFamily="Gilroy" Text="Орендовано без подальшого боргу" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                                <TextBlock FontFamily="Gilroy" Text="₴ 52 000" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
+                                <TextBlock FontFamily="Gilroy" Text="Прибуток без боргу" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
+                                <TextBlock x:Name="label_ProfitNoCredit" FontFamily="Gilroy" Text="₴ 52 000" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" Grid.Row="1" Margin="0 40 0 0">
-                                <TextBlock FontFamily="Gilroy" Text="Орендовано без подальшого боргу" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                                <TextBlock FontFamily="Gilroy" Text="₴ 12 500" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
+                                <TextBlock FontFamily="Gilroy" Text="При при нарахуванні боргу" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
+                                <TextBlock x:Name="label_ProfitCredit" FontFamily="Gilroy" Text="₴ 12 500" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="0" Grid.Row="2" Margin="0 40 0 80">
                                 <TextBlock FontFamily="Gilroy" Text="Всього" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                                <TextBlock FontFamily="Gilroy" Text="₴ 64 500" FontWeight="Bold" FontSize="48" Foreground="#8DB57A"/>
+                                <TextBlock x:Name="label_ProfitCount" FontFamily="Gilroy" Text="₴ 64 500" FontWeight="Bold" FontSize="48" Foreground="#8DB57A"/>
                             </StackPanel>
                             
                         </Grid>
@@ -386,18 +386,18 @@
                     
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <TextBlock FontFamily="Gilroy" Text="Поповненно грошей" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                        <TextBlock FontFamily="Gilroy" Text="₴ 122 000" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
+                        <TextBlock x:Name="label_PlusBalance" FontFamily="Gilroy" Text="₴ 0" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Margin="0 0 0 40">
                         <TextBlock FontFamily="Gilroy" Text="Виведено грошей" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                        <TextBlock FontFamily="Gilroy" Text="₴ -12 500" FontWeight="Bold" FontSize="36" Foreground="#DF9090"/>
+                        <TextBlock x:Name="label_MinusBalance" FontFamily="Gilroy" Text="₴ 0" FontWeight="Bold" FontSize="36" Foreground="#DF9090"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="0" Grid.Row="1">
                         <TextBlock FontFamily="Gilroy" Text="На рахунках користувачів" FontWeight="Bold" FontSize="18" Foreground="#99A5B6"/>
-                        <TextBlock FontFamily="Gilroy" Text="₴ 93 000" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
-                        <TextBlock FontFamily="Gilroy" Text="на 13.05.2020 19:11:03" FontWeight="Bold" FontSize="14" Foreground="#99A5B6"
+                        <TextBlock x:Name="label_Balance" FontFamily="Gilroy" Text="₴ 93 000" FontWeight="Bold" FontSize="36" Foreground="#8DB57A"/>
+                        <TextBlock x:Name="label_DateBalance" FontFamily="Gilroy" Text="на 13.05.2020 19:11:03" FontWeight="Bold" FontSize="14" Foreground="#99A5B6"
                                    Margin="0 -5 0 0"/>
                     </StackPanel>
 

@@ -68,7 +68,7 @@ namespace ClientVehicle.Header
 
         public static CashVoucher CollectReceipt(User User, Vehicle Vehicle, float Price, DateTime StartDate, DateTime FinalDate)
         {
-            string vehicleData = String.Format("VIN: {0}\nІм'я: {1}\nНомерний знак: {2}\nБензина в баці: {3} л.\nПробіг: {4} км.",
+            string vehicleData = String.Format("VIN: {0}&#x0a;Ім'я: {1}&#x0a;Номерний знак: {2}&#x0a;Бензина в баці: {3} л.&#x0a;Пробіг: {4} км.",
                 Vehicle.VIN, Vehicle.Name + " " + Vehicle.Model, Vehicle.Plate, Vehicle.Fuel.ToString(), Vehicle.Mileage.ToString());
 
             return new CashVoucher()
