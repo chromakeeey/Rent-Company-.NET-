@@ -10,14 +10,14 @@
         WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
     <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="1">
             <Button HorizontalAlignment="Left"
                         Background="Transparent"
-                        BorderBrush="Transparent">
+                        BorderBrush="Transparent" Click="onClickSave">
                 <StackPanel Orientation="Horizontal">
 
                     <TextBlock
@@ -40,7 +40,7 @@
 
             <Button HorizontalAlignment="Right"
                         Background="Transparent"
-                        BorderBrush="Transparent">
+                        BorderBrush="Transparent" Click="onClickHide">
                 <StackPanel Orientation="Horizontal">
 
                     <TextBlock
@@ -51,15 +51,20 @@
                                 VerticalAlignment="Center"
                         FontSize="12"/>
 
-                   
+
+
 
                 </StackPanel>
             </Button>
 
         </Grid>
-        
-        <Grid Grid.Row="1" Background="White">
-            <Grid Margin="15">
+
+        <Grid Grid.Row="0" Background="White" x:Name="GridReceipt">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="38*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Margin="15,15,5,15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
@@ -70,9 +75,9 @@
                     <Border BorderThickness="0,0,0,1" BorderBrush="#8B92A6"/>
 
                     <StackPanel HorizontalAlignment="Center">
-                        <TextBlock TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Номер чека - 22"/>
-                        <TextBlock TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Автопрокат 'QuickRent'"/>
-                        <TextBlock Margin="0,0,0,5" TextWrapping="Wrap" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Україна, Чернівецька область, м. Чернівці, вул. Головна 256, офіс 3"/>
+                        <TextBlock x:Name="label_Num" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Номер чека - 22"/>
+                        <TextBlock x:Name="label_NameCompany" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Автопрокат 'QuickRent'"/>
+                        <TextBlock x:Name="label_Street" Margin="0,0,0,5" TextWrapping="Wrap" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Україна, Чернівецька область, м. Чернівці, вул. Головна 256, офіс 3"/>
                     </StackPanel>
                 </Grid>
 
@@ -95,7 +100,7 @@
                         </Grid>
 
                         <Grid Grid.Column="1">
-                            <TextBlock TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="11" Text="Паламарчук Олександр Володимирович"/>
+                            <TextBlock x:Name="label_Name" TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="11" Text="Паламарчук Олександр Володимирович"/>
                         </Grid>
 
                     </Grid>
@@ -103,9 +108,9 @@
                     <Grid Grid.Row="1">
                         <StackPanel>
                             <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Normal" FontSize="12" Text="Інформація про автомобіль:"/>
-                            
 
-                            <TextBlock TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" 
+
+                            <TextBlock x:Name="label_Information" TextAlignment="Left" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" 
                                        Text="VIN: JH4CU2F81CC015490&#x0a;Ім'я: Audi R6&#x0a;Номерний знак: AA 3435 AT&#x0a;Бензина в баці: 35 л.&#x0a;Пробіг: 0 км."/>
 
                         </StackPanel>
@@ -126,8 +131,8 @@
 
                         <Grid Grid.Column="1">
                             <StackPanel VerticalAlignment="Center">
-                                <TextBlock TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="16.05.2020 20:12:15"/>
-                                <TextBlock TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="16.05.2020 20:12:15"/>
+                                <TextBlock x:Name="label_StartDate" TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="16.05.2020 20:12:15"/>
+                                <TextBlock x:Name="label_FinalDate" TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="12" Text="16.05.2020 20:12:15"/>
                             </StackPanel>
                         </Grid>
 
@@ -144,7 +149,7 @@
                         </Grid>
 
                         <Grid Grid.Column="1" VerticalAlignment="Bottom">
-                            <TextBlock TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="18" Text="1500 грн."/>
+                            <TextBlock x:Name="label_Price" TextAlignment="Right" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="18" Text="1500 грн."/>
                         </Grid>
 
                     </Grid>
@@ -152,12 +157,12 @@
                 </Grid>
 
                 <Grid Grid.Row="2">
-                    <TextBlock Margin="0,3,0,0" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="16.05.2020 20:12:15"/>
+                    <TextBlock x:Name="label_Date" Margin="0,3,0,0" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="16.05.2020 20:12:15"/>
                     <Border BorderThickness="0,1,0,0" BorderBrush="#8B92A6"/>
                 </Grid>
 
             </Grid>
         </Grid>
-        
+
     </Grid>
 </Window>

@@ -50,8 +50,6 @@ namespace ClientVehicle.Header
             List<User> sortedApplication = (from i in numerableUser where i.Status != 0 && i.Status != 1 select i).ToList();
             Items.UpdateAUser(Items.ucAUser.SearchAsLogin(sortedApplication));
             Items.UpdateAUserHeader(numerableUser.ToList());
-
-
         }
 
         public static void ApplicationShutdown()

@@ -250,7 +250,7 @@ namespace WCF_Rent
             catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
         }
 
-        public int sendCashVoucherID(int logtakerentid)
+        public int sendCashVoucherID(int LogId)
         {
             const int INVALID_ID = -1;
             int Id = INVALID_ID;
@@ -259,8 +259,8 @@ namespace WCF_Rent
             {
                 SqlCommand sqlCommand;
 
-                sqlCommand = new SqlCommand("SELECT * FROM [log_takerent] WHERE id = @id", sqlconnection);
-                sqlCommand.Parameters.AddWithValue("id", logtakerentid);
+                sqlCommand = new SqlCommand("SELECT * FROM [log_takerent] WHERE id = @id", SqlData.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("id", LogId);
 
                 SqlDataReader reader = sqlCommand.ExecuteReader();
 
@@ -280,9 +280,9 @@ namespace WCF_Rent
                 return Id;
             }
 
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
             return INVALID_ID;
         }
@@ -299,7 +299,7 @@ namespace WCF_Rent
 
             try
             {
-                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_takerent] WHERE startdate > @startDate AND startdate < @endDate", sqlconnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_takerent] WHERE startdate > @startDate AND startdate < @endDate", SqlData.sqlConnection))
                 {
                     sqlCommand.Parameters.AddWithValue("startDate", startDate);
                     sqlCommand.Parameters.AddWithValue("endDate", endDate);
@@ -343,7 +343,7 @@ namespace WCF_Rent
                     }
                 } 
 
-                using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (balance) AS INCOME FROM [accounts]", sqlconnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (balance) AS INCOME FROM [Users]", SqlData.sqlConnection))
                 {
                     sqlCommand.ExecuteNonQuery();
 
@@ -410,22 +410,22 @@ namespace WCF_Rent
                 cashVoucherData.readCashVoucher();
             }
 
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
         }
 
         public CashVoucher readCashVoucher(int Id)
         {
-            return CashVoucher.readCashVoucher(Id, sqlconnection);
+            return CashVoucher.ReadCashVoucher(Id);
         }
 
         public int writeCashVoucher(CashVoucher cashVoucher)
         {
-            return cashVoucherData.addCashVoucher(
+            return cashVoucherData.AddCashVoucher(
                 cashVoucher.User, cashVoucher.Vehicle,
                 cashVoucher.StartDate, cashVoucher.FinalDate,
-                cashVoucher.Price, sqlconnection
+                cashVoucher.Price
             );
         }
 

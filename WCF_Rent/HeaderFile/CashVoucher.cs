@@ -8,6 +8,8 @@ using System.Web.Script.Serialization;
 using System.Data.SqlClient;
 using System.Runtime.Serialization;
 
+using WCF_Rent.Providers;
+
 namespace WCF_Rent.HeaderFile
 {
 
@@ -68,14 +70,14 @@ namespace WCF_Rent.HeaderFile
             this.FinalDate = FinalDate;
         }
 
-        public static CashVoucher readCashVoucher(int Id, SqlConnection sqlConnection)
+        public static CashVoucher ReadCashVoucher(int Id)
         {
             try
             {
                 CashVoucher cashVoucher = new CashVoucher();
                 SqlCommand sqlCommand;
 
-                sqlCommand = new SqlCommand("SELECT * FROM [cashvoucher] WHERE id = @id", sqlConnection);
+                sqlCommand = new SqlCommand("SELECT * FROM [cashvoucher] WHERE id = @id", SqlData.sqlConnection);
                 sqlCommand.Parameters.AddWithValue("id", Id);
                 SqlDataReader reader = sqlCommand.ExecuteReader();
 

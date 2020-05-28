@@ -69,3 +69,4 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\VehicleEditPage.b
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Templates\ComboBoxCategory.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Templates\ComboBoxTransmission.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Templates\ComboBoxType.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\ClientVehicle.csproj.CoreCompileInputs.cache

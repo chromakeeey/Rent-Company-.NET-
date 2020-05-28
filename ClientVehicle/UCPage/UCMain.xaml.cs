@@ -116,9 +116,22 @@ namespace ClientVehicle.UCPage
 
         private void onReceiptSee(object sender, RoutedEventArgs e)
         {
-            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
-            new ReceiptWindow().ShowDialog();
-            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+            int Id = Client.Server.ConnectProvider.sendCashVoucherID(Client.Vehicle.RentLogId);
+
+            if (Id != -1)
+            {
+                Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+
+                Receipt.Show(
+                    Client.Server.ConnectProvider.readCashVoucher(Id)
+                );
+
+                Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                DialogWindow.Show("Чек недоступний.", "Помилка", DialogButtons.Ok, DialogStyle.Error);
+            }
         }
 
         private void onClickVehiclePage(object sender, RoutedEventArgs e)

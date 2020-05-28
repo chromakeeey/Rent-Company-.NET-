@@ -63,12 +63,12 @@ namespace ClientVehicle.UCPage
                 Credit += i.Credit;
             }
 
-            label_ProfitNoCredit.Text = $"₴ {String.Format("{0:n0} км", Profit)}";
-            label_ProfitCredit.Text = $"₴ {String.Format("{0:n0} км", Credit)}";
-            label_ProfitCount.Text = $"₴ {String.Format("{0:n0} км", Profit + Credit)}";
+            label_ProfitNoCredit.Text = $"₴ {String.Format("{0:n0}", Profit)}";
+            label_ProfitCredit.Text = $"₴ {String.Format("{0:n0}", Credit)}";
+            label_ProfitCount.Text = $"₴ {String.Format("{0:n0}", Profit + Credit)}";
 
             string Date = DateTime.Now.ToString();
-            label_Balance.Text = $"₴ {String.Format("{0:n0} км", Item.TotalBalance)}";
+            label_Balance.Text = $"₴ {String.Format("{0:n0}", Item.TotalBalance)}";
             label_DateBalance.Text = $"на {Date}";
         }
 

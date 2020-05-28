@@ -109,6 +109,7 @@
     <Compile Include="Dialogs\DialogsVehicle\VehicleEditPage.xaml.cs">
       <DependentUpon>VehicleEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Receipts\Receipt.cs" />
     <Compile Include="Dialogs\Receipts\ReceiptEdit.xaml.cs">
       <DependentUpon>ReceiptEdit.xaml</DependentUpon>
     </Compile>

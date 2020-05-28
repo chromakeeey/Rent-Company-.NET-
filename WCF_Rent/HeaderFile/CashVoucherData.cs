@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
+using WCF_Rent.Providers;
+
 namespace WCF_Rent.HeaderFile
 {
     public class CashVoucherData
@@ -20,29 +22,7 @@ namespace WCF_Rent.HeaderFile
             companyName = "Rent Company";
             streetName = "None street";
 
-            path = localPath() + "cashvoucher.dat";
-        }
-
-        private static string localPath()
-        {
-            string localpath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-
-            int endpos = localpath.Length;
-            int startpos = 0;
-
-            for (int i = localpath.Length - 1; i > -1; i--)
-            {
-                if (localpath[i] == 'W')
-                {
-                    startpos = i;
-
-                    break;
-                }
-            }
-
-            //localpath.Remove(startpos, endpos - startpos);
-
-            return localpath.Remove(startpos, endpos - startpos);
+            path = Log.AppPath + "\\cashvoucher.dat";
         }
 
         public void readCashVoucher()
@@ -66,7 +46,7 @@ namespace WCF_Rent.HeaderFile
             }
         }
 
-        public int addCashVoucher(string user, string vehicle, DateTime dateStart, DateTime dateFinal, float price, SqlConnection sqlConnection)
+        public int AddCashVoucher(string User, string Vehicle, DateTime StartDate, DateTime FinalDate, float Price)
         {
             int modified = -1;
 
@@ -74,16 +54,16 @@ namespace WCF_Rent.HeaderFile
             {
                 using (SqlCommand sqlCommand = new SqlCommand(
                    "INSERT INTO [cashvoucher] (company, street, [user], vehicle, datestart, dateend, price, date) OUTPUT INSERTED.ID VALUES" +
-                   "(@company, @street, @user, @vehicle, @datestart, @dateend, @price, @date)", sqlConnection))
+                   "(@company, @street, @user, @vehicle, @datestart, @dateend, @price, @date)", SqlData.sqlConnection))
                 {
       
                     sqlCommand.Parameters.AddWithValue("company", this.companyName);
                     sqlCommand.Parameters.AddWithValue("street", this.streetName);
-                    sqlCommand.Parameters.AddWithValue("user", user);
-                    sqlCommand.Parameters.AddWithValue("vehicle", vehicle);
-                    sqlCommand.Parameters.AddWithValue("datestart", dateStart);
-                    sqlCommand.Parameters.AddWithValue("dateend", dateFinal);
-                    sqlCommand.Parameters.AddWithValue("price", price);
+                    sqlCommand.Parameters.AddWithValue("user", User);
+                    sqlCommand.Parameters.AddWithValue("vehicle", Vehicle);
+                    sqlCommand.Parameters.AddWithValue("datestart", StartDate);
+                    sqlCommand.Parameters.AddWithValue("dateend", FinalDate);
+                    sqlCommand.Parameters.AddWithValue("price", Price);
                     sqlCommand.Parameters.AddWithValue("date", DateTime.Now);
 
                     ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, sqlCommand.CommandText);
@@ -94,9 +74,9 @@ namespace WCF_Rent.HeaderFile
                 }
             }
 
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString() + " LINE: " + ex.LineNumber.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString() + " LINE: " + ex.LineNumber.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
             return modified;
         }
