@@ -152,9 +152,13 @@ namespace ClientVehicle.Header
 
                 ucMain.VehicleGrid.Visibility = System.Windows.Visibility.Visible;
                 ucMain.notFoundVehicle_Grid.Visibility = System.Windows.Visibility.Hidden;
+
+                TimeSpan delta = DateTime.Now - item.FinalDate;
+                ucMain.label_Credit.Text = delta.Days > 0 ? $"₴ {item.Price}" : "₴ 0";
             }
             else
             {
+                ucMain.label_Credit.Text = "₴ 0";
                 Client.Vehicle.VIN = "null";
                 ucMain.VehicleGrid.Visibility = System.Windows.Visibility.Hidden;
                 ucMain.notFoundVehicle_Grid.Visibility = System.Windows.Visibility.Visible;

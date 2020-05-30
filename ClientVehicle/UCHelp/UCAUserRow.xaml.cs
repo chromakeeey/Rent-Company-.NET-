@@ -21,11 +21,16 @@ using System.Windows.Threading;
 
 namespace ClientVehicle.UCHelp
 {
+    
+
+
     /// <summary>
     /// Interaction logic for UCAUserRow.xaml
     /// </summary>
     public partial class UCAUserRow : UserControl
     {
+
+        
 
         //private string oldSearch = "null";
 
@@ -49,6 +54,7 @@ namespace ClientVehicle.UCHelp
 
         private void onMoreClick(object sender, RoutedEventArgs e)
         {
+
             Button button = sender as Button;
             ContextMenu contextMenu = button.ContextMenu;
             contextMenu.PlacementTarget = button;
@@ -65,10 +71,21 @@ namespace ClientVehicle.UCHelp
 
         public void UpdateUser()
         {
+            Vehicle Vehicle = Client.Server.ConnectProvider.GetUserVehicle(_activeUser);
+
+            if (Vehicle.VIN != "null")
+            {
+                TimeSpan delta = DateTime.Now - Vehicle.FinalDate;
+                label_Credit.Text = delta.Days > 0 ? $"₴ {Vehicle.Price}" : "₴ 0";
+            }
+            else
+            {
+                label_Credit.Text = "₴ 0";
+            }
+
             label_ID.Text = _activeUser.Id.ToString();
             label_Name.Text = $"{_activeUser.Surname} {_activeUser.Name}";
             label_Balance.Text = $"₴ {_activeUser.Balance}";
-            label_Credit.Text = "₴ 0";
             label_Create.Text = _activeUser.UserCreateDate.ToString();
 
 

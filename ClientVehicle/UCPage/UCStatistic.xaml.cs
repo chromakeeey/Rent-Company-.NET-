@@ -12,18 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 using ClientVehicle.Dialogs.Receipts;
 using ClientVehicle.Header;
 using ClientVehicle.ServerReference;
 
 namespace ClientVehicle.UCPage
 {
+    public enum StatisticPage
+    {
+        Invalid = 0,
+        Year = 1,
+        Month = 2,
+        Week = 3,
+        Day = 4,
+        Custom = 5
+    }
+
     /// <summary>
     /// Interaction logic for UCStatistic.xaml
     /// </summary>
     public partial class UCStatistic : UserControl
     {
+        public StatisticPage Page = StatisticPage.Invalid;
+
         public UCStatistic()
         {
             InitializeComponent();
@@ -48,8 +60,169 @@ namespace ClientVehicle.UCPage
         public DateTime ItemDayUpdate;
         public DateTime ItemCustomUpdate;
 
+        public void SetStatisticPage(StatisticPage Page)
+        {
+            if (this.Page == Page)
+                return;
+
+            if (Page == StatisticPage.Year)
+            {
+                if (ItemYear == null)
+                {
+                    ItemYear = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-365), DateTime.Now);
+                    ItemYearUpdate = DateTime.Now;
+                }
+                else
+                {
+                    if (DateTime.Now > ItemYearUpdate.AddMinutes(10))
+                    {
+                        ItemYear = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-365), DateTime.Now);
+                        ItemYearUpdate = DateTime.Now;
+                    }
+                }
+
+                label_YearDate.Text = $"{ItemYear.StartDate.ToShortDateString()} - {ItemYear.FinalDate.ToShortDateString()}";
+                SetStatInfo(ItemYear);
+            }
+
+            if (Page == StatisticPage.Month)
+            {
+                if (ItemMonth == null)
+                {
+                    ItemMonth = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-30), DateTime.Now);
+                    ItemMonthUpdate = DateTime.Now;
+                }
+                else
+                {
+                    if (DateTime.Now > ItemMonthUpdate.AddMinutes(10))
+                    {
+                        ItemMonth = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-30), DateTime.Now);
+                        ItemMonthUpdate = DateTime.Now;
+                    }
+                }
+
+                label_MonthDate.Text = $"{ItemMonth.StartDate.ToShortDateString()} - {ItemMonth.FinalDate.ToShortDateString()}";
+                SetStatInfo(ItemMonth);
+            }
+
+            if (Page == StatisticPage.Week)
+            {
+                if (ItemWeek == null)
+                {
+                    ItemWeek = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-7), DateTime.Now);
+                    ItemWeekUpdate = DateTime.Now;
+                }
+                else
+                {
+                    if (DateTime.Now > ItemWeekUpdate.AddMinutes(10))
+                    {
+                        ItemWeek = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-7), DateTime.Now);
+                        ItemWeekUpdate = DateTime.Now;
+                    }
+                }
+
+                label_WeekDate.Text = $"{ItemWeek.StartDate.ToShortDateString()} - {ItemWeek.FinalDate.ToShortDateString()}";
+                SetStatInfo(ItemWeek);
+            }
+
+            if (Page == StatisticPage.Day)
+            {
+                if (ItemDay == null)
+                {
+                    ItemDay = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-1), DateTime.Now);
+                    ItemDayUpdate = DateTime.Now;
+                }
+                else
+                {
+                    if (DateTime.Now > ItemDayUpdate.AddMinutes(10))
+                    {
+                        ItemDay = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-1), DateTime.Now);
+                        ItemDayUpdate = DateTime.Now;
+                    }
+                }
+
+                label_DayDate.Text = $"{ItemDay.StartDate.ToShortDateString()} - {ItemDay.FinalDate.ToShortDateString()}";
+                SetStatInfo(ItemDay);
+            }
+
+            DeactiveActiveButton();
+
+            this.Page = Page;
+            ActiveDeactiveButton();
+        }
+
+        private void ActiveDeactiveButton()
+        {
+            if (this.Page == StatisticPage.Invalid)
+                return;
+
+            if (Page == StatisticPage.Year)
+            {
+                border_Year.Background = new SolidColorBrush(Color.FromArgb(255, 211, 211, 211));
+                label_YearDate.Foreground = Brushes.Black;
+                label_button_Year.Foreground = Brushes.Black;
+            }
+
+            if (Page == StatisticPage.Month)
+            {
+                border_Month.Background = new SolidColorBrush(Color.FromArgb(255, 211, 211, 211));
+                label_MonthDate.Foreground = Brushes.Black;
+                label_button_Month.Foreground = Brushes.Black;
+            }
+
+            if (Page == StatisticPage.Week)
+            {
+                border_Week.Background = new SolidColorBrush(Color.FromArgb(255, 211, 211, 211));
+                label_WeekDate.Foreground = Brushes.Black;
+                label_button_Week.Foreground = Brushes.Black;
+            }
+
+            if (Page == StatisticPage.Day)
+            {
+                border_Day.Background = new SolidColorBrush(Color.FromArgb(255, 211, 211, 211));
+                label_DayDate.Foreground = Brushes.Black;
+                label_button_Day.Foreground = Brushes.Black;
+            }
+        }
+
+        private void DeactiveActiveButton()
+        {
+            if (this.Page == StatisticPage.Invalid)
+                return;
+
+            if (Page == StatisticPage.Year)
+            {
+                border_Year.Background = Brushes.White;
+                label_YearDate.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+                label_button_Year.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+            }
+
+            if (Page == StatisticPage.Month)
+            {
+                border_Month.Background = Brushes.White;
+                label_MonthDate.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+                label_button_Month.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+            }
+
+            if (Page == StatisticPage.Week)
+            {
+                border_Week.Background = Brushes.White;
+                label_WeekDate.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+                label_button_Week.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+            }
+
+            if (Page == StatisticPage.Day)
+            {
+                border_Day.Background = Brushes.White;
+                label_DayDate.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+                label_button_Day.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+            }
+        }
+
         public void SetStatInfo(StatInfo Item)
         {
+            GridStatistic.Opacity = 0;
+
             label_Count.Text = Item.StatVehicles.Length.ToString();
 
             float Profit = 0,
@@ -70,82 +243,35 @@ namespace ClientVehicle.UCPage
             string Date = DateTime.Now.ToString();
             label_Balance.Text = $"₴ {String.Format("{0:n0}", Item.TotalBalance)}";
             label_DateBalance.Text = $"на {Date}";
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((GridStatistic.Opacity += 0.02d) == 1) timer.Stop();
+            });
+
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            timer.Start();
         }
 
         private void onClickYear(object sender, RoutedEventArgs e)
         {
-            if (ItemYear == null)
-            {
-                ItemYear = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-365), DateTime.Now);
-                ItemYearUpdate = DateTime.Now;
-            }
-            else
-            {
-                if (DateTime.Now > ItemYearUpdate.AddMinutes(10))
-                {
-                    ItemYear = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-365), DateTime.Now);
-                    ItemYearUpdate = DateTime.Now;
-                }
-            }
-
-            SetStatInfo(ItemYear);
+            SetStatisticPage(StatisticPage.Year);
         }
 
         private void onClickMonth(object sender, RoutedEventArgs e)
         {
-            if (ItemMonth == null)
-            {
-                ItemMonth = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-30), DateTime.Now);
-                ItemMonthUpdate = DateTime.Now;
-            }
-            else
-            {
-                if (DateTime.Now > ItemMonthUpdate.AddMinutes(10))
-                {
-                    ItemMonth = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-30), DateTime.Now);
-                    ItemMonthUpdate = DateTime.Now;
-                }
-            }
-
-            SetStatInfo(ItemMonth);
+            SetStatisticPage(StatisticPage.Month);
         }
 
         private void onClickWeek(object sender, RoutedEventArgs e)
         {
-            if (ItemWeek == null)
-            {
-                ItemWeek = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-7), DateTime.Now);
-                ItemWeekUpdate = DateTime.Now;
-            }
-            else
-            {
-                if (DateTime.Now > ItemWeekUpdate.AddMinutes(10))
-                {
-                    ItemWeek = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-7), DateTime.Now);
-                    ItemWeekUpdate = DateTime.Now;
-                }
-            }
-
-            SetStatInfo(ItemWeek);
+            SetStatisticPage(StatisticPage.Week);
         }
 
         private void onClickDay(object sender, RoutedEventArgs e)
         {
-            if (ItemDay == null)
-            {
-                ItemDay = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-1), DateTime.Now);
-                ItemDayUpdate = DateTime.Now;
-            }
-            else
-            {
-                if (DateTime.Now > ItemDayUpdate.AddMinutes(10))
-                {
-                    ItemDay = Client.Server.ConnectProvider.SendStatInfo(DateTime.Now.AddDays(-1), DateTime.Now);
-                    ItemDayUpdate = DateTime.Now;
-                }
-            }
-
-            SetStatInfo(ItemDay);
+            SetStatisticPage(StatisticPage.Day);
         }
 
         private void onClickCustom(object sender, RoutedEventArgs e)

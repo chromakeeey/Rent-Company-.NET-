@@ -69,7 +69,7 @@
                                    FontWeight="Bold"/>
 
                         <Grid Margin="0 0 0 35">
-                            <Border Style="{StaticResource BorderCornerRadius15}" Background="#D3D3D3"/>
+                            <Border Style="{StaticResource BorderCornerRadius15}" Background="White" x:Name="border_Year" />
 
                             <Grid Margin="10 20 10 20">
                                 <Grid.ColumnDefinitions>
@@ -79,10 +79,10 @@
 
                                 <StackPanel Grid.Column="0" Margin="0 0 120 0">
                                     <TextBlock FontFamily="Gilroy" Text="Рік" FontWeight="Bold" FontSize="24"/>
-                                    <TextBlock FontFamily="Gilroy"
+                                    <TextBlock x:Name="label_YearDate" FontFamily="Gilroy"
                                            
-                                           Text="12/05/2020 - 13/05/2020"
-                                           Foreground="Black"
+                                           Text="-"
+                                           Foreground="#99A5B6"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Bottom"
                                            TextAlignment="Left"
@@ -100,9 +100,10 @@
                                 VerticalAlignment="Center"
                                 Height="Auto" Click="onClickYear">
                                     <TextBlock 
+                                        x:Name="label_button_Year"
                                 FontFamily="Gilroy"
                                 Text="Перейти"
-                                Foreground="Black"
+                                Foreground="#99A5B6"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom"
                                 TextAlignment="Left"
@@ -114,7 +115,7 @@
                         </Grid>
 
                         <Grid Margin="0 0 0 35">
-                            <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
+                            <Border Style="{StaticResource BorderCornerRadius15}" Background="White" x:Name="border_Month" />
 
                             <Grid Margin="10 20 10 20">
                                 <Grid.ColumnDefinitions>
@@ -124,9 +125,9 @@
 
                                 <StackPanel Grid.Column="0" Margin="0 0 120 0">
                                     <TextBlock FontFamily="Gilroy" Text="Місяць" FontWeight="Bold" FontSize="24"/>
-                                    <TextBlock FontFamily="Gilroy"
+                                    <TextBlock x:Name="label_MonthDate" FontFamily="Gilroy"
                                            
-                                           Text="12/05/2020 - 13/05/2020"
+                                           Text="-"
                                            Foreground="#99A5B6"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Bottom"
@@ -145,6 +146,7 @@
                                 VerticalAlignment="Center"
                                 Height="Auto" Click="onClickMonth">
                                     <TextBlock 
+                                        x:Name="label_button_Month"
                                 FontFamily="Gilroy"
                                 Text="Перейти"
                                 Foreground="#99A5B6"
@@ -159,7 +161,7 @@
                         </Grid>
 
                         <Grid Margin="0 0 0 35">
-                            <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
+                            <Border Style="{StaticResource BorderCornerRadius15}" Background="White" x:Name="border_Week"/>
 
                             <Grid Margin="10 20 10 20">
                                 <Grid.ColumnDefinitions>
@@ -169,9 +171,9 @@
 
                                 <StackPanel Grid.Column="0" Margin="0 0 120 0">
                                     <TextBlock FontFamily="Gilroy" Text="Неділя" FontWeight="Bold" FontSize="24"/>
-                                    <TextBlock FontFamily="Gilroy"
+                                    <TextBlock x:Name="label_WeekDate" FontFamily="Gilroy"
                                            
-                                           Text="12/05/2020 - 13/05/2020"
+                                           Text="-"
                                            Foreground="#99A5B6"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Bottom"
@@ -190,6 +192,7 @@
                                 VerticalAlignment="Center"
                                 Height="Auto" Click="onClickWeek">
                                     <TextBlock 
+                                        x:Name="label_button_Week"
                                 FontFamily="Gilroy"
                                 Text="Перейти"
                                 Foreground="#99A5B6"
@@ -204,7 +207,7 @@
                         </Grid>
 
                         <Grid Margin="0 0 0 35">
-                            <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
+                            <Border Style="{StaticResource BorderCornerRadius15}" Background="White" x:Name="border_Day"/>
 
                             <Grid Margin="10 20 10 20">
                                 <Grid.ColumnDefinitions>
@@ -214,9 +217,9 @@
 
                                 <StackPanel Grid.Column="0" Margin="0 0 120 0">
                                     <TextBlock FontFamily="Gilroy" Text="День" FontWeight="Bold" FontSize="24"/>
-                                    <TextBlock FontFamily="Gilroy"
+                                    <TextBlock x:Name="label_DayDate" FontFamily="Gilroy"
                                            
-                                           Text="12/05/2020 - 13/05/2020"
+                                           Text="-"
                                            Foreground="#99A5B6"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Bottom"
@@ -234,7 +237,8 @@
                                 VerticalContentAlignment="Top"
                                 VerticalAlignment="Center"
                                 Height="Auto" Click="onClickDay">
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="label_button_Day"
                                 FontFamily="Gilroy"
                                 Text="Перейти"
                                 Foreground="#99A5B6"
@@ -252,7 +256,7 @@
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
+                    <Border Style="{StaticResource BorderCornerRadius15}" Background="White" x:Name="border_Custom"/>
 
                     <Grid Margin="10 20 10 20">
                         <Grid.ColumnDefinitions>
@@ -270,7 +274,7 @@
                                 VerticalContentAlignment="Top"
                                 Height="Auto"
                                 >
-                                <TextBlock FontFamily="Gilroy"
+                                <TextBlock x:Name="label_CustomDate" FontFamily="Gilroy"
                                            
                                            Text="Вибрати нову дату"
                                            Foreground="#99A5B6"
@@ -314,7 +318,7 @@
         <Grid Grid.Column="1" Grid.Row="1" Margin="25 10 10 10">
             <Border Style="{StaticResource BorderCornerRadius25}" Background="White"/>
 
-            <Grid Margin="20 30 20 30">
+            <Grid Margin="20 30 20 30" x:Name="GridStatistic">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>

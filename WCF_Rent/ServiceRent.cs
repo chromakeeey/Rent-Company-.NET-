@@ -370,7 +370,7 @@ namespace WCF_Rent
 
             try
             {
-                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_removerent] WHERE [takerentid] = @takerentid", sqlconnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_removerent] WHERE [takerentid] = @takerentid", SqlData.sqlConnection))
                 {
                     sqlCommand.Parameters.AddWithValue("takerentid", takerentid);
                     SqlDataReader reader = sqlCommand.ExecuteReader();
