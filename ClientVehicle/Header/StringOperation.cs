@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ClientVehicle.Header
 {
@@ -75,6 +77,55 @@ namespace ClientVehicle.Header
 
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, Length).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static string FormatCardNumber(string value)
+        {
+            string newline = "";
+
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (i == 4 || i == 8 || i == 12 || i == 16)
+                    newline += "   ";
+
+                newline += value[i];
+            }
+
+            return newline;
+        }
+
+        public static string GetCardTechnicalName(string value)
+        {
+            MessageBox.Show(value);
+
+            if (value == "null")
+                return "WORLD";
+
+            int digit = int.Parse(value[0].ToString());
+            string line;
+
+            MessageBox.Show(digit.ToString());
+
+            switch (digit)
+            {
+                case 3:
+                    line = "AMERICAN EXPRESS";
+                    break;
+
+                case 4:
+                    line = "VISA";
+                    break;
+
+                case 5:
+                    line = "MASTER CARD";
+                    break;
+
+                default:
+                    line = "WORLD";
+                    break;
+            }
+
+            return line;
         }
     }
 }

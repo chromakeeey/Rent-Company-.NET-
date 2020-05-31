@@ -122,7 +122,10 @@ namespace ClientVehicle.Header
             }
             else
             {
-
+                ucMain.label_Cardnumber.Text = StringOperation.FormatCardNumber(Client.User.CardNumber);
+                ucMain.label_PayType.Text = StringOperation.GetCardTechnicalName(Client.User.CardNumber);
+                ucMain.label_ExpireDate.Text = Client.User.ExpireDate;
+                ucMain.label_OwnerCard.Text = $"{Client.User.Surname} {Client.User.Name}";
             }
 
             Vehicle item = Client.Server.ConnectProvider.GetUserVehicle(Client.User);

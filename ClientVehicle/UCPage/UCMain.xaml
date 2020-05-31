@@ -537,7 +537,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onClickBankOperation">
                                     <TextBlock 
                                         Text="Здійснити операцію" 
                                         FontSize="14"
@@ -585,10 +585,10 @@
                                         x:Name="label_PayType"
                                         HorizontalAlignment="Right"
                                         Text="VISA" 
-                                        FontSize="18"
+                                        FontSize="14"
                                         FontFamily="Gilroy"
                                         Foreground="White"
-                                        FontWeight="Heavy"/>
+                                        FontWeight="Medium"/>
                                 </Grid>
 
                                 <Grid Grid.Row="1">
@@ -865,6 +865,7 @@
 
                                 <Grid Margin="15 5 15 5">
                                     <TextBox
+                                        x:Name="field_Password"
                                         FontFamily="Gilroy"
                                         FontWeight="Bold"
                                         BorderThickness="0"

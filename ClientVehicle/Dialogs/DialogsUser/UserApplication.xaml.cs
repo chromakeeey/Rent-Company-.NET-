@@ -73,7 +73,9 @@ namespace ClientVehicle.Dialogs.DialogsUser
 
             foreach (var category in listbox_Category.SelectedItems)
             {
-                Categories.Add(category.ToString());
+                Categories.Add(
+                    (category as ListBoxItem).Content.ToString()
+                );
             }
 
             Item.LicenseCategories = Categories.ToArray();

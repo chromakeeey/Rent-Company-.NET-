@@ -98,7 +98,7 @@
                         FontWeight="Bold"
                         Foreground="#99A5B6"/>
 
-                    <Grid>
+                    <Grid Margin="20 0 20 0">
                         <Image x:Name="frontDocumentImage" Height="128" Margin="20 0 20 15"/>
                         <Grid Background="White" 
                               Style="{StaticResource HoverMouseAnimationGrid}" 
@@ -123,7 +123,7 @@
                         FontWeight="Bold"
                         Foreground="#99A5B6"/>
 
-                    <Grid>
+                    <Grid Margin="20 0 20 0">
                         <Image x:Name="backDocumentImage" Height="128" Margin="20 0 20 20"/>
                         <Grid Background="White" 
                               Style="{StaticResource HoverMouseAnimationGrid}" 

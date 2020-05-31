@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:ClientVehicle.Controls"
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsUser"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
@@ -39,7 +40,9 @@
                                 Foreground="#99A5B6"
                                 Margin="0 0 10 0"
                                 VerticalAlignment="Center"/>
-                    <Image x:Name="image_Front" Height="200" Margin="10 0 10 0" Source="top.png" />
+                    <controls:ZoomBorder>
+                        <Image x:Name="image_Front" Height="200" Margin="10 0 10 0" Source="top.png" />
+                    </controls:ZoomBorder>
                     <Button
                         Background="Transparent" HorizontalAlignment="Center"
                         BorderBrush="Transparent" >
@@ -67,7 +70,9 @@
                                 Foreground="#99A5B6"
                                 Margin="0 0 10 0"
                                 VerticalAlignment="Center"/>
-                    <Image x:Name="image_Back" Height="200" Margin="10 0 10 0" Source="bottom.png" />
+                    <controls:ZoomBorder>
+                        <Image x:Name="image_Back" Height="200" Margin="10 0 10 0" Source="bottom.png" />
+                    </controls:ZoomBorder>
                     <Button
                         Background="Transparent" HorizontalAlignment="Center"
                         BorderBrush="Transparent">

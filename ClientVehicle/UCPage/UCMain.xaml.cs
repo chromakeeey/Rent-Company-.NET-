@@ -104,7 +104,23 @@ namespace ClientVehicle.UCPage
 
         private void onUpdatePasswordClick(object sender, RoutedEventArgs e)
         {
-            new DialogAddVehicle().ShowDialog();
+            if (string.IsNullOrEmpty(field_Password.Text))
+            {
+                DialogWindow.Show("Ви не заповнили поле для вводу пароля", "Помилка зміни пароля", DialogButtons.Ok, DialogStyle.Error);
+                return;
+            }
+
+            if (field_Password.Text.Length < 6 || field_Password.Text.Length > 32)
+            {
+                DialogWindow.Show("Пароль має містити від 6 до 32 символів", "Помилка зміни пароля", DialogButtons.Ok, DialogStyle.Error);
+                return;
+            }
+
+            Client.User.Password = field_Password.Text;
+            Client.Server.ConnectProvider.SaveUser(Client.User);
+
+            field_Password.Text = "";
+            DialogWindow.Show("Ви успішно змінили новий пароль на " + Client.User.Password, "Помилка зміни пароля", DialogButtons.Ok, DialogStyle.Information);
         }
 
         private void onClickCheckDocument(object sender, RoutedEventArgs e)
@@ -137,6 +153,13 @@ namespace ClientVehicle.UCPage
         private void onClickVehiclePage(object sender, RoutedEventArgs e)
         {
             UiOperation.SetPage(UIPage.Vehicle);
+        }
+
+        private void onClickBankOperation(object sender, RoutedEventArgs e)
+        {
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+            BankOperationWindow.Show();
+            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
     }
 }

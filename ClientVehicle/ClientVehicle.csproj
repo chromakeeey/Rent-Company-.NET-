@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Dialogs\CustomDefaultDialog\DialogWindow.cs" />
     <Compile Include="Dialogs\DialogsUser\ApplicationUser.cs" />
+    <Compile Include="Dialogs\DialogsUser\BankOperationWindow.cs" />
     <Compile Include="Dialogs\DialogsUser\FailSignIn.xaml.cs">
       <DependentUpon>FailSignIn.xaml</DependentUpon>
     </Compile>
@@ -91,6 +92,9 @@
     <Compile Include="Dialogs\DialogsUser\UserACard.cs" />
     <Compile Include="Dialogs\DialogsUser\UserApplication.xaml.cs">
       <DependentUpon>UserApplication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogsUser\UserBankOperation.xaml.cs">
+      <DependentUpon>UserBankOperation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\DialogsUser\UserCardAdmin.xaml.cs">
       <DependentUpon>UserCardAdmin.xaml</DependentUpon>
@@ -168,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\DialogsUser\UserApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogsUser\UserBankOperation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
