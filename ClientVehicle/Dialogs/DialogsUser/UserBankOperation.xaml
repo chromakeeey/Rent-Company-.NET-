@@ -95,13 +95,12 @@
                             <RadioButton
                                 x:Name="radio_Minus"
                                 Margin="0 0 20 0"
-                                IsChecked="True"
                                 Background="#3B93F7"
                                 Content="Вивести"
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
                                 Foreground="#99A5B6"
-                                FontSize="10"/>
+                                FontSize="10" Checked="minusChecked"/>
 
 
 
@@ -112,7 +111,7 @@
                                 FontFamily="Gilroy"
                                 FontWeight="Bold"
                                 Foreground="#99A5B6"
-                                FontSize="10"/>
+                                FontSize="10" Checked="plusChecked"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
@@ -134,7 +133,7 @@
                                     materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
                         </StackPanel>
 
-                        <Button
+                        <Button x:Name="operationButton"
                                 HorizontalAlignment="Left"
                                 Margin="0 20 0 0"
                                     Height="32" Width="200"
@@ -144,7 +143,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onClickOperation">
                             <TextBlock 
                                         Text="Виконати операцію" 
                                         FontSize="14"

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using ClientVehicle.Header;
+using ClientVehicle.ServerReference;
 
 namespace ClientVehicle.Dialogs.DialogsUser
 {
@@ -21,6 +22,8 @@ namespace ClientVehicle.Dialogs.DialogsUser
     /// </summary>
     public partial class UserBankOperation : Window
     {
+        public float Credit;
+
         public UserBankOperation()
         {
             InitializeComponent();
@@ -99,6 +102,81 @@ namespace ClientVehicle.Dialogs.DialogsUser
         private void onClickHide(object sender, MouseButtonEventArgs e)
         {
             Hide();
+        }
+
+        private void minusChecked(object sender, RoutedEventArgs e)
+        {
+            if (Credit != 0)
+            {
+                field_Price.IsEnabled = false;
+                operationButton.IsEnabled = false;
+            }
+            else
+            {
+                field_Price.IsEnabled = true;
+                operationButton.IsEnabled = true;
+            }
+        }
+
+        private void plusChecked(object sender, RoutedEventArgs e)
+        {
+            field_Price.IsEnabled = true;
+            operationButton.IsEnabled = true;
+        }
+
+        private void onClickOperation(object sender, RoutedEventArgs e)
+        {
+            Error = "";
+
+            if (string.IsNullOrEmpty(field_Price.Text))
+            {
+                Error = "Ви не заповнили поле 'Сумма'";
+                return;
+            }
+
+            float Price;
+
+            if (!float.TryParse(field_Price.Text, out Price))
+            {
+                Error = "Допущена помилка в полі 'Сумма'";
+                return;
+            }
+
+            if (Price < 10 || Price > 5000)
+            {
+                Error = "Сумма поповнення має бути від 10 до 5000 гривень.";
+                return;
+            }
+
+            if (radio_Minus.IsChecked == true)
+            {
+                if (Credit != 0)
+                {
+                    Error = "Ви маєте активний борг.";
+                    return;
+                }
+
+                if (Price > Client.User.Balance)
+                {
+                    Error = "Недостатньо грошей на рахунку.";
+                    return;
+                }
+
+                Client.User.Balance -= Price;
+                Client.Server.ConnectProvider.SaveUser(Client.User);
+                Client.Server.ConnectProvider.log_Balance(Client.User.Id, Client.User.CardNumber, -Price);
+
+                Hide();
+            }
+
+            if (radio_Plus.IsChecked == true)
+            {
+                Client.User.Balance += Price;
+                Client.Server.ConnectProvider.SaveUser(Client.User);
+                Client.Server.ConnectProvider.log_Balance(Client.User.Id, Client.User.CardNumber, Price);
+
+                Hide();
+            }
         }
     }
 }

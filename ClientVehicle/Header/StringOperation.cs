@@ -96,15 +96,11 @@ namespace ClientVehicle.Header
 
         public static string GetCardTechnicalName(string value)
         {
-            MessageBox.Show(value);
-
             if (value == "null")
                 return "WORLD";
 
             int digit = int.Parse(value[0].ToString());
             string line;
-
-            MessageBox.Show(digit.ToString());
 
             switch (digit)
             {

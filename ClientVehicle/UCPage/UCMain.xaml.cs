@@ -60,6 +60,8 @@ namespace ClientVehicle.UCPage
 
                         Client.Server.ConnectProvider.SaveUser(Client.User);
                         Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
+
+                        Client.Vehicle.VIN = "null";
                     }
                 }
                 else
@@ -70,6 +72,8 @@ namespace ClientVehicle.UCPage
                         Client.Vehicle.RentLogId = 0;
 
                         Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
+
+                        Client.Vehicle.VIN = "null";
                     }
                 }
             }
@@ -89,10 +93,12 @@ namespace ClientVehicle.UCPage
                 Client.User.Balance -= Days * Client.Vehicle.Price;
 
                 Client.Vehicle.ClientId = 0;
-                Client.Vehicle.RentLogId = 0;
+                Client.Vehicle.RentLogId = 0; 
 
                 Client.Server.ConnectProvider.SaveUser(Client.User);
                 Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
+
+                Client.Vehicle.VIN = "null";
 
                 float price = Days * Client.Vehicle.Price;
                 string message = $"Ви сдали автомобіль з оренди. З вашого рахунку був стягнутий борг (₴‎ {price})";

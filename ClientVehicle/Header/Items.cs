@@ -157,7 +157,7 @@ namespace ClientVehicle.Header
                 ucMain.notFoundVehicle_Grid.Visibility = System.Windows.Visibility.Hidden;
 
                 TimeSpan delta = DateTime.Now - item.FinalDate;
-                ucMain.label_Credit.Text = delta.Days > 0 ? $"₴ {item.Price}" : "₴ 0";
+                ucMain.label_Credit.Text = delta.Days > 0 ? $"₴ {item.Price * delta.Days}" : "₴ 0";
             }
             else
             {

@@ -108,6 +108,9 @@
     <Compile Include="Dialogs\DialogsVehicle\DialogAddVehicle.xaml.cs">
       <DependentUpon>DialogAddVehicle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DialogsVehicle\FinalRentWindow.xaml.cs">
+      <DependentUpon>FinalRentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\DialogsVehicle\SearchVehicle.cs" />
     <Compile Include="Dialogs\DialogsVehicle\VehicleEdit.cs" />
     <Compile Include="Dialogs\DialogsVehicle\VehicleEditPage.xaml.cs">
@@ -192,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\DialogsVehicle\DialogAddVehicle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogsVehicle\FinalRentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

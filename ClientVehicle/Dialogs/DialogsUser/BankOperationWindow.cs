@@ -10,17 +10,22 @@ namespace ClientVehicle.Dialogs.DialogsUser
 {
     public static class BankOperationWindow
     {
-        public static UserBankOperation Dialog = new UserBankOperation();
+        public static UserBankOperation Dialog;
 
         public static void Show()
         {
+            Dialog = new UserBankOperation();
+
             Dialog.label_Balance.Text = String.Format("₴ {0:n0}", Client.User.Balance);
             Dialog.label_Credit.Text = Items.ucMain.label_Credit.Text;
 
-            Dialog.radio_Minus.IsChecked = false;
-            Dialog.radio_Plus.IsChecked = false;
-
             Dialog.field_Price.Text = "";
+
+            if (Client.Vehicle.VIN != "null")
+            {
+                TimeSpan delta = DateTime.Now - Client.Vehicle.FinalDate;
+                Dialog.Credit = delta.Days > 0 ? Client.Vehicle.Price * delta.Days : 0;
+            }
 
             if (Client.User.CardNumber == "null")
             {
