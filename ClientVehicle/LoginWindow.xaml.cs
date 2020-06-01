@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 using ClientVehicle.Header;
 using ClientVehicle.Dialogs.DialogsUser;
+using ClientVehicle.Dialogs.DialogsVehicle;
 using ClientVehicle.ServerReference;
 
 namespace ClientVehicle
@@ -33,6 +34,8 @@ namespace ClientVehicle
 
             Items.InitializeItems();
             Client.InitializeItems();
+            FinalRent.InitializeDialog();
+
             Client.Server.InitializeConnection();
 
             UiOperation.SetPage(UIPage.Main);

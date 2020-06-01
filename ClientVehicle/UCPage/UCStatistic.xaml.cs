@@ -225,6 +225,9 @@ namespace ClientVehicle.UCPage
 
             label_Count.Text = Item.StatVehicles.Length.ToString();
 
+            var noCreditCounter = (from i in Item.StatVehicles.ToList() where i.Credit == 0 select i).ToList();
+            label_CountNoCredit.Text = noCreditCounter.Count.ToString();
+
             float Profit = 0,
                   Credit = 0;
 

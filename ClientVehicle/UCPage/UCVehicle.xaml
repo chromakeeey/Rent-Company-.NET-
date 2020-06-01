@@ -463,7 +463,9 @@
                                                 FontWeight="Bold"
                                                 BorderThickness="0"
                                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                                materialDesign:HintAssist.Hint="Виберіть дату  "/>
+                                                materialDesign:HintAssist.Hint="Виберіть дату  "
+                                        CalendarStyle="{StaticResource CalendarBlueTheme}">
+                                    </DatePicker>
 
                                     <Button
                                         x:Name="button_Rent"

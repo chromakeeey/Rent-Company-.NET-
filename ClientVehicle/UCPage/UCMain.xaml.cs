@@ -18,6 +18,7 @@ using ClientVehicle.Dialogs.DialogsVehicle;
 using ClientVehicle.Dialogs.DialogsUser;
 using ClientVehicle.Dialogs.Receipts;
 using ClientVehicle.Header;
+using ClientVehicle.ServerReference;
 
 namespace ClientVehicle.UCPage
 {
@@ -36,8 +37,7 @@ namespace ClientVehicle.UCPage
 
         private void onCancelRent(object sender, RoutedEventArgs e)
         {
-            //DialogWindow.Show("Ви дійсно хочите відмінити оренду?", "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information);
-
+            Vehicle Vehicle;
             int Days = (DateTime.Now - Client.Vehicle.FinalDate).Days;
 
             if (Days < 1)
@@ -48,12 +48,12 @@ namespace ClientVehicle.UCPage
                 {
                     float price = Client.Vehicle.Price * CheckDays;
 
-                    string message = $"Ви дійсно хочете відмінити оренду достроково?\n" +
-                        $"Ви отримаєте ₴‎ {price} на рахунок.";
-
-                    if (DialogWindow.Show(message, "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information) == DialogResult.Ok)
+                    if (FinalRent.Show(Client.Vehicle, out Vehicle) == DialogResult.Ok)
                     {
+                        Client.Vehicle = Vehicle;
                         Client.User.Balance += CheckDays * Client.Vehicle.Price;
+
+                        Client.Server.ConnectProvider.log_RemoveRent(Client.User.Id, Client.Vehicle.RentLogId, DateTime.Now, price, 0);
 
                         Client.Vehicle.ClientId = 0;
                         Client.Vehicle.RentLogId = 0;
@@ -62,12 +62,21 @@ namespace ClientVehicle.UCPage
                         Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
 
                         Client.Vehicle.VIN = "null";
+
+                        string message = $"Ви сдали автомобіль з оренди достроково. Ви отримали назад (₴‎ {price})";
+                        DialogWindow.Show(message, "Відміна оренди", DialogButtons.Ok, DialogStyle.Information);
                     }
+
+                    //DialogWindow.Show(message, "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information) == DialogResult.Ok
                 }
                 else
                 {
-                    if (DialogWindow.Show("Ви дійсно хочете відмінити оренду:", "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information) == DialogResult.Ok)
+                    if (FinalRent.Show(Client.Vehicle, out Vehicle) == DialogResult.Ok)
                     {
+                        Client.Vehicle = Vehicle;
+
+                        Client.Server.ConnectProvider.log_RemoveRent(Client.User.Id, Client.Vehicle.RentLogId, DateTime.Now, 0, 0);
+
                         Client.Vehicle.ClientId = 0;
                         Client.Vehicle.RentLogId = 0;
 
@@ -75,6 +84,8 @@ namespace ClientVehicle.UCPage
 
                         Client.Vehicle.VIN = "null";
                     }
+
+                    //DialogWindow.Show("Ви дійсно хочете відмінити оренду:", "Відміна оренди", DialogButtons.OkNo, DialogStyle.Information) == DialogResult.Ok
                 }
             }
 
@@ -90,20 +101,27 @@ namespace ClientVehicle.UCPage
 
             if (Days > 0 && Client.User.Balance >= Days * Client.Vehicle.Price)
             {
-                Client.User.Balance -= Days * Client.Vehicle.Price;
+                if (FinalRent.Show(Client.Vehicle, out Vehicle) == DialogResult.Ok)
+                {
+                    Client.Vehicle = Vehicle;
 
-                Client.Vehicle.ClientId = 0;
-                Client.Vehicle.RentLogId = 0; 
+                    float price = Days * Client.Vehicle.Price;
+                    Client.User.Balance -= Days * Client.Vehicle.Price;
 
-                Client.Server.ConnectProvider.SaveUser(Client.User);
-                Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
+                    Client.Server.ConnectProvider.log_RemoveRent(Client.User.Id, Client.Vehicle.RentLogId, DateTime.Now, 0, price);
 
-                Client.Vehicle.VIN = "null";
+                    Client.Vehicle.ClientId = 0;
+                    Client.Vehicle.RentLogId = 0;
 
-                float price = Days * Client.Vehicle.Price;
-                string message = $"Ви сдали автомобіль з оренди. З вашого рахунку був стягнутий борг (₴‎ {price})";
+                    Client.Server.ConnectProvider.SaveUser(Client.User);
+                    Client.Server.ConnectProvider.saveVehicle(Client.Vehicle);
 
-                DialogWindow.Show(message, "Відміна оренди", DialogButtons.Ok, DialogStyle.Information);
+                    Client.Vehicle.VIN = "null";
+
+                    string message = $"Ви сдали автомобіль з оренди. З вашого рахунку був стягнутий борг (₴‎ {price})";
+
+                    DialogWindow.Show(message, "Відміна оренди", DialogButtons.Ok, DialogStyle.Information);
+                }  
             }
 
         }

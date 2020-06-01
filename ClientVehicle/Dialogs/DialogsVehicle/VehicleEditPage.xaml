@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="VehicleEditPage" Height="450" Width="800"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
 
         <Grid Margin="15">
@@ -366,7 +366,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onClickSave">
                     <TextBlock 
                                         Text="Зберігти інформацію" 
                                         FontSize="14"
@@ -375,6 +375,21 @@
                                         FontWeight="Bold"/>
                 </Button>
 
+                <TextBlock
+                    x:Name="label_Error"
+                    TextAlignment="Left"  
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Opacity="0.5"
+                    Margin="0 0 0 10"
+                    Width="200"
+                    Text=" " 
+                    FontSize="12"
+                    TextWrapping="Wrap"
+                    FontFamily="Gilroy"
+                    Foreground="Red"
+                    FontWeight="Heavy"/>
+                
             </Grid>
             
         </Grid>

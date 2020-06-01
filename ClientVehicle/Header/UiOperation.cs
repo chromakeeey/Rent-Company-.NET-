@@ -39,27 +39,27 @@ namespace ClientVehicle.Header
             switch (item)
             {
                 case UIPage.Main:
-                    Items.ucMain.Visibility = System.Windows.Visibility.Hidden;
+                    Items.ucMain.Visibility = System.Windows.Visibility.Collapsed;
                     Items.mainWindow.iconMain.Foreground = color;
                     break;
 
                 case UIPage.Vehicle:
-                    Items.ucVehicle.Visibility = System.Windows.Visibility.Hidden;
+                    Items.ucVehicle.Visibility = System.Windows.Visibility.Collapsed;
                     Items.mainWindow.iconVehicle.Foreground = color;
                     break;
 
                 case UIPage.AVehicle:
-                    Items.ucAVehicle.Visibility = System.Windows.Visibility.Hidden;
+                    Items.ucAVehicle.Visibility = System.Windows.Visibility.Collapsed;
                     Items.mainWindow.iconAVehicle.Foreground = color;
                     break;
 
                 case UIPage.AUser:
-                    Items.ucAUser.Visibility = System.Windows.Visibility.Hidden;
+                    Items.ucAUser.Visibility = System.Windows.Visibility.Collapsed;
                     Items.mainWindow.iconAUser.Foreground = color;
                     break;
 
                 case UIPage.Statistic:
-                    Items.ucStatistic.Visibility = System.Windows.Visibility.Hidden;
+                    Items.ucStatistic.Visibility = System.Windows.Visibility.Collapsed;
                     Items.mainWindow.iconStatistic.Foreground = color;
                     break;
             }

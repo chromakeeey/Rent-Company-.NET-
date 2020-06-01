@@ -107,12 +107,13 @@ namespace WCF_Rent.Providers
             try
             {
                 SqlCommand sqlCommand = new SqlCommand(
-                   "INSERT INTO [log_balance] (userid, card, value) VALUES" +
-                   "(@userid, @card, @value)", SqlData.sqlConnection);
+                   "INSERT INTO [log_balance] (userid, card, value, dateoperation) VALUES" +
+                   "(@userid, @card, @value, @dateoperation)", SqlData.sqlConnection);
 
                 sqlCommand.Parameters.AddWithValue("userid", userid);
                 sqlCommand.Parameters.AddWithValue("card", card);
                 sqlCommand.Parameters.AddWithValue("value", value);
+                sqlCommand.Parameters.AddWithValue("dateoperation", DateTime.Now);
 
                 sqlCommand.ExecuteNonQuery();
             }

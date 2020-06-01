@@ -108,6 +108,7 @@
     <Compile Include="Dialogs\DialogsVehicle\DialogAddVehicle.xaml.cs">
       <DependentUpon>DialogAddVehicle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DialogsVehicle\FinalRent.cs" />
     <Compile Include="Dialogs\DialogsVehicle\FinalRentWindow.xaml.cs">
       <DependentUpon>FinalRentWindow.xaml</DependentUpon>
     </Compile>

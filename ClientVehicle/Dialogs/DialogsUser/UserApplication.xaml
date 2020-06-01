@@ -255,6 +255,7 @@
 
                                 <DatePicker
                                     x:Name="field_Birthday"
+                                    
                                     Grid.Column="2"
                                     Margin="30 0 30 0"
                                     FontFamily="Gilroy"
@@ -262,7 +263,9 @@
                                     materialDesign:HintAssist.Hint="Дата народження"
                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                                     materialDesign:HintAssist.Foreground="#3B93F7"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7">
+                                    
+                                </DatePicker>
 
                             </Grid>
                             

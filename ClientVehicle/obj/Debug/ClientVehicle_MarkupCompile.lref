@@ -1,14 +1,16 @@
-﻿
+﻿D:\TRC_Redesign\ClientVehicle\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FD:\TRC_Redesign\ClientVehicle\App.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\CustomDefaultDialog\DialogOk.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\CustomDefaultDialog\DialogOkNo.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\FailSignIn.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\UserApplication.xaml;;
+FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\UserBankOperation.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\UserCardAdmin.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\UserDocumentWindow.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsVehicle\BetterSearchVehicle.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsVehicle\DialogAddVehicle.xaml;;
+FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsVehicle\FinalRentWindow.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsVehicle\VehicleEditPage.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\Receipts\ReceiptEdit.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\Receipts\ReceiptWindow.xaml;;
@@ -28,5 +30,4 @@ FD:\TRC_Redesign\ClientVehicle\UCPage\UCAVehicle.xaml;;
 FD:\TRC_Redesign\ClientVehicle\UCPage\UCMain.xaml;;
 FD:\TRC_Redesign\ClientVehicle\UCPage\UCStatistic.xaml;;
 FD:\TRC_Redesign\ClientVehicle\UCPage\UCVehicle.xaml;;
-FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\UserBankOperation.xaml;;
 

@@ -18,6 +18,14 @@
                 <ResourceDictionary Source="Templates/ComboBoxType.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+
+            <Style x:Key="CalendarBlueTheme" TargetType="Calendar">
+                <Style.Resources>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#3B93F7" />
+                    <SolidColorBrush x:Key="MaterialDesignBody" Color="#3B93F7" />
+                </Style.Resources>
+            </Style>
+            
             <Style x:Key="BorderCornerRadius25" TargetType="Border">
                 <Setter Property="BorderBrush" Value="Transparent"/>
                 <Setter Property="BorderThickness" Value="1"/>

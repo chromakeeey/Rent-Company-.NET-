@@ -35,6 +35,12 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
             }
         }
 
+        private string Error
+        {
+            get { return label_Error.Text; }
+            set { label_Error.Text = value; }
+        }
+
         public VehicleEditPage()
         {
             InitializeComponent();
@@ -68,6 +74,122 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
             field_Fuel.Text = _vehicleNow.Fuel.ToString();
             field_Plate.Text = _vehicleNow.Plate;
             field_Price.Text = _vehicleNow.Price.ToString();
+        }
+
+        private void onClickSave(object sender, RoutedEventArgs e)
+        {
+            Error = "";
+
+            if (string.IsNullOrEmpty(field_Name.Text))
+            {
+                Error = "Ви не заповнили пункт 'Назва транспорта'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(field_Model.Text))
+            {
+                Error = "Ви не заповнили пункт 'Модель транспорта'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(field_Mileage.Text))
+            {
+                Error = "Ви не заповнили пункт 'Пробіг'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(field_MaxSpeed.Text))
+            {
+                Error = "Ви не заповнили пункт 'Максимальна швидкість'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(field_MaxFuel.Text))
+            {
+                Error = "Ви не заповнили пункт 'Об'єм бака'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(field_Fuel.Text))
+            {
+                Error = "Ви не заповнили пункт 'Бензина в баці'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(field_Plate.Text))
+            {
+                Error = "Ви не заповнили пункт 'Номерний знак'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(field_Price.Text))
+            {
+                Error = "Ви не заповнили пункт 'Ціна'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(combo_Type.Text))
+            {
+                Error = "Ви не заповнили пункт 'Тип автомобіля'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(combo_Transmission.Text))
+            {
+                Error = "Ви не заповнили пункт 'Трансмісія'";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(combo_Category.Text))
+            {
+                Error = "Ви не заповнили пункт 'Категорія прав'";
+                return;
+            }
+
+            if (!int.TryParse(field_Mileage.Text, out _))
+            {
+                Error = "Пробіг був введений неправильно.";
+                return;
+            }
+
+            if (!int.TryParse(field_MaxSpeed.Text, out _))
+            {
+                Error = "Максимальна швидкість була введена неправильно.";
+                return;
+            }
+
+            if (!float.TryParse(field_MaxFuel.Text, out _))
+            {
+                Error = "Об'єм бака була введена неправильно.";
+                return;
+            }
+
+            if (!float.TryParse(field_Fuel.Text, out _))
+            {
+                Error = "Кількість бензина в баці була введена неправильно.";
+                return;
+            }
+
+            if (!float.TryParse(field_Price.Text, out _))
+            {
+                Error = "Ціна була введена неправильно.";
+                return;
+            }
+
+            _vehicleNow.Name = field_Name.Text;
+            _vehicleNow.Model = field_Model.Text;
+            _vehicleNow.Mileage = float.Parse(field_Mileage.Text);
+            _vehicleNow.MaxSpeed = int.Parse(field_MaxSpeed.Text);
+            _vehicleNow.MaxFuel = float.Parse(field_MaxFuel.Text);
+            _vehicleNow.Fuel = float.Parse(field_Fuel.Text);
+            _vehicleNow.Plate = field_Plate.Text;
+            _vehicleNow.Price = float.Parse(field_Price.Text);
+            _vehicleNow.Type = combo_Type.Text;
+            _vehicleNow.Transmission = combo_Transmission.Text;
+            _vehicleNow.Category = combo_Category.Text;
+
+            Client.Server.ConnectProvider.saveVehicle(_vehicleNow);
+            Hide();
         }
     }
 }
