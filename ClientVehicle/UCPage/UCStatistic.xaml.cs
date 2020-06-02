@@ -247,6 +247,24 @@ namespace ClientVehicle.UCPage
             label_Balance.Text = $"₴ {String.Format("{0:n0}", Item.TotalBalance)}";
             label_DateBalance.Text = $"на {Date}";
 
+            float plusMoney = 0,
+                  minusMoney = 0;
+
+            foreach(StatBalanceInfo i in Item.StatBalances)
+            {
+                if (i.Value < 0)
+                {
+                    minusMoney += i.Value;
+                }
+                else
+                {
+                    plusMoney += i.Value;
+                }
+            }
+
+            label_PlusBalance.Text = $"₴ {String.Format("{0:n0}", plusMoney)}";
+            label_MinusBalance.Text = $"₴ {String.Format("{0:n0}", minusMoney)}";
+
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler((sender, e) =>
             {

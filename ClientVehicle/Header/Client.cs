@@ -15,6 +15,17 @@ namespace ClientVehicle.Header
         public static User User = new User();
         public static Server Server = new Server();
 
+        public static string[] ExistsCategory = new string[15]
+        {
+            "A1", "A",
+            "B1", "B",
+            "C1", "C",
+            "D1", "D",
+            "C1E", "BE", "CE",
+            "D1E", "DE",
+            "T1", "T2"
+        };
+
         public static bool IsLogin()
         {
             return (User.Id != 0);
@@ -80,6 +91,17 @@ namespace ClientVehicle.Header
                 StartDate = StartDate,
                 FinalDate = FinalDate
             };
+        }
+
+        public static bool IsCategoryExists(User Item, string category)
+        {
+            foreach (var item in Item.LicenseCategories)
+            {
+                if (item == category)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

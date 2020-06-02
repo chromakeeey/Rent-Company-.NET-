@@ -341,7 +341,40 @@ namespace WCF_Rent
                         statInfo.StatVehicles[i].Returning = endData[0];
                         statInfo.StatVehicles[i].Credit = endData[1];
                     }
-                } 
+                }
+
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [log_balance] WHERE dateoperation > @startDate AND dateoperation < @endDate", SqlData.sqlConnection))
+                {
+                    sqlCommand.Parameters.AddWithValue("startDate", startDate);
+                    sqlCommand.Parameters.AddWithValue("endDate", endDate);
+
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+                    StatBalanceInfo statBalance = new StatBalanceInfo();
+
+                    while (reader.Read())
+                    {
+                        statBalance = new StatBalanceInfo();
+
+                        statBalance.Id = Convert.ToInt32(reader["id"]);
+                        statBalance.CardNumber = Convert.ToSingle(reader["card"]);
+                        statBalance.Value = Convert.ToSingle(reader["value"]);
+                        statBalance.DateNow = Convert.ToDateTime(reader["dateoperation"]);
+                        statBalance.UserId = Convert.ToInt32(reader["userid"]);
+
+                        statInfo.StatBalances.Add(statBalance);
+                    }
+
+                    if (reader != null)
+                        reader.Close();
+
+                    int length = statInfo.StatBalances.Count;
+
+                    for (int i = 0; i < length; i++)
+                    {
+                        statInfo.StatBalances[i].User = SelectUser(statInfo.StatBalances[i].UserId);
+                    }
+                }
+
 
                 using (SqlCommand sqlCommand = new SqlCommand("SELECT SUM (balance) AS INCOME FROM [Users]", SqlData.sqlConnection))
                 {

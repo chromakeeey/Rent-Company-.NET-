@@ -96,6 +96,7 @@ namespace ClientVehicle.Header
                     if (Client.User.Id == Item.Id)
                     {
 
+                        Client.User = Item;
                         Items.UpdateMainPage();
                     }
                 }

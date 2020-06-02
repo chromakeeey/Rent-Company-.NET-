@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 using ClientVehicle.ServerReference;
 using ClientVehicle.Header;
+using ClientVehicle.Dialogs.DialogsUser;
 
 namespace ClientVehicle.Dialogs.DialogsVehicle
 {
@@ -22,6 +23,7 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
     /// </summary>
     public partial class VehicleEditPage : Window
     {
+        private bool IsUnRentPressed = false;
         private Vehicle _vehicleNow = new Vehicle();
 
         public Vehicle Item
@@ -31,6 +33,7 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
             set
             {
                 _vehicleNow = value;
+                IsUnRentPressed = false;
                 UpdateVehicle();
             }
         }
@@ -53,6 +56,8 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
 
         private void UpdateVehicle()
         {
+            IsUnRentPressed = false;
+
             image_Vehicle.Source = Server.BytesToBitmapImage(Client.Server.ConnectProvider.vehicleImage(_vehicleNow));
 
             combo_Type.Text = _vehicleNow.Type;
@@ -190,6 +195,46 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
 
             Client.Server.ConnectProvider.saveVehicle(_vehicleNow);
             Hide();
+        }
+
+        private void onClickUserVehicle(object sender, RoutedEventArgs e)
+        {
+            User User = Client.Server.ConnectProvider.SelectUser(_vehicleNow.ClientId);
+
+            if (User.Id != 0)
+            {
+                UiOperation.SetPage(UIPage.AUser);
+                Hide();
+
+                Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+                UserACard.Show(User);
+                Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+
+                return;
+            }
+
+            button_User.IsEnabled = false;
+        }
+
+        private void onClickStopRent(object sender, RoutedEventArgs e)
+        {
+            if (!IsUnRentPressed)
+            {
+                Error = "Натисніть ще раз для підтвердження відміни оренди.";
+                IsUnRentPressed = true;
+
+                return;
+            }
+
+            Error = "";
+
+            User User = Client.Server.ConnectProvider.SelectUser(_vehicleNow.ClientId);
+
+            _vehicleNow.ClientId = 0;
+            _vehicleNow.RentLogId = 0;
+
+            Client.Server.ConnectProvider.saveVehicle(_vehicleNow);
+            Client.Server.ConnectProvider.SaveUser(User);
         }
     }
 }

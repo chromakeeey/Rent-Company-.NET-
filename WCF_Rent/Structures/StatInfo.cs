@@ -31,6 +31,9 @@ namespace WCF_Rent.Structures
         public User User { get; set; }
 
         [DataMember]
+        public int UserId { get; set; }
+
+        [DataMember]
         public DateTime DateNow { get; set; }
 
 

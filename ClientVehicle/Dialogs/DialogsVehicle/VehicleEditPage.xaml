@@ -304,7 +304,7 @@
                         Margin="10 20 0 0"
                                 HorizontalAlignment="Left" Height="Auto" Width="Auto" Padding="0"
                         Background="Transparent"
-                        BorderBrush="Transparent">
+                        BorderBrush="Transparent" Click="onClickUserVehicle">
                         <StackPanel Orientation="Horizontal">
 
                             <TextBlock
@@ -331,7 +331,7 @@
                         Margin="10 0 0 0"
                                 HorizontalAlignment="Left" Height="Auto" Width="Auto" Padding="0"
                         Background="Transparent"
-                        BorderBrush="Transparent">
+                        BorderBrush="Transparent" Click="onClickStopRent">
                         <StackPanel Orientation="Horizontal">
 
                             <TextBlock

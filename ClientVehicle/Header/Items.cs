@@ -77,10 +77,10 @@ namespace ClientVehicle.Header
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(notifyClick);
 
             notifyContext = new System.Windows.Forms.ContextMenu();
-
-            notifyContext.MenuItems.Add("Головна сторінка");
-            notifyContext.MenuItems.Add("Транспортні засоби");
             notifyContext.MenuItems.Add("Выход", new EventHandler(exitContextClick));
+            
+
+            
 
             notifyIcon.ContextMenu = notifyContext;
         }
