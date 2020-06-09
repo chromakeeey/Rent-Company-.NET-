@@ -265,16 +265,16 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="0 0 120 0">
-                            <TextBlock FontFamily="Gilroy" Text="--/--/--- - --/--/----" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="label_CustomDate" FontFamily="Gilroy" Text="--/--/--- - --/--/----" FontWeight="Bold" FontSize="14"/>
                             <Button
                                 Padding="0"
                                 Background="Transparent"
                                 BorderBrush="Transparent"
                                 HorizontalContentAlignment="Left"
                                 VerticalContentAlignment="Top"
-                                Height="Auto"
+                                Height="Auto" Click="onClickTakeNewCustomDate"
                                 >
-                                <TextBlock x:Name="label_CustomDate" FontFamily="Gilroy"
+                                <TextBlock FontFamily="Gilroy"
                                            
                                            Text="Вибрати нову дату"
                                            Foreground="#99A5B6"
@@ -287,6 +287,7 @@
                         </StackPanel>
 
                         <Button 
+                            x:Name="label_button_Custom"
                             Grid.Column="1"
                                 Padding="0"
                                 Background="Transparent"
@@ -418,7 +419,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="onClickExportExcel">
                             <TextBlock 
                                         Text="Експортувати статистику в Excel" 
                                         FontSize="14"

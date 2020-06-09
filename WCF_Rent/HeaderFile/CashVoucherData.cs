@@ -66,9 +66,7 @@ namespace WCF_Rent.HeaderFile
                     sqlCommand.Parameters.AddWithValue("price", Price);
                     sqlCommand.Parameters.AddWithValue("date", DateTime.Now);
 
-                    ServerLog.logAdd(ServerLog.NOTIFICATION_TYPE, sqlCommand.CommandText);
                     
-
                     sqlCommand.ExecuteNonQuery();
                     modified = (int)sqlCommand.ExecuteScalar();
                 }

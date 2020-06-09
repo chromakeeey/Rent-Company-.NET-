@@ -66,13 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HeaderFile\Account.cs" />
     <Compile Include="HeaderFile\Admin.cs" />
     <Compile Include="HeaderFile\BankCard.cs" />
     <Compile Include="HeaderFile\CashVoucher.cs" />
     <Compile Include="HeaderFile\CashVoucherData.cs" />
     <Compile Include="HeaderFile\Rent.cs" />
-    <Compile Include="HeaderFile\ServerLog.cs" />
     <Compile Include="HeaderFile\User.cs" />
     <Compile Include="HeaderFile\Vehicle.cs" />
     <Compile Include="IServiceRent.cs" />

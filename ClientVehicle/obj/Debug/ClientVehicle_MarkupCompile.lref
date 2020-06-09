@@ -3,6 +3,7 @@ FD:\TRC_Redesign\ClientVehicle\App.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\CustomDefaultDialog\DialogOk.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\CustomDefaultDialog\DialogOkNo.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\CustomDefaultDialog\DialogOkNoCancel.xaml;;
+FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsStatistic\DialogCustomDate.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\FailSignIn.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\UserApplication.xaml;;
 FD:\TRC_Redesign\ClientVehicle\Dialogs\DialogsUser\UserBankOperation.xaml;;

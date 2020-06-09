@@ -1,0 +1,84 @@
+﻿<Window x:Class="ClientVehicle.Dialogs.DialogsStatistic.DialogCustomDate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsStatistic"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="DialogCustomDate" Height="450" Width="800"
+        Background="Transparent" WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="5">
+        <Border Style="{StaticResource BorderCornerRadius25}" Background="White"/>
+
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <materialDesign:PackIcon
+                Grid.Row="0"
+                        Margin="0 0 5 0"
+                        Kind="CloseThick" 
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource HoverMouseAnimation}" MouseDown="onClickHide"/>    
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Calendar
+                    x:Name="calendar_Start"
+                FontFamily="Gilroy"
+                Grid.Column="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                    <Calendar.Resources>
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#6490F1" />
+                        <SolidColorBrush x:Key="MaterialDesignBody" Color="Gray" />
+                    </Calendar.Resources>
+                </Calendar>
+
+                <Grid Grid.Column="1">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button 
+                        Style="{StaticResource MaterialDesignRaisedLightButton}"  
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+                        Background="#6490F1"
+                        BorderBrush="#6490F1" Click="onClickPick">
+                            <TextBlock 
+                            VerticalAlignment="Center" 
+                            TextAlignment="Center" 
+                            Foreground="White" 
+                            FontFamily="Gilroy" 
+                            FontWeight="Bold" 
+                            FontSize="12" Text="Вибрати"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <Calendar
+                    x:Name="calender_Final"
+                FontFamily="Gilroy"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                    <Calendar.Resources>
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#6490F1" />
+                        <SolidColorBrush x:Key="MaterialDesignBody" Color="Gray" />
+                    </Calendar.Resources>
+                </Calendar>
+            </Grid>
+            
+        </Grid>
+        
+    </Grid>
+</Window>

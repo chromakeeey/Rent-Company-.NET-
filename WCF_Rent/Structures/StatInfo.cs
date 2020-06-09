@@ -38,7 +38,7 @@ namespace WCF_Rent.Structures
 
 
         [DataMember]
-        public float CardNumber { get; set; }
+        public string CardNumber { get; set; }
 
         [DataMember]
         public float Value { get; set; }

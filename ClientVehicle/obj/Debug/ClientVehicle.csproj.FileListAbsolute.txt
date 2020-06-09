@@ -74,3 +74,12 @@ D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\UserBankOperation.g.
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsUser\UserBankOperation.baml
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\FinalRentWindow.g.cs
 D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsVehicle\FinalRentWindow.baml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsStatistic\DialogCustomDate.g.cs
+D:\TRC_Redesign\ClientVehicle\obj\Debug\Dialogs\DialogsStatistic\DialogCustomDate.baml
+D:\TRC_Redesign\ClientVehicle\bin\Debug\DocumentFormat.OpenXml.dll
+D:\TRC_Redesign\ClientVehicle\bin\Debug\EPPlus.dll
+D:\TRC_Redesign\ClientVehicle\bin\Debug\System.IO.Packaging.dll
+D:\TRC_Redesign\ClientVehicle\bin\Debug\DocumentFormat.OpenXml.xml
+D:\TRC_Redesign\ClientVehicle\bin\Debug\EPPlus.xml
+D:\TRC_Redesign\ClientVehicle\bin\Debug\System.IO.Packaging.xml
+D:\TRC_Redesign\ClientVehicle\obj\Debug\ClientVehicle.csproj.ResolveComReference.cache

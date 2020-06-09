@@ -7,12 +7,16 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+
+using ClientVehicle.Dialogs.CustomDefaultDialog;
+using ClientVehicle.Dialogs.DialogsStatistic;
 using ClientVehicle.Dialogs.Receipts;
 using ClientVehicle.Header;
 using ClientVehicle.ServerReference;
@@ -32,7 +36,7 @@ namespace ClientVehicle.UCPage
     /// <summary>
     /// Interaction logic for UCStatistic.xaml
     /// </summary>
-    public partial class UCStatistic : UserControl
+    public partial class UCStatistic : System.Windows.Controls.UserControl
     {
         public StatisticPage Page = StatisticPage.Invalid;
 
@@ -47,6 +51,8 @@ namespace ClientVehicle.UCPage
             new ReceiptEdit().ShowDialog();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
+
+        public StatInfo ItemNow = null;
 
         public StatInfo ItemYear = null;
         public StatInfo ItemMonth = null;
@@ -145,6 +151,24 @@ namespace ClientVehicle.UCPage
                 SetStatInfo(ItemDay);
             }
 
+            if (Page == StatisticPage.Custom)
+            {
+                if (ItemCustom == null)
+                {
+                    if (CustomDate.Show() == Dialogs.CustomDefaultDialog.DialogResult.Ok)
+                    {
+                        ItemCustom = Client.Server.ConnectProvider.SendStatInfo(
+                            CustomDate.GetStartDate(),
+                            CustomDate.GetFinalDate()
+                        );
+                    }
+                    else return;
+                }
+
+                label_CustomDate.Text = $"{ItemCustom.StartDate.ToShortDateString()} - {ItemCustom.FinalDate.ToShortDateString()}";
+                SetStatInfo(ItemCustom);
+            }
+
             DeactiveActiveButton();
 
             this.Page = Page;
@@ -183,6 +207,13 @@ namespace ClientVehicle.UCPage
                 label_DayDate.Foreground = Brushes.Black;
                 label_button_Day.Foreground = Brushes.Black;
             }
+
+            if (Page == StatisticPage.Custom)
+            {
+                border_Custom.Background = new SolidColorBrush(Color.FromArgb(255, 211, 211, 211));
+                label_CustomDate.Foreground = Brushes.Black;
+                label_button_Custom.Foreground = Brushes.Black;
+            }
         }
 
         private void DeactiveActiveButton()
@@ -217,10 +248,19 @@ namespace ClientVehicle.UCPage
                 label_DayDate.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
                 label_button_Day.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
             }
+
+            if (Page == StatisticPage.Custom)
+            {
+                border_Custom.Background = Brushes.White;
+                label_CustomDate.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+                label_button_Custom.Foreground = new SolidColorBrush(Color.FromArgb(255, 153, 165, 182));
+            }
         }
 
         public void SetStatInfo(StatInfo Item)
         {
+            ItemNow = Item;
+
             GridStatistic.Opacity = 0;
 
             label_Count.Text = Item.StatVehicles.Length.ToString();
@@ -297,7 +337,53 @@ namespace ClientVehicle.UCPage
 
         private void onClickCustom(object sender, RoutedEventArgs e)
         {
+            SetStatisticPage(StatisticPage.Custom);
+        }
 
+        private void onClickTakeNewCustomDate(object sender, RoutedEventArgs e)
+        {
+            if (CustomDate.Show() == Dialogs.CustomDefaultDialog.DialogResult.Ok)
+            {
+                ItemCustom = Client.Server.ConnectProvider.SendStatInfo(
+                    CustomDate.GetStartDate(),
+                    CustomDate.GetFinalDate()
+                );
+
+                label_CustomDate.Text = $"{ItemCustom.StartDate.ToShortDateString()} - {ItemCustom.FinalDate.ToShortDateString()}";
+                SetStatInfo(ItemCustom);
+
+                DeactiveActiveButton();
+                this.Page = StatisticPage.Custom;
+                ActiveDeactiveButton();
+            }
+
+
+        }
+
+        private void onClickExportExcel(object sender, RoutedEventArgs e)
+        {
+            if (ItemNow == null)
+            {
+                DialogWindow.Show("Ви не вибрал статистику.", "Відмова", DialogButtons.Ok, DialogStyle.Error);
+                return;
+            }
+
+            var DirectoryDialog = new FolderBrowserDialog();
+
+            if (DirectoryDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string Directory = DirectoryDialog.SelectedPath;
+
+                if (!ExcelOperation.IsValidTemplate(ExcelTemplate.Rent))
+                    DialogWindow.Show("Статистика про оренду тарнспортнів не буде експортована. Шаблон не було знайдено.", "Відмова", DialogButtons.Ok, DialogStyle.Error);
+
+                if (!ExcelOperation.IsValidTemplate(ExcelTemplate.Balance))
+                    DialogWindow.Show("Статистика про операцій з рахунком не буде експортована. Шаблон не було знайдено.", "Відмова", DialogButtons.Ok, DialogStyle.Error);
+
+                ExcelOperation.Export(ItemNow, Directory);
+
+                DialogWindow.Show("Ви успішно експортували статистику.", "Успішно", DialogButtons.Ok, DialogStyle.Information);
+            }
         }
     }
 }

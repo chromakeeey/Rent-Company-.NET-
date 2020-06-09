@@ -24,7 +24,6 @@ namespace WCF_Rent
     {
         public List<Vehicle> vehicle = new List<Vehicle>();
         private List<ServerUser> serverUser = new List<ServerUser>();
-        private SqlConnection sqlconnection;
 
         private CashVoucherData cashVoucherData;
 
@@ -40,29 +39,7 @@ namespace WCF_Rent
 
             SqlData.InitializeConnection();
             selectAllVehicle();
-        }
-
-        string localPath()
-        {
-            string localpath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-
-            int endpos = localpath.Length;
-            int startpos = 0;
-
-            for (int i = localpath.Length - 1; i > -1; i--)
-            {
-                if (localpath[i] == 'W')
-                {
-                    startpos = i;
-
-                    break;
-                }
-            }
-
-            //localpath.Remove(startpos, endpos - startpos);
-
-            return localpath.Remove(startpos, endpos - startpos);
-        }
+        } 
 
         public int userConnect()
         {
@@ -232,7 +209,7 @@ namespace WCF_Rent
 
         public void log_Request(int admin_userid, int application_userid, int answer)
         {
-            try
+            /*try
             {
                 SqlCommand sqlCommand = new SqlCommand(
                    "INSERT INTO [log_request] (admin_userid, application_userid, answer) VALUES" +
@@ -245,9 +222,9 @@ namespace WCF_Rent
                 sqlCommand.ExecuteNonQuery();
             }
 
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }*/
         }
 
         public int sendCashVoucherID(int LogId)
@@ -331,10 +308,10 @@ namespace WCF_Rent
                         float[] endData = new float[2];
 
                         statInfo.StatVehicles[i].Vehicle = new Vehicle();
-                        //statInfo.statVehicles[i].account = new Account();
+                        statInfo.StatVehicles[i].User = new User();
 
                         statInfo.StatVehicles[i].Vehicle = selectVehicle(statInfo.StatVehicles[i].VIN);
-                        //statInfo.statVehicles[i].account = selectIDAccount(statInfo.statVehicles[i].userid);
+                        statInfo.StatVehicles[i].User = SelectUser(statInfo.StatVehicles[i].UserId);
 
                         endData = endRentData(statInfo.StatVehicles[i].Id);
 
@@ -356,7 +333,7 @@ namespace WCF_Rent
                         statBalance = new StatBalanceInfo();
 
                         statBalance.Id = Convert.ToInt32(reader["id"]);
-                        statBalance.CardNumber = Convert.ToSingle(reader["card"]);
+                        statBalance.CardNumber = Convert.ToString(reader["card"]);
                         statBalance.Value = Convert.ToSingle(reader["value"]);
                         statBalance.DateNow = Convert.ToDateTime(reader["dateoperation"]);
                         statBalance.UserId = Convert.ToInt32(reader["userid"]);
@@ -421,9 +398,9 @@ namespace WCF_Rent
                 }
             }
 
-            catch (SqlException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (InvalidOperationException ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
-            catch (Exception ex) { ServerLog.logAdd(ServerLog.ERROR_TYPE, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (SqlException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (InvalidOperationException ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
+            catch (Exception ex) { Log.Add(LogStyle.Error, ex.Message.ToString() + " " + ex.Source.ToString()); }
 
             return bufferData;
         }
