@@ -43,6 +43,7 @@
                         <StackPanel>
 
                             <TextBox
+                                x:Name="field_Company"
                             Margin="10"
                             materialDesign:HintAssist.Hint="Назва компанії"
                             Width="230"
@@ -53,20 +54,21 @@
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                             VerticalAlignment="Center"
                             materialDesign:HintAssist.Foreground="#3B93F7"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7" TextChanged="OnCompanyTextChanged"/>
 
                             <TextBox
+                                x:Name="field_Street"
                             Margin="10 10 10 40"
                             materialDesign:HintAssist.Hint="Адреса компанії"
                             Width="230"
-                            materialDesign:HintAssist.HelperText="Відображається після адреси компанії"
+                            materialDesign:HintAssist.HelperText="Відображається після назви компанії"
                             FontFamily="Gilroy"
                             FontWeight="Bold"
                             FontSize="14"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                             VerticalAlignment="Center"
                             materialDesign:HintAssist.Foreground="#3B93F7"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7"/>
+                            materialDesign:TextFieldAssist.UnderlineBrush="#3B93F7" TextChanged="OnStreeTextChanged"/>
 
                             <Button
                                 HorizontalAlignment="Center"
@@ -78,7 +80,7 @@
                                         materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Background="#3B93F7"
-                                        BorderBrush="#3B93F7">
+                                        BorderBrush="#3B93F7" Click="OnClickSave">
                                 <TextBlock 
                                         Text="Оновити інформацію" 
                                         FontSize="14"
@@ -110,8 +112,8 @@
 
                             <StackPanel HorizontalAlignment="Center">
                                 <TextBlock TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Номер чека - 22"/>
-                                <TextBlock TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Автопрокат 'QuickRent'"/>
-                                <TextBlock Margin="0,0,0,5" TextWrapping="Wrap" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Україна, Чернівецька область, м. Чернівці, вул. Головна 256, офіс 3"/>
+                                <TextBlock x:Name="label_Company" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Автопрокат 'QuickRent'"/>
+                                <TextBlock x:Name="label_Street" Margin="0,0,0,5" TextWrapping="Wrap" TextAlignment="Center" Foreground="#8B92A6" FontFamily="Gilroy" FontWeight="Bold" FontSize="14" Text="Україна, Чернівецька область, м. Чернівці, вул. Головна 256, офіс 3"/>
                             </StackPanel>
                         </Grid>
 

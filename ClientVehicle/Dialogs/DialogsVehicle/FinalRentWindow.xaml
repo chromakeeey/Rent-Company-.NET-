@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsVehicle"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="FinalRentWindow" Height="350" Width="400"
-        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Title="Відміна оренди" Height="350" Width="400" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Icon="notify.ico">
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
 

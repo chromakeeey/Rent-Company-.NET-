@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsStatistic"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="DialogCustomDate" Height="450" Width="800"
+        Title="Вибір дати" Height="450" Width="800"
         Background="Transparent" WindowStyle="None" AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="notify.ico">
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius25}" Background="White"/>
 

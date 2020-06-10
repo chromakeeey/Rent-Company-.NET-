@@ -128,7 +128,6 @@ namespace ClientVehicle.Header
 
             if (Template == ExcelTemplate.Rent)
             {
-                //System.Windows.MessageBox.Show(path + @"templates\\rent.xlsx");
                 return path + @"templates\\rent.xlsx";
             }
 

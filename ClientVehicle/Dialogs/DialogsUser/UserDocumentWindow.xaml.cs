@@ -25,6 +25,13 @@ namespace ClientVehicle.Dialogs.DialogsUser
         public UserDocumentWindow()
         {
             InitializeComponent();
+            this.Closing += new System.ComponentModel.CancelEventHandler(OnMainWindow_Closing);
+        }
+
+        private void OnMainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
         }
 
         public UserDocumentWindow(User Item)
@@ -43,6 +50,11 @@ namespace ClientVehicle.Dialogs.DialogsUser
             }
 
             lbox_Category.IsEnabled = false;
+        }
+
+        private void onClickhid(object sender, MouseButtonEventArgs e)
+        {
+            Hide();
         }
     }
 }

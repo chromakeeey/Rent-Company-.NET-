@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsUser"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="UserBankOperation" Height="390" Width="800"
+        Title="Операції з рахунком" Height="390" Width="800"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent">
+        Background="Transparent" Icon="notify.ico">
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
 

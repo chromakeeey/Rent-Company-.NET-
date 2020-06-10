@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsVehicle"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="BetterSearchVehicle" Height="471" Width="400"
+        Title="Пошук автомобіля" Height="471" Width="400" Icon="notify.ico"
         AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent">
     <Grid Margin=" 5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsVehicle"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="DialogAddVehicle" Height="700" Width="450" 
+        Title="Добавлення автомобіля" Height="700" Width="450" Icon="notify.ico"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"

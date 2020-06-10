@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsUser"
         mc:Ignorable="d"
-        Title="FailSignIn" Height="170" Width="350"
+        Title="Помилка авторизації" Height="170" Width="350" Icon="notify.ico"
         AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
         Background="Transparent">
     <Grid Margin="5">

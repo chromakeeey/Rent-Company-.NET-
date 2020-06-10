@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using ClientVehicle.ServerReference;
 using ClientVehicle.Dialogs.DialogsVehicle;
 using ClientVehicle.Dialogs.DialogsUser;
+using ClientVehicle.Dialogs.CustomDefaultDialog;
+
 using System.Windows.Threading;
 
 namespace ClientVehicle.Header
@@ -39,7 +41,7 @@ namespace ClientVehicle.Header
             catch (Exception ex)
             {
 
-                MessageBox.Show("Під'єднання до сервера неможливе. Сталась помилка (немає інтернету або сервер недоступний)");
+                DialogWindow.Show("Під'єднання до сервера неможливе. Сталась помилка (немає інтернету або сервер недоступний)", "Помилка", DialogButtons.Ok, DialogStyle.Error, false);
                 Client.ApplicationShutdown();
             }
         }

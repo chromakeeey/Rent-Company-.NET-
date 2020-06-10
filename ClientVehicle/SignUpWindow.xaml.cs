@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 using System.Windows.Forms;
 using System.IO;
 
 using ClientVehicle.Header;
 using ClientVehicle.ServerReference;
+using ClientVehicle.Dialogs.CustomDefaultDialog;
 
 namespace ClientVehicle
 {
@@ -34,6 +24,13 @@ namespace ClientVehicle
         public SignUpWindow()
         {
             InitializeComponent();
+            this.Closing += new System.ComponentModel.CancelEventHandler(OnMainWindow_Closing);
+        }
+
+        private void OnMainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
         }
 
         private string Error
@@ -142,7 +139,7 @@ namespace ClientVehicle
             Client.Server.ConnectProvider.SaveBackImage(BackImageBytes, NameBack, ExtenstionBack);
             Client.Server.ConnectProvider.AddUser(item);
 
-            System.Windows.MessageBox.Show("SUCCESS");
+            DialogWindow.Show("Ви успішно зареєстрували аккаунт, очікуйте перевірки", "Успішно", DialogButtons.Ok, DialogStyle.Information, false);
         }
 
         private void onClickFrontImage(object sender, MouseButtonEventArgs e)

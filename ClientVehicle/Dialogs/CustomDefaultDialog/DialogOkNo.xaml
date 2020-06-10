@@ -14,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="Transparent"
         FontFamily="Gilroy"
-        
+        Icon="notify.ico"
         Title="DialogOk" Height="332.927" Width="747.561" WindowStyle="None" AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="5">

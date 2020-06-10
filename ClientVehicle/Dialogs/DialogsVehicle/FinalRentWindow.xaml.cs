@@ -38,6 +38,13 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
         public FinalRentWindow()
         {
             InitializeComponent();
+            this.Closing += new System.ComponentModel.CancelEventHandler(OnMainWindow_Closing);
+        }
+
+        private void OnMainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
         }
 
         private void onClickHide(object sender, MouseButtonEventArgs e)

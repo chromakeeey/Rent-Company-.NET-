@@ -4,18 +4,10 @@ using System.Linq;
 using System.ServiceModel;
 using System.Data.SqlClient;
 using System.Data;
-using System.Runtime.Serialization;
-using System.IO;
-using System.Drawing;
 
 using WCF_Rent.HeaderFile;
 using WCF_Rent.Structures;
 using WCF_Rent.Providers;
-
-using System.Web.Hosting;
-
-using System.Drawing.Imaging;
-using System.Diagnostics;
 
 namespace WCF_Rent
 {

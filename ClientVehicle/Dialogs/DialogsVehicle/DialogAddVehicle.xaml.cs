@@ -42,6 +42,13 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
         {
             InitializeComponent();
             Error = " ";
+            this.Closing += new System.ComponentModel.CancelEventHandler(OnMainWindow_Closing);
+        }
+
+        private void OnMainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
         }
 
         private void onClickClose(object sender, MouseButtonEventArgs e)
@@ -190,7 +197,7 @@ namespace ClientVehicle.Dialogs.DialogsVehicle
             Client.Server.ConnectProvider.uploadVehicleImage(ImageBytes, item.VIN, Extenstion);
             Client.Server.ConnectProvider.addVehicle(item);
 
-            System.Windows.MessageBox.Show("Success");
+            Hide();
         }
 
         private void onAddImage(object sender, RoutedEventArgs e)

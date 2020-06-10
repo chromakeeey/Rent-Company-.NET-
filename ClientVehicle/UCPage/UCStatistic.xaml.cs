@@ -48,7 +48,7 @@ namespace ClientVehicle.UCPage
         private void onCheckEditClick(object sender, RoutedEventArgs e)
         {
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
-            new ReceiptEdit().ShowDialog();
+            Receipt.ShowEdit();
             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
         }
 

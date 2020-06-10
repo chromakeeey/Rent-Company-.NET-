@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.Receipts"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="ReceiptWindow" Height="470" Width="400"
-        WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
+        Title="Перегляд чеку" Height="470" Width="400" 
+        WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent" Icon="notify.ico">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition/>

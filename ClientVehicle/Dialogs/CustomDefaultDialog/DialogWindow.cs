@@ -32,10 +32,12 @@ namespace ClientVehicle.Dialogs.CustomDefaultDialog
 
     public static class DialogWindow
     {
-        public static DialogResult Show(string message, string caption, DialogButtons buttons, DialogStyle style)
+        public static DialogResult Show(string message, string caption, DialogButtons buttons, DialogStyle style, bool IsBackGround = false)
         {
             DialogResult result = DialogResult.Cancel;
-            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
+
+            if(IsBackGround != false)
+             Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Visible;
 
             switch (buttons)
             {
@@ -61,7 +63,9 @@ namespace ClientVehicle.Dialogs.CustomDefaultDialog
                     break;
             }
 
-            Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+            if (IsBackGround != false)
+                Items.mainWindow.GridBackgroundDialog.Visibility = Visibility.Hidden;
+
             return result;
         }
         

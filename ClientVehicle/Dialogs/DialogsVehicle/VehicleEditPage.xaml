@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ClientVehicle.Dialogs.DialogsVehicle"
         mc:Ignorable="d"
-        Title="VehicleEditPage" Height="450" Width="800"
+        Title="Редагування автомобіля" Height="450" Width="800" Icon="notify.ico"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
     <Grid Margin="5">
         <Border Style="{StaticResource BorderCornerRadius15}" Background="White"/>
