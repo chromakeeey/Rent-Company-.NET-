@@ -6,37 +6,21 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using System.Web.Hosting;
 
+using System.Net;
+
 namespace ServerHost
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-
             using (var host = new ServiceHost(typeof(WCF_Rent.ServiceRent)))
             {
-                /*NetTcpBinding binding = new NetTcpBinding();
-
-                binding.MaxReceivedMessageSize = 500000;
-                binding.MaxBufferSize = 500000;
-
-                long maxlength = binding.MaxReceivedMessageSize;
-                Console.WriteLine("MaxReceivedMessageSize = " + maxlength.ToString());
-
-                long maxbuffer = binding.MaxBufferSize;
-                Console.WriteLine("MaxBufferSize = " + maxbuffer.ToString());*/
-
                 host.Open();
-                Console.WriteLine("Host has been started [" + DateTime.Now.ToString() + "]");
-                Console.WriteLine(HostingEnvironment.ApplicationPhysicalPath);
+                Console.WriteLine($"[{DateTime.Now}] SERVER HAS BEEN STARTED");
 
-                
-
-                Console.ReadLine();
-
-
-                
+                // freeze   
+                Console.ReadLine();   
             }
         }
     }

@@ -140,6 +140,9 @@ namespace ClientVehicle
             Client.Server.ConnectProvider.AddUser(item);
 
             DialogWindow.Show("Ви успішно зареєстрували аккаунт, очікуйте перевірки", "Успішно", DialogButtons.Ok, DialogStyle.Information, false);
+
+            Items.signUpWindow.Hide();
+            Items.loginWindow.Show();
         }
 
         private void onClickFrontImage(object sender, MouseButtonEventArgs e)

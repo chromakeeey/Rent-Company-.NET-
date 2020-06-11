@@ -72,8 +72,13 @@ namespace ClientVehicle
             Client.SetActiveUser(item);
 
             Hide();
+            UiOperation.SetPage(UIPage.Main);
+
             Items.mainWindow.Show();
             Items.IsActiveMainWindow = true;
+
+            field_Login.Text = "";
+            field_Password.Password = "";
         }
 
         private void onSignUpClick(object sender, RoutedEventArgs e)
